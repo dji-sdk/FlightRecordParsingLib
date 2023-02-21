@@ -1,0 +1,123 @@
+syntax="proto3";
+
+package DJIFRProto.Standard;
+
+option objc_class_prefix = "DJIFRProto";
+
+message Vision {
+    /// Distance warning returned by each sector of the front vision system. Warning
+    /// Level 6 is the most serious level. For different aircraft, the same warning
+    /// level will refer to different distances. Spark only supports the follow warning
+    /// levels:
+    ///    - `Invalid`
+    ///    - `Level1`
+    ///    - `Level2`
+    ///    - `Level3`
+    ///    - `Unknown`
+    enum ObstacleDetectionSectorWarning {
+        /// The warning level is invalid. The sector cannot determine depth of the scene in front of it.
+        DetectionInvalid = 0;
+        /// Safe distance.
+        DetectionSafe = 1;
+        /// Warning disance.
+        Warning = 2;
+        /// Danger
+        Danger = 3;
+    }
+
+    /// Position of the sensor on the aircraft.
+    enum VisionSensorPosition {
+        /// The sensor is on the front or nose of the aircraft.
+        Nose = 0;
+        /// The sensor is on the back or tail of the aircraft.
+        Tail = 1;
+        /// The sensor is on the right or starboard side of the aircraft.
+        Right = 2;
+        /// The sensor is on the left or port side of the aircraft.
+        Left = 3;
+        /// Unknown.
+        PositionUnknown = 4;
+    };
+
+    enum VisionSystemWarning {
+        /// The warning is invalid. The front vision system cannot determine depth of the scene in front of it.
+        VisionSystemInvalid = 0;
+        /// The distance between the obstacle detected by the vision system and the aircraft is safe (over 2 meters).
+        VisionSystemSafe = 1;
+        /// The distance between the obstacle detected by the vision system and the aircraft
+        /// is dangerous (less than 2 meters).
+        Dangerous = 2;
+        /// The distance warning is unknown. This warning is returned when an exception occurs.
+        VisionSystemUnknown = 3;
+    };
+}
+
+/// This class gives the aircraft's state, which is controlled by the intelligent flight assistant.
+message VisionControlState {
+    /// `true` if the aircraft will not ascend further because of an obstacle detected within 1m above it.
+    bool isAscentLimitedByObstacle = 1;
+    
+    /// `true` if the aircraft is avoiding collision from an obstacle moving towards the aircraft.
+    bool isAvoidingActiveObstacleCollision = 2;
+    
+    /// `true` if the aircraft is braking automatically to avoid collision.
+    bool isBraking = 3;
+    
+    /// `true` if the aircraft is landing precisely.
+    bool isPerformingPrecisionLanding = 4;
+};
+
+message ObstacleDetectionSector {
+    /// The detected obstacle distance to the aircraft in meters.
+    double obstacleDistanceInMeters = 1;
+    
+    /// The warning level based on distance.
+    Vision.ObstacleDetectionSectorWarning warningLevel = 2;
+};
+
+/// This class gives state information about the product's vision sensors used for
+/// obstacle detection. The two types of sensors used are dual camera sensors
+/// operating in the visible spectrum (dual-camera sensor) and infrared time of
+/// flight (TOF) sensors. Note, Inspire 2's upwards-facing infrared TOF sensor is
+/// not returned in this state. It is accessed through `DJIVisionControlState`.
+message VisionDetectionState {
+    /// The vision sensor's position on the aircraft. For Phantom 4 Pro, there are 4
+    /// vision sensors on the aircraft.  The sensors on the nose and tail are dual-
+    /// camera sensors. The sensors on the left and right are infrared  time-of-flight
+    /// (TOF) sensors.
+    Vision.VisionSensorPosition position = 1;
+    
+    /// `true` if the vision sensor is working.
+    bool isSensorBeingUsed = 2;
+    
+    /// Distance warning level between the obstacle and the aircraft. This is a
+    /// combination of warning levels from each sector.
+    Vision.VisionSystemWarning systemWarning = 3;
+    
+    /// The distance to the closest detected obstacle, in meters. It is only used when
+    /// the sensor is an infrared TOF  sensor. The valid range is [0.3, 5.0]. Phantom 4
+    /// Pro has two infrared sensors on its left and right. Both sensors have a
+    /// 70-degree horizontal field of view (FOV) and 20-degree vertical FOV. The value
+    /// is always 0.0 if the sensor is a dual-camera sensor or the sensor is not working
+    /// properly.
+    double obstacleDistanceInMeters = 4;
+    
+    /// The vision system can see in front of the aircraft with a 70 degree horizontal
+    /// field of view (FOV) and 55-degree  vertical FOV for the Phantom 4. The
+    /// horizontal FOV is split into four equal sectors and this array contains the
+    /// distance and warning information for each sector. For Phantom 4, the horizontal
+    /// FOV is separated into 4 sectors.
+    repeated ObstacleDetectionSector detectionSectors = 5;
+};
+
+message VisionState {
+    /// collision avoidance. When enabled, the aircraft will stop and try to go around detected obstacles.
+    bool collisionAvoidanceEnabled = 1;
+            
+    /// This class gives the aircraft's state, which is controlled by the intelligent flight assistant.
+    VisionControlState controlState = 2;
+    
+    /// The vision detection state.
+    /// the type of the key is VisionSensorPosition.
+    map<int32, VisionDetectionState> detectionStateMap = 3;
+}

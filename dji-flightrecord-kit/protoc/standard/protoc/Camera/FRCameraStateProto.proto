@@ -1,0 +1,45 @@
+syntax="proto3";
+
+package DJIFRProto.Standard;
+
+option objc_class_prefix = "DJIFRProto";
+
+message CameraState {
+    // `YES` if the camera is recording video.
+    bool isRecording = 1;
+    // `YES` when the camera is performing any photo capture in any
+    // `DJICameraShootPhotoMode`. Between photo capture in interval and time lapse
+    // mode, this property will be `NO`. The camera is shooting a single photo.
+    bool isShootingSinglePhoto = 2;
+    /// `YES` if the SD card is inserted in the camera. It is always `YES` when it is the internal storage.
+    bool isInserted = 3;
+    /// `YES` if the storage is initializing. Note that if the storage is initializing,
+    /// the value for other properties in `DJICameraStorageState` is undefined.
+    bool isInitializing = 4;
+    /// `YES` if there is an error with the storage.
+    bool hasError = 5;
+    /// `YES` if the SD card is verified as genuine. The SD card is not valid if it is fake,
+    /// which can be a problem if the SD card was purchased by a non-reputable retailer.
+    /// It is always `YES` when it is the internal storage.
+    bool isVerified = 6;
+    /// `YES` if the storage cannot save any more media.
+    bool isFull = 7;
+    /// `YES` if the storage is formatted.
+    bool isFormatted = 8;
+    /// `YES` if the storage is formatting.
+    bool isFormatting = 9;
+    /// `YES` if the storage filesystem format is invalid.
+    bool isInvalidFormat = 10;
+    /// `YES` if the storage is read-only.
+    bool isReadOnly = 11;
+    /// Total space in Megabytes（MB）available on the storage.
+    uint32 totalSpaceInMB = 12;
+    /// Remaining space in Megabytes（MB）on the storage.
+    uint32 remainingSpaceInMB = 13;
+    /// Returns the number of pictures that can be taken with the remaining space available on the storage.
+    uint32 availableCaptureCount = 14;
+    /// Returns the number of seconds available for recording with the remaining space available on the storage.
+    uint32 availableRecordingTimeInSeconds = 15;
+    /// Returns the component index. Index is zero based.
+    int32 index = 16;
+}

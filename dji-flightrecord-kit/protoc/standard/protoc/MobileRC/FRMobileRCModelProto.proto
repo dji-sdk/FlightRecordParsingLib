@@ -1,0 +1,20 @@
+syntax="proto3";
+
+package DJIFRProto.Standard;
+
+option objc_class_prefix = "DJIFRProto";
+
+message MobileRemoteControllerState {
+    // Simulates the vertical movement of the left stick, which changes the aircraft's
+    // thrust causing it to raise or  lower in elevation. The valid range is [-1, 1].
+    float leftStickVertical = 1;
+    // Simulates the horizontal movement of the left stick, which changes the yaw of
+    // the aircraft causing it to rotate  horizontally. The valid range is [-1, 1].
+    float leftStickHorizontal = 2;
+    // Simulates the vertical movement of the right stick, which changes the the
+    // aircraft's pitch causing it to fly  forward or backward. The valid range is [-1, 1].
+    float rightStickVertical = 3;
+    // Simulates the horizontal movement of the right stick, which changes the the
+    // aircraft's roll causing it to fly  left or right. The valid range is  [-1, 1].
+    float rightStickHorizontal = 4;
+}

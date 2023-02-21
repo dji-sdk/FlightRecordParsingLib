@@ -1,0 +1,15 @@
+syntax="proto3";
+
+package DJIFRProto.Standard;
+
+option objc_class_prefix = "DJIFRProto";
+
+import "Common/FRCommonModelProto.proto";
+
+message MobileDeviceState {
+    /// The current location of the mobile as a coordinate. `nil` if the location is invalid.
+    LocationCoordinate2D coordinate = 1;   
+    /// The radius of uncertainty for the location, measured in meters.
+    /// Returns the horizontal accuracy of the location. Negative if the lateral location is invalid.
+    double horizontalAccuracy = 2;
+}

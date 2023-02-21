@@ -1,0 +1,24 @@
+syntax="proto3";
+
+package DJIFRProto.Standard;
+
+option objc_class_prefix = "DJIFRProto";
+
+import "Common/FRCommonModelProto.proto";
+
+message ImageData {
+    LocationCoordinate2D coordinate = 1;
+    bytes previewImage = 2;
+    bytes thumbnail = 3;
+}
+
+/// Gets the image list of a single flight.
+/// Photos will only be collected using DJI Fly, DJI GO3, DJI GO4. Collect up to 4 graphs at random.
+/// For DJI Pilot, DJI GSPro or SDK-based third-party apps, this content is empty.
+/// When uploading resolution, please be aware that
+///
+/// The photos are there for the user to easily distinguish between different flight records as they are viewed.
+/// These images can be viewed on the app's flight logs page or deleted by deleting the flight logs file, which is not automatically uploaded to DJI's servers.
+message ImageDatas {
+    repeated ImageData images = 1;
+}

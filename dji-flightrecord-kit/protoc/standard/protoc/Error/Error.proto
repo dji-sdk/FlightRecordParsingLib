@@ -1,0 +1,26 @@
+syntax="proto3";
+
+package DJIFRProto.Standard;
+
+option objc_class_prefix = "DJIFRProto";
+
+enum FRError {
+    // Success
+    Success = 0;
+    // Parameters invalid error.
+    InvalidParameters = 1;
+    // Illegal file content.
+    IllegalFileContent = 2;
+    // The file is not a supported version
+    VersionNotSupport = 3;
+    // No parser.
+    NoParser = 4;
+    // Feature not supported error.
+    FeatureNotSupported = 5;
+    /// Decode failure due to some message lost.
+    DecoderFailed = 6;
+    /// File operation failed.
+    FileOperationFailed = 7;
+    // Failure due to unknown cause.
+    Failure = 255;
+}

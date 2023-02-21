@@ -1,0 +1,140 @@
+syntax="proto3";
+
+package DJIFRProto.Standard;
+
+option objc_class_prefix = "DJIFRProto";
+
+import "Common/FRCommonModelProto.proto";
+
+message RCFlightModel {
+    enum Switch {
+        // Position One. For all products except Mavic Pro, this is the left most position 
+        // of the flight mode switch on a remote controller from the perspective of the 
+        // pilot. For example, on a Phantom 4 remote controller,  Position One is labeled 
+        // "A". For Mavic Pro, Spark and Mavic Air, this is  the position that is furthest 
+        // away from the pilot and labeled "Sport".
+        One = 0;
+        // Position Two. For all products except Mavic Pro, this is the middle position of 
+        // the flight mode switch on a remote controller from the perspective of the pilot.
+        // For example, on a Phantom 4 remote controller, Position Two is labeled "S". For
+        // Mavic Pro, Spark and Mavic Air, this is the position that is closest  to the
+        // pilot [the P position].
+        Two = 1;
+        // Position Three. For all products except Mavic Pro, this is the right most
+        // position of the flight mode switch on a remote controller from the perspective
+        // of the pilot. For example, on a Phantom 4 remote controller, Position Two is
+        // labeled "P". Mavic Pro, Spark or Mavic Air does not have  a third position for
+        // the flight mode switch.
+        Three = 2;
+        Unknown = 3;
+    }
+}
+
+message Stick {
+    // Get the stick's horizontal position value, the value it's in the range of [-660, 660].
+    int32 horizontalPosition = 1;
+    // Get the stick's vertical position value, the value it's in the range of [-660, 660].
+    int32 verticalPosition = 2;
+}
+
+message RCRightWheel {
+    // `YES` if right wheel present.
+    bool isPresent = 1;
+    // `YES` if wheel value has changed.
+    bool isTurned = 2;
+    // `YES` if wheel is being pressed.
+    bool isClicked = 3;
+    // Wheel value in the range of [-660, 660]. The value represents the difference in an operation.
+    int32 value = 4;
+}
+
+message RCButton {
+    // `YES` if the hardware button is present.
+    bool isPresent = 1;
+    // `YES` if button is pressed down.
+    bool isClicked = 2;
+}
+
+message RCAircraftMapping {
+    enum Style {
+        Style1 = 0;
+        Style2 = 1;
+        Style3 = 2;
+        StyleCustom = 3;
+        Unknown = 4;
+    }
+}
+
+message RCGPSTime {
+    /// Hour value of Remote Controller's GPS time.
+    uint32 hour = 1;
+    
+    /// Minute value of Remote Controller's GPS time.
+    uint32 minute = 2;
+    
+    /// Second value of Remote Controller's GPS time.
+    uint32 second = 3;
+    
+    /// Year value of Remote Controller's GPS time.
+    uint32 year = 4;
+    
+    /// Month value of Remote Controller's GPS time.
+    uint32 month = 5;
+    
+    /// Day value of Remote Controller's GPS time.
+    uint32 day = 6;
+};
+
+message RCGPSData {
+    /// The Remote Controller's GPS time.
+    RCGPSTime time = 1;
+    
+    /// The Remote Controller's location.
+    LocationCoordinate2D location = 2;
+    
+    /// The Remote Controller's speed in the East direction in meters/second. A negative
+    /// speed means the Remote  Controller is moving in the West direction.
+    float eastSpeed = 3;
+    
+    /// The Remote Controller's speed in the North direction in meters/second. A
+    /// negative speed means the Remote  Controller is moving in the South direction.
+    float northSpeed = 4;
+    
+    /// The number of GPS satellites the Remote Controller detects.
+    int32 satelliteCount = 5;
+    
+    /// The the margin of error, in meters, for the GPS location. Unit: meter.
+    float accuracy = 6;
+    
+    /// `YES` if the GPS data is valid. The data is not valid if there are too few
+    /// satellites  or the signal strength is too low.
+    bool isValid = 7;
+};
+
+message RCHardwareState {
+    // Get left stick.
+    Stick leftStick = 1;
+    // Get right stick.
+    Stick rightStick = 2;
+    // Gimbal Dial's [upper left wheel] value in the range of [-660,660], 
+    // where 0 is untouched and positive is turned in the clockwise direction.
+    int32 leftWheel = 3;
+    // Current state of the upper right wheel on the Remote Controller [Camera Settings Dial].
+    RCRightWheel rightWheel = 4;
+    //  Current position of the Flight Mode Switch on the Remote Controller.
+    RCFlightModel.Switch flightModeSwitch = 5;
+    // Current state of the Return To Home Button.
+    RCButton goHomeButton = 6;
+    // Current state of the Video Recording Button.
+    RCButton recordButton = 7;
+    // Current state of the Shutter Button.
+    RCButton shutterButton = 8;
+    // Current state of the Playback Button.
+    RCButton playbackButton = 9;
+    // Current state of the Pause Button.
+    RCButton pauseButton = 10;
+    // The Remote Controller's control mode.
+    RCAircraftMapping.Style style = 11;
+    /// The Remote Controller's GPS data.
+    RCGPSData GPSData = 12;
+}

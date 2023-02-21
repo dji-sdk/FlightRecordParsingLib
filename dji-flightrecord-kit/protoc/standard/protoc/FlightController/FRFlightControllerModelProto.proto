@@ -1,0 +1,309 @@
+syntax="proto3";
+
+package DJIFRProto.Standard;
+
+option objc_class_prefix = "DJIFRProto";
+
+import "Common/FRCommonModelProto.proto";
+
+message FlightWind {
+    enum Warning {
+        // No wind warning.
+        Level0 = 0;
+        // The wind speed is high. Fly with caution and ensure the aircraft remains within
+        // the line of sight.
+        Level1 = 1;
+        // Strong Wind. Fly with caution and ensure the aircraft remains within line of 
+        // sight. It is more serious than `DJIFlightWindWarningLevel1`.
+        Level2 = 2;
+        Unknown = 3;
+    }
+}
+
+message Connection {
+    enum FailSafeBehavior {
+        Hover = 0;
+        Landing = 1;
+        GoHome = 2;
+        Unknown = 3;
+    }
+}
+
+message SmartRTH {
+    enum State {
+        // Smart RTH is not triggered yet in the current flight. The Smart RTH state will
+        // be reset to this value when the aircraft lands.
+        Idle = 0;
+        // Smart RTH is triggered and the aircraft is counting down. If no response is
+        // received within 10 seconds or the user confirms the request, the aircraft will
+        // start to go home and the state will change to
+        // `DJIFlightControllerSmartRTHStateExecuted`. If user cancels the request, the
+        // state will change to `DJIFlightControllerSmartRTHStateCancelled`.
+        CountingDown = 1;
+        // Smart RTH is already executed in the current flight. The state will not be reset
+        // until the aircraft lands.
+        Executed = 2;
+        // Smart RTH request is cancelled by the user. The state will not be reset until
+        // the aircraft lands.
+        Cancelled = 3;
+        Unknown = 4;
+    }
+}
+
+message VirtualStickVerticalControl {
+    enum Mode {
+        // Sets the virtual stick vertical control values to be a vertical velocity.
+        // Positive and negative vertical velocity is for the aircraft ascending and
+        // descending respectively. Maximum vertical velocity is defined as 4 m/s. Minimum
+        // vertical velocity is defined as -4 m/s.
+        Velocity = 0;
+        // Sets the virtual stick vertical control values to be an altitude. Maximum
+        // position is defined as 500 m. Minimum position is defined as 0 m.
+        Position = 1;
+        Unknown = 2;
+    }
+}
+
+message VirtualStickRollPitchControl {
+    enum Mode {
+        // Sets the roll and pitch values to be an angle relative to a level aircraft. In
+        // the body coordinate system, positive and negative pitch angle is for the
+        // aircraft rotating about the y-axis in the positive direction or negative
+        // direction, respectively. Positive and negative roll angle is the positive
+        // direction or negative direction rotation angle about the x-axis, respectively.
+        // However in the ground coordinate system, positive and negative pitch angle is
+        // the angle value for the aircraft moving south and north, respectively. Positive
+        // and negative roll angle is the angle when the aircraft is moving east and west,
+        // respectively. Maximum angle is defined as 30 degrees. Minimum angle is defined
+        // as -30 degrees.
+        Angle = 0;
+        // Sets the roll and pitch values to be a velocity. In the body coordinate system,
+        // positive and negative pitch velocity is for the aircraft moving towards the
+        // positive direction or negative direction along the pitch axis and y-axis,
+        // respectively. Positive and negative roll velocity is when the aircraft is moving
+        // towards the positive direction or negative direction along the roll axis and
+        // x-axis, respectively. However, in the ground coordinate system, positive and
+        // negative pitch velocity is for the aircraft moving east and west, respectively.
+        // Positive and negative roll velocity is when the aircraft is moving north and
+        // south, respectively. Maximum velocity is defined as 15 meters/s. Minimum
+        // velocity is defined as -15 meters/s.
+        Velocity = 1;
+        Unknown = 2;
+    }
+}
+
+message VirtualStickYawControl {
+    enum Mode {
+        // Sets the yaw values to be an angle relative to the north. Positive and negative
+        // yaw angle is for the aircraft rotating clockwise and counterclockwise,
+        // respectively. Maximum yaw angle is defined as 180 degrees. Minimum yaw angle is
+        // defined as -180 degrees.
+        Angle = 0;
+        // Sets the yaw values to be an angular velocity. Positive and negative angular
+        // velocity is for the aircraft rotating clockwise and counterclockwise,
+        // respectively. Maximum yaw angular velocity is defined as 100 degrees/s. Minimum
+        // yaw angular velocity is defined as -100 degrees/s.
+        Velocity = 1;
+        Unknown = 2;
+    }
+}
+
+message VirtualStickFlightCoordinate {
+    enum System {
+        // Ground coordinate system.
+        Ground = 0;
+        // Body coordinate system.
+        Body = 1;
+        Unknown = 2;
+    }
+}
+
+enum FlightMode {
+    // Manual mode.
+    Manual = 0;
+
+    // Attitude mode.
+    Atti = 1;
+
+    // Attitude course lock mode.
+    AttiCourseLock = 2;
+    
+    // GPS Attitude mode.
+    GPSAtti = 6;
+
+    // GPS course lock mode.
+    GPSCourseLock = 7;
+
+    // GPS Home mode.
+    GPSHomeLock = 8;
+
+    // GPS hotpoint mode.
+    GPSHotPoint = 9;
+
+    // Assisted takeoff mode.
+    AssistedTakeoff = 10;
+
+    // Auto takeoff mode.
+    AutoTakeoff = 11;
+
+    // Auto landing mode.
+    AutoLanding = 12;
+
+    // GPS waypoint mode.
+    GPSWaypoint = 14;
+
+    // Go home mode.
+    GoHome = 15;
+
+    // Joystick mode.
+    Joystick = 17;
+
+    // Attitude limited mode.
+    GPSAttiWristband = 18;
+
+    // Draw mode.
+    Draw = 24;
+
+    // GPS follow me mode.
+    GPSFollowMe = 25;
+
+    // ActiveTrack mode.
+    ActiveTrack = 26;
+
+    // TapFly mode.
+    TapFly = 27;
+
+    // Sport mode.
+    GPSSport = 31;
+
+    // GPS Novice mode.
+    GPSNovice = 32;
+
+    // Confirm landing mode.
+    ConfirmLanding = 33;
+
+    // The aircraft should move following the terrain.
+    TerrainFollow = 35;
+
+    // Tripod mode.
+    Tripod = 38;
+
+    // Active track mode; corresponds to Spotlight active track mode.
+    ActiveTrackSpotlight = 39;
+
+    // The motors are just started.
+    MotorsJustStarted = 41;
+
+    // The main controller flight mode is unknown.
+    Unknown = 0xFF;
+}
+
+message VirtualStickFlightControlData {
+    // Gets aircraft's velocity [m/s] along the y-axis or angle value [in degrees] for
+    // pitch. Use `DJIVirtualStickRollPitchControlMode` to set the velocity or angle
+    // mode. Note that the argument has different meanings in different coordinate
+    // systems. See the <i>Flight Controller User Guide</i> for more information.
+    float pitch = 1;
+    // Gets aircraft's velocity [m/s] along the x-axis or angle value [in degrees] for
+    // roll. Use `DJIVirtualStickRollPitchControlMode` to set the velocity or angle
+    // mode. Note that the argument has different meanings in different coordinate
+    // systems. See the <i>Flight Controller User Guide</i> for more information.
+    float roll = 2;
+    // Angular velocity [degrees/s] or angle [degrees] value for yaw. Use
+    // `DJIVirtualStickYawControlMode` to set angular velocity or angle mode.
+    float yaw = 3;
+    // Gets aircraft's velocity [m/s] or altitude [m] value for verticalControl. Use
+    // `DJIVirtualStickYawControlMode` to set velocity or altitude mode.
+    float verticalThrottle = 4;
+    // The vertical control mode for virtual stick. CAUTION: It will be reset to
+    // `DJIVirtualStickVerticalControlModeVelocity` when the flight controller is
+    // reconnected.
+    VirtualStickVerticalControl.Mode verticalControlMode = 5;
+    // The roll and pitch control mode for virtual stick. CAUTION: It will be reset to
+    // `DJIVirtualStickRollPitchControlModeAngle` when the flight controller is
+    // reconnected.
+    VirtualStickRollPitchControl.Mode rollPitchControlMode = 6;
+    // The yaw control mode for virtual stick. CAUTION: It will be reset to
+    // `DJIVirtualStickYawControlModeAngle` when the flight controller is reconnected.
+    VirtualStickYawControl.Mode yawControlMode = 7;
+    // The coordinate system for virtual stick. CAUTION: It will be reset to
+    // `DJIVirtualStickFlightCoordinateSystemGround` when the flight controller is
+    // reconnected.
+    VirtualStickFlightCoordinate.System rollPitchCoordinateSystem = 8;
+}
+
+message FlightControllerState {
+    // The attitude of the aircraft, where the pitch, roll, and yaw values will be in 
+    // the range of [-180, 180] degrees. If its pitch, roll, and yaw values are 0, the
+    // aircraft will  be hovering level with a True North heading.
+    Attitude attitude = 1;
+    // Home location of the aircraft as a coordinate.
+    LocationCoordinate2D homeLocationCoordinate = 2;
+    // Relative altitude of the aircraft home location relative to sea level, in meters.
+    float takeoffLocationAltitude = 3;
+    // The current location of the aircraft as a coordinate. `nil` if the location is invalid.
+    LocationCoordinate2D aircraftLocation = 4;
+    // Relative altitude of the aircraft relative to take off location, measured by 
+    // the barometer, in meters.
+    float altitude = 5;
+    // Flight controller flight mode.
+    FlightMode flightMode = 6;
+    // Aircraft's current GPS signal quality.
+    GPSSignal.Level GPSSignalLevel = 7;
+    // GPS satellite count.
+    int32 satelliteCount = 8;
+    // The estimated remaining time, in seconds, it will take the aircraft to go home
+    // with a 10% battery buffer remaining. This time includes landing the aircraft. If
+    // the aircraft is using the simulator, this value will be 0.
+    int32 remainingFlightTime = 9;
+    // The battery percentage, in the range of [0,100], needed for the aircraft to move
+    // downward from its current position and land.
+    int32 batteryPercentageNeededToLandFromCurrentHeight = 10;
+    // The estimated battery percentage, in the range of [0,100], needed for the
+    // aircraft to go home and have 10% battery remaining. This includes landing of the aircraft.
+    int32 batteryPercentageNeededToGoHome = 11;
+    // The Smart Return-To-Home (RTH) state for the current flight.
+    SmartRTH.State smartRTHState = 12;
+    // Sets the FailSafe action for when the connection between remote controller and aircraft is lost.
+    Connection.FailSafeBehavior behavior = 13;
+    // The virtual stick commands
+    VirtualStickFlightControlData virtualControlData = 14;
+    //  `YES` if the signal is lost between remote controller and aircraft, and FailSafe is enabled.
+    bool isFailsafeEnabled = 15;
+    // `YES` if motors are on.
+    bool areMotorsOn = 16;
+    // `YES` if the home point has been set.
+    bool isHomeLocationSet = 17;
+    // `YES` if the clearance between the aircraft and the ground is less than 0.3m, 
+    // and  confirmation from the user is needed to continue the landing. When the 
+    // confirmation is needed, `confirmLandingWithCompletion` in `DJIFlightController` 
+    // can be used to continue landing. It is 
+    // supported by flight controller firmware 3.2.0.0 or above.
+    bool isLandingConfirmationNeeded = 18;
+    // `YES` if the aircraft has reached its flight height limit.
+    bool hasReachedMaxFlightHeight = 19;
+    // `YES` if the aircraft has reached its flight radius limit.
+    bool hasReachedMaxFlightRadius = 20;
+    // Warning related to high winds.
+    FlightWind.Warning windWarning = 21;
+    // The count of flights within the battery life cycle. Cleared when power-on.
+    int32 countOfFlights = 22;
+    // The current index of the flight log on the aircraft. It is useful to find the 
+    // corresponding flight log.
+    int32 flightLogIndex = 23;
+    // `YES` if aircraft is flying.
+    bool isFlying = 24;
+    // The countdown [in seconds] for the Smart Return-To-Home [RTH]. Once the
+    // countdown reaches 0, the aircraft will  execute an automatic go-home procedure.
+    // It is only valid when  `smartRTHState`  is
+    // `DJIFlightControllerSmartRTHStateCountingDown`.
+    int32 smartRTHCountdown = 25;
+    // Current speed of the aircraft
+    Velocity velocity = 26;
+    /// Whether the GPS is being used
+    bool isGPSBeingUsed = 27;
+    /// The accumulated flight time, in seconds, since the aircraft's motors were turned on.
+    double flightTimeInSeconds = 28;    
+    /// Cumulative flight distance of the aircraft in meters
+    double cumulativeFlightDistance = 29;
+}

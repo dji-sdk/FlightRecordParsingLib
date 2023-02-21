@@ -1,0 +1,56 @@
+syntax="proto3";
+
+package DJIFRProto.Standard;
+
+option objc_class_prefix = "DJIFRProto";
+
+import "Common/FRCommonModelProto.proto";
+
+message ComponentInformation {
+    int32 index = 1;
+    repeated int32 firmwareVersion = 2;
+    string serialNumber = 3;
+}
+
+message SummaryInformation {
+    enum Platform {
+        // Unknown
+        Unknown = 0;
+        // iOS
+        iOS = 1;
+        // Android
+        Android = 2;
+        // Window
+        Window = 10;
+        // Mac
+        Mac = 11;
+    }
+
+    Platform platform = 1;
+    repeated int32 appVersion = 2;
+    map<int32, ComponentInformation> batteriesInformation = 3;
+    map<int32, ComponentInformation> camerasInformation = 4;
+    map<int32, ComponentInformation> gimbalsInformation = 5;
+    ComponentInformation remoteControllerInformation = 6;
+    ComponentInformation flightControllerInformation = 7;
+    string aircraftName = 8;
+    // The time starts to fly. Unit: Second.
+    double startTime = 10;
+    // The coordinate to start fly
+    LocationCoordinate2D startCoordinate = 11;
+    // The distance of the start and the end. Unit: Meter
+    float totalDistance = 12;
+    // Time interval from the start of flight to the end of flight. Unit: Second.
+    double totalTime = 13;
+    /// FrameTimeState sampling rate. The default is a sampling rate of 10HZ,
+    /// that is, FrameTimeState shows the aircraft state in 0.1 seconds
+    int32 samplingRate = 14;
+    /// Highest flight distance in meters. Relative altitude of the aircraft relative to take off location.
+    float maxHeight = 15;
+    /// Maximum horizontal speed, in meters per second.
+    float maxHorizontalSpeed = 16;
+    /// Maximum vertical speed, in meters per second.
+    float maxVirticalSpeed = 17;
+    /// Only one sortie marked
+    string uuid = 18;
+}

@@ -1,0 +1,5 @@
+iOS
+Refence: https://github.com/sinofool/build-libcurl-ios
+
+cd <src dir>
+./build_libcurl_dist openssl

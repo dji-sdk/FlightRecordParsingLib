@@ -1,0 +1,1 @@
+nmake /f Makefile.vc VC=15 mode=static WITH_SSL=static WITH_ZLIB=static RTLIBCFG=static ENABLE_IDN=no ENABLE_WINSSL=no DEBUG=no MACHINE=x64 WITH_DEVEL="../../deps-x64"

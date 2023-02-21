@@ -1,0 +1,21 @@
+syntax="proto3";
+
+package DJIFRProto.Standard;
+
+option objc_class_prefix = "DJIFRProto";
+
+message GOBusinessData {
+    /// Version information, currently available in two versions
+    /// 0: Flight record version 11 and below, filled with TIPS, or WARNING
+    /// 1: Flight record version 12 and above
+    uint32 version = 1;
+    /// Strings stored for version 11 and below, indicating a prompt for TIPS.
+    string tips = 2;
+    /// Strings stored for version 111 and below, indicating a prompt for WARNING
+    string warning = 3;
+    /// Strings stored for version 11 and below, indicating a prompt for a seriouse warning
+    string seriousWarning = 4;
+    /// The version 12 data is stored as a Protobuf data
+    /// Requires upper level processing using Protobuf parsing
+    bytes goBusinessData = 5;
+}

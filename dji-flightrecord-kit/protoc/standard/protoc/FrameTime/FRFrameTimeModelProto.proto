@@ -1,0 +1,50 @@
+syntax="proto3";
+
+package DJIFRProto.Standard;
+
+option objc_class_prefix = "DJIFRProto";
+
+import "Camera/FRCameraStateProto.proto";
+import "FlightController/FRFlightControllerModelProto.proto";
+import "Gimbal/FRGimbalModelProto.proto";
+import "MobileRC/FRMobileRCModelProto.proto";
+import "RC/FRRCModelProto.proto";
+import "Battery/FRBatteryStateProto.proto";
+import "AirLink/AirLink.proto";
+import "GOBusinessData/GOBusinessData.proto";
+import "MobileDeviceState/MobileDeviceState.proto";
+import "vision/FRVisionModelProto.proto";
+
+message FrameTimeState {
+    // Returns an instance of the aircraft's flight controller state.
+    FlightControllerState flightControllerState = 1;
+    // Returns an instance of the aircraft's camera state.
+    CameraState cameraState = 2;
+    // Returns an instance of the aircraft's gimbal state.
+    GimbalState gimbalState = 3;
+    // Returns an instance of the aircraft's remote controller hardware state.
+    RCHardwareState rcHardwareState = 4;
+    // Returns an instance of the aircraft's battery state.
+    BatteryState batteryState = 5;
+    // A simulated remote controller on the mobile device.
+    MobileRemoteControllerState mobileRemoteController = 6;
+    /// Returns an instance of the aircraft's airlink state.
+    AirLinkState airLinkState = 8;
+    /// Return an instance of the aircraft's go business data
+    GOBusinessData goBusinessData = 9;
+    /// Returns an instance of the mobile device state.
+    MobileDeviceState mobileDeviceState = 10;
+    /// Returns an instance of the vision state.
+    VisionState visionState = 11;
+    /// Returns an array of the aircraft's gimbal state.
+    map<int32, GimbalState> gimbalsState = 12;
+    /// Returns an array of the aircraft's camera state.
+    map<int32, CameraState> camerasState = 13;
+    /// Returns an array of the aircraft's battery state.
+    map<int32, BatteryState> batteriesState = 14;
+}
+
+message FrameTimeStates {
+    // the list the FrameTimeState
+    repeated FrameTimeState frameTimeStates = 1;
+}

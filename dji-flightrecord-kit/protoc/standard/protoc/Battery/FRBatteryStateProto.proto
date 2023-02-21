@@ -1,0 +1,54 @@
+syntax="proto3";
+
+package DJIFRProto.Standard;
+
+option objc_class_prefix = "DJIFRProto";
+
+message BatteryState {
+    // Returns the current battery voltage [mV].
+    int32 voltage = 1;
+    // Returns the real time current draw of the battery (mA). A negative value means
+    // the battery is being discharged, and a positive value means it is being charged.
+    int32 current = 2;
+    // Returns the battery's temperature, in Celsius, with range [-128, 127] degrees.
+    double temperature = 3;
+    // Gets the battery's cell voltages. There will be a voltage for each cell in the battery.
+    repeated int32 cellVoltages = 4;
+    // Returns the percentage of battery energy left with range [0, 100].
+    int32 chargeRemainingInPercent = 5;
+    // The low battery warning threshold as a percentage. 
+    // The percentage is in the range of [15, 50].
+    int32 lowBatteryWarningThreshold = 6;
+    // The serious low battery warning threshold in percentage. 
+    // The minimum value is 10. 
+    // The maximum value is value from `lowBatteryWarningThreshold` minus 5.
+    int32 seriousLowBatteryWarningThreshold = 7;
+    /// Returns the component index. Index is zero based.
+    int32 index = 8;
+    /// Returns the battery's remaining lifetime as a percentage, with range [0, 100]. A
+    /// new battery will be close to 100%. As a battery experiences charge/discharge
+    /// cycles, the value will go down. In unsupported products, this value will always be 0.
+    int32 lifetimeRemaining = 9;
+    
+    /// Returns the design capacity of the battery in mAh (milliamp hours). It is the ideal capacity when the battery is new.
+    /// This value will not change over time. It is only supported by smart battery.
+    int32 designCapacity = 10;
+    
+    /// Returns the total number of discharges the battery has gone through over its lifetime.
+    /// The total number of discharges includes discharges that happen through normal use and discharges that are manually set.
+    int32 numberOfDischarges = 11;
+    
+    /// `YES` if only one battery is inserted on the the right or starboard side of the aircraft.
+    /// The aircraft can still take off but the flight time will be shorter.
+    bool isInSingleBatteryMode = 12;
+    
+    /// Returns the total amount of energy, in mAh (milliamp hours), stored in the
+    /// battery when the battery is fully charged. The energy of the battery at full
+    /// charge changes over time as the battery continues to get used. Over time, as the
+    /// battery continues to be recharged, the value of `fullChargeCapacity` will
+    /// decrease.
+    uint32 fullChargeCapacity = 13;
+    
+    /// Returns the remaining energy stored in the battery in mAh (milliamp hours).
+    uint32 chargeRemaining = 14;
+}

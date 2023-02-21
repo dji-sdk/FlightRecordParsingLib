@@ -1,0 +1,48 @@
+syntax="proto3";
+
+package DJIFRProto.Standard;
+
+option objc_class_prefix = "DJIFRProto";
+
+message LocationCoordinate2D {
+    // The latitude in degrees.
+    double latitude = 1;
+    // The longitude in degrees.
+    double longitude = 2;
+}
+
+message Velocity {
+    // Current speed of the aircraft in the x direction, in meters per second
+    float velocityX = 1;
+    // Current speed of the aircraft in the y direction, in meters per second
+    float velocityY = 2;
+    // Current speed of the aircraft in the z direction, in meters per second
+    float velocityZ = 3;
+}
+
+message Attitude {
+    // Aircraft's pitch attitude value.
+    double pitch = 1;
+    // Aircraft's roll attitude value.
+    double roll = 2;
+    // Aircraft's yaw attitude value.
+    double yaw = 3;
+}
+
+message GPSSignal {
+    enum Level {
+        // The GPS has almost no signal, which is very bad.
+        Level0 = 0;
+        // The GPS signal is very weak.
+        Level1 = 1;
+        // The GPS signal is weak. At this level, the aircraft's go home functionality will still work.
+        Level2 = 2;
+        // The GPS signal is good. At this level, the aircraft can hover in the air.
+        Level3 = 3;
+        // The GPS signal is very good. At this level, the aircraft can record the home point.
+        Level4 = 4;
+        // The GPS signal is very strong.
+        Level5 = 5;
+        Unknown = 6;
+    }
+}

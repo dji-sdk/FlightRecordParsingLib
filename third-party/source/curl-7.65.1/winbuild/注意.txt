@@ -1,0 +1,22 @@
+libCurl Windows MT静态编译
+
+1. 编译OpenSSL，zlib, 建立 deps-x86 或 deps-x64 文件夹，拷贝openssl头文件到 include 文件夹下，拷贝libcrypto.lib和libssl.lib到lib 文件夹。拷贝zconf.h, zlib.h zuti.h文件到include文件夹，拷贝zlib_a.lib到lib文件夹，注意zlib_a 命名需要一致。目录结构如下
+
+   somedirectory\
+    |_curl-src
+    | |_winbuild
+    |
+    |_deps-x86
+    | |_ lib
+    | |_ include
+    | |_ bin
+    |_deps-x64
+      |_ lib
+      |_ include
+      |_ bin
+
+2. 根据编译架构选择打开VS交叉编译工具： 
+x64 Native Tools Command Prompt for 2017
+x86 Native Tools Command Prompt for 2017
+
+3. 命令行进入当前目录，运行脚本

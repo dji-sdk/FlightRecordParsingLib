@@ -1,0 +1,23 @@
+syntax="proto3";
+
+package DJIFRProto.Standard;
+
+option objc_class_prefix = "DJIFRProto";
+
+message AirLinkState {
+    /// Updated signal quality in percent for the wireless downlink （from aircraft to
+    /// remote  controller）. This link transfers all information from aircraft to remote
+    /// controller,  which is predominantly video information. Signal quality is a
+    /// function of signal  strength, interference and data rate. Signal quality will be
+    /// more susceptible to weak  signal strengths or high interference when the data
+    /// rate is high.
+    /// The signal quality in percent with range [0, 100], where 100 is the best quality.
+    int32 downlinkSignalQuality = 1;
+    bool hasDownlinkSignalQuality = 2;
+    /// Updated signal quality in percent for the wireless uplink （from remote
+    /// controller to  aircraft）. This link transfers all information from the remote
+    /// controller to the  aircraft, which is predominantly control information.
+    /// The signal quality in percent with range [0, 100], where 100 is the best quality.
+    int32 uplinkSignalQuality = 3;
+    bool hasUplinkSignalQuality = 4;
+}
