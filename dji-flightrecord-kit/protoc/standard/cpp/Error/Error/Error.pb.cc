@@ -51,15 +51,16 @@ void AddDescriptorsImpl() {
   InitDefaults();
   static const char descriptor[] GOOGLE_PROTOBUF_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
       "\n\021Error/Error.proto\022\023DJIFRProto.Standard"
-      "*\275\001\n\007FRError\022\013\n\007Success\020\000\022\025\n\021InvalidPara"
+      "*\367\001\n\007FRError\022\013\n\007Success\020\000\022\025\n\021InvalidPara"
       "meters\020\001\022\026\n\022IllegalFileContent\020\002\022\025\n\021Vers"
       "ionNotSupport\020\003\022\014\n\010NoParser\020\004\022\027\n\023Feature"
       "NotSupported\020\005\022\021\n\rDecoderFailed\020\006\022\027\n\023Fil"
-      "eOperationFailed\020\007\022\014\n\007Failure\020\377\001B\r\242\002\nDJI"
-      "FRProtob\006proto3"
+      "eOperationFailed\020\007\022\031\n\025FileDataContaminat"
+      "ion\020\010\022\035\n\031DataFormatChecksumFailure\020\t\022\014\n\007"
+      "Failure\020\377\001B\r\242\002\nDJIFRProtob\006proto3"
   };
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-      descriptor, 255);
+      descriptor, 313);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "Error/Error.proto", &protobuf_RegisterTypes);
 }
@@ -91,6 +92,8 @@ bool FRError_IsValid(int value) {
     case 5:
     case 6:
     case 7:
+    case 8:
+    case 9:
     case 255:
       return true;
     default:

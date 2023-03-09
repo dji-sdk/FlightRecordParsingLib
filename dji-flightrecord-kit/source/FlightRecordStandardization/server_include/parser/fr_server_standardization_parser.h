@@ -8,6 +8,7 @@
 #ifndef fr_server_standardization_parser_h
 #define fr_server_standardization_parser_h
 
+#include <functional>
 #include "fr_standardization_parser.h"
 #include "FlightRecordProtocolEnum.h"
 #include <Utils/featurePoint/flight_record_feature_point_enum.h>

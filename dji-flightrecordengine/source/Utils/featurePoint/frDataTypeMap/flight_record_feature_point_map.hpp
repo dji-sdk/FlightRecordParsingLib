@@ -18,6 +18,9 @@ namespace DJI {
     
         /// This is the Map relation corresponding to Version 13.1, the new version, which needs to rebuild the Map relation
         std::map<FlightRecordDataType, FeaturePoint> Version13_1FeaturePointMap();
+    
+        /// This is the Map relationship corresponding to Version 13.2, new version, need to re-construct the Map relationship.
+        std::map<FlightRecordDataType, FeaturePoint> Version13_2FeaturePointMap();
     }
 }
 

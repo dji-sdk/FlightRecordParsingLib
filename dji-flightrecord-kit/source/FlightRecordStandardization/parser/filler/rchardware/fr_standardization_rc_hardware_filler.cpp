@@ -57,11 +57,12 @@ static bool FillerRCFlightRecordData(const dji_rc_channel_params_push& data_sour
     output->set_leftWheel(data_source.GYRO - 1024);
     
     auto right_wheel = std::make_shared<RCRightWheelImp>();
-    right_wheel->set_isPresent(product_type != ProductType::jwtAbyahuARrhuhr && product_type != ProductType::DDIgiOXGemBBpxJP);
+    right_wheel->set_isPresent(product_type != ProductType::jwtAbyahuARrhuhr && product_type != ProductType::Spark);
     right_wheel->set_isClicked(data_source.wheel_btn_down);
     right_wheel->set_isTurned(data_source.wheel_change);
-    bool isSupportNewRightWheel = (product_type == ProductType::bNuCtbyQeZmlekjd || product_type == ProductType::nFHDhuzNqRMHyHFN || product_type == ProductType::nFHDhuzNqRMHyHFN);
-    if (isSupportNewRightWheel) {
+    bool isSupportNewRightWheel = (product_type == ProductType::Matrice300RTK);
+    bool isMavic2SerialRC = (product_type == ProductType::Mavic2 || product_type == ProductType::Mavic2Enterprise);
+    if (isSupportNewRightWheel || isMavic2SerialRC) {
         right_wheel->set_value(data_source.right_wheel_channel - 1024);
     } else {
         int sign = data_source.wheel_polarity ? 1 : -1;
@@ -71,7 +72,7 @@ static bool FillerRCFlightRecordData(const dji_rc_channel_params_push& data_sour
     
     // flight mode switch
     RCFlightModelSwitch mode_switch = (RCFlightModelSwitch)data_source.mode_switch;
-    if (product_type == ProductType::vgfzdEOufnwloLyz) {
+    if (product_type == ProductType::MavicPro) {
         switch (mode_switch) {
             case RCFlightModelSwitch::One:
                 mode_switch = RCFlightModelSwitch::Two;
@@ -104,18 +105,18 @@ static bool FillerRCFlightRecordData(const dji_rc_channel_params_push& data_sour
         record_btn->set_isClicked(data_source.focus_btn_down);
         
         shutter_btn = std::make_shared<RCButtonImp>();
-        shutter_btn->set_isPresent(!(product_type == ProductType::DDIgiOXGemBBpxJP || product_type == ProductType::GLliyGyDgYeAsbRf));
+        shutter_btn->set_isPresent(!(product_type == ProductType::Spark || product_type == ProductType::MavicAir));
         shutter_btn->set_isClicked(data_source.shutter_btn_down);
         
         switch (product_type) {
             // play back
-            case ProductType::SNvkAqzqcQvlNFFL:
+            case ProductType::Phantom3Standard:
             case ProductType::jwtAbyahuARrhuhr:
             case ProductType::kshQeTGrEeTmtpoe:
-            case ProductType::FRChNdMYkCNYuEGK:
+            case ProductType::Phantom3SE:
             case ProductType::ZUYdiVOVXfGCLDcI:
             case ProductType::CdogAypKribEXKfS:
-            case ProductType::myLYzIeAVJmMbmcD:
+            case ProductType::Phantom34K:
             {
                 playback_btn = std::make_shared<RCButtonImp>();
                 playback_btn->set_isPresent(true);
@@ -123,13 +124,13 @@ static bool FillerRCFlightRecordData(const dji_rc_channel_params_push& data_sour
             }
                 break;
             // pause button
-            case ProductType::EWOgKtIuyIlYVdEk:
-            case ProductType::VjFWiSHNqTYLsDXW:
-            case ProductType::SbcMDImyZFzuDXMR:
-            case ProductType::UcwlWghHBakqnzja:
+            case ProductType::Phantom4Pro:
+            case ProductType::Phantom4Advanced:
+            case ProductType::Phantom4ProV2:
+            case ProductType::Phantom4:
             case ProductType::qvMmdCGxrtrJWvxx:
-            case ProductType::eYiGRXRBVVWzjMzz:
-            case ProductType::hbhNNjVXxQrFsNSR:
+            case ProductType::Inspire2:
+            case ProductType::Phantom4RTK:
             {
                 pause_btn = std::make_shared<RCButtonImp>();
                 pause_btn->set_isPresent(true);

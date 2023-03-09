@@ -19,10 +19,10 @@ using namespace DJI::FlightRecord;
 
 static bool FillJoyStickRecordData(const dji_special_control_joy_stick& joy_stick,
                                    std::shared_ptr<MobileRemoteControllerStateImp>& output) {
-    output->set_leftStickVertical((joy_stick.channel2 - 1024) / 1024.f);
-    output->set_leftStickHorizontal((joy_stick.channel3 - 1024) / 1024.f);
-    output->set_rightStickVertical((joy_stick.channel1 - 1024) / 1024.f);
-    output->set_rightStickHorizontal((joy_stick.channel0 - 1024) / 1024.f);
+    output->set_leftStickVertical((joy_stick.channel2 - 1024) / 1024.0);
+    output->set_leftStickHorizontal((joy_stick.channel3 - 1024) / 1024.0);
+    output->set_rightStickVertical((joy_stick.channel1 - 1024) / 1024.0);
+    output->set_rightStickHorizontal((joy_stick.channel0 - 1024) / 1024.0);
     
     return true;
 }

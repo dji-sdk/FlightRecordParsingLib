@@ -46,3 +46,76 @@ message GPSSignal {
         Unknown = 6;
     }
 }
+
+message SDK {
+    enum ProductType {
+        None = 0;
+        ZUYdiVOVXfGCLDcI = 1;
+        Phantom3Standard = 2;
+        jwtAbyahuARrhuhr = 3;
+        kshQeTGrEeTmtpoe = 4;
+        Phantom4 = 7;
+        qvMmdCGxrtrJWvxx = 8;
+        CdogAypKribEXKfS = 9;
+        // Matrice600
+        Matrice600 = 11;
+        // Phantom3 4K
+        Phantom34K = 12;
+        // Mavic Pro
+        MavicPro = 13;
+        // Inspire2
+        Inspire2 = 17;
+        // Phantom4 Pro
+        Phantom4Pro = 24;
+        // Spark
+        Spark = 26;
+        // M600 Pro
+        Matrice600Pro = 27;
+        // Phantom4 Advanced
+        Phantom4Advanced = 28;
+        // Phantom3 SE
+        Phantom3SE = 29;
+        // Matrice 200
+        Matrice200 = 31;
+        // Matrice 210
+        Matrice210 = 33;
+        // Matrice 210 RTK
+        Matrice210RTK = 34;
+        // Mavic Air
+        MavicAir = 38;
+        // Mavic2
+        Mavic2 = 42;
+        // Phantom4 Pro V2
+        Phantom4ProV2 = 44;
+        // Phantom4 RTK
+        Phantom4RTK = 46;
+        // P4 Multispectral
+        P4Multispectral = 57;
+        // Mavic2 Enterprise
+        Mavic2Enterprise = 58;
+        // Mavic Mini
+        MavicMini = 59;
+        // Matrice 200 V2
+        Matrice200V2 = 60;
+        // Matrice 210 V2
+        Matrice210V2 = 61;
+        // Matrice 210 RTK V2
+        Matrice210RTKV2 = 62;
+        // Mavic Air 2
+        MavicAir2 = 67;
+        // Matrice300RTK
+        Matrice300RTK = 70;
+        // DJIFPV
+        DJIFPV = 73;
+        // MavicAir2S
+        MavicAir2S = 75;
+        // MavicMini2
+        MavicMini2 = 76;
+        // Mavic3
+        Mavic3 = 77;
+        // MavicMiniSE
+        MavicMiniSE = 96;
+        // Matrice30
+        Matrice30 = 116;
+    };  
+}

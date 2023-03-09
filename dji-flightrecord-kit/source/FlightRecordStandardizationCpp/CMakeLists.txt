@@ -29,7 +29,7 @@ string(TOLOWER ${platform} platformLowerStr)
 Message(STATUS "✅ start ${platform} operation in ${current_project_name}")
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} --std=c++11 -O3 -fPIC")
-set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} --std=c++11 -O0")
+set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} --std=c++11 -O0")
 
 if(${platformLowerStr} MATCHES "mac")
 
@@ -43,8 +43,7 @@ target_include_directories(
     PUBLIC
     "${CMAKE_CURRENT_SOURCE_DIR}/../FlightRecordStandardizationCpp"
     "${all_project_root_path}/dji-flightrecordengine/source/"
-    "${all_project_root_path}/third-party/source/protobuf-3.5.0/src"
-    "${all_project_root_path}/third-party/libcurl/include"
+    "${all_project_root_path}/third-party/source/protobuf-3.21.12/src"
 )
 
 # include FlightRecordStandardization Header
@@ -55,7 +54,6 @@ include_file_directory(StandardizationHeader)
 add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/../FlightRecordStandardization StandardizationBuild)
 target_link_libraries(${current_project_name} FlightRecordStandardization)
 
-add_subdirectory(${all_project_root_path}/third-party/source/protobuf-3.5.0/src standardProtobufBuild)
-
+add_subdirectory(${all_project_root_path}/third-party/source/protobuf-3.21.12/src standardProtobufBuild)
 target_link_libraries(${current_project_name} DJIProtobuf)
 

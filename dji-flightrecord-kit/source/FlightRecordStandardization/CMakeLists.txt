@@ -41,16 +41,35 @@ target_include_directories(
     PUBLIC 
     ${all_project_root_path}/dji-flightrecordengine/source/
     ${all_project_root_path}/third-party/header/libtomcrypt/include
+    ${all_project_root_path}/third-party/header/libcurl/include
 )
 
 # Introduction of the Engine library
 add_subdirectory(${all_project_root_path}/dji-flightrecordengine/source EngineBuild)
-
-# Introduction of the Engine library
 target_link_libraries(${current_project_name} FlightRecordEngine)
 
-target_link_libraries(${current_project_name} ${all_project_root_path}/third-party/build/libcurl/lib/${platformLowerStr}/libcurl.a)
-target_link_libraries(${current_project_name} ${all_project_root_path}/third-party/build/libopenssl/lib/${platformLowerStr}/libcrypto.a)
-target_link_libraries(${current_project_name} ${all_project_root_path}/third-party/build/libopenssl/lib/${platformLowerStr}/libssl.a)
+# Import third party - libcurl/libssl/libcrypto
+add_library(libcurl STATIC IMPORTED)
+set_target_properties( libcurl PROPERTIES
+    IMPORTED_LOCATION ${all_project_root_path}/third-party/build/libcurl/lib/${platformLowerStr}/libcurl.a
+    INTERFACE_INCLUDE_DIRECTORIES "${all_project_root_path}/third-party/header/libcurl/include"
+)
+
+add_library(libssl STATIC IMPORTED)
+set_target_properties( libssl PROPERTIES
+    IMPORTED_LOCATION ${all_project_root_path}/third-party/build/libopenssl/lib/${platformLowerStr}/libssl.a
+    INTERFACE_INCLUDE_DIRECTORIES "${all_project_root_path}/third-party/header/libopenssl/include"
+)
+
+find_package(Threads)
+add_library(libcrypto STATIC IMPORTED)
+set_target_properties( libcrypto PROPERTIES
+    IMPORTED_LOCATION ${all_project_root_path}/third-party/build/libopenssl/lib/${platformLowerStr}/libcrypto.a
+    INTERFACE_INCLUDE_DIRECTORIES "${all_project_root_path}/third-party/header/libopenssl/include"
+    INTERFACE_LINK_LIBRARIES "Threads::Threads"
+)
+set(CURLS libcurl libssl libcrypto dl)
+target_link_libraries(${current_project_name} ${CURLS})
+
 
 

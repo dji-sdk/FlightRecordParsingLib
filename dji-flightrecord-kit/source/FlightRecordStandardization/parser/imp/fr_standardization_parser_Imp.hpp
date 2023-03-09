@@ -133,52 +133,52 @@ namespace DJIFR {
             
             //MARK: - Filler
             
-            void fillRCHardwareState(FlightRecordDataType data_type,
+            bool fillRCHardwareState(FlightRecordDataType data_type,
                                      uint8_t *buffer,
                                      uint64_t length,
                                      std::shared_ptr<FrameTimeStateImp>& output);
             
-            void fillMobileRC(FlightRecordDataType data_type,
+            bool fillMobileRC(FlightRecordDataType data_type,
                               uint8_t *buffer,
                               uint64_t length,
                               std::shared_ptr<FrameTimeStateImp>& output);
             
-            void fillGimbalState(FlightRecordDataType data_type,
+            bool fillGimbalState(FlightRecordDataType data_type,
                                  uint8_t *buffer,
                                  uint64_t length,
                                  std::shared_ptr<FrameTimeStateImp>& output);
             
-            void fillFlightController(FlightRecordDataType data_type,
+            bool fillFlightController(FlightRecordDataType data_type,
                                       uint8_t *buffer,
                                       uint64_t length,
                                       std::shared_ptr<FrameTimeStateImp>& output);
             
-            void fillCameraState(FlightRecordDataType data_type,
+            bool fillCameraState(FlightRecordDataType data_type,
                                  uint8_t *buffer,
                                  uint64_t length,
                                  std::shared_ptr<FrameTimeStateImp>& output);
             
-            void fillBatteryState(FlightRecordDataType data_type,
+            bool fillBatteryState(FlightRecordDataType data_type,
                                   uint8_t *buffer,
                                   uint64_t length,
                                   std::shared_ptr<FrameTimeStateImp>& output);
             
-            void fillAirlinkState(FlightRecordDataType data_type,
+            bool fillAirlinkState(FlightRecordDataType data_type,
                                   uint8_t *buffer,
                                   uint64_t length,
                                   std::shared_ptr<FrameTimeStateImp>& output);
             
-            void fillGOBusiness(FlightRecordDataType data_type,
+            bool fillGOBusiness(FlightRecordDataType data_type,
                                 uint8_t *buffer,
                                 uint64_t length,
                                 std::shared_ptr<FrameTimeStateImp>& output);
             
-            void fillMobileDevice(FlightRecordDataType data_type,
+            bool fillMobileDevice(FlightRecordDataType data_type,
                                   uint8_t *buffer,
                                   uint64_t length,
                                   std::shared_ptr<FrameTimeStateImp>& output);
             
-            void fillVisionData(FlightRecordDataType data_type,
+            bool fillVisionData(FlightRecordDataType data_type,
                                 uint8_t *buffer,
                                 uint64_t length,
                                 std::shared_ptr<FrameTimeStateImp>& output);
@@ -201,6 +201,8 @@ namespace DJIFR {
             std::vector<std::shared_ptr<FrameTimeStateImp>> frame_time_list_;
             
             DJI::FlightRecord::ProductType product_type_;
+            
+            DJI::FlightRecord::DroneType drone_type_ = DJI::FlightRecord::DroneType::Unknown;
         };
     }
 }

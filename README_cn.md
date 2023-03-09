@@ -6,7 +6,7 @@
 
 ## 该应用程序在哪里创建版本 13 的飞行记录日志？
 
-使用 Mobile SDK 4.12 版本的应用程序。
+使用 Mobile SDK 4.12 版本的应用程序
 
 
 ## 架构关系
@@ -37,9 +37,28 @@
 
 ## 如何运行示例代码？
 
+### 在 Docker 上运行示例代码
+**下载 Docker** 
+
+https://docs.docker.com/get-docker
+
+**创建 Docker 镜像**
+```shell
+docker build --build-arg SDK_KEY=your_sdk_key -t pf .
+```
+
+**运行 Docker**
+```shell
+docker run -v 宿主机目录:容器目录 -it pf "容器内的飞行记录文件路径"
+```
+命令示例：
+docker run -v $(pwd):/tmp -it pf "/tmp/V132_DJIFlightRecord_2020-06-18_[19-01-24].txt" > json_result.json
+
+"> json_result.json" 将运行结果重定向到指定文件中
+
 ### 在 Mac 上运行示例代码
 
-以下是 Mac 版本的 Sample 运行创建过程。
+以下是 Mac 版本的 Sample 运行创建过程
 
 ```shell
 cd dji-flightrecord-kit/build/Mac/FRSample

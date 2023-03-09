@@ -172,6 +172,10 @@ static bool FillSmartBattery(void *buffer,
             }
             
             int index = needOffset ? internalData.index - 1 : internalData.index;
+            if (index > 6) {
+                return false;
+            }
+            
             auto find_iter = output.find(index);
             std::shared_ptr<BatteryStateImp> battery;
             if (find_iter == output.end()) {
@@ -201,6 +205,10 @@ static bool FillSmartBattery(void *buffer,
             }
             
             int index = needOffset ? internalData.index - 1 : internalData.index;
+            if (index > 6) {
+                return false;
+            }
+            
             auto find_iter = output.find(index);
             std::shared_ptr<BatteryStateImp> battery;
             if (find_iter == output.end()) {
@@ -229,7 +237,7 @@ static bool FillSmartBattery(void *buffer,
             memcpy(&internalData, (uint8_t*)buffer + 1, sizeof(dji_cell_voltage_info));
             
             size_t finalInternalDataLength = sizeof(dji_cell_voltage_info) + sizeof(uint16_t) * internalData.cell_count;
-            if (finalInternalDataLength < bufferLeft) {
+            if (finalInternalDataLength > bufferLeft) {
                 return false;
             }
             dji_cell_voltage_info *finalInternalData = (dji_cell_voltage_info *)malloc(finalInternalDataLength);
@@ -241,6 +249,10 @@ static bool FillSmartBattery(void *buffer,
             }
             
             int index = needOffset ? internalData.index - 1 : internalData.index;
+            if (index > 6) {
+                return false;
+            }
+            
             auto find_iter = output.find(index);
             std::shared_ptr<BatteryStateImp> battery;
             if (find_iter == output.end()) {

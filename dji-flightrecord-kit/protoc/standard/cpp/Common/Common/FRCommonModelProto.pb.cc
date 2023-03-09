@@ -41,6 +41,11 @@ class GPSSignalDefaultTypeInternal {
   ::google::protobuf::internal::ExplicitlyConstructed<GPSSignal>
       _instance;
 } _GPSSignal_default_instance_;
+class SDKDefaultTypeInternal {
+ public:
+  ::google::protobuf::internal::ExplicitlyConstructed<SDK>
+      _instance;
+} _SDK_default_instance_;
 }  // namespace Standard
 }  // namespace DJIFRProto
 namespace protobuf_Common_2fFRCommonModelProto_2eproto {
@@ -128,8 +133,29 @@ void InitDefaultsGPSSignal() {
   ::google::protobuf::GoogleOnceInit(&once, &InitDefaultsGPSSignalImpl);
 }
 
-::google::protobuf::Metadata file_level_metadata[4];
-const ::google::protobuf::EnumDescriptor* file_level_enum_descriptors[1];
+void InitDefaultsSDKImpl() {
+  GOOGLE_PROTOBUF_VERIFY_VERSION;
+
+#ifdef GOOGLE_PROTOBUF_ENFORCE_UNIQUENESS
+  ::google::protobuf::internal::InitProtobufDefaultsForceUnique();
+#else
+  ::google::protobuf::internal::InitProtobufDefaults();
+#endif  // GOOGLE_PROTOBUF_ENFORCE_UNIQUENESS
+  {
+    void* ptr = &::DJIFRProto::Standard::_SDK_default_instance_;
+    new (ptr) ::DJIFRProto::Standard::SDK();
+    ::google::protobuf::internal::OnShutdownDestroyMessage(ptr);
+  }
+  ::DJIFRProto::Standard::SDK::InitAsDefaultInstance();
+}
+
+void InitDefaultsSDK() {
+  static GOOGLE_PROTOBUF_DECLARE_ONCE(once);
+  ::google::protobuf::GoogleOnceInit(&once, &InitDefaultsSDKImpl);
+}
+
+::google::protobuf::Metadata file_level_metadata[5];
+const ::google::protobuf::EnumDescriptor* file_level_enum_descriptors[2];
 
 const ::google::protobuf::uint32 TableStruct::offsets[] GOOGLE_PROTOBUF_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
   ~0u,  // no _has_bits_
@@ -160,12 +186,18 @@ const ::google::protobuf::uint32 TableStruct::offsets[] GOOGLE_PROTOBUF_ATTRIBUT
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
+  ~0u,  // no _has_bits_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::DJIFRProto::Standard::SDK, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
 };
 static const ::google::protobuf::internal::MigrationSchema schemas[] GOOGLE_PROTOBUF_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
   { 0, -1, sizeof(::DJIFRProto::Standard::LocationCoordinate2D)},
   { 7, -1, sizeof(::DJIFRProto::Standard::Velocity)},
   { 15, -1, sizeof(::DJIFRProto::Standard::Attitude)},
   { 23, -1, sizeof(::DJIFRProto::Standard::GPSSignal)},
+  { 28, -1, sizeof(::DJIFRProto::Standard::SDK)},
 };
 
 static ::google::protobuf::Message const * const file_default_instances[] = {
@@ -173,6 +205,7 @@ static ::google::protobuf::Message const * const file_default_instances[] = {
   reinterpret_cast<const ::google::protobuf::Message*>(&::DJIFRProto::Standard::_Velocity_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&::DJIFRProto::Standard::_Attitude_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&::DJIFRProto::Standard::_GPSSignal_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&::DJIFRProto::Standard::_SDK_default_instance_),
 };
 
 void protobuf_AssignDescriptors() {
@@ -191,7 +224,7 @@ void protobuf_AssignDescriptorsOnce() {
 void protobuf_RegisterTypes(const ::std::string&) GOOGLE_PROTOBUF_ATTRIBUTE_COLD;
 void protobuf_RegisterTypes(const ::std::string&) {
   protobuf_AssignDescriptorsOnce();
-  ::google::protobuf::internal::RegisterAllTypes(file_level_metadata, 4);
+  ::google::protobuf::internal::RegisterAllTypes(file_level_metadata, 5);
 }
 
 void AddDescriptorsImpl() {
@@ -205,11 +238,28 @@ void AddDescriptorsImpl() {
       "pitch\030\001 \001(\001\022\014\n\004roll\030\002 \001(\001\022\013\n\003yaw\030\003 \001(\001\"i"
       "\n\tGPSSignal\"\\\n\005Level\022\n\n\006Level0\020\000\022\n\n\006Leve"
       "l1\020\001\022\n\n\006Level2\020\002\022\n\n\006Level3\020\003\022\n\n\006Level4\020\004"
-      "\022\n\n\006Level5\020\005\022\013\n\007Unknown\020\006B\r\242\002\nDJIFRProto"
-      "b\006proto3"
+      "\022\n\n\006Level5\020\005\022\013\n\007Unknown\020\006\"\240\005\n\003SDK\"\230\005\n\013Pr"
+      "oductType\022\010\n\004None\020\000\022\024\n\020ZUYdiVOVXfGCLDcI\020"
+      "\001\022\024\n\020Phantom3Standard\020\002\022\024\n\020jwtAbyahuARrh"
+      "uhr\020\003\022\024\n\020kshQeTGrEeTmtpoe\020\004\022\014\n\010Phantom4\020"
+      "\007\022\024\n\020qvMmdCGxrtrJWvxx\020\010\022\024\n\020CdogAypKribEX"
+      "KfS\020\t\022\016\n\nMatrice600\020\013\022\016\n\nPhantom34K\020\014\022\014\n"
+      "\010MavicPro\020\r\022\014\n\010Inspire2\020\021\022\017\n\013Phantom4Pro"
+      "\020\030\022\t\n\005Spark\020\032\022\021\n\rMatrice600Pro\020\033\022\024\n\020Phan"
+      "tom4Advanced\020\034\022\016\n\nPhantom3SE\020\035\022\016\n\nMatric"
+      "e200\020\037\022\016\n\nMatrice210\020!\022\021\n\rMatrice210RTK\020"
+      "\"\022\014\n\010MavicAir\020&\022\n\n\006Mavic2\020*\022\021\n\rPhantom4P"
+      "roV2\020,\022\017\n\013Phantom4RTK\020.\022\023\n\017P4Multispectr"
+      "al\0209\022\024\n\020Mavic2Enterprise\020:\022\r\n\tMavicMini\020"
+      ";\022\020\n\014Matrice200V2\020<\022\020\n\014Matrice210V2\020=\022\023\n"
+      "\017Matrice210RTKV2\020>\022\r\n\tMavicAir2\020C\022\021\n\rMat"
+      "rice300RTK\020F\022\n\n\006DJIFPV\020I\022\016\n\nMavicAir2S\020K"
+      "\022\016\n\nMavicMini2\020L\022\n\n\006Mavic3\020M\022\017\n\013MavicMin"
+      "iSE\020`\022\r\n\tMatrice30\020tB\r\242\002\nDJIFRProtob\006pro"
+      "to3"
   };
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-      descriptor, 368);
+      descriptor, 1043);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "Common/FRCommonModelProto.proto", &protobuf_RegisterTypes);
 }
@@ -257,6 +307,99 @@ const GPSSignal_Level GPSSignal::Unknown;
 const GPSSignal_Level GPSSignal::Level_MIN;
 const GPSSignal_Level GPSSignal::Level_MAX;
 const int GPSSignal::Level_ARRAYSIZE;
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+const ::google::protobuf::EnumDescriptor* SDK_ProductType_descriptor() {
+  protobuf_Common_2fFRCommonModelProto_2eproto::protobuf_AssignDescriptorsOnce();
+  return protobuf_Common_2fFRCommonModelProto_2eproto::file_level_enum_descriptors[1];
+}
+bool SDK_ProductType_IsValid(int value) {
+  switch (value) {
+    case 0:
+    case 1:
+    case 2:
+    case 3:
+    case 4:
+    case 7:
+    case 8:
+    case 9:
+    case 11:
+    case 12:
+    case 13:
+    case 17:
+    case 24:
+    case 26:
+    case 27:
+    case 28:
+    case 29:
+    case 31:
+    case 33:
+    case 34:
+    case 38:
+    case 42:
+    case 44:
+    case 46:
+    case 57:
+    case 58:
+    case 59:
+    case 60:
+    case 61:
+    case 62:
+    case 67:
+    case 70:
+    case 73:
+    case 75:
+    case 76:
+    case 77:
+    case 96:
+    case 116:
+      return true;
+    default:
+      return false;
+  }
+}
+
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
+const SDK_ProductType SDK::None;
+const SDK_ProductType SDK::ZUYdiVOVXfGCLDcI;
+const SDK_ProductType SDK::Phantom3Standard;
+const SDK_ProductType SDK::jwtAbyahuARrhuhr;
+const SDK_ProductType SDK::kshQeTGrEeTmtpoe;
+const SDK_ProductType SDK::Phantom4;
+const SDK_ProductType SDK::qvMmdCGxrtrJWvxx;
+const SDK_ProductType SDK::CdogAypKribEXKfS;
+const SDK_ProductType SDK::Matrice600;
+const SDK_ProductType SDK::Phantom34K;
+const SDK_ProductType SDK::MavicPro;
+const SDK_ProductType SDK::Inspire2;
+const SDK_ProductType SDK::Phantom4Pro;
+const SDK_ProductType SDK::Spark;
+const SDK_ProductType SDK::Matrice600Pro;
+const SDK_ProductType SDK::Phantom4Advanced;
+const SDK_ProductType SDK::Phantom3SE;
+const SDK_ProductType SDK::Matrice200;
+const SDK_ProductType SDK::Matrice210;
+const SDK_ProductType SDK::Matrice210RTK;
+const SDK_ProductType SDK::MavicAir;
+const SDK_ProductType SDK::Mavic2;
+const SDK_ProductType SDK::Phantom4ProV2;
+const SDK_ProductType SDK::Phantom4RTK;
+const SDK_ProductType SDK::P4Multispectral;
+const SDK_ProductType SDK::Mavic2Enterprise;
+const SDK_ProductType SDK::MavicMini;
+const SDK_ProductType SDK::Matrice200V2;
+const SDK_ProductType SDK::Matrice210V2;
+const SDK_ProductType SDK::Matrice210RTKV2;
+const SDK_ProductType SDK::MavicAir2;
+const SDK_ProductType SDK::Matrice300RTK;
+const SDK_ProductType SDK::DJIFPV;
+const SDK_ProductType SDK::MavicAir2S;
+const SDK_ProductType SDK::MavicMini2;
+const SDK_ProductType SDK::Mavic3;
+const SDK_ProductType SDK::MavicMiniSE;
+const SDK_ProductType SDK::Matrice30;
+const SDK_ProductType SDK::ProductType_MIN;
+const SDK_ProductType SDK::ProductType_MAX;
+const int SDK::ProductType_ARRAYSIZE;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
 // ===================================================================
@@ -1344,6 +1487,200 @@ void GPSSignal::InternalSwap(GPSSignal* other) {
 }
 
 ::google::protobuf::Metadata GPSSignal::GetMetadata() const {
+  protobuf_Common_2fFRCommonModelProto_2eproto::protobuf_AssignDescriptorsOnce();
+  return ::protobuf_Common_2fFRCommonModelProto_2eproto::file_level_metadata[kIndexInFileMessages];
+}
+
+
+// ===================================================================
+
+void SDK::InitAsDefaultInstance() {
+}
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+
+SDK::SDK()
+  : ::google::protobuf::Message(), _internal_metadata_(NULL) {
+  if (GOOGLE_PREDICT_TRUE(this != internal_default_instance())) {
+    ::protobuf_Common_2fFRCommonModelProto_2eproto::InitDefaultsSDK();
+  }
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:DJIFRProto.Standard.SDK)
+}
+SDK::SDK(const SDK& from)
+  : ::google::protobuf::Message(),
+      _internal_metadata_(NULL),
+      _cached_size_(0) {
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  // @@protoc_insertion_point(copy_constructor:DJIFRProto.Standard.SDK)
+}
+
+void SDK::SharedCtor() {
+  _cached_size_ = 0;
+}
+
+SDK::~SDK() {
+  // @@protoc_insertion_point(destructor:DJIFRProto.Standard.SDK)
+  SharedDtor();
+}
+
+void SDK::SharedDtor() {
+}
+
+void SDK::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* SDK::descriptor() {
+  ::protobuf_Common_2fFRCommonModelProto_2eproto::protobuf_AssignDescriptorsOnce();
+  return ::protobuf_Common_2fFRCommonModelProto_2eproto::file_level_metadata[kIndexInFileMessages].descriptor;
+}
+
+const SDK& SDK::default_instance() {
+  ::protobuf_Common_2fFRCommonModelProto_2eproto::InitDefaultsSDK();
+  return *internal_default_instance();
+}
+
+SDK* SDK::New(::google::protobuf::Arena* arena) const {
+  SDK* n = new SDK;
+  if (arena != NULL) {
+    arena->Own(n);
+  }
+  return n;
+}
+
+void SDK::Clear() {
+// @@protoc_insertion_point(message_clear_start:DJIFRProto.Standard.SDK)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  _internal_metadata_.Clear();
+}
+
+bool SDK::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  // @@protoc_insertion_point(parse_start:DJIFRProto.Standard.SDK)
+  for (;;) {
+    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+  handle_unusual:
+    if (tag == 0) {
+      goto success;
+    }
+    DO_(::google::protobuf::internal::WireFormat::SkipField(
+          input, tag, _internal_metadata_.mutable_unknown_fields()));
+  }
+success:
+  // @@protoc_insertion_point(parse_success:DJIFRProto.Standard.SDK)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:DJIFRProto.Standard.SDK)
+  return false;
+#undef DO_
+}
+
+void SDK::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:DJIFRProto.Standard.SDK)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), output);
+  }
+  // @@protoc_insertion_point(serialize_end:DJIFRProto.Standard.SDK)
+}
+
+::google::protobuf::uint8* SDK::InternalSerializeWithCachedSizesToArray(
+    bool deterministic, ::google::protobuf::uint8* target) const {
+  (void)deterministic; // Unused
+  // @@protoc_insertion_point(serialize_to_array_start:DJIFRProto.Standard.SDK)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), target);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:DJIFRProto.Standard.SDK)
+  return target;
+}
+
+size_t SDK::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:DJIFRProto.Standard.SDK)
+  size_t total_size = 0;
+
+  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()));
+  }
+  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = cached_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void SDK::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:DJIFRProto.Standard.SDK)
+  GOOGLE_DCHECK_NE(&from, this);
+  const SDK* source =
+      ::google::protobuf::internal::DynamicCastToGenerated<const SDK>(
+          &from);
+  if (source == NULL) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:DJIFRProto.Standard.SDK)
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:DJIFRProto.Standard.SDK)
+    MergeFrom(*source);
+  }
+}
+
+void SDK::MergeFrom(const SDK& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:DJIFRProto.Standard.SDK)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+}
+
+void SDK::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:DJIFRProto.Standard.SDK)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void SDK::CopyFrom(const SDK& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:DJIFRProto.Standard.SDK)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool SDK::IsInitialized() const {
+  return true;
+}
+
+void SDK::Swap(SDK* other) {
+  if (other == this) return;
+  InternalSwap(other);
+}
+void SDK::InternalSwap(SDK* other) {
+  using std::swap;
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+  swap(_cached_size_, other->_cached_size_);
+}
+
+::google::protobuf::Metadata SDK::GetMetadata() const {
   protobuf_Common_2fFRCommonModelProto_2eproto::protobuf_AssignDescriptorsOnce();
   return ::protobuf_Common_2fFRCommonModelProto_2eproto::file_level_metadata[kIndexInFileMessages];
 }

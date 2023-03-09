@@ -48,6 +48,8 @@ namespace DJI {
             InvalidParam,
             /// Feature not supported error.
             FeatureNotSupported,
+            /// File data contamination
+            FileDataContamination,
         };
         
         enum class ParseImageType {

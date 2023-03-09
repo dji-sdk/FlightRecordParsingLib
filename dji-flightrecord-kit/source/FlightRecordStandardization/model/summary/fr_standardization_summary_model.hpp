@@ -113,6 +113,10 @@ namespace DJIFR {
             std::string uuid() const override;
             void set_uuid(const std::string& uuid);
             
+            /// Only one sortie marked
+            DJI::FlightRecord::ProductType product_type() const override;
+            void set_product_type(DJI::FlightRecord::ProductType product_type);
+            
         private:
             Platform platform_ = Platform::Unknown;
             
@@ -151,6 +155,9 @@ namespace DJIFR {
             
             /// Only one sortie marked
             std::string uuid_;
+            
+            /// Product Type
+            DJI::FlightRecord::ProductType product_type_ = DJI::FlightRecord::ProductType::None;
         };
     }
 }

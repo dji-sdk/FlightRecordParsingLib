@@ -7,6 +7,7 @@
 
 #include <stdio.h>
 #include <Utils/thread/FlightRecordTimer.h>
+#include <functional>
 
 using namespace DJI::FlightRecord;
 

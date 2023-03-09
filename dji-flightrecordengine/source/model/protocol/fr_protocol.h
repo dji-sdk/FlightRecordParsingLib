@@ -518,7 +518,7 @@ typedef struct{
     
 
     uint16_t recordTime;
-    uint8_t RdLefYloJzJGjvOu;
+    uint8_t cameraType;
     uint8_t shBCSgxGiMpCbUbL;
 
 
@@ -1057,6 +1057,26 @@ typedef struct
     float accuracy;
     uint16_t valid_data;
 } dji_rc_gps_info_push;
+
+typedef enum
+{
+    DJI_CAMERA_WORKING_MODE_CAPTURE = 0,
+    DJI_CAMERA_WORKING_MODE_RECORDING = 1,
+    DJI_CAMERA_WORKING_MODE_PLAYBACK = 2,
+    DJI_CAMERA_WORKING_MODE_TRANSCODE = 3, 
+    DJI_CAMERA_WORKING_MODE_TUNING = 4,
+    DJI_CAMERA_WORKING_MODE_POWER_SAVE = 5,
+    DJI_CAMERA_WORKING_MODE_DOWNLOAD = 6,
+    DJI_CAMERA_WORKING_MODE_XCODE_PLAYBACK = 7,
+    DJI_CAMERA_WORKING_MODE_BROADCAST = 8,
+} DJI_CAMERA_WORKING_MODE;
+
+typedef enum
+{
+    DJI_CAMERA_TYPE_Insipre1 = 0, // Inpire 1
+    DJI_CAMERA_TYPE_Insipre1Pro = 1, // Inpire 1 pro
+    DJI_CAMERA_TYPE_Phantom4 = 6, // Phantom 4
+} DJI_CAMERA_TYPE;
 
 #pragma pack()
 

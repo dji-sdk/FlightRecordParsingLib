@@ -56,6 +56,8 @@ namespace DJI {
             
             int file_index_ = 0;
             
+        protected:
+            
             std::map<FlightRecordDataType, FeaturePoint> feature_point_map_;
         };
     }

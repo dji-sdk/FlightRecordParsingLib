@@ -317,6 +317,7 @@ static CameraState ConvertToCameraState(DJIFR::standardization::CameraStateShare
     camera_state.set_remainingspaceinmb(camera_state_cpp->remainingSpaceInMB());
     camera_state.set_availablecapturecount(camera_state_cpp->availableCaptureCount());
     camera_state.set_availablerecordingtimeinseconds(camera_state_cpp->availableRecordingTimeInSeconds());
+    camera_state.set_mode((CameraState_CameraMode)camera_state_cpp->mode());
     
     return camera_state;
 }
@@ -561,6 +562,7 @@ FRError Parser::summaryInformation(std::shared_ptr<SummaryInformation> *output) 
     summary->set_maxhorizontalspeed(summary_cpp->maxHorizontalSpeed());
     summary->set_maxvirticalspeed(summary_cpp->maxVirticalSpeed());
     summary->set_uuid(summary_cpp->uuid());
+    summary->set_producttype((SDK_ProductType)summary_cpp->product_type());
     
     (*output) = summary;
     

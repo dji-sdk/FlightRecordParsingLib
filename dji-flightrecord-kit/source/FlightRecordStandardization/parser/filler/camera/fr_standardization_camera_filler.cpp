@@ -8,11 +8,32 @@
 #include "fr_standardization_camera_filler.hpp"
 #include <model/protocol/fr_protocol.h>
 #include <string.h>
-#include <model/protocol/fr_protocol.h>
 
 using namespace DJIFR::standardization;
 
 //MARK: - CameraInfoFlightRecordDataType
+
+static CameraMode ConvertToPublicCameraMode(DJI_CAMERA_WORKING_MODE work_mode) {
+    switch (work_mode) {
+        case DJI_CAMERA_WORKING_MODE_PLAYBACK:
+            return CameraMode::Playback;
+        case DJI_CAMERA_WORKING_MODE_CAPTURE:
+            return CameraMode::ShootPhoto;
+        case DJI_CAMERA_WORKING_MODE_RECORDING:
+            return CameraMode::RecordVideo;
+        case DJI_CAMERA_WORKING_MODE_DOWNLOAD:
+            return CameraMode::Playback;
+        case DJI_CAMERA_WORKING_MODE_XCODE_PLAYBACK:
+            return CameraMode::MediaDownload;
+        case DJI_CAMERA_WORKING_MODE_BROADCAST:
+            return CameraMode::Broadcast;
+            
+        default:
+            break;
+    }
+    
+    return CameraMode::Unknown;
+}
 
 static bool FillCameraInfo(const DJIFlightRecordCameraStatusInfoCollectStruct& data_source,
                            std::shared_ptr<CameraStateImp>& output) {
@@ -31,6 +52,25 @@ static bool FillCameraInfo(const DJIFlightRecordCameraStatusInfoCollectStruct& d
     output->set_remainingSpaceInMB(data_source.sdCardRemainCapacity);
     output->set_availableCaptureCount(data_source.remainPhotoNum);
     output->set_availableRecordingTimeInSeconds(data_source.remainVideoTimer);
+    
+    bool isPlaybackSupported = false;
+    switch ((DJI_CAMERA_TYPE)data_source.cameraType) {
+        case DJI_CAMERA_TYPE_Phantom4:
+        case DJI_CAMERA_TYPE_Insipre1:
+        case DJI_CAMERA_TYPE_Insipre1Pro:
+            isPlaybackSupported = true;
+            break;
+            
+        default:
+            break;
+    }
+    
+    CameraMode camera_mode = ConvertToPublicCameraMode((DJI_CAMERA_WORKING_MODE)data_source.workMode);
+    if (isPlaybackSupported == false &&
+        camera_mode == CameraMode::Playback) {
+        camera_mode = CameraMode::MediaDownload;
+    }
+    output->set_mode(camera_mode);
     
     return true;
 }

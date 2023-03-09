@@ -21,6 +21,7 @@
 // Old Encrypt Version
 #define FREncryptVersion 7
 #define Version13DecoderMaxVersion 13
+#define Version13_2DecoderMaxVersion 14
 
 namespace DJI {
     namespace FlightRecord {

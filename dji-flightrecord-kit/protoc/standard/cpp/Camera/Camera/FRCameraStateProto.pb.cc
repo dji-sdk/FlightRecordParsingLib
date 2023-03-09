@@ -51,6 +51,7 @@ void InitDefaultsCameraState() {
 }
 
 ::google::protobuf::Metadata file_level_metadata[1];
+const ::google::protobuf::EnumDescriptor* file_level_enum_descriptors[1];
 
 const ::google::protobuf::uint32 TableStruct::offsets[] GOOGLE_PROTOBUF_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
   ~0u,  // no _has_bits_
@@ -74,6 +75,7 @@ const ::google::protobuf::uint32 TableStruct::offsets[] GOOGLE_PROTOBUF_ATTRIBUT
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::DJIFRProto::Standard::CameraState, availablecapturecount_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::DJIFRProto::Standard::CameraState, availablerecordingtimeinseconds_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::DJIFRProto::Standard::CameraState, index_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::DJIFRProto::Standard::CameraState, mode_),
 };
 static const ::google::protobuf::internal::MigrationSchema schemas[] GOOGLE_PROTOBUF_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
   { 0, -1, sizeof(::DJIFRProto::Standard::CameraState)},
@@ -88,7 +90,7 @@ void protobuf_AssignDescriptors() {
   ::google::protobuf::MessageFactory* factory = NULL;
   AssignDescriptors(
       "Camera/FRCameraStateProto.proto", schemas, file_default_instances, TableStruct::offsets, factory,
-      file_level_metadata, NULL, NULL);
+      file_level_metadata, file_level_enum_descriptors, NULL);
 }
 
 void protobuf_AssignDescriptorsOnce() {
@@ -106,7 +108,7 @@ void AddDescriptorsImpl() {
   InitDefaults();
   static const char descriptor[] GOOGLE_PROTOBUF_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
       "\n\037Camera/FRCameraStateProto.proto\022\023DJIFR"
-      "Proto.Standard\"\206\003\n\013CameraState\022\023\n\013isReco"
+      "Proto.Standard\"\256\004\n\013CameraState\022\023\n\013isReco"
       "rding\030\001 \001(\010\022\035\n\025isShootingSinglePhoto\030\002 \001"
       "(\010\022\022\n\nisInserted\030\003 \001(\010\022\026\n\016isInitializing"
       "\030\004 \001(\010\022\020\n\010hasError\030\005 \001(\010\022\022\n\nisVerified\030\006"
@@ -116,10 +118,14 @@ void AddDescriptorsImpl() {
       "ceInMB\030\014 \001(\r\022\032\n\022remainingSpaceInMB\030\r \001(\r"
       "\022\035\n\025availableCaptureCount\030\016 \001(\r\022\'\n\037avail"
       "ableRecordingTimeInSeconds\030\017 \001(\r\022\r\n\005inde"
-      "x\030\020 \001(\005B\r\242\002\nDJIFRProtob\006proto3"
+      "x\030\020 \001(\005\0229\n\004mode\030\021 \001(\0162+.DJIFRProto.Stand"
+      "ard.CameraState.CameraMode\"k\n\nCameraMode"
+      "\022\016\n\nShootPhoto\020\000\022\017\n\013RecordVideo\020\001\022\014\n\010Pla"
+      "yback\020\002\022\021\n\rMediaDownload\020\003\022\r\n\tBroadcast\020"
+      "\004\022\014\n\007Unknown\020\377\001B\r\242\002\nDJIFRProtob\006proto3"
   };
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-      descriptor, 470);
+      descriptor, 638);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "Camera/FRCameraStateProto.proto", &protobuf_RegisterTypes);
 }
@@ -137,6 +143,35 @@ struct StaticDescriptorInitializer {
 }  // namespace protobuf_Camera_2fFRCameraStateProto_2eproto
 namespace DJIFRProto {
 namespace Standard {
+const ::google::protobuf::EnumDescriptor* CameraState_CameraMode_descriptor() {
+  protobuf_Camera_2fFRCameraStateProto_2eproto::protobuf_AssignDescriptorsOnce();
+  return protobuf_Camera_2fFRCameraStateProto_2eproto::file_level_enum_descriptors[0];
+}
+bool CameraState_CameraMode_IsValid(int value) {
+  switch (value) {
+    case 0:
+    case 1:
+    case 2:
+    case 3:
+    case 4:
+    case 255:
+      return true;
+    default:
+      return false;
+  }
+}
+
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
+const CameraState_CameraMode CameraState::ShootPhoto;
+const CameraState_CameraMode CameraState::RecordVideo;
+const CameraState_CameraMode CameraState::Playback;
+const CameraState_CameraMode CameraState::MediaDownload;
+const CameraState_CameraMode CameraState::Broadcast;
+const CameraState_CameraMode CameraState::Unknown;
+const CameraState_CameraMode CameraState::CameraMode_MIN;
+const CameraState_CameraMode CameraState::CameraMode_MAX;
+const int CameraState::CameraMode_ARRAYSIZE;
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
 // ===================================================================
 
@@ -159,6 +194,7 @@ const int CameraState::kRemainingSpaceInMBFieldNumber;
 const int CameraState::kAvailableCaptureCountFieldNumber;
 const int CameraState::kAvailableRecordingTimeInSecondsFieldNumber;
 const int CameraState::kIndexFieldNumber;
+const int CameraState::kModeFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
 CameraState::CameraState()
@@ -175,15 +211,15 @@ CameraState::CameraState(const CameraState& from)
       _cached_size_(0) {
   _internal_metadata_.MergeFrom(from._internal_metadata_);
   ::memcpy(&isrecording_, &from.isrecording_,
-    static_cast<size_t>(reinterpret_cast<char*>(&index_) -
-    reinterpret_cast<char*>(&isrecording_)) + sizeof(index_));
+    static_cast<size_t>(reinterpret_cast<char*>(&mode_) -
+    reinterpret_cast<char*>(&isrecording_)) + sizeof(mode_));
   // @@protoc_insertion_point(copy_constructor:DJIFRProto.Standard.CameraState)
 }
 
 void CameraState::SharedCtor() {
   ::memset(&isrecording_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&index_) -
-      reinterpret_cast<char*>(&isrecording_)) + sizeof(index_));
+      reinterpret_cast<char*>(&mode_) -
+      reinterpret_cast<char*>(&isrecording_)) + sizeof(mode_));
   _cached_size_ = 0;
 }
 
@@ -225,8 +261,8 @@ void CameraState::Clear() {
   (void) cached_has_bits;
 
   ::memset(&isrecording_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&index_) -
-      reinterpret_cast<char*>(&isrecording_)) + sizeof(index_));
+      reinterpret_cast<char*>(&mode_) -
+      reinterpret_cast<char*>(&isrecording_)) + sizeof(mode_));
   _internal_metadata_.Clear();
 }
 
@@ -464,6 +500,21 @@ bool CameraState::MergePartialFromCodedStream(
         break;
       }
 
+      // .DJIFRProto.Standard.CameraState.CameraMode mode = 17;
+      case 17: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(136u /* 136 & 0xFF */)) {
+          int value;
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   int, ::google::protobuf::internal::WireFormatLite::TYPE_ENUM>(
+                 input, &value)));
+          set_mode(static_cast< ::DJIFRProto::Standard::CameraState_CameraMode >(value));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
       default: {
       handle_unusual:
         if (tag == 0) {
@@ -570,6 +621,12 @@ void CameraState::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(16, this->index(), output);
   }
 
+  // .DJIFRProto.Standard.CameraState.CameraMode mode = 17;
+  if (this->mode() != 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteEnum(
+      17, this->mode(), output);
+  }
+
   if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), output);
@@ -662,6 +719,12 @@ void CameraState::SerializeWithCachedSizes(
   // int32 index = 16;
   if (this->index() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(16, this->index(), target);
+  }
+
+  // .DJIFRProto.Standard.CameraState.CameraMode mode = 17;
+  if (this->mode() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteEnumToArray(
+      17, this->mode(), target);
   }
 
   if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
@@ -771,6 +834,12 @@ size_t CameraState::ByteSizeLong() const {
         this->index());
   }
 
+  // .DJIFRProto.Standard.CameraState.CameraMode mode = 17;
+  if (this->mode() != 0) {
+    total_size += 2 +
+      ::google::protobuf::internal::WireFormatLite::EnumSize(this->mode());
+  }
+
   int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = cached_size;
@@ -848,6 +917,9 @@ void CameraState::MergeFrom(const CameraState& from) {
   if (from.index() != 0) {
     set_index(from.index());
   }
+  if (from.mode() != 0) {
+    set_mode(from.mode());
+  }
 }
 
 void CameraState::CopyFrom(const ::google::protobuf::Message& from) {
@@ -890,6 +962,7 @@ void CameraState::InternalSwap(CameraState* other) {
   swap(availablecapturecount_, other->availablecapturecount_);
   swap(availablerecordingtimeinseconds_, other->availablerecordingtimeinseconds_);
   swap(index_, other->index_);
+  swap(mode_, other->mode_);
   _internal_metadata_.Swap(&other->_internal_metadata_);
   swap(_cached_size_, other->_cached_size_);
 }

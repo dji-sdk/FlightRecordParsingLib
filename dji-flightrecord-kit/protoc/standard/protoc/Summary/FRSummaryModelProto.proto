@@ -4,7 +4,7 @@ package DJIFRProto.Standard;
 
 option objc_class_prefix = "DJIFRProto";
 
-import "Common/FRCommonModelProto.proto";
+import "FRCommonModelProto.proto";
 
 message ComponentInformation {
     int32 index = 1;
@@ -53,4 +53,6 @@ message SummaryInformation {
     float maxVirticalSpeed = 17;
     /// Only one sortie marked
     string uuid = 18;
+    /// Only one sortie marked
+    SDK.ProductType productType = 19;
 }

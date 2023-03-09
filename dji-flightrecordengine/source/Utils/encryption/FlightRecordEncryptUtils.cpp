@@ -99,12 +99,17 @@ uint64_t DJI::FlightRecord::deEncryptData(uint8_t* destBuffer, uint8_t* originBu
 
 //MARK: - PKCS7 Padding
 
-BufferPtr DJI::FlightRecord::RemovePKCS7Padding(void *buffer, unsigned long length) {
+BufferPtr DJI::FlightRecord::RemovePKCS7Padding(void *buffer, unsigned long length, int block_size) {
     unsigned char lastBuffer = *((unsigned char *)buffer + length - 1);
-    if ((unsigned long)lastBuffer > length) {
+    if ((unsigned long)lastBuffer > block_size) {
+        return std::make_shared<Buffer>(buffer, length);
+    }
+    
+    auto buff_len = length - lastBuffer;
+    if (buff_len <= 0) {
         assert(false && "Invalid PKCS7 Padding");
         return nullptr;
     }
     
-    return std::make_shared<Buffer>(buffer, length - lastBuffer);
+    return std::make_shared<Buffer>(buffer, buff_len);
 }

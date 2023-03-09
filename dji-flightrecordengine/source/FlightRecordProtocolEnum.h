@@ -93,6 +93,7 @@ namespace DJI {
         enum class VersionCategory : uint16_t {
             None = 0,
             Version13_1 = 3,
+            Version13_2 = 4,
         };
     
         enum class Department : uint8_t {
@@ -102,6 +103,8 @@ namespace DJI {
             DJIFly = 3,
             AgriculturalMachinery = 4,
             Terra = 5,
+            DJIPilot = 7,
+            GSPro = 8,
         };
     
         typedef struct {

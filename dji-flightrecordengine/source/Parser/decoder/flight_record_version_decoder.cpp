@@ -101,7 +101,8 @@ VersionExtension DJI::FlightRecord::ParseVersion(const FileHandlerUtilsPtr& file
         return version_extension;
     }
     
-    if (detailPrefix.detailInfoFormatVersion == Version13DecoderMaxVersion) {
+    if (detailPrefix.detailInfoFormatVersion == Version13DecoderMaxVersion ||
+        detailPrefix.detailInfoFormatVersion == Version13_2DecoderMaxVersion) {
         return GetVersionCategoryBy13Decoder(file_handler);
     }
     

@@ -243,6 +243,7 @@ ParserResult FlightRecordParserProtocol::parseDetailData(FlightRecordParseDetail
     }
     decryption_layer->beginParser();
     
+    ParserResult result = ParserResult::Success;
     for (int i = 0; i <= detailDataLines;) {
         uint8_t dataType;
         if (tempCacheData->read(&dataType, sizeof(dataType)) < sizeof(dataType)) {
@@ -255,13 +256,22 @@ ParserResult FlightRecordParserProtocol::parseDetailData(FlightRecordParseDetail
         
         auto ciphertext_buf = suitableDecoder->DecodeDetailData(tempCacheData);
         
-        if (ciphertext_buf && dataType < FlightRecordTypeKindNum && dataType > 0) {
+        if (ciphertext_buf && dataType > 0) {
+            if (dataType >= FlightRecordTypeKindNum) {
+                assert("Unrecognized data type, find and add it to key_map!");
+                continue;
+            }
             bool isNeedToStop = false;
             detail_buffer_offset_.length = tempCacheData->m_location;
             
             bool is_parser_success = false;
             
             if (encryptMessage.isMagicEncrypt) {
+                if (ciphertext_buf->buffer_length_ <= 2) {
+                    result = ParserResult::FileDataContamination;
+                    break;
+                }
+                
                 auto dest_buf = std::make_shared<Buffer>(ciphertext_buf->buffer_length_ - 2);
                 uint64_t result_len = deEncryptData((uint8_t *)dest_buf->buffer_pointer_,
                                                     (uint8_t *)ciphertext_buf->buffer_pointer_,
@@ -315,7 +325,7 @@ ParserResult FlightRecordParserProtocol::parseDetailData(FlightRecordParseDetail
         has_detail_buffer_offset_ = true;
     }
     
-    return ParserResult::Success;
+    return result;
 }
 
 bool FlightRecordParserProtocol::parseDetailDataLocation(FlightRecordDetailBufferOffset &bufferOffset) {

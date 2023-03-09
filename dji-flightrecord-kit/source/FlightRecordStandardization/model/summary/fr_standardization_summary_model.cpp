@@ -216,3 +216,11 @@ std::string SummaryInformationImp::uuid() const {
 void SummaryInformationImp::set_uuid(const std::string& uuid) {
     uuid_ = uuid;
 }
+
+DJI::FlightRecord::ProductType SummaryInformationImp::product_type() const {
+    return product_type_;
+}
+
+void SummaryInformationImp::set_product_type(DJI::FlightRecord::ProductType product_type) {
+    product_type_ = product_type;
+}

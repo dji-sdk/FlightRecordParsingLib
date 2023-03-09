@@ -172,7 +172,8 @@ DJIDecodeDetailInfoFunction GetDecodeDetailInfoLambda() {
         size_t detailPrefixSize = sizeof(DJIFlightRecordDetailFilePrefixStruct);
         file_handler->seekFromStart(0);
         if (detailPrefixSize != file_handler->read(&detailPrefix, detailPrefixSize) ||
-            detailPrefix.detailInfoFormatVersion != 13) {
+            (detailPrefix.detailInfoFormatVersion < Version13DecoderMaxVersion ||
+             detailPrefix.detailInfoFormatVersion > Version13_2DecoderMaxVersion)) {
             return ParserResult::ReadFileError;
         }
         

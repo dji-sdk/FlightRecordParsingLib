@@ -13,6 +13,29 @@
 
 namespace DJIFR {
     namespace standardization {
+        enum class CameraMode {
+            /// Capture mode. In this mode, the user can capture pictures.
+            ShootPhoto = 0,
+            /// Record mode. In this mode, the user can record videos.
+            RecordVideo = 1,
+            /// Playback mode. In this mode, the user can preview photos and videos, and can
+            /// delete files. It is supported by Phantom 3 Professional camera, X3, X5 and X5R
+            /// cameras on aircraft and Phantom 4 camera. Playback mode is not supported by Z30,
+            /// X5S, X4S, Phantom 4 Pro, Mavic Pro, Phantom 3 Standard, Phantom 3 Advanced,
+            /// Phantom 3 4K and Osmo series.
+            Playback = 2,
+            /// In this mode, the user can download media to the Mobile Device. Not supported by
+            /// X5 camera nor X5R camera while mounted on aircraft.
+            MediaDownload = 3,
+            /// In this mode, live stream resolution and frame rate will be 1080i50 (PAL) or
+            /// 720p60 (NTSC). In this mode videos can be recorded. Still photos can also be
+            /// taken only when video is recording. The only way to exit broadcast mode is to
+            /// change modes to `DJICameraModeRecordVideo`. Only supported by Inspire 2.
+            Broadcast = 4,
+            /// The camera work mode is unknown.
+            Unknown = 0xFF,
+        };
+    
         class CameraState {
         public:
             
@@ -70,6 +93,9 @@ namespace DJIFR {
             
             /// Returns the number of seconds available for recording with the remaining space available on the storage.
             virtual uint32_t availableRecordingTimeInSeconds() const = 0;
+            
+            /// The current mode of the camera.
+            virtual CameraMode mode() const = 0;
         };
     
         using CameraStateSharedPtr = std::shared_ptr<CameraState>;

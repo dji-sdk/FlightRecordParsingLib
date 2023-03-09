@@ -90,6 +90,10 @@ namespace DJIFR {
             uint32_t availableRecordingTimeInSeconds() const override;
             void set_availableRecordingTimeInSeconds(uint32_t availableRecordingTimeInSeconds);
             
+            /// The current mode of the camera.
+            CameraMode mode() const override;
+            void set_mode(CameraMode mode);
+            
         private:
             int index_ = 0;
             
@@ -122,6 +126,8 @@ namespace DJIFR {
             uint32_t availableCaptureCount_ = 0;
             
             uint32_t availableRecordingTimeInSeconds_ = 0;
+            
+            CameraMode mode_ = CameraMode::Unknown;
         };
     }
 }

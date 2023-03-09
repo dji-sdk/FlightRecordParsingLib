@@ -127,7 +127,8 @@ BufferPtr Decryption13Layer::parseAESData(FlightRecordDataType type, BufferPtr a
     cbc_done(&cbc);
     
     BufferPtr plaintext = RemovePKCS7Padding(plaintext_padding->buffer_pointer_,
-                                             plaintext_padding->buffer_length_);
+                                             plaintext_padding->buffer_length_,
+                                             cbc.blocklen);
     
     return plaintext;
 }

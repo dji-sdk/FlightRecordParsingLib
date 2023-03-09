@@ -4,7 +4,7 @@ package DJIFRProto.Standard;
 
 option objc_class_prefix = "DJIFRProto";
 
-import "Common/FRCommonModelProto.proto";
+import "FRCommonModelProto.proto";
 
 message FlightWind {
     enum Warning {

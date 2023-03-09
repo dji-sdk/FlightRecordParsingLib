@@ -2,8 +2,6 @@
 //  crc64.h
 //  testEncryptFR
 //
-//  Copyright © 2016 ye.tao's Imac. All rights reserved.
-//
 
 #ifndef FlightRecordCRC64_h
 #define FlightRecordCRC64_h

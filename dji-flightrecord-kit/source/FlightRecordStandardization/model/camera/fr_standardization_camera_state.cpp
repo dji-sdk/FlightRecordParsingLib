@@ -169,3 +169,11 @@ uint32_t CameraStateImp::availableRecordingTimeInSeconds() const {
 void CameraStateImp::set_availableRecordingTimeInSeconds(uint32_t availableRecordingTimeInSeconds) {
     availableRecordingTimeInSeconds_ = availableRecordingTimeInSeconds;
 }
+
+CameraMode CameraStateImp::mode() const {
+    return mode_;
+}
+
+void CameraStateImp::set_mode(CameraMode mode) {
+    mode_ = mode;
+}

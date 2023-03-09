@@ -22,9 +22,9 @@ static bool FillGimbalAtti(const dji_gimbal_attitude_response &data_source,
                                                   data_source.yaw * 0.1f);
     output->set_attitude(attitude);
     
-    output->set_fineTunedRoll(data_source.roll_adjust_rad / 10.f);
-    output->set_fineTunedYaw(data_source.yaw_trim_val / 10.f);
-    output->set_fineTunedPitch(data_source.pitch_adjust_degree / 10.f);
+    output->set_fineTunedRoll(data_source.roll_adjust_rad / 10.0);
+    output->set_fineTunedYaw(data_source.yaw_trim_val / 10.0);
+    output->set_fineTunedPitch(data_source.pitch_adjust_degree / 10.0);
     
     output->set_isRollAtStop(data_source.row_limited);
     output->set_isYawAtStop(data_source.yaw_limited);

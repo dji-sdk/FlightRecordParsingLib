@@ -13,6 +13,7 @@
 #include "fr_standardization_common_interface.h"
 #include <map>
 #include <vector>
+#include <model/protocol/dji_product_type.h>
 
 namespace DJIFR {
     namespace standardization {
@@ -88,6 +89,9 @@ namespace DJIFR {
             
             /// Only one sortie marked
             virtual std::string uuid() const = 0;
+            
+            /// Product Type
+            virtual DJI::FlightRecord::ProductType product_type() const = 0;
         };
     
         using SummaryInformationSharedPtr = std::shared_ptr<SummaryInformation>;

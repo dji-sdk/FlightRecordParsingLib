@@ -220,6 +220,7 @@ const ::google::protobuf::uint32 TableStruct::offsets[] GOOGLE_PROTOBUF_ATTRIBUT
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::DJIFRProto::Standard::SummaryInformation, maxhorizontalspeed_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::DJIFRProto::Standard::SummaryInformation, maxvirticalspeed_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::DJIFRProto::Standard::SummaryInformation, uuid_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::DJIFRProto::Standard::SummaryInformation, producttype_),
 };
 static const ::google::protobuf::internal::MigrationSchema schemas[] GOOGLE_PROTOBUF_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
   { 0, -1, sizeof(::DJIFRProto::Standard::ComponentInformation)},
@@ -263,7 +264,7 @@ void AddDescriptorsImpl() {
       "FRProto.Standard\032\037Common/FRCommonModelPr"
       "oto.proto\"T\n\024ComponentInformation\022\r\n\005ind"
       "ex\030\001 \001(\005\022\027\n\017firmwareVersion\030\002 \003(\005\022\024\n\014ser"
-      "ialNumber\030\003 \001(\t\"\243\t\n\022SummaryInformation\022B"
+      "ialNumber\030\003 \001(\t\"\336\t\n\022SummaryInformation\022B"
       "\n\010platform\030\001 \001(\01620.DJIFRProto.Standard.S"
       "ummaryInformation.Platform\022\022\n\nappVersion"
       "\030\002 \003(\005\022_\n\024batteriesInformation\030\003 \003(\0132A.D"
@@ -283,20 +284,22 @@ void AddDescriptorsImpl() {
       "\n\rtotalDistance\030\014 \001(\002\022\021\n\ttotalTime\030\r \001(\001"
       "\022\024\n\014samplingRate\030\016 \001(\005\022\021\n\tmaxHeight\030\017 \001("
       "\002\022\032\n\022maxHorizontalSpeed\030\020 \001(\002\022\030\n\020maxVirt"
-      "icalSpeed\030\021 \001(\002\022\014\n\004uuid\030\022 \001(\t\032f\n\031Batteri"
-      "esInformationEntry\022\013\n\003key\030\001 \001(\005\0228\n\005value"
-      "\030\002 \001(\0132).DJIFRProto.Standard.ComponentIn"
-      "formation:\0028\001\032d\n\027CamerasInformationEntry"
-      "\022\013\n\003key\030\001 \001(\005\0228\n\005value\030\002 \001(\0132).DJIFRProt"
-      "o.Standard.ComponentInformation:\0028\001\032d\n\027G"
-      "imbalsInformationEntry\022\013\n\003key\030\001 \001(\005\0228\n\005v"
-      "alue\030\002 \001(\0132).DJIFRProto.Standard.Compone"
-      "ntInformation:\0028\001\"B\n\010Platform\022\013\n\007Unknown"
-      "\020\000\022\007\n\003iOS\020\001\022\013\n\007Android\020\002\022\n\n\006Window\020\n\022\007\n\003"
-      "Mac\020\013B\r\242\002\nDJIFRProtob\006proto3"
+      "icalSpeed\030\021 \001(\002\022\014\n\004uuid\030\022 \001(\t\0229\n\013product"
+      "Type\030\023 \001(\0162$.DJIFRProto.Standard.SDK.Pro"
+      "ductType\032f\n\031BatteriesInformationEntry\022\013\n"
+      "\003key\030\001 \001(\005\0228\n\005value\030\002 \001(\0132).DJIFRProto.S"
+      "tandard.ComponentInformation:\0028\001\032d\n\027Came"
+      "rasInformationEntry\022\013\n\003key\030\001 \001(\005\0228\n\005valu"
+      "e\030\002 \001(\0132).DJIFRProto.Standard.ComponentI"
+      "nformation:\0028\001\032d\n\027GimbalsInformationEntr"
+      "y\022\013\n\003key\030\001 \001(\005\0228\n\005value\030\002 \001(\0132).DJIFRPro"
+      "to.Standard.ComponentInformation:\0028\001\"B\n\010"
+      "Platform\022\013\n\007Unknown\020\000\022\007\n\003iOS\020\001\022\013\n\007Androi"
+      "d\020\002\022\n\n\006Window\020\n\022\007\n\003Mac\020\013B\r\242\002\nDJIFRProtob"
+      "\006proto3"
   };
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-      descriptor, 1388);
+      descriptor, 1447);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "Summary/FRSummaryModelProto.proto", &protobuf_RegisterTypes);
   ::protobuf_Common_2fFRCommonModelProto_2eproto::AddDescriptors();
@@ -787,6 +790,7 @@ const int SummaryInformation::kMaxHeightFieldNumber;
 const int SummaryInformation::kMaxHorizontalSpeedFieldNumber;
 const int SummaryInformation::kMaxVirticalSpeedFieldNumber;
 const int SummaryInformation::kUuidFieldNumber;
+const int SummaryInformation::kProductTypeFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
 SummaryInformation::SummaryInformation()
@@ -830,8 +834,8 @@ SummaryInformation::SummaryInformation(const SummaryInformation& from)
     startcoordinate_ = NULL;
   }
   ::memcpy(&platform_, &from.platform_,
-    static_cast<size_t>(reinterpret_cast<char*>(&maxvirticalspeed_) -
-    reinterpret_cast<char*>(&platform_)) + sizeof(maxvirticalspeed_));
+    static_cast<size_t>(reinterpret_cast<char*>(&producttype_) -
+    reinterpret_cast<char*>(&platform_)) + sizeof(producttype_));
   // @@protoc_insertion_point(copy_constructor:DJIFRProto.Standard.SummaryInformation)
 }
 
@@ -839,8 +843,8 @@ void SummaryInformation::SharedCtor() {
   aircraftname_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   uuid_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   ::memset(&remotecontrollerinformation_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&maxvirticalspeed_) -
-      reinterpret_cast<char*>(&remotecontrollerinformation_)) + sizeof(maxvirticalspeed_));
+      reinterpret_cast<char*>(&producttype_) -
+      reinterpret_cast<char*>(&remotecontrollerinformation_)) + sizeof(producttype_));
   _cached_size_ = 0;
 }
 
@@ -905,8 +909,8 @@ void SummaryInformation::Clear() {
   }
   startcoordinate_ = NULL;
   ::memset(&platform_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&maxvirticalspeed_) -
-      reinterpret_cast<char*>(&platform_)) + sizeof(maxvirticalspeed_));
+      reinterpret_cast<char*>(&producttype_) -
+      reinterpret_cast<char*>(&platform_)) + sizeof(producttype_));
   _internal_metadata_.Clear();
 }
 
@@ -1177,6 +1181,21 @@ bool SummaryInformation::MergePartialFromCodedStream(
         break;
       }
 
+      // .DJIFRProto.Standard.SDK.ProductType productType = 19;
+      case 19: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(152u /* 152 & 0xFF */)) {
+          int value;
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   int, ::google::protobuf::internal::WireFormatLite::TYPE_ENUM>(
+                 input, &value)));
+          set_producttype(static_cast< ::DJIFRProto::Standard::SDK_ProductType >(value));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
       default: {
       handle_unusual:
         if (tag == 0) {
@@ -1408,6 +1427,12 @@ void SummaryInformation::SerializeWithCachedSizes(
       "DJIFRProto.Standard.SummaryInformation.uuid");
     ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
       18, this->uuid(), output);
+  }
+
+  // .DJIFRProto.Standard.SDK.ProductType productType = 19;
+  if (this->producttype() != 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteEnum(
+      19, this->producttype(), output);
   }
 
   if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
@@ -1650,6 +1675,12 @@ void SummaryInformation::SerializeWithCachedSizes(
         18, this->uuid(), target);
   }
 
+  // .DJIFRProto.Standard.SDK.ProductType productType = 19;
+  if (this->producttype() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteEnumToArray(
+      19, this->producttype(), target);
+  }
+
   if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
     target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
         (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), target);
@@ -1803,6 +1834,12 @@ size_t SummaryInformation::ByteSizeLong() const {
     total_size += 2 + 4;
   }
 
+  // .DJIFRProto.Standard.SDK.ProductType productType = 19;
+  if (this->producttype() != 0) {
+    total_size += 2 +
+      ::google::protobuf::internal::WireFormatLite::EnumSize(this->producttype());
+  }
+
   int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = cached_size;
@@ -1877,6 +1914,9 @@ void SummaryInformation::MergeFrom(const SummaryInformation& from) {
   if (from.maxvirticalspeed() != 0) {
     set_maxvirticalspeed(from.maxvirticalspeed());
   }
+  if (from.producttype() != 0) {
+    set_producttype(from.producttype());
+  }
 }
 
 void SummaryInformation::CopyFrom(const ::google::protobuf::Message& from) {
@@ -1920,6 +1960,7 @@ void SummaryInformation::InternalSwap(SummaryInformation* other) {
   swap(maxheight_, other->maxheight_);
   swap(maxhorizontalspeed_, other->maxhorizontalspeed_);
   swap(maxvirticalspeed_, other->maxvirticalspeed_);
+  swap(producttype_, other->producttype_);
   _internal_metadata_.Swap(&other->_internal_metadata_);
   swap(_cached_size_, other->_cached_size_);
 }

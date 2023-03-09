@@ -14,7 +14,7 @@ Flight record parsing library can parse version 13 flight log files. Convert DJI
 
 * FRSample: Used to introduce how to call interfaces and parse data
 * FlightRecordStandardizationCpp: Used to convert C++ structure objects into Protobuf objects for cross-platform data transfer
-* FlightRecordStandardization: Record the raw data in 10 HZ, and present a view model of aircraft status
+* FlightRecordStandardization: Used to record the raw data in 10 HZ, and present a view model of aircraft status
 * FlightRecordEngine: Used to parse cryptographic data to plaintext data
 * libtomcrypt/libtommath: Used to decrypt original documents
 * curl/openssl: Used to communicate with DJIService to get the decryption key
@@ -26,7 +26,7 @@ Here is an introduction to the role of file directories：
 * FR-V1.0.0/third-party/source: Source files storage location of the dependent third-party platform libraries. The specific compilation method needs to be solved by yourself.
 * FR-V1.0.0/third-party/header: Header files storage location of the dependent third-party platform libraries
 * FR-V1.0.0/third-party/cmake: For CMake to compile custom functions
-* FR-V1.0.0/third-party/build: Used to store compiled products of third-party libraries, and it can only run on certain platforms
+* FR-V1.0.0/third-party/build: Storage location of compiled products of third-party libraries, and it can only run on certain platforms
 * FR-V1.0.0/dji-flightrecord-engine/build: Compilation products for each platform used to house the dji-flightrecordengine library
 * FR-V1.0.0/dji-flightrecord-engine/source: Source code for the dji-flightrecordengine library
 * FR-V1.0.0/dji-flightrecord-kit/build: Compilation products for each platform used to house the dji-flightrecord-kit library
@@ -35,6 +35,25 @@ Here is an introduction to the role of file directories：
 * FR-V1.0.0/images：Photo resources cited in README
 
 ## How to run the sample?
+
+### Running the sample in Docker
+**Get docker** 
+
+https://docs.docker.com/get-docker
+
+**Build docker image**
+```shell
+docker build --build-arg SDK_KEY=your_sdk_key -t pf .
+```
+
+**Docker run**
+```shell
+docker run -v host_dir:container_dir -it pf "container_flight_record_dir"
+```
+Sample code：
+docker run -v $(pwd):/tmp -it pf "/tmp/V132_DJIFlightRecord_2020-06-18_[19-01-24].txt" > json_result.json
+
+"> json_result.json" Redirecting the running result to a specified file
 
 ### Running the Sample in Mac
 
@@ -53,7 +72,7 @@ sh generate.sh
 2. Go to the main.cc file and configure the path of the file you want to parse to the variable file_path
 3. Configure the sdk key parameter of the 'startRequestParser' interface and you are able to parse the file for the version of Flight Record 13
 
-### Runing the sample in Ubuntu
+### Running the sample in Ubuntu
 
 ```shell
 cd dji-flightrecord-kit/build/Ubuntu/FRSample

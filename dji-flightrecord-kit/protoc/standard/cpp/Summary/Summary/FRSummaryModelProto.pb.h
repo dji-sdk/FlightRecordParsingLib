@@ -561,6 +561,12 @@ class SummaryInformation : public ::google::protobuf::Message /* @@protoc_insert
   float maxvirticalspeed() const;
   void set_maxvirticalspeed(float value);
 
+  // .DJIFRProto.Standard.SDK.ProductType productType = 19;
+  void clear_producttype();
+  static const int kProductTypeFieldNumber = 19;
+  ::DJIFRProto::Standard::SDK_ProductType producttype() const;
+  void set_producttype(::DJIFRProto::Standard::SDK_ProductType value);
+
   // @@protoc_insertion_point(class_scope:DJIFRProto.Standard.SummaryInformation)
  private:
 
@@ -598,6 +604,7 @@ class SummaryInformation : public ::google::protobuf::Message /* @@protoc_insert
   float maxheight_;
   float maxhorizontalspeed_;
   float maxvirticalspeed_;
+  int producttype_;
   mutable int _cached_size_;
   friend struct ::protobuf_Summary_2fFRSummaryModelProto_2eproto::TableStruct;
   friend void ::protobuf_Summary_2fFRSummaryModelProto_2eproto::InitDefaultsSummaryInformationImpl();
@@ -1164,6 +1171,20 @@ inline void SummaryInformation::set_allocated_uuid(::std::string* uuid) {
   }
   uuid_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), uuid);
   // @@protoc_insertion_point(field_set_allocated:DJIFRProto.Standard.SummaryInformation.uuid)
+}
+
+// .DJIFRProto.Standard.SDK.ProductType productType = 19;
+inline void SummaryInformation::clear_producttype() {
+  producttype_ = 0;
+}
+inline ::DJIFRProto::Standard::SDK_ProductType SummaryInformation::producttype() const {
+  // @@protoc_insertion_point(field_get:DJIFRProto.Standard.SummaryInformation.productType)
+  return static_cast< ::DJIFRProto::Standard::SDK_ProductType >(producttype_);
+}
+inline void SummaryInformation::set_producttype(::DJIFRProto::Standard::SDK_ProductType value) {
+  
+  producttype_ = value;
+  // @@protoc_insertion_point(field_set:DJIFRProto.Standard.SummaryInformation.productType)
 }
 
 #ifdef __GNUC__

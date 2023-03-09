@@ -16,7 +16,7 @@ using namespace DJI::FlightRecord;
 static bool FillOFDMRadioSignalPush(const dji_ofdm_radio_signal_push& data_source,
                                     std::shared_ptr<AirLinkStateImp>& output) {
     if (output->drone_type() == DroneType::Unknown) {
-        return false;
+        return true;
     }
     
     switch (output->drone_type()) {

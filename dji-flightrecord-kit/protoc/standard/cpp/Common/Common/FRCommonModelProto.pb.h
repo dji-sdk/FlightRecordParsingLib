@@ -37,7 +37,7 @@ namespace protobuf_Common_2fFRCommonModelProto_2eproto {
 struct TableStruct {
   static const ::google::protobuf::internal::ParseTableField entries[];
   static const ::google::protobuf::internal::AuxillaryParseTableField aux[];
-  static const ::google::protobuf::internal::ParseTable schema[4];
+  static const ::google::protobuf::internal::ParseTable schema[5];
   static const ::google::protobuf::internal::FieldMetadata field_metadata[];
   static const ::google::protobuf::internal::SerializationTable serialization_table[];
   static const ::google::protobuf::uint32 offsets[];
@@ -51,11 +51,14 @@ void InitDefaultsAttitudeImpl();
 void InitDefaultsAttitude();
 void InitDefaultsGPSSignalImpl();
 void InitDefaultsGPSSignal();
+void InitDefaultsSDKImpl();
+void InitDefaultsSDK();
 inline void InitDefaults() {
   InitDefaultsLocationCoordinate2D();
   InitDefaultsVelocity();
   InitDefaultsAttitude();
   InitDefaultsGPSSignal();
+  InitDefaultsSDK();
 }
 }  // namespace protobuf_Common_2fFRCommonModelProto_2eproto
 namespace DJIFRProto {
@@ -69,6 +72,9 @@ extern GPSSignalDefaultTypeInternal _GPSSignal_default_instance_;
 class LocationCoordinate2D;
 class LocationCoordinate2DDefaultTypeInternal;
 extern LocationCoordinate2DDefaultTypeInternal _LocationCoordinate2D_default_instance_;
+class SDK;
+class SDKDefaultTypeInternal;
+extern SDKDefaultTypeInternal _SDK_default_instance_;
 class Velocity;
 class VelocityDefaultTypeInternal;
 extern VelocityDefaultTypeInternal _Velocity_default_instance_;
@@ -102,6 +108,63 @@ inline bool GPSSignal_Level_Parse(
     const ::std::string& name, GPSSignal_Level* value) {
   return ::google::protobuf::internal::ParseNamedEnum<GPSSignal_Level>(
     GPSSignal_Level_descriptor(), name, value);
+}
+enum SDK_ProductType {
+  SDK_ProductType_None = 0,
+  SDK_ProductType_ZUYdiVOVXfGCLDcI = 1,
+  SDK_ProductType_Phantom3Standard = 2,
+  SDK_ProductType_jwtAbyahuARrhuhr = 3,
+  SDK_ProductType_kshQeTGrEeTmtpoe = 4,
+  SDK_ProductType_Phantom4 = 7,
+  SDK_ProductType_qvMmdCGxrtrJWvxx = 8,
+  SDK_ProductType_CdogAypKribEXKfS = 9,
+  SDK_ProductType_Matrice600 = 11,
+  SDK_ProductType_Phantom34K = 12,
+  SDK_ProductType_MavicPro = 13,
+  SDK_ProductType_Inspire2 = 17,
+  SDK_ProductType_Phantom4Pro = 24,
+  SDK_ProductType_Spark = 26,
+  SDK_ProductType_Matrice600Pro = 27,
+  SDK_ProductType_Phantom4Advanced = 28,
+  SDK_ProductType_Phantom3SE = 29,
+  SDK_ProductType_Matrice200 = 31,
+  SDK_ProductType_Matrice210 = 33,
+  SDK_ProductType_Matrice210RTK = 34,
+  SDK_ProductType_MavicAir = 38,
+  SDK_ProductType_Mavic2 = 42,
+  SDK_ProductType_Phantom4ProV2 = 44,
+  SDK_ProductType_Phantom4RTK = 46,
+  SDK_ProductType_P4Multispectral = 57,
+  SDK_ProductType_Mavic2Enterprise = 58,
+  SDK_ProductType_MavicMini = 59,
+  SDK_ProductType_Matrice200V2 = 60,
+  SDK_ProductType_Matrice210V2 = 61,
+  SDK_ProductType_Matrice210RTKV2 = 62,
+  SDK_ProductType_MavicAir2 = 67,
+  SDK_ProductType_Matrice300RTK = 70,
+  SDK_ProductType_DJIFPV = 73,
+  SDK_ProductType_MavicAir2S = 75,
+  SDK_ProductType_MavicMini2 = 76,
+  SDK_ProductType_Mavic3 = 77,
+  SDK_ProductType_MavicMiniSE = 96,
+  SDK_ProductType_Matrice30 = 116,
+  SDK_ProductType_SDK_ProductType_INT_MIN_SENTINEL_DO_NOT_USE_ = ::google::protobuf::kint32min,
+  SDK_ProductType_SDK_ProductType_INT_MAX_SENTINEL_DO_NOT_USE_ = ::google::protobuf::kint32max
+};
+bool SDK_ProductType_IsValid(int value);
+const SDK_ProductType SDK_ProductType_ProductType_MIN = SDK_ProductType_None;
+const SDK_ProductType SDK_ProductType_ProductType_MAX = SDK_ProductType_Matrice30;
+const int SDK_ProductType_ProductType_ARRAYSIZE = SDK_ProductType_ProductType_MAX + 1;
+
+const ::google::protobuf::EnumDescriptor* SDK_ProductType_descriptor();
+inline const ::std::string& SDK_ProductType_Name(SDK_ProductType value) {
+  return ::google::protobuf::internal::NameOfEnum(
+    SDK_ProductType_descriptor(), value);
+}
+inline bool SDK_ProductType_Parse(
+    const ::std::string& name, SDK_ProductType* value) {
+  return ::google::protobuf::internal::ParseNamedEnum<SDK_ProductType>(
+    SDK_ProductType_descriptor(), name, value);
 }
 // ===================================================================
 
@@ -563,6 +626,196 @@ class GPSSignal : public ::google::protobuf::Message /* @@protoc_insertion_point
   friend struct ::protobuf_Common_2fFRCommonModelProto_2eproto::TableStruct;
   friend void ::protobuf_Common_2fFRCommonModelProto_2eproto::InitDefaultsGPSSignalImpl();
 };
+// -------------------------------------------------------------------
+
+class SDK : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:DJIFRProto.Standard.SDK) */ {
+ public:
+  SDK();
+  virtual ~SDK();
+
+  SDK(const SDK& from);
+
+  inline SDK& operator=(const SDK& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  #if LANG_CXX11
+  SDK(SDK&& from) noexcept
+    : SDK() {
+    *this = ::std::move(from);
+  }
+
+  inline SDK& operator=(SDK&& from) noexcept {
+    if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+  #endif
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const SDK& default_instance();
+
+  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
+  static inline const SDK* internal_default_instance() {
+    return reinterpret_cast<const SDK*>(
+               &_SDK_default_instance_);
+  }
+  static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
+    4;
+
+  void Swap(SDK* other);
+  friend void swap(SDK& a, SDK& b) {
+    a.Swap(&b);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline SDK* New() const PROTOBUF_FINAL { return New(NULL); }
+
+  SDK* New(::google::protobuf::Arena* arena) const PROTOBUF_FINAL;
+  void CopyFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void MergeFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void CopyFrom(const SDK& from);
+  void MergeFrom(const SDK& from);
+  void Clear() PROTOBUF_FINAL;
+  bool IsInitialized() const PROTOBUF_FINAL;
+
+  size_t ByteSizeLong() const PROTOBUF_FINAL;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input) PROTOBUF_FINAL;
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const PROTOBUF_FINAL;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* target) const PROTOBUF_FINAL;
+  int GetCachedSize() const PROTOBUF_FINAL { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const PROTOBUF_FINAL;
+  void InternalSwap(SDK* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return NULL;
+  }
+  inline void* MaybeArenaPtr() const {
+    return NULL;
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const PROTOBUF_FINAL;
+
+  // nested types ----------------------------------------------------
+
+  typedef SDK_ProductType ProductType;
+  static const ProductType None =
+    SDK_ProductType_None;
+  static const ProductType ZUYdiVOVXfGCLDcI =
+    SDK_ProductType_ZUYdiVOVXfGCLDcI;
+  static const ProductType Phantom3Standard =
+    SDK_ProductType_Phantom3Standard;
+  static const ProductType jwtAbyahuARrhuhr =
+    SDK_ProductType_jwtAbyahuARrhuhr;
+  static const ProductType kshQeTGrEeTmtpoe =
+    SDK_ProductType_kshQeTGrEeTmtpoe;
+  static const ProductType Phantom4 =
+    SDK_ProductType_Phantom4;
+  static const ProductType qvMmdCGxrtrJWvxx =
+    SDK_ProductType_qvMmdCGxrtrJWvxx;
+  static const ProductType CdogAypKribEXKfS =
+    SDK_ProductType_CdogAypKribEXKfS;
+  static const ProductType Matrice600 =
+    SDK_ProductType_Matrice600;
+  static const ProductType Phantom34K =
+    SDK_ProductType_Phantom34K;
+  static const ProductType MavicPro =
+    SDK_ProductType_MavicPro;
+  static const ProductType Inspire2 =
+    SDK_ProductType_Inspire2;
+  static const ProductType Phantom4Pro =
+    SDK_ProductType_Phantom4Pro;
+  static const ProductType Spark =
+    SDK_ProductType_Spark;
+  static const ProductType Matrice600Pro =
+    SDK_ProductType_Matrice600Pro;
+  static const ProductType Phantom4Advanced =
+    SDK_ProductType_Phantom4Advanced;
+  static const ProductType Phantom3SE =
+    SDK_ProductType_Phantom3SE;
+  static const ProductType Matrice200 =
+    SDK_ProductType_Matrice200;
+  static const ProductType Matrice210 =
+    SDK_ProductType_Matrice210;
+  static const ProductType Matrice210RTK =
+    SDK_ProductType_Matrice210RTK;
+  static const ProductType MavicAir =
+    SDK_ProductType_MavicAir;
+  static const ProductType Mavic2 =
+    SDK_ProductType_Mavic2;
+  static const ProductType Phantom4ProV2 =
+    SDK_ProductType_Phantom4ProV2;
+  static const ProductType Phantom4RTK =
+    SDK_ProductType_Phantom4RTK;
+  static const ProductType P4Multispectral =
+    SDK_ProductType_P4Multispectral;
+  static const ProductType Mavic2Enterprise =
+    SDK_ProductType_Mavic2Enterprise;
+  static const ProductType MavicMini =
+    SDK_ProductType_MavicMini;
+  static const ProductType Matrice200V2 =
+    SDK_ProductType_Matrice200V2;
+  static const ProductType Matrice210V2 =
+    SDK_ProductType_Matrice210V2;
+  static const ProductType Matrice210RTKV2 =
+    SDK_ProductType_Matrice210RTKV2;
+  static const ProductType MavicAir2 =
+    SDK_ProductType_MavicAir2;
+  static const ProductType Matrice300RTK =
+    SDK_ProductType_Matrice300RTK;
+  static const ProductType DJIFPV =
+    SDK_ProductType_DJIFPV;
+  static const ProductType MavicAir2S =
+    SDK_ProductType_MavicAir2S;
+  static const ProductType MavicMini2 =
+    SDK_ProductType_MavicMini2;
+  static const ProductType Mavic3 =
+    SDK_ProductType_Mavic3;
+  static const ProductType MavicMiniSE =
+    SDK_ProductType_MavicMiniSE;
+  static const ProductType Matrice30 =
+    SDK_ProductType_Matrice30;
+  static inline bool ProductType_IsValid(int value) {
+    return SDK_ProductType_IsValid(value);
+  }
+  static const ProductType ProductType_MIN =
+    SDK_ProductType_ProductType_MIN;
+  static const ProductType ProductType_MAX =
+    SDK_ProductType_ProductType_MAX;
+  static const int ProductType_ARRAYSIZE =
+    SDK_ProductType_ProductType_ARRAYSIZE;
+  static inline const ::google::protobuf::EnumDescriptor*
+  ProductType_descriptor() {
+    return SDK_ProductType_descriptor();
+  }
+  static inline const ::std::string& ProductType_Name(ProductType value) {
+    return SDK_ProductType_Name(value);
+  }
+  static inline bool ProductType_Parse(const ::std::string& name,
+      ProductType* value) {
+    return SDK_ProductType_Parse(name, value);
+  }
+
+  // accessors -------------------------------------------------------
+
+  // @@protoc_insertion_point(class_scope:DJIFRProto.Standard.SDK)
+ private:
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  mutable int _cached_size_;
+  friend struct ::protobuf_Common_2fFRCommonModelProto_2eproto::TableStruct;
+  friend void ::protobuf_Common_2fFRCommonModelProto_2eproto::InitDefaultsSDKImpl();
+};
 // ===================================================================
 
 
@@ -698,9 +951,15 @@ inline void Attitude::set_yaw(double value) {
 
 // GPSSignal
 
+// -------------------------------------------------------------------
+
+// SDK
+
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------
@@ -720,6 +979,11 @@ template <> struct is_proto_enum< ::DJIFRProto::Standard::GPSSignal_Level> : ::g
 template <>
 inline const EnumDescriptor* GetEnumDescriptor< ::DJIFRProto::Standard::GPSSignal_Level>() {
   return ::DJIFRProto::Standard::GPSSignal_Level_descriptor();
+}
+template <> struct is_proto_enum< ::DJIFRProto::Standard::SDK_ProductType> : ::google::protobuf::internal::true_type {};
+template <>
+inline const EnumDescriptor* GetEnumDescriptor< ::DJIFRProto::Standard::SDK_ProductType>() {
+  return ::DJIFRProto::Standard::SDK_ProductType_descriptor();
 }
 
 }  // namespace protobuf

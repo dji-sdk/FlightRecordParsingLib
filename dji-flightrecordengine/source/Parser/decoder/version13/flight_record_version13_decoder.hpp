@@ -17,7 +17,7 @@ namespace DJI {
         public:
             //MARK: - Config
             Version13Decoder();
-            ~Version13Decoder();
+            virtual ~Version13Decoder();
             
             //MARK: - Decode
             

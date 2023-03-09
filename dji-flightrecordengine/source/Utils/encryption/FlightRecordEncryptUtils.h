@@ -22,8 +22,11 @@ namespace DJI {
         /// Remove the PKCS7 Padding data.
         /// @param buffer  the padding data.
         /// @param length  the length of the padding data.
+        /// @param block_size  the block size. Should be multiple of 8 bytes. The maximum number is 255.
         /// @return the data without padding.
-        BufferPtr RemovePKCS7Padding(void *buffer, unsigned long length);
+        BufferPtr RemovePKCS7Padding(void *buffer,
+                                     unsigned long length,
+                                     int block_size);
     }
 }
 

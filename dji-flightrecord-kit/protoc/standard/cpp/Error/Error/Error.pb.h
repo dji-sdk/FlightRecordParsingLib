@@ -60,6 +60,8 @@ enum FRError {
   FeatureNotSupported = 5,
   DecoderFailed = 6,
   FileOperationFailed = 7,
+  FileDataContamination = 8,
+  DataFormatChecksumFailure = 9,
   Failure = 255,
   FRError_INT_MIN_SENTINEL_DO_NOT_USE_ = ::google::protobuf::kint32min,
   FRError_INT_MAX_SENTINEL_DO_NOT_USE_ = ::google::protobuf::kint32max

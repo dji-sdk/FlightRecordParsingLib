@@ -14,19 +14,25 @@ namespace DJIFR {
             /// Success
             Success = 0,
             /// Parameters invalid error.
-            InvalidParameters,
+            InvalidParameters = 1,
             /// Illegal file content.
-            IllegalFileContent,
+            IllegalFileContent = 2,
             /// The file is not a supported version
-            VersionNotSupport,
+            VersionNotSupport = 3,
             /// No parser,
-            NoParser,
+            NoParser = 4,
             /// Feature not supported error.
-            FeatureNotSupported,
+            FeatureNotSupported = 5,
             /// Decode failure due to some message lost.
-            DecoderFailed,
+            DecoderFailed = 6,
             /// File operation failed.
-            FileOperationFailed,
+            FileOperationFailed = 7,
+            /// File data contamination
+            FileDataContamination = 8,
+            /// There are two possible causes.
+            /// 1. Failure to fill data occurs when
+            /// 2. Throw unsupported data fill types into the fill function.
+            DataFormatChecksumFailure = 9,
             /// Failure due to unknown cause.
             Failure = 255,
         };

@@ -152,7 +152,7 @@ ParserResult FlightRecordParserEngine::addDecryptionLayer(DecryptionLayerPtr &la
 ParserResult FlightRecordParserEngine::createFileParser(uint8_t formatVersion) {
     std::shared_ptr<FlightRecordParserProtocol> tempParser = nullptr;
     
-    if (formatVersion != Version13DecoderMaxVersion) {
+    if (formatVersion < Version13DecoderMaxVersion) {
         return ParserResult::VersionNotSupport;
     }
     

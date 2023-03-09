@@ -42,6 +42,24 @@ namespace DJI {
             /// Flight Hub
             /// It is currently version 13.1 in use.
             FlightHubFeature,
+            /// Gimbal Feature. Basic Gimbal Data
+            /// Currently in use with version 13.2
+            GimbalFeature,
+            /// RC Feature. Base RC Data
+            /// Currently in use with version 13.2
+            RCFeature,
+            /// Camera Feature. Base Camera Data.
+            /// Currently in use with version 13.2
+            CameraFeature,
+            /// Battery Feature. Base Battery Data.
+            /// Currently in use with version 13.2
+            BatteryFeature,
+            /// FlySafe Feature.
+            /// Currently in use with version 13.2
+            FlySafeFeature,
+            /// Security Feature.
+            /// Currently in use with version 13.2
+            SecurityFeature,
         };
     }
 }

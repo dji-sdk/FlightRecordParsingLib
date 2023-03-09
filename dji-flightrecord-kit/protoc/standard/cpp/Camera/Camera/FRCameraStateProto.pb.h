@@ -28,6 +28,7 @@
 #include <google/protobuf/message.h>
 #include <google/protobuf/repeated_field.h>  // IWYU pragma: export
 #include <google/protobuf/extension_set.h>  // IWYU pragma: export
+#include <google/protobuf/generated_enum_reflection.h>
 #include <google/protobuf/unknown_field_set.h>
 // @@protoc_insertion_point(includes)
 
@@ -58,6 +59,31 @@ extern CameraStateDefaultTypeInternal _CameraState_default_instance_;
 namespace DJIFRProto {
 namespace Standard {
 
+enum CameraState_CameraMode {
+  CameraState_CameraMode_ShootPhoto = 0,
+  CameraState_CameraMode_RecordVideo = 1,
+  CameraState_CameraMode_Playback = 2,
+  CameraState_CameraMode_MediaDownload = 3,
+  CameraState_CameraMode_Broadcast = 4,
+  CameraState_CameraMode_Unknown = 255,
+  CameraState_CameraMode_CameraState_CameraMode_INT_MIN_SENTINEL_DO_NOT_USE_ = ::google::protobuf::kint32min,
+  CameraState_CameraMode_CameraState_CameraMode_INT_MAX_SENTINEL_DO_NOT_USE_ = ::google::protobuf::kint32max
+};
+bool CameraState_CameraMode_IsValid(int value);
+const CameraState_CameraMode CameraState_CameraMode_CameraMode_MIN = CameraState_CameraMode_ShootPhoto;
+const CameraState_CameraMode CameraState_CameraMode_CameraMode_MAX = CameraState_CameraMode_Unknown;
+const int CameraState_CameraMode_CameraMode_ARRAYSIZE = CameraState_CameraMode_CameraMode_MAX + 1;
+
+const ::google::protobuf::EnumDescriptor* CameraState_CameraMode_descriptor();
+inline const ::std::string& CameraState_CameraMode_Name(CameraState_CameraMode value) {
+  return ::google::protobuf::internal::NameOfEnum(
+    CameraState_CameraMode_descriptor(), value);
+}
+inline bool CameraState_CameraMode_Parse(
+    const ::std::string& name, CameraState_CameraMode* value) {
+  return ::google::protobuf::internal::ParseNamedEnum<CameraState_CameraMode>(
+    CameraState_CameraMode_descriptor(), name, value);
+}
 // ===================================================================
 
 class CameraState : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:DJIFRProto.Standard.CameraState) */ {
@@ -139,6 +165,40 @@ class CameraState : public ::google::protobuf::Message /* @@protoc_insertion_poi
   ::google::protobuf::Metadata GetMetadata() const PROTOBUF_FINAL;
 
   // nested types ----------------------------------------------------
+
+  typedef CameraState_CameraMode CameraMode;
+  static const CameraMode ShootPhoto =
+    CameraState_CameraMode_ShootPhoto;
+  static const CameraMode RecordVideo =
+    CameraState_CameraMode_RecordVideo;
+  static const CameraMode Playback =
+    CameraState_CameraMode_Playback;
+  static const CameraMode MediaDownload =
+    CameraState_CameraMode_MediaDownload;
+  static const CameraMode Broadcast =
+    CameraState_CameraMode_Broadcast;
+  static const CameraMode Unknown =
+    CameraState_CameraMode_Unknown;
+  static inline bool CameraMode_IsValid(int value) {
+    return CameraState_CameraMode_IsValid(value);
+  }
+  static const CameraMode CameraMode_MIN =
+    CameraState_CameraMode_CameraMode_MIN;
+  static const CameraMode CameraMode_MAX =
+    CameraState_CameraMode_CameraMode_MAX;
+  static const int CameraMode_ARRAYSIZE =
+    CameraState_CameraMode_CameraMode_ARRAYSIZE;
+  static inline const ::google::protobuf::EnumDescriptor*
+  CameraMode_descriptor() {
+    return CameraState_CameraMode_descriptor();
+  }
+  static inline const ::std::string& CameraMode_Name(CameraMode value) {
+    return CameraState_CameraMode_Name(value);
+  }
+  static inline bool CameraMode_Parse(const ::std::string& name,
+      CameraMode* value) {
+    return CameraState_CameraMode_Parse(name, value);
+  }
 
   // accessors -------------------------------------------------------
 
@@ -238,6 +298,12 @@ class CameraState : public ::google::protobuf::Message /* @@protoc_insertion_poi
   ::google::protobuf::int32 index() const;
   void set_index(::google::protobuf::int32 value);
 
+  // .DJIFRProto.Standard.CameraState.CameraMode mode = 17;
+  void clear_mode();
+  static const int kModeFieldNumber = 17;
+  ::DJIFRProto::Standard::CameraState_CameraMode mode() const;
+  void set_mode(::DJIFRProto::Standard::CameraState_CameraMode value);
+
   // @@protoc_insertion_point(class_scope:DJIFRProto.Standard.CameraState)
  private:
 
@@ -258,6 +324,7 @@ class CameraState : public ::google::protobuf::Message /* @@protoc_insertion_poi
   ::google::protobuf::uint32 availablecapturecount_;
   ::google::protobuf::uint32 availablerecordingtimeinseconds_;
   ::google::protobuf::int32 index_;
+  int mode_;
   mutable int _cached_size_;
   friend struct ::protobuf_Camera_2fFRCameraStateProto_2eproto::TableStruct;
   friend void ::protobuf_Camera_2fFRCameraStateProto_2eproto::InitDefaultsCameraStateImpl();
@@ -497,6 +564,20 @@ inline void CameraState::set_index(::google::protobuf::int32 value) {
   // @@protoc_insertion_point(field_set:DJIFRProto.Standard.CameraState.index)
 }
 
+// .DJIFRProto.Standard.CameraState.CameraMode mode = 17;
+inline void CameraState::clear_mode() {
+  mode_ = 0;
+}
+inline ::DJIFRProto::Standard::CameraState_CameraMode CameraState::mode() const {
+  // @@protoc_insertion_point(field_get:DJIFRProto.Standard.CameraState.mode)
+  return static_cast< ::DJIFRProto::Standard::CameraState_CameraMode >(mode_);
+}
+inline void CameraState::set_mode(::DJIFRProto::Standard::CameraState_CameraMode value) {
+  
+  mode_ = value;
+  // @@protoc_insertion_point(field_set:DJIFRProto.Standard.CameraState.mode)
+}
+
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
@@ -505,6 +586,18 @@ inline void CameraState::set_index(::google::protobuf::int32 value) {
 
 }  // namespace Standard
 }  // namespace DJIFRProto
+
+namespace google {
+namespace protobuf {
+
+template <> struct is_proto_enum< ::DJIFRProto::Standard::CameraState_CameraMode> : ::google::protobuf::internal::true_type {};
+template <>
+inline const EnumDescriptor* GetEnumDescriptor< ::DJIFRProto::Standard::CameraState_CameraMode>() {
+  return ::DJIFRProto::Standard::CameraState_CameraMode_descriptor();
+}
+
+}  // namespace protobuf
+}  // namespace google
 
 // @@protoc_insertion_point(global_scope)
 

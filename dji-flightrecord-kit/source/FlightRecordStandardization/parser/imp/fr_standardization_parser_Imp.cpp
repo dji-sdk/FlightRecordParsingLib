@@ -33,9 +33,24 @@
 #include <tomcrypt.h>
 #include <ctime>
 #include <chrono>
+#include <sstream>
+#include <iomanip>
 
 using namespace DJIFR::standardization;
 using namespace DJI::FlightRecord;
+
+void toHex(void *const data,           //!< Data to convert
+           const size_t dataLength,    //!< Length of the data to convert
+           std::string &dest)          //!< Destination string
+{
+    unsigned char     *byteData = reinterpret_cast<unsigned char*>(data);
+    std::stringstream hexStringStream;
+    
+    hexStringStream << std::hex << std::setfill('0');
+    for(size_t index = 0; index < dataLength; ++index)
+        hexStringStream << std::setw(2) << static_cast<int>(byteData[index]);
+    dest = hexStringStream.str();
+}
 
 ParserImp::ParserImp() :
 parser_(nullptr),
@@ -61,8 +76,15 @@ SDKError ParserImp::load(const std::string& file_path) {
     Version13Decoder decoder13;
     parser_->AddVersionDecoder(decoder13);
     
+    Version13V2Decoder decoder13V2;
+    parser_->AddVersionDecoder(decoder13V2);
+    
     DecryptionLayerPtr decryption13 = std::make_shared<Decryption13Layer>();
     auto error = parser_->addDecryptionLayer(decryption13);
+    assert(error == ParserResult::Success);
+    
+    DecryptionLayerPtr decryption13V2 = std::make_shared<Decryption13V2Layer>();
+    error = parser_->addDecryptionLayer(decryption13V2);
     assert(error == ParserResult::Success);
 
     return SDKError::Success;
@@ -113,6 +135,11 @@ SDKError ParserImp::startRequestParser(const std::string& sdk_key, const Request
         { FeaturePoint::AfterSalesFeature, "FR_Standardization_Feature_AfterSales_6" },
         { FeaturePoint::DJIFlyCustomFeature, "FR_Standardization_Feature_DJIFlyCustom_7" },
         { FeaturePoint::FlightHubFeature, "FR_Standardization_Feature_FlightHub_9" },
+        { FeaturePoint::GimbalFeature, "FR_Standardization_Feature_Gimbal_10" },
+        { FeaturePoint::RCFeature, "FR_Standardization_Feature_RC_11" },
+        { FeaturePoint::CameraFeature, "FR_Standardization_Feature_Camera_12" },
+        { FeaturePoint::BatteryFeature, "FR_Standardization_Feature_Battery_13" },
+        { FeaturePoint::FlySafeFeature, "FR_Standardization_Feature_FlySafe_14" },
     };
     
     std::map<std::string, FeaturePoint> featurePointMap = {
@@ -124,6 +151,11 @@ SDKError ParserImp::startRequestParser(const std::string& sdk_key, const Request
         { "FR_Standardization_Feature_AfterSales_6", FeaturePoint::AfterSalesFeature },
         { "FR_Standardization_Feature_DJIFlyCustom_7", FeaturePoint::DJIFlyCustomFeature },
         { "FR_Standardization_Feature_FlightHub_9", FeaturePoint::FlightHubFeature },
+        { "FR_Standardization_Feature_Gimbal_10", FeaturePoint::GimbalFeature },
+        { "FR_Standardization_Feature_RC_11", FeaturePoint::RCFeature },
+        { "FR_Standardization_Feature_Camera_12", FeaturePoint::CameraFeature },
+        { "FR_Standardization_Feature_Battery_13", FeaturePoint::BatteryFeature },
+        { "FR_Standardization_Feature_FlySafe_14", FeaturePoint::FlySafeFeature }
     };
     
     auto error = parser_->parseDetailData(parser_block);
@@ -170,100 +202,163 @@ SDKError ParserImp::startRequestParser(const std::string& sdk_key, const Request
         std::string request_json;
         json11::Json(keychains_map).dump(request_json);
         
-        dji::core::CLHttpRequest *httpReq = dji::core::CLHttpRequest::Post("https://api.djiservice.org/api/ds-grocery/v2/flight-record/decode-aes-key", (char *)request_json.c_str(), request_json.length());
-        httpReq->SetTimeout(30);
-        httpReq->SetRequestHeader("Accept", "application/json");
-        httpReq->SetRequestHeader("Api-Key", sdk_key);
-        uint64_t now = std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::system_clock::now().time_since_epoch()).count();
-        httpReq->SendRequest([this, callback, featurePointMap, &now](dji::core::CLHttpRequest *request, bool succeeded) {
-            uint64_t current = std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::system_clock::now().time_since_epoch()).count();
-            printf("duration: %llu\n", current - now);
-            if (callback == NULL) {
-                delete request;
-                return;
-            }
-            
-            if (!succeeded) {
-                callback(ServerError::NetworkIsNotReachable, "");
-                delete request;
-                return;
-            }
-            
-            std::string error;
-            auto json = json11::Json::parse((char *)request->GetResponseData(), error);
-            if (error.length() > 0) {
-                callback(ServerError::ParserFailure, error);
-                delete request;
-                return;
-            }
-            
-            auto result = json["result"];
-            switch (request->GetResponseCode()) {
-                case 200:
-                {
-                    auto keychainsArray = json["data"];
-                    auto keychains_arr_json = keychainsArray.array_items();
-                    std::vector<std::map<FeaturePoint, DJI::FlightRecord::AESKeychainPtr>> plaintext_all_aes_key;
-                    for (auto i = 0; i < keychains_arr_json.size(); i ++) {
-                        auto keychains_json = keychains_arr_json.at(i).array_items();
-                        std::map<FeaturePoint, DJI::FlightRecord::AESKeychainPtr> all_aes_key;
-                        for (auto j = 0; j < keychains_json.size(); j ++) {
-                            auto keychain_json = keychains_json.at(j).object_items();
-                            auto featurePoint_iter = featurePointMap.find(keychain_json["featurePoint"].string_value());
-                            if (featurePoint_iter == featurePointMap.end()) {
-                                callback(ServerError::ParserFailure, "");
-                                delete request;
-                                return;
+        auto body = json11::Json::array();
+        body.push_back(json11::Json::object {
+            {"version", (int)version_extension.version},
+            {"sdk_key", sdk_key},
+            {"type", "StartParser"},
+        });
+        
+        std::string appKey("VnvGg8ApqcbyFrc");
+        std::string bodyStr;
+        json11::Json(body).dump(bodyStr);
+        
+        int md5Idex, err;
+        hmac_state hmac;
+        unsigned char key[16];
+        char dst[16];
+        unsigned long dstlen;
+        memcpy(key, appKey.c_str(), appKey.length());
+        
+        if (register_hash(&md5_desc) == -1) {
+            return SDKError::Failure;
+        }
+        
+        md5Idex = find_hash("md5");
+        
+        if ((err = hmac_init(&hmac, md5Idex, key, appKey.length())) != CRYPT_OK) {
+            return SDKError::Failure;
+        }
+        
+        if ((err = hmac_process(&hmac, (unsigned char *)bodyStr.c_str(), bodyStr.length())) != CRYPT_OK) {
+            return SDKError::Failure;
+        }
+        
+        if ((err = hmac_done(&hmac, (unsigned char *)dst, &dstlen)) != CRYPT_OK) {
+            return SDKError::Failure;
+        }
+        
+        std::string sign_str;
+        toHex(dst, dstlen, sign_str);
+        
+        dji::core::CLHttpRequest *request = dji::core::CLHttpRequest::Post("https://statistical-report.djiservice.org/api/report/web", (char *)bodyStr.c_str(), bodyStr.length());
+        request->SetTimeout(30);
+        request->SetRequestHeader("Accept", "application/json");
+        request->SetRequestHeader("appid", "572918");
+        request->SetRequestHeader("sign", sign_str);
+        request->SetRequestHeader("Content-Type", "application/json;charset=UTF-8");
+        
+        request->SendRequest([this, request_json, sdk_key, callback, featurePointMap, version_extension](dji::core::CLHttpRequest *request, bool succeeded) {
+            dji::core::CLHttpRequest *httpReq = dji::core::CLHttpRequest::Post("https://api.djiservice.org/api/ds-grocery/v2/flight-record/decode-aes-key", (char *)request_json.c_str(), request_json.length());
+            httpReq->SetTimeout(30);
+            httpReq->SetRequestHeader("Accept", "application/json");
+            httpReq->SetRequestHeader("Api-Key", sdk_key);
+            uint64_t now = std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::system_clock::now().time_since_epoch()).count();
+            httpReq->SendRequest([this, callback, featurePointMap, &now, version_extension](dji::core::CLHttpRequest *request, bool succeeded) {
+                uint64_t current = std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::system_clock::now().time_since_epoch()).count();
+                if (callback == NULL) {
+                    delete request;
+                    return;
+                }
+                
+                if (!succeeded) {
+                    callback(ServerError::NetworkIsNotReachable, "");
+                    delete request;
+                    return;
+                }
+                
+                std::string error;
+                auto json = json11::Json::parse((char *)request->GetResponseData(), error);
+                if (error.length() > 0) {
+                    callback(ServerError::ParserFailure, error);
+                    delete request;
+                    return;
+                }
+                
+                auto result = json["result"];
+                switch (request->GetResponseCode()) {
+                    case 200:
+                    {
+                        auto keychainsArray = json["data"];
+                        auto keychains_arr_json = keychainsArray.array_items();
+                        std::vector<std::map<FeaturePoint, DJI::FlightRecord::AESKeychainPtr>> plaintext_all_aes_key;
+                        for (auto i = 0; i < keychains_arr_json.size(); i ++) {
+                            auto keychains_json = keychains_arr_json.at(i).array_items();
+                            std::map<FeaturePoint, DJI::FlightRecord::AESKeychainPtr> all_aes_key;
+                            for (auto j = 0; j < keychains_json.size(); j ++) {
+                                auto keychain_json = keychains_json.at(j).object_items();
+                                auto featurePoint_iter = featurePointMap.find(keychain_json["featurePoint"].string_value());
+                                if (featurePoint_iter == featurePointMap.end()) {
+                                    callback(ServerError::ParserFailure, "");
+                                    delete request;
+                                    return;
+                                }
+                                auto feature_point = (*featurePoint_iter).second;
+                                
+                                auto aes_key_json = keychain_json["aesKey"].string_value();
+                                char aes_key_buf[256];
+                                unsigned long aes_key_buf_len = 256;
+                                base64_decode((unsigned char *)aes_key_json.c_str(), aes_key_json.length(), (unsigned char *)aes_key_buf, &aes_key_buf_len);
+                                auto aes_key = std::make_shared<DJI::FlightRecord::Buffer>((void *)aes_key_buf, aes_key_buf_len);
+                                
+                                auto aes_iv_json = keychain_json["aesIv"].string_value();
+                                char aes_iv_buf[32];
+                                unsigned long aes_iv_buf_len = 32;
+                                base64_decode((unsigned char *)aes_iv_json.c_str(), aes_iv_json.length(), (unsigned char *)aes_iv_buf, &aes_iv_buf_len);
+                                auto aes_iv = std::make_shared<DJI::FlightRecord::Buffer>((void *)aes_iv_buf, aes_iv_buf_len);
+                                
+                                auto aes_keychain = std::make_shared<DJI::FlightRecord::AESKeychain>(aes_key, aes_iv);
+                                all_aes_key[feature_point] = aes_keychain;
                             }
-                            auto feature_point = (*featurePoint_iter).second;
                             
-                            auto aes_key_json = keychain_json["aesKey"].string_value();
-                            char aes_key_buf[256];
-                            unsigned long aes_key_buf_len = 256;
-                            base64_decode((unsigned char *)aes_key_json.c_str(), aes_key_json.length(), (unsigned char *)aes_key_buf, &aes_key_buf_len);
-                            auto aes_key = std::make_shared<DJI::FlightRecord::Buffer>((void *)aes_key_buf, aes_key_buf_len);
-                            
-                            auto aes_iv_json = keychain_json["aesIv"].string_value();
-                            char aes_iv_buf[32];
-                            unsigned long aes_iv_buf_len = 32;
-                            base64_decode((unsigned char *)aes_iv_json.c_str(), aes_iv_json.length(), (unsigned char *)aes_iv_buf, &aes_iv_buf_len);
-                            auto aes_iv = std::make_shared<DJI::FlightRecord::Buffer>((void *)aes_iv_buf, aes_iv_buf_len);
-                            
-                            auto aes_keychain = std::make_shared<DJI::FlightRecord::AESKeychain>(aes_key, aes_iv);
-                            all_aes_key[feature_point] = aes_keychain;
+                            plaintext_all_aes_key.push_back(all_aes_key);
                         }
                         
-                        plaintext_all_aes_key.push_back(all_aes_key);
+                        switch (version_extension.version) {
+                            case DJI::FlightRecord::VersionCategory::Version13_1:
+                            {
+                                DecryptionLayerPtr decryption = std::make_shared<Decryption13Layer>(plaintext_all_aes_key);
+                                parser_->addDecryptionLayer(decryption);
+                            }
+                                break;
+                            case DJI::FlightRecord::VersionCategory::Version13_2:
+                            {
+                                DecryptionLayerPtr decryption = std::make_shared<Decryption13V2Layer>(plaintext_all_aes_key);
+                                parser_->addDecryptionLayer(decryption);
+                            }
+                                break;
+                                
+                            default:
+                                break;
+                        }
+                        
+                        
+                        callback(ServerError::Success, result["msg"].string_value());
                     }
-                    
-                    DecryptionLayerPtr decryption = std::make_shared<Decryption13Layer>(plaintext_all_aes_key);
-                    parser_->addDecryptionLayer(decryption);
-                    
-                    callback(ServerError::Success, result["msg"].string_value());
-                }
-                    break;
-                case 400:
-                {
-                    if (callback) {
-                        callback(ServerError::InvaidParameter, result["msg"].string_value());
+                        break;
+                    case 400:
+                    {
+                        if (callback) {
+                            callback(ServerError::InvaidParameter, result["msg"].string_value());
+                        }
+                        delete request;
+                        return;
                     }
-                    delete request;
-                    return;
-                }
-                    break;
-                case 403:
-                {
-                    if (callback) {
-                        callback(ServerError::NotPermission, result["msg"].string_value());
+                        break;
+                    case 403:
+                    {
+                        if (callback) {
+                            callback(ServerError::NotPermission, result["msg"].string_value());
+                        }
+                        delete request;
+                        return;
                     }
-                    delete request;
-                    return;
+                        break;
+                        
+                    default:
+                        break;
                 }
-                    break;
-                    
-                default:
-                    break;
-            }
+            });
         });
     }
     
@@ -485,6 +580,8 @@ SDKError ParserImp::parserSummary() {
         product_type_ = (ProductType)info.newFRData.productType;
     }
     
+    summary_info_->set_product_type(product_type_);
+    
     // fill the battery sn
     if (battery_sn_str.length() > 0) {
         auto component = getSummaryValidBatteryComponent(0);
@@ -513,7 +610,7 @@ SDKError ParserImp::parserSummary() {
     summary_info_->set_aircraftName(aircraft_name_str);
     
     // fill the start time.
-    summary_info_->set_startTime(info.timeStamp / 1000.f);
+    summary_info_->set_startTime(info.timeStamp / 1000.0);
     
     // fill the platform
     summary_info_->set_platform(ConvertInternalPlatformToPublic((DJI::FlightRecord::Platform)appVersion[0]));
@@ -523,10 +620,10 @@ SDKError ParserImp::parserSummary() {
     summary_info_->set_startCoordinate(location);
     
     // fill the total distance
-    summary_info_->set_totalDistance(info.totalDistance / 1000.f);
+    summary_info_->set_totalDistance(info.totalDistance / 1000.0);
     
     // fill the total time
-    summary_info_->set_totalDistance(info.totalTime / 1000.f);
+    summary_info_->set_totalDistance(info.totalTime / 1000.0);
     
     // fill the app version string
     std::vector<int32_t> app_version;
@@ -567,7 +664,7 @@ void ParserImp::fillSummary(FlightRecordDataType data_type,
             memcpy(&data_source, buffer, std::min(sizeof(data_source), (size_t)length));
             
             if (summary_info_->startTime() <= 0 && data_source.updateTimeStamp > 0) {
-                summary_info_->set_startTime(data_source.updateTimeStamp / 1000.f);
+                summary_info_->set_startTime(data_source.updateTimeStamp / 1000.0);
             }
         }
             break;
@@ -580,6 +677,7 @@ void ParserImp::fillSummary(FlightRecordDataType data_type,
             if (product_type != ProductType::None) {
                 if (product_type_ == ProductType::None) {
                     product_type_ = product_type;
+                    summary_info_->set_product_type(product_type_);
                 }
             }
             
@@ -615,11 +713,11 @@ void ParserImp::fillSummary(FlightRecordDataType data_type,
                 exist_component->set_serialNumber(new_rc_sn);
             }
             
-            auto new_fc_sn = ConvertRawDataToUTF8((const char *)data_source.aircraftSN, sizeof(data_source.aircraftSN));
-            if (new_fc_sn.size() > 0) {
-                auto exist_component = getSummaryValidFCComponent();
-                exist_component->set_serialNumber(new_fc_sn);
-            }
+            // auto new_fc_sn = ConvertRawDataToUTF8((const char *)data_source.aircraftSN, sizeof(data_source.aircraftSN));
+            // if (new_fc_sn.size() > 0) {
+            //     auto exist_component = getSummaryValidFCComponent();
+            //     exist_component->set_serialNumber(new_fc_sn);
+            // }
         }
             break;
         case FirmwareVersionType:
@@ -676,7 +774,7 @@ void ParserImp::fillSummary(FlightRecordDataType data_type,
                 return;
             }
             
-            auto new_sn = ConvertUint8ToVersionStr(data_source->componentSN, data_source->dataLength);
+            auto new_sn = ConvertRawDataToUTF8((const char*)data_source->componentSN, data_source->dataLength);
             std::shared_ptr<ComponentInformationImp> component = nullptr;
             if (new_sn.size() > 0) {
                 switch (data_source->type) {
@@ -735,6 +833,9 @@ void ParserImp::recalculateSummary() {
     for (size_t index = 0; index < frame_time_list_len; index ++) {
         auto frame_time = frame_time_list_[index];
         auto fc = frame_time->flightControllerStateImp();
+        if (fc == nullptr) {
+            break;
+        }
         auto aircraft_location = fc->aircraftLocation();
         
         if (!aircraft_location) {
@@ -845,8 +946,14 @@ std::shared_ptr<ComponentInformationImp> ParserImp::getSummaryValidRCComponent()
 SDKError ParserImp::filterFrameTimeList(std::map<FlightRecordDataType, bool> filter) {
     frame_time_list_.clear();
     bool has_first_osd = false;
-    auto parser_block = [this, filter, &has_first_osd] (FlightRecordParserEngine *engine, FlightRecordDataType data_type, int index, uint8_t *buffer, uint64_t length, bool *stop) {
+    auto error_code = SDKError::Success;
+    auto parser_block = [this, filter, &has_first_osd, &error_code] (FlightRecordParserEngine *engine, FlightRecordDataType data_type, int index, uint8_t *buffer, uint64_t length, bool *stop) {
         if (buffer == nullptr || length <= 0) {
+            return;
+        }
+        
+        if (error_code != SDKError::Success) {
+            (*stop) = true;
             return;
         }
         
@@ -854,6 +961,7 @@ SDKError ParserImp::filterFrameTimeList(std::map<FlightRecordDataType, bool> fil
             case CustomFlightRecordDataType:
             case RecoverInfoDataType:
             case FirmwareVersionType:
+            case ComponentSerialNumberDataType:
                 fillSummary(data_type, buffer, length);
                 break;
                 
@@ -896,81 +1004,115 @@ SDKError ParserImp::filterFrameTimeList(std::map<FlightRecordDataType, bool> fil
             return;
         }
         
-        switch (data_type) {
-            case RCFlightRecordDataType:
-            case RCPushGPSFlightRecordDataType:
-            {
-                fillRCHardwareState(data_type, buffer, length, frame_time);
+        bool fill_operation_result = true;
+        SDKError error_code = SDKError::Success;
+        
+        do {
+            switch (data_type) {
+                case RCFlightRecordDataType:
+                case RCPushGPSFlightRecordDataType:
+                {
+                    fill_operation_result = fillRCHardwareState(data_type, buffer, length, frame_time);
+                }
+                    break;
+                case AppSpecialControlJoyStickDataType:
+                {
+                    fill_operation_result = fillMobileRC(data_type, buffer, length, frame_time);
+                }
+                    break;
+                case GimbalFlightRecordDataType:
+                {
+                    fill_operation_result = fillGimbalState(data_type, buffer, length, frame_time);
+                }
+                    break;
+                case CenterBatteryFlightRecordDataType:
+                case SmartBatteryGroupDataType:
+                {
+                    fill_operation_result = fillBatteryState(data_type, buffer, length, frame_time);
+                }
+                    break;
+                case OSDFlightRecordDataType:
+                {
+                    dji_fc_osd_push osd = {0};
+                    memcpy(&osd, buffer, std::min((size_t)length, sizeof(osd)));
+                    drone_type_ = (DJI::FlightRecord::DroneType)osd.droneType;
+                    
+                    fill_operation_result = fillFlightController(data_type, buffer, length, frame_time);
+                    if (fill_operation_result == false) {
+                        break;
+                    }
+                    
+                    fill_operation_result = fillBatteryState(data_type, buffer, length, frame_time);
+                    if (fill_operation_result == false) {
+                        break;
+                    }
+                    
+                    fill_operation_result = fillAirlinkState(data_type, buffer, length, frame_time);
+                    if (fill_operation_result == false) {
+                        break;
+                    }
+                }
+                    break;
+                case PushedBatteryFlightRecordDataType:
+                {
+                    fill_operation_result = fillFlightController(data_type, buffer, length, frame_time);
+                    if (fill_operation_result == false) {
+                        break;
+                    }
+                    
+                    fill_operation_result = fillBatteryState(data_type, buffer, length, frame_time);
+                    if (fill_operation_result == false) {
+                        break;
+                    }
+                }
+                    break;
+                case OSDHomeFlightRecordDataType:
+                case MCParamDataType:
+                case AppVirtualStickDataType:
+                {
+                    fill_operation_result = fillFlightController(data_type, buffer, length, frame_time);
+                }
+                    break;
+                case VisionGroupDataType:
+                {
+                    fill_operation_result = fillFlightController(data_type, buffer, length, frame_time);
+                    if (fill_operation_result == false) {
+                        break;
+                    }
+                    
+                    fill_operation_result = fillVisionData(data_type, buffer, length, frame_time);
+                    if (fill_operation_result == false) {
+                        break;
+                    }
+                }
+                    break;
+                case CameraInfoFlightRecordDataType:
+                {
+                    fill_operation_result = fillCameraState(data_type, buffer, length, frame_time);
+                }
+                    break;
+                case AgricultureOFDMRadioSignalPush:
+                {
+                    fill_operation_result = fillAirlinkState(data_type, buffer, length, frame_time);
+                }
+                    break;
+                case ShowTipsFlightRecordDataType:
+                case ShowWarningFlightRecordDataType:
+                case ShowSeriousWarningFlightRecordDataType:
+                {
+                    fill_operation_result = fillGOBusiness(data_type, buffer, length, frame_time);
+                }
+                    break;
+                case AppLocationDataType:
+                {
+                    fill_operation_result = fillMobileDevice(data_type, buffer, length, frame_time);
+                }
+                    break;
+                    
+                default:
+                    break;
             }
-                break;
-            case AppSpecialControlJoyStickDataType:
-            {
-                fillMobileRC(data_type, buffer, length, frame_time);
-            }
-                break;
-            case GimbalFlightRecordDataType:
-            {
-                fillGimbalState(data_type, buffer, length, frame_time);
-            }
-                break;
-            case CenterBatteryFlightRecordDataType:
-            case SmartBatteryGroupDataType:
-            {
-                fillBatteryState(data_type, buffer, length, frame_time);
-            }
-                break;
-            case OSDFlightRecordDataType:
-            {
-                fillFlightController(data_type, buffer, length, frame_time);
-                fillBatteryState(data_type, buffer, length, frame_time);
-                fillAirlinkState(data_type, buffer, length, frame_time);
-            }
-                break;
-            case PushedBatteryFlightRecordDataType:
-            {
-                fillFlightController(data_type, buffer, length, frame_time);
-                fillBatteryState(data_type, buffer, length, frame_time);
-            }
-                break;
-            case OSDHomeFlightRecordDataType:
-            case MCParamDataType:
-            case AppVirtualStickDataType:
-            {
-                fillFlightController(data_type, buffer, length, frame_time);
-            }
-                break;
-            case VisionGroupDataType:
-            {
-                fillFlightController(data_type, buffer, length, frame_time);
-                fillVisionData(data_type, buffer, length, frame_time);
-            }
-                break;
-            case CameraInfoFlightRecordDataType:
-            {
-                fillCameraState(data_type, buffer, length, frame_time);
-            }
-                break;
-            case AgricultureOFDMRadioSignalPush:
-            {
-                fillAirlinkState(data_type, buffer, length, frame_time);
-            }
-                break;
-            case ShowTipsFlightRecordDataType:
-            case ShowWarningFlightRecordDataType:
-            case ShowSeriousWarningFlightRecordDataType:
-            {
-                fillGOBusiness(data_type, buffer, length, frame_time);
-            }
-                break;
-            case AppLocationDataType:
-            {
-                fillMobileDevice(data_type, buffer, length, frame_time);
-            }
-                break;
-                
-            default:
-                break;
-        }
+        } while (0);
         
         // Cumulative calculation distance
         if (data_type == OSDFlightRecordDataType && frame_time_list_.size() >= 2) {
@@ -995,12 +1137,18 @@ SDKError ParserImp::filterFrameTimeList(std::map<FlightRecordDataType, bool> fil
         }
     };
     
-    return convertParserResultToPublic(parser_->parseDetailData(parser_block));
+    auto detail_operation_code = convertParserResultToPublic(parser_->parseDetailData(parser_block));
+    
+    if (error_code != SDKError::Success) {
+        return error_code;
+    }
+    
+    return detail_operation_code;
 }
 
 //MARK: - Filler
 
-void ParserImp::fillRCHardwareState(FlightRecordDataType data_type,
+bool ParserImp::fillRCHardwareState(FlightRecordDataType data_type,
                                     uint8_t *buffer,
                                     uint64_t length,
                                     std::shared_ptr<FrameTimeStateImp>& output) {
@@ -1011,11 +1159,13 @@ void ParserImp::fillRCHardwareState(FlightRecordDataType data_type,
     auto rc_state = output->rcHardwareStateImp();
     if (!DJIFR::standardization::Filler(rc_state, this->product_type_, data_type, buffer, length)) {
         assert(false && "should fill the rc state success");
-        return;
+        return false;
     }
+    
+    return true;
 }
 
-void ParserImp::fillMobileRC(FlightRecordDataType data_type,
+bool ParserImp::fillMobileRC(FlightRecordDataType data_type,
                              uint8_t *buffer,
                              uint64_t length,
                              std::shared_ptr<FrameTimeStateImp>& output) {
@@ -1026,11 +1176,13 @@ void ParserImp::fillMobileRC(FlightRecordDataType data_type,
     auto mobile_rc = output->mobileRemoteControllerImp();
     if (!Filler(mobile_rc, data_type, buffer, length)) {
         assert(false && "should fill the rc state success");
-        return;
+        return false;
     }
+    
+    return true;
 }
 
-void ParserImp::fillGimbalState(FlightRecordDataType data_type,
+bool ParserImp::fillGimbalState(FlightRecordDataType data_type,
                                 uint8_t *buffer,
                                 uint64_t length,
                                 std::shared_ptr<FrameTimeStateImp>& output) {
@@ -1042,11 +1194,13 @@ void ParserImp::fillGimbalState(FlightRecordDataType data_type,
     auto gimbal_state = output->gimbalStateImp();
     if (!Filler(gimbal_state, data_type, buffer, length)) {
         assert(false && "should fill the gimbal state success");
-        return;
+        return false;
     }
+    
+    return true;
 }
 
-void ParserImp::fillFlightController(FlightRecordDataType data_type,
+bool ParserImp::fillFlightController(FlightRecordDataType data_type,
                                      uint8_t *buffer,
                                      uint64_t length,
                                      std::shared_ptr<FrameTimeStateImp>& output) {
@@ -1058,11 +1212,13 @@ void ParserImp::fillFlightController(FlightRecordDataType data_type,
     auto fc_state = output->flightControllerStateImp();
     if (!Filler(fc_state, data_type, buffer, length)) {
         assert(false && "should fill the fc state success");
-        return;
+        return false;
     }
+    
+    return true;
 }
 
-void ParserImp::fillCameraState(FlightRecordDataType data_type,
+bool ParserImp::fillCameraState(FlightRecordDataType data_type,
                                 uint8_t *buffer,
                                 uint64_t length,
                                 std::shared_ptr<FrameTimeStateImp>& output) {
@@ -1074,21 +1230,25 @@ void ParserImp::fillCameraState(FlightRecordDataType data_type,
     auto camera_state = output->cameraStateImp();
     if (!Filler(camera_state, data_type, buffer, length)) {
         assert(false && "should fill the camera state success");
-        return;
+        return false;
     }
+    
+    return true;
 }
 
-void ParserImp::fillBatteryState(FlightRecordDataType data_type,
+bool ParserImp::fillBatteryState(FlightRecordDataType data_type,
                                  uint8_t *buffer,
                                  uint64_t length,
                                  std::shared_ptr<FrameTimeStateImp>& output) {
     if (!Filler(output->batteriesState(), data_type, buffer, length)) {
         assert(false && "should fill the battery state success");
-        return;
+        return false;
     }
+    
+    return true;
 }
 
-void ParserImp::fillAirlinkState(FlightRecordDataType data_type,
+bool ParserImp::fillAirlinkState(FlightRecordDataType data_type,
                                  uint8_t *buffer,
                                  uint64_t length,
                                  std::shared_ptr<FrameTimeStateImp>& output) {
@@ -1100,11 +1260,13 @@ void ParserImp::fillAirlinkState(FlightRecordDataType data_type,
     auto state = output->airlinkStateImp();
     if (!Filler(state, data_type, buffer, length)) {
         assert(false && "should fill the airlink state success");
-        return;
+        return false;
     }
+    
+    return true;
 }
 
-void ParserImp::fillGOBusiness(FlightRecordDataType data_type,
+bool ParserImp::fillGOBusiness(FlightRecordDataType data_type,
                                uint8_t *buffer,
                                uint64_t length,
                                std::shared_ptr<FrameTimeStateImp>& output) {
@@ -1116,11 +1278,13 @@ void ParserImp::fillGOBusiness(FlightRecordDataType data_type,
     auto state = output->goBusinessDataImp();
     if (!Filler(state, data_type, buffer, length)) {
         assert(false && "should fill the go business state success");
-        return;
+        return false;
     }
+    
+    return true;
 }
 
-void ParserImp::fillMobileDevice(FlightRecordDataType data_type,
+bool ParserImp::fillMobileDevice(FlightRecordDataType data_type,
                                  uint8_t *buffer,
                                  uint64_t length,
                                  std::shared_ptr<FrameTimeStateImp>& output) {
@@ -1132,11 +1296,13 @@ void ParserImp::fillMobileDevice(FlightRecordDataType data_type,
     auto state = output->mobileDeviceStateImp();
     if (!Filler(state, data_type, buffer, length)) {
         assert(false && "should fill the mobile device state success");
-        return;
+        return false;
     }
+    
+    return true;
 }
 
-void ParserImp::fillVisionData(FlightRecordDataType data_type,
+bool ParserImp::fillVisionData(FlightRecordDataType data_type,
                                uint8_t *buffer,
                                uint64_t length,
                                std::shared_ptr<FrameTimeStateImp>& output) {
@@ -1148,8 +1314,10 @@ void ParserImp::fillVisionData(FlightRecordDataType data_type,
     auto vision = output->visionStateImp();
     if (!Filler(vision, data_type, buffer, length)) {
         assert(false && "should fill the vision success");
-        return;
+        return false;
     }
+    
+    return true;
 }
 
 std::shared_ptr<FrameTimeStateImp> ParserImp::findValidAircraftLocaion(int index, int *final_index) {
