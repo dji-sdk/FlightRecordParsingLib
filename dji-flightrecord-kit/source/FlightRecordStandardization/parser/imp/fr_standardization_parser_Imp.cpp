@@ -249,7 +249,7 @@ SDKError ParserImp::startRequestParser(const std::string& sdk_key, const Request
         request->SetRequestHeader("Content-Type", "application/json;charset=UTF-8");
         
         request->SendRequest([this, request_json, sdk_key, callback, featurePointMap, version_extension](dji::core::CLHttpRequest *request, bool succeeded) {
-            dji::core::CLHttpRequest *httpReq = dji::core::CLHttpRequest::Post("https://api.djiservice.org/api/ds-grocery/v2/flight-record/decode-aes-key", (char *)request_json.c_str(), request_json.length());
+            dji::core::CLHttpRequest *httpReq = dji::core::CLHttpRequest::Post("https://dev.dji.com/openapi/v1/flight-records/keychains", (char *)request_json.c_str(), request_json.length());
             httpReq->SetTimeout(30);
             httpReq->SetRequestHeader("Accept", "application/json");
             httpReq->SetRequestHeader("Api-Key", sdk_key);

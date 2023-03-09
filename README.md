@@ -1,8 +1,15 @@
 # DJIFlightRecord
 
+### <p>[中文版](https://github.com/dji-sdk/FlightRecordParsingLib/blob/master/README_cn.md)</p>
+
 ## What is DJIFlightRecord?
 
-Flight record parsing library can parse version 13 flight log files. Convert DJI protocol data into time frame objects for presentation and analysis.
+Flight record parsing library can parse version 13 flight log files. Convert DJI protocol data into time frame objects for presentation and analysis. An App Key is required to run the flight record parsing library.
+
+## How to apply for my App Key?
+1. Log in to the [DJI Developer Technologies](https://developer.dji.com/user), click "CREATE APP", select "Open API" for App Type, fill in the "App Name", "Category" and "Description" by yourself, and click "CREATE".
+
+2. Activate the App through your personal email. After activation, click on the corresponding App information on your developer user page. The App Key is the SDK key parameter you need for the next steps.
 
 ## Where does the app create the version 13 flight log?
 
@@ -34,6 +41,7 @@ Here is an introduction to the role of file directories：
 * FR-V1.0.0/dji-flightrecord-kit/source: Source code for the dji-flightrecord-kit library
 * FR-V1.0.0/images：Photo resources cited in README
 
+
 ## How to run the sample?
 
 ### Running the sample in Docker
@@ -43,15 +51,15 @@ https://docs.docker.com/get-docker
 
 **Build docker image**
 ```shell
-docker build --build-arg SDK_KEY=your_sdk_key -t pf .
+docker build --build-arg SDK_KEY=your_app_key -t pf .
 ```
 
 **Docker run**
 ```shell
-docker run -v host_dir:container_dir -it pf "container_flight_record_dir"
+docker run -v host_dir:container_dir pf "container_flight_record_dir"
 ```
 Sample code：
-docker run -v $(pwd):/tmp -it pf "/tmp/V132_DJIFlightRecord_2020-06-18_[19-01-24].txt" > json_result.json
+docker run -v $(pwd):/tmp pf "/tmp/V132_DJIFlightRecord_2020-06-18_[19-01-24].txt" > json_result.json
 
 "> json_result.json" Redirecting the running result to a specified file
 
@@ -70,7 +78,7 @@ sh generate.sh
 
 1. Open dji-flightrecord-kit/build/Mac/FRSample/FRSample.xcodeproj
 2. Go to the main.cc file and configure the path of the file you want to parse to the variable file_path
-3. Configure the sdk key parameter of the 'startRequestParser' interface and you are able to parse the file for the version of Flight Record 13
+3. Configure the SDK key parameter of the "startRequestParser" interface and you are able to parse the file for the version of Flight Record 13
 
 ### Running the sample in Ubuntu
 
@@ -81,7 +89,7 @@ sh generate.sh
 ```
 
 1. Go to the main.cc file and configure the path of the file you want to parse to the variable file_path
-2. Configure the sdk key parameter of the 'startRequestParser' interface and you will be able to parse the file for the version of Flight Record 13
+2. Configure the SDK key parameter of the "startRequestParser" interface and you will be able to parse the file for the version of Flight Record 13
 3. Run the above script
 
 ## How to compile the library?

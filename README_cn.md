@@ -1,13 +1,20 @@
 # DJIFlightRecord
 
+### <p>[English Version](https://github.com/dji-sdk/FlightRecordParsingLib/blob/master/README.md)</p>
+
 ## 什么是 DJIFlightRecord？
 
-飞行记录解析库是一款可以解析版本 13 飞行记录文件的应用程序。它将 DJI 协议数据转换为时间帧对象，用于展示和分析。
+飞行记录解析库是一款可以解析版本 13 飞行记录文件的应用程序。它将 DJI 协议数据转换为时间帧对象，用于展示和分析，运行飞行记录解析库需要申请 App Key。
+
+## 如何申请我的 App Key？
+
+1. 登录 [DJI 开发者平台](https://developer.dji.com/user)，点击"创建应用"，App Type 选择 "Open API"，自行填写“App 名称”“分类”和“描述”，点击 "创建"。
+
+2. 通过个人邮箱激活 App，在开发者网平台个人点击查看对应 App 信息，其中 **App Key** 即为下文所需的 SDK 密钥参数。
 
 ## 该应用程序在哪里创建版本 13 的飞行记录日志？
 
 使用 Mobile SDK 4.12 版本的应用程序
-
 
 ## 架构关系
 
@@ -35,6 +42,8 @@
 * FR-V1.0.0/dji-flightrecord-kit/source：dji-flightrecord-kit 库的源代码
 * FR-V1.0.0/images：在 README 中引用的照片资源
 
+
+
 ## 如何运行示例代码？
 
 ### 在 Docker 上运行示例代码
@@ -44,12 +53,12 @@ https://docs.docker.com/get-docker
 
 **创建 Docker 镜像**
 ```shell
-docker build --build-arg SDK_KEY=your_sdk_key -t pf .
+docker build --build-arg SDK_KEY=your_app_key -t pf .
 ```
 
 **运行 Docker**
 ```shell
-docker run -v 宿主机目录:容器目录 -it pf "容器内的飞行记录文件路径"
+docker run -v 宿主机目录:容器目录 pf "容器内的飞行记录文件路径"
 ```
 命令示例：
 docker run -v $(pwd):/tmp -it pf "/tmp/V132_DJIFlightRecord_2020-06-18_[19-01-24].txt" > json_result.json
@@ -71,7 +80,7 @@ sh generate.sh
 
 1. 打开 dji-flightrecord-kit/build/Mac/FRSample/FRSample.xcodeproj
 2. 转到 main.cc 文件并将要解析的文件路径配置到变量 file_path 中
-3. 配置“startRequestParser”接口的 SDK 密钥参数，即可解析版本为 Flight Record 13 的文件
+3. 配置 "startRequestParser" 接口的 SDK 密钥参数，即可解析版本为 Flight Record 13 的文件
 
 ### 在 Ubuntu 上运行示例代码
 
@@ -82,7 +91,7 @@ sh generate.sh
 ```
 
 1. 转到 main.cc 文件并将要解析的文件路径配置到变量 file_path 中
-2. 配置“startRequestParser”接口的 SDK 密钥参数，即可解析版本为 Flight Record 13 的文件
+2. 配置 "startRequestParser" 接口的 SDK 密钥参数，即可解析版本为 Flight Record 13 的文件
 3. 运行上面的脚本
 
 ## 如何编译库？
