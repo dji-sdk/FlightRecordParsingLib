@@ -7,6 +7,7 @@
 
 #include "fr_standardization_common.hpp"
 #include <string.h>
+#include <cstdlib>
 
 using namespace DJIFR::standardization;
 
