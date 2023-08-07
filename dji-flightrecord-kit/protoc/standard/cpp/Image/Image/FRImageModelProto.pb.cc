@@ -5,390 +5,309 @@
 
 #include <algorithm>
 
-#include <google/protobuf/stubs/common.h>
-#include <google/protobuf/stubs/port.h>
-#include <google/protobuf/stubs/once.h>
 #include <google/protobuf/io/coded_stream.h>
-#include <google/protobuf/wire_format_lite_inl.h>
+#include <google/protobuf/extension_set.h>
+#include <google/protobuf/wire_format_lite.h>
 #include <google/protobuf/descriptor.h>
 #include <google/protobuf/generated_message_reflection.h>
 #include <google/protobuf/reflection_ops.h>
 #include <google/protobuf/wire_format.h>
-// This is a temporary google only hack
-#ifdef GOOGLE_PROTOBUF_ENFORCE_UNIQUENESS
-#include "third_party/protobuf/version.h"
-#endif
 // @@protoc_insertion_point(includes)
+#include <google/protobuf/port_def.inc>
+
+PROTOBUF_PRAGMA_INIT_SEG
+
+namespace _pb = ::PROTOBUF_NAMESPACE_ID;
+namespace _pbi = _pb::internal;
+
 namespace DJIFRProto {
 namespace Standard {
-class ImageDataDefaultTypeInternal {
- public:
-  ::google::protobuf::internal::ExplicitlyConstructed<ImageData>
-      _instance;
-} _ImageData_default_instance_;
-class ImageDatasDefaultTypeInternal {
- public:
-  ::google::protobuf::internal::ExplicitlyConstructed<ImageDatas>
-      _instance;
-} _ImageDatas_default_instance_;
+PROTOBUF_CONSTEXPR ImageData::ImageData(
+    ::_pbi::ConstantInitialized): _impl_{
+    /*decltype(_impl_.previewimage_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
+  , /*decltype(_impl_.thumbnail_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
+  , /*decltype(_impl_.coordinate_)*/nullptr
+  , /*decltype(_impl_._cached_size_)*/{}} {}
+struct ImageDataDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR ImageDataDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~ImageDataDefaultTypeInternal() {}
+  union {
+    ImageData _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 ImageDataDefaultTypeInternal _ImageData_default_instance_;
+PROTOBUF_CONSTEXPR ImageDatas::ImageDatas(
+    ::_pbi::ConstantInitialized): _impl_{
+    /*decltype(_impl_.images_)*/{}
+  , /*decltype(_impl_._cached_size_)*/{}} {}
+struct ImageDatasDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR ImageDatasDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~ImageDatasDefaultTypeInternal() {}
+  union {
+    ImageDatas _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 ImageDatasDefaultTypeInternal _ImageDatas_default_instance_;
 }  // namespace Standard
 }  // namespace DJIFRProto
-namespace protobuf_Image_2fFRImageModelProto_2eproto {
-void InitDefaultsImageDataImpl() {
-  GOOGLE_PROTOBUF_VERIFY_VERSION;
+static ::_pb::Metadata file_level_metadata_Image_2fFRImageModelProto_2eproto[2];
+static constexpr ::_pb::EnumDescriptor const** file_level_enum_descriptors_Image_2fFRImageModelProto_2eproto = nullptr;
+static constexpr ::_pb::ServiceDescriptor const** file_level_service_descriptors_Image_2fFRImageModelProto_2eproto = nullptr;
 
-#ifdef GOOGLE_PROTOBUF_ENFORCE_UNIQUENESS
-  ::google::protobuf::internal::InitProtobufDefaultsForceUnique();
-#else
-  ::google::protobuf::internal::InitProtobufDefaults();
-#endif  // GOOGLE_PROTOBUF_ENFORCE_UNIQUENESS
-  protobuf_Common_2fFRCommonModelProto_2eproto::InitDefaultsLocationCoordinate2D();
-  {
-    void* ptr = &::DJIFRProto::Standard::_ImageData_default_instance_;
-    new (ptr) ::DJIFRProto::Standard::ImageData();
-    ::google::protobuf::internal::OnShutdownDestroyMessage(ptr);
-  }
-  ::DJIFRProto::Standard::ImageData::InitAsDefaultInstance();
-}
-
-void InitDefaultsImageData() {
-  static GOOGLE_PROTOBUF_DECLARE_ONCE(once);
-  ::google::protobuf::GoogleOnceInit(&once, &InitDefaultsImageDataImpl);
-}
-
-void InitDefaultsImageDatasImpl() {
-  GOOGLE_PROTOBUF_VERIFY_VERSION;
-
-#ifdef GOOGLE_PROTOBUF_ENFORCE_UNIQUENESS
-  ::google::protobuf::internal::InitProtobufDefaultsForceUnique();
-#else
-  ::google::protobuf::internal::InitProtobufDefaults();
-#endif  // GOOGLE_PROTOBUF_ENFORCE_UNIQUENESS
-  protobuf_Image_2fFRImageModelProto_2eproto::InitDefaultsImageData();
-  {
-    void* ptr = &::DJIFRProto::Standard::_ImageDatas_default_instance_;
-    new (ptr) ::DJIFRProto::Standard::ImageDatas();
-    ::google::protobuf::internal::OnShutdownDestroyMessage(ptr);
-  }
-  ::DJIFRProto::Standard::ImageDatas::InitAsDefaultInstance();
-}
-
-void InitDefaultsImageDatas() {
-  static GOOGLE_PROTOBUF_DECLARE_ONCE(once);
-  ::google::protobuf::GoogleOnceInit(&once, &InitDefaultsImageDatasImpl);
-}
-
-::google::protobuf::Metadata file_level_metadata[2];
-
-const ::google::protobuf::uint32 TableStruct::offsets[] GOOGLE_PROTOBUF_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
+const uint32_t TableStruct_Image_2fFRImageModelProto_2eproto::offsets[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   ~0u,  // no _has_bits_
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::DJIFRProto::Standard::ImageData, _internal_metadata_),
+  PROTOBUF_FIELD_OFFSET(::DJIFRProto::Standard::ImageData, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::DJIFRProto::Standard::ImageData, coordinate_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::DJIFRProto::Standard::ImageData, previewimage_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::DJIFRProto::Standard::ImageData, thumbnail_),
+  ~0u,  // no _inlined_string_donated_
+  PROTOBUF_FIELD_OFFSET(::DJIFRProto::Standard::ImageData, _impl_.coordinate_),
+  PROTOBUF_FIELD_OFFSET(::DJIFRProto::Standard::ImageData, _impl_.previewimage_),
+  PROTOBUF_FIELD_OFFSET(::DJIFRProto::Standard::ImageData, _impl_.thumbnail_),
   ~0u,  // no _has_bits_
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::DJIFRProto::Standard::ImageDatas, _internal_metadata_),
+  PROTOBUF_FIELD_OFFSET(::DJIFRProto::Standard::ImageDatas, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::DJIFRProto::Standard::ImageDatas, images_),
+  ~0u,  // no _inlined_string_donated_
+  PROTOBUF_FIELD_OFFSET(::DJIFRProto::Standard::ImageDatas, _impl_.images_),
 };
-static const ::google::protobuf::internal::MigrationSchema schemas[] GOOGLE_PROTOBUF_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
-  { 0, -1, sizeof(::DJIFRProto::Standard::ImageData)},
-  { 8, -1, sizeof(::DJIFRProto::Standard::ImageDatas)},
-};
-
-static ::google::protobuf::Message const * const file_default_instances[] = {
-  reinterpret_cast<const ::google::protobuf::Message*>(&::DJIFRProto::Standard::_ImageData_default_instance_),
-  reinterpret_cast<const ::google::protobuf::Message*>(&::DJIFRProto::Standard::_ImageDatas_default_instance_),
+static const ::_pbi::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
+  { 0, -1, -1, sizeof(::DJIFRProto::Standard::ImageData)},
+  { 9, -1, -1, sizeof(::DJIFRProto::Standard::ImageDatas)},
 };
 
-void protobuf_AssignDescriptors() {
-  AddDescriptors();
-  ::google::protobuf::MessageFactory* factory = NULL;
-  AssignDescriptors(
-      "Image/FRImageModelProto.proto", schemas, file_default_instances, TableStruct::offsets, factory,
-      file_level_metadata, NULL, NULL);
+static const ::_pb::Message* const file_default_instances[] = {
+  &::DJIFRProto::Standard::_ImageData_default_instance_._instance,
+  &::DJIFRProto::Standard::_ImageDatas_default_instance_._instance,
+};
+
+const char descriptor_table_protodef_Image_2fFRImageModelProto_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
+  "\n\035Image/FRImageModelProto.proto\022\023DJIFRPr"
+  "oto.Standard\032\037Common/FRCommonModelProto."
+  "proto\"s\n\tImageData\022=\n\ncoordinate\030\001 \001(\0132)"
+  ".DJIFRProto.Standard.LocationCoordinate2"
+  "D\022\024\n\014previewImage\030\002 \001(\014\022\021\n\tthumbnail\030\003 \001"
+  "(\014\"<\n\nImageDatas\022.\n\006images\030\001 \003(\0132\036.DJIFR"
+  "Proto.Standard.ImageDataB\r\242\002\nDJIFRProtob"
+  "\006proto3"
+  ;
+static const ::_pbi::DescriptorTable* const descriptor_table_Image_2fFRImageModelProto_2eproto_deps[1] = {
+  &::descriptor_table_Common_2fFRCommonModelProto_2eproto,
+};
+static ::_pbi::once_flag descriptor_table_Image_2fFRImageModelProto_2eproto_once;
+const ::_pbi::DescriptorTable descriptor_table_Image_2fFRImageModelProto_2eproto = {
+    false, false, 287, descriptor_table_protodef_Image_2fFRImageModelProto_2eproto,
+    "Image/FRImageModelProto.proto",
+    &descriptor_table_Image_2fFRImageModelProto_2eproto_once, descriptor_table_Image_2fFRImageModelProto_2eproto_deps, 1, 2,
+    schemas, file_default_instances, TableStruct_Image_2fFRImageModelProto_2eproto::offsets,
+    file_level_metadata_Image_2fFRImageModelProto_2eproto, file_level_enum_descriptors_Image_2fFRImageModelProto_2eproto,
+    file_level_service_descriptors_Image_2fFRImageModelProto_2eproto,
+};
+PROTOBUF_ATTRIBUTE_WEAK const ::_pbi::DescriptorTable* descriptor_table_Image_2fFRImageModelProto_2eproto_getter() {
+  return &descriptor_table_Image_2fFRImageModelProto_2eproto;
 }
 
-void protobuf_AssignDescriptorsOnce() {
-  static GOOGLE_PROTOBUF_DECLARE_ONCE(once);
-  ::google::protobuf::GoogleOnceInit(&once, &protobuf_AssignDescriptors);
-}
-
-void protobuf_RegisterTypes(const ::std::string&) GOOGLE_PROTOBUF_ATTRIBUTE_COLD;
-void protobuf_RegisterTypes(const ::std::string&) {
-  protobuf_AssignDescriptorsOnce();
-  ::google::protobuf::internal::RegisterAllTypes(file_level_metadata, 2);
-}
-
-void AddDescriptorsImpl() {
-  InitDefaults();
-  static const char descriptor[] GOOGLE_PROTOBUF_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
-      "\n\035Image/FRImageModelProto.proto\022\023DJIFRPr"
-      "oto.Standard\032\037Common/FRCommonModelProto."
-      "proto\"s\n\tImageData\022=\n\ncoordinate\030\001 \001(\0132)"
-      ".DJIFRProto.Standard.LocationCoordinate2"
-      "D\022\024\n\014previewImage\030\002 \001(\014\022\021\n\tthumbnail\030\003 \001"
-      "(\014\"<\n\nImageDatas\022.\n\006images\030\001 \003(\0132\036.DJIFR"
-      "Proto.Standard.ImageDataB\r\242\002\nDJIFRProtob"
-      "\006proto3"
-  };
-  ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-      descriptor, 287);
-  ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
-    "Image/FRImageModelProto.proto", &protobuf_RegisterTypes);
-  ::protobuf_Common_2fFRCommonModelProto_2eproto::AddDescriptors();
-}
-
-void AddDescriptors() {
-  static GOOGLE_PROTOBUF_DECLARE_ONCE(once);
-  ::google::protobuf::GoogleOnceInit(&once, &AddDescriptorsImpl);
-}
-// Force AddDescriptors() to be called at dynamic initialization time.
-struct StaticDescriptorInitializer {
-  StaticDescriptorInitializer() {
-    AddDescriptors();
-  }
-} static_descriptor_initializer;
-}  // namespace protobuf_Image_2fFRImageModelProto_2eproto
+// Force running AddDescriptors() at dynamic initialization time.
+PROTOBUF_ATTRIBUTE_INIT_PRIORITY2 static ::_pbi::AddDescriptorsRunner dynamic_init_dummy_Image_2fFRImageModelProto_2eproto(&descriptor_table_Image_2fFRImageModelProto_2eproto);
 namespace DJIFRProto {
 namespace Standard {
 
 // ===================================================================
 
-void ImageData::InitAsDefaultInstance() {
-  ::DJIFRProto::Standard::_ImageData_default_instance_._instance.get_mutable()->coordinate_ = const_cast< ::DJIFRProto::Standard::LocationCoordinate2D*>(
-      ::DJIFRProto::Standard::LocationCoordinate2D::internal_default_instance());
+class ImageData::_Internal {
+ public:
+  static const ::DJIFRProto::Standard::LocationCoordinate2D& coordinate(const ImageData* msg);
+};
+
+const ::DJIFRProto::Standard::LocationCoordinate2D&
+ImageData::_Internal::coordinate(const ImageData* msg) {
+  return *msg->_impl_.coordinate_;
 }
 void ImageData::clear_coordinate() {
-  if (GetArenaNoVirtual() == NULL && coordinate_ != NULL) {
-    delete coordinate_;
+  if (GetArenaForAllocation() == nullptr && _impl_.coordinate_ != nullptr) {
+    delete _impl_.coordinate_;
   }
-  coordinate_ = NULL;
+  _impl_.coordinate_ = nullptr;
 }
-#if !defined(_MSC_VER) || _MSC_VER >= 1900
-const int ImageData::kCoordinateFieldNumber;
-const int ImageData::kPreviewImageFieldNumber;
-const int ImageData::kThumbnailFieldNumber;
-#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
-
-ImageData::ImageData()
-  : ::google::protobuf::Message(), _internal_metadata_(NULL) {
-  if (GOOGLE_PREDICT_TRUE(this != internal_default_instance())) {
-    ::protobuf_Image_2fFRImageModelProto_2eproto::InitDefaultsImageData();
-  }
-  SharedCtor();
-  // @@protoc_insertion_point(constructor:DJIFRProto.Standard.ImageData)
+ImageData::ImageData(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
+  SharedCtor(arena, is_message_owned);
+  // @@protoc_insertion_point(arena_constructor:DJIFRProto.Standard.ImageData)
 }
 ImageData::ImageData(const ImageData& from)
-  : ::google::protobuf::Message(),
-      _internal_metadata_(NULL),
-      _cached_size_(0) {
-  _internal_metadata_.MergeFrom(from._internal_metadata_);
-  previewimage_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  if (from.previewimage().size() > 0) {
-    previewimage_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.previewimage_);
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  ImageData* const _this = this; (void)_this;
+  new (&_impl_) Impl_{
+      decltype(_impl_.previewimage_){}
+    , decltype(_impl_.thumbnail_){}
+    , decltype(_impl_.coordinate_){nullptr}
+    , /*decltype(_impl_._cached_size_)*/{}};
+
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  _impl_.previewimage_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.previewimage_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (!from._internal_previewimage().empty()) {
+    _this->_impl_.previewimage_.Set(from._internal_previewimage(), 
+      _this->GetArenaForAllocation());
   }
-  thumbnail_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  if (from.thumbnail().size() > 0) {
-    thumbnail_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.thumbnail_);
+  _impl_.thumbnail_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.thumbnail_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (!from._internal_thumbnail().empty()) {
+    _this->_impl_.thumbnail_.Set(from._internal_thumbnail(), 
+      _this->GetArenaForAllocation());
   }
-  if (from.has_coordinate()) {
-    coordinate_ = new ::DJIFRProto::Standard::LocationCoordinate2D(*from.coordinate_);
-  } else {
-    coordinate_ = NULL;
+  if (from._internal_has_coordinate()) {
+    _this->_impl_.coordinate_ = new ::DJIFRProto::Standard::LocationCoordinate2D(*from._impl_.coordinate_);
   }
   // @@protoc_insertion_point(copy_constructor:DJIFRProto.Standard.ImageData)
 }
 
-void ImageData::SharedCtor() {
-  previewimage_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  thumbnail_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  coordinate_ = NULL;
-  _cached_size_ = 0;
+inline void ImageData::SharedCtor(
+    ::_pb::Arena* arena, bool is_message_owned) {
+  (void)arena;
+  (void)is_message_owned;
+  new (&_impl_) Impl_{
+      decltype(_impl_.previewimage_){}
+    , decltype(_impl_.thumbnail_){}
+    , decltype(_impl_.coordinate_){nullptr}
+    , /*decltype(_impl_._cached_size_)*/{}
+  };
+  _impl_.previewimage_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.previewimage_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  _impl_.thumbnail_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.thumbnail_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
 }
 
 ImageData::~ImageData() {
   // @@protoc_insertion_point(destructor:DJIFRProto.Standard.ImageData)
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
   SharedDtor();
 }
 
-void ImageData::SharedDtor() {
-  previewimage_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  thumbnail_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  if (this != internal_default_instance()) delete coordinate_;
+inline void ImageData::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+  _impl_.previewimage_.Destroy();
+  _impl_.thumbnail_.Destroy();
+  if (this != internal_default_instance()) delete _impl_.coordinate_;
 }
 
 void ImageData::SetCachedSize(int size) const {
-  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
-  _cached_size_ = size;
-  GOOGLE_SAFE_CONCURRENT_WRITES_END();
-}
-const ::google::protobuf::Descriptor* ImageData::descriptor() {
-  ::protobuf_Image_2fFRImageModelProto_2eproto::protobuf_AssignDescriptorsOnce();
-  return ::protobuf_Image_2fFRImageModelProto_2eproto::file_level_metadata[kIndexInFileMessages].descriptor;
-}
-
-const ImageData& ImageData::default_instance() {
-  ::protobuf_Image_2fFRImageModelProto_2eproto::InitDefaultsImageData();
-  return *internal_default_instance();
-}
-
-ImageData* ImageData::New(::google::protobuf::Arena* arena) const {
-  ImageData* n = new ImageData;
-  if (arena != NULL) {
-    arena->Own(n);
-  }
-  return n;
+  _impl_._cached_size_.Set(size);
 }
 
 void ImageData::Clear() {
 // @@protoc_insertion_point(message_clear_start:DJIFRProto.Standard.ImageData)
-  ::google::protobuf::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  previewimage_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  thumbnail_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  if (GetArenaNoVirtual() == NULL && coordinate_ != NULL) {
-    delete coordinate_;
+  _impl_.previewimage_.ClearToEmpty();
+  _impl_.thumbnail_.ClearToEmpty();
+  if (GetArenaForAllocation() == nullptr && _impl_.coordinate_ != nullptr) {
+    delete _impl_.coordinate_;
   }
-  coordinate_ = NULL;
-  _internal_metadata_.Clear();
+  _impl_.coordinate_ = nullptr;
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-bool ImageData::MergePartialFromCodedStream(
-    ::google::protobuf::io::CodedInputStream* input) {
-#define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
-  ::google::protobuf::uint32 tag;
-  // @@protoc_insertion_point(parse_start:DJIFRProto.Standard.ImageData)
-  for (;;) {
-    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
-    tag = p.first;
-    if (!p.second) goto handle_unusual;
-    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+const char* ImageData::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
+    switch (tag >> 3) {
       // .DJIFRProto.Standard.LocationCoordinate2D coordinate = 1;
-      case 1: {
-        if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(10u /* 10 & 0xFF */)) {
-          DO_(::google::protobuf::internal::WireFormatLite::ReadMessage(
-               input, mutable_coordinate()));
-        } else {
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
+          ptr = ctx->ParseMessage(_internal_mutable_coordinate(), ptr);
+          CHK_(ptr);
+        } else
           goto handle_unusual;
-        }
-        break;
-      }
-
+        continue;
       // bytes previewImage = 2;
-      case 2: {
-        if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(18u /* 18 & 0xFF */)) {
-          DO_(::google::protobuf::internal::WireFormatLite::ReadBytes(
-                input, this->mutable_previewimage()));
-        } else {
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 18)) {
+          auto str = _internal_mutable_previewimage();
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(ptr);
+        } else
           goto handle_unusual;
-        }
-        break;
-      }
-
+        continue;
       // bytes thumbnail = 3;
-      case 3: {
-        if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(26u /* 26 & 0xFF */)) {
-          DO_(::google::protobuf::internal::WireFormatLite::ReadBytes(
-                input, this->mutable_thumbnail()));
-        } else {
+      case 3:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 26)) {
+          auto str = _internal_mutable_thumbnail();
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(ptr);
+        } else
           goto handle_unusual;
-        }
-        break;
-      }
-
-      default: {
-      handle_unusual:
-        if (tag == 0) {
-          goto success;
-        }
-        DO_(::google::protobuf::internal::WireFormat::SkipField(
-              input, tag, _internal_metadata_.mutable_unknown_fields()));
-        break;
-      }
+        continue;
+      default:
+        goto handle_unusual;
+    }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
     }
-  }
-success:
-  // @@protoc_insertion_point(parse_success:DJIFRProto.Standard.ImageData)
-  return true;
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
+  }  // while
+message_done:
+  return ptr;
 failure:
-  // @@protoc_insertion_point(parse_failure:DJIFRProto.Standard.ImageData)
-  return false;
-#undef DO_
+  ptr = nullptr;
+  goto message_done;
+#undef CHK_
 }
 
-void ImageData::SerializeWithCachedSizes(
-    ::google::protobuf::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:DJIFRProto.Standard.ImageData)
-  ::google::protobuf::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  // .DJIFRProto.Standard.LocationCoordinate2D coordinate = 1;
-  if (this->has_coordinate()) {
-    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      1, *this->coordinate_, output);
-  }
-
-  // bytes previewImage = 2;
-  if (this->previewimage().size() > 0) {
-    ::google::protobuf::internal::WireFormatLite::WriteBytesMaybeAliased(
-      2, this->previewimage(), output);
-  }
-
-  // bytes thumbnail = 3;
-  if (this->thumbnail().size() > 0) {
-    ::google::protobuf::internal::WireFormatLite::WriteBytesMaybeAliased(
-      3, this->thumbnail(), output);
-  }
-
-  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
-    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
-        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), output);
-  }
-  // @@protoc_insertion_point(serialize_end:DJIFRProto.Standard.ImageData)
-}
-
-::google::protobuf::uint8* ImageData::InternalSerializeWithCachedSizesToArray(
-    bool deterministic, ::google::protobuf::uint8* target) const {
-  (void)deterministic; // Unused
+uint8_t* ImageData::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
   // @@protoc_insertion_point(serialize_to_array_start:DJIFRProto.Standard.ImageData)
-  ::google::protobuf::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
   // .DJIFRProto.Standard.LocationCoordinate2D coordinate = 1;
-  if (this->has_coordinate()) {
-    target = ::google::protobuf::internal::WireFormatLite::
-      InternalWriteMessageToArray(
-        1, *this->coordinate_, deterministic, target);
+  if (this->_internal_has_coordinate()) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(1, _Internal::coordinate(this),
+        _Internal::coordinate(this).GetCachedSize(), target, stream);
   }
 
   // bytes previewImage = 2;
-  if (this->previewimage().size() > 0) {
-    target =
-      ::google::protobuf::internal::WireFormatLite::WriteBytesToArray(
-        2, this->previewimage(), target);
+  if (!this->_internal_previewimage().empty()) {
+    target = stream->WriteBytesMaybeAliased(
+        2, this->_internal_previewimage(), target);
   }
 
   // bytes thumbnail = 3;
-  if (this->thumbnail().size() > 0) {
-    target =
-      ::google::protobuf::internal::WireFormatLite::WriteBytesToArray(
-        3, this->thumbnail(), target);
+  if (!this->_internal_thumbnail().empty()) {
+    target = stream->WriteBytesMaybeAliased(
+        3, this->_internal_thumbnail(), target);
   }
 
-  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
-    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
-        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), target);
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
   }
   // @@protoc_insertion_point(serialize_to_array_end:DJIFRProto.Standard.ImageData)
   return target;
@@ -398,79 +317,60 @@ size_t ImageData::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:DJIFRProto.Standard.ImageData)
   size_t total_size = 0;
 
-  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
-    total_size +=
-      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
-        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()));
-  }
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
   // bytes previewImage = 2;
-  if (this->previewimage().size() > 0) {
+  if (!this->_internal_previewimage().empty()) {
     total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::BytesSize(
-        this->previewimage());
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::BytesSize(
+        this->_internal_previewimage());
   }
 
   // bytes thumbnail = 3;
-  if (this->thumbnail().size() > 0) {
+  if (!this->_internal_thumbnail().empty()) {
     total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::BytesSize(
-        this->thumbnail());
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::BytesSize(
+        this->_internal_thumbnail());
   }
 
   // .DJIFRProto.Standard.LocationCoordinate2D coordinate = 1;
-  if (this->has_coordinate()) {
+  if (this->_internal_has_coordinate()) {
     total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::MessageSize(
-        *this->coordinate_);
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+        *_impl_.coordinate_);
   }
 
-  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
-  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
-  _cached_size_ = cached_size;
-  GOOGLE_SAFE_CONCURRENT_WRITES_END();
-  return total_size;
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
 }
 
-void ImageData::MergeFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:DJIFRProto.Standard.ImageData)
-  GOOGLE_DCHECK_NE(&from, this);
-  const ImageData* source =
-      ::google::protobuf::internal::DynamicCastToGenerated<const ImageData>(
-          &from);
-  if (source == NULL) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:DJIFRProto.Standard.ImageData)
-    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
-  } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:DJIFRProto.Standard.ImageData)
-    MergeFrom(*source);
-  }
-}
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData ImageData::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
+    ImageData::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*ImageData::GetClassData() const { return &_class_data_; }
 
-void ImageData::MergeFrom(const ImageData& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:DJIFRProto.Standard.ImageData)
-  GOOGLE_DCHECK_NE(&from, this);
-  _internal_metadata_.MergeFrom(from._internal_metadata_);
-  ::google::protobuf::uint32 cached_has_bits = 0;
+
+void ImageData::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
+  auto* const _this = static_cast<ImageData*>(&to_msg);
+  auto& from = static_cast<const ImageData&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:DJIFRProto.Standard.ImageData)
+  GOOGLE_DCHECK_NE(&from, _this);
+  uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  if (from.previewimage().size() > 0) {
-
-    previewimage_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.previewimage_);
+  if (!from._internal_previewimage().empty()) {
+    _this->_internal_set_previewimage(from._internal_previewimage());
   }
-  if (from.thumbnail().size() > 0) {
-
-    thumbnail_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.thumbnail_);
+  if (!from._internal_thumbnail().empty()) {
+    _this->_internal_set_thumbnail(from._internal_thumbnail());
   }
-  if (from.has_coordinate()) {
-    mutable_coordinate()->::DJIFRProto::Standard::LocationCoordinate2D::MergeFrom(from.coordinate());
+  if (from._internal_has_coordinate()) {
+    _this->_internal_mutable_coordinate()->::DJIFRProto::Standard::LocationCoordinate2D::MergeFrom(
+        from._internal_coordinate());
   }
-}
-
-void ImageData::CopyFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:DJIFRProto.Standard.ImageData)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
+  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void ImageData::CopyFrom(const ImageData& from) {
@@ -484,174 +384,148 @@ bool ImageData::IsInitialized() const {
   return true;
 }
 
-void ImageData::Swap(ImageData* other) {
-  if (other == this) return;
-  InternalSwap(other);
-}
 void ImageData::InternalSwap(ImageData* other) {
   using std::swap;
-  previewimage_.Swap(&other->previewimage_);
-  thumbnail_.Swap(&other->thumbnail_);
-  swap(coordinate_, other->coordinate_);
-  _internal_metadata_.Swap(&other->_internal_metadata_);
-  swap(_cached_size_, other->_cached_size_);
+  auto* lhs_arena = GetArenaForAllocation();
+  auto* rhs_arena = other->GetArenaForAllocation();
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &_impl_.previewimage_, lhs_arena,
+      &other->_impl_.previewimage_, rhs_arena
+  );
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &_impl_.thumbnail_, lhs_arena,
+      &other->_impl_.thumbnail_, rhs_arena
+  );
+  swap(_impl_.coordinate_, other->_impl_.coordinate_);
 }
 
-::google::protobuf::Metadata ImageData::GetMetadata() const {
-  protobuf_Image_2fFRImageModelProto_2eproto::protobuf_AssignDescriptorsOnce();
-  return ::protobuf_Image_2fFRImageModelProto_2eproto::file_level_metadata[kIndexInFileMessages];
+::PROTOBUF_NAMESPACE_ID::Metadata ImageData::GetMetadata() const {
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_Image_2fFRImageModelProto_2eproto_getter, &descriptor_table_Image_2fFRImageModelProto_2eproto_once,
+      file_level_metadata_Image_2fFRImageModelProto_2eproto[0]);
 }
-
 
 // ===================================================================
 
-void ImageDatas::InitAsDefaultInstance() {
-}
-#if !defined(_MSC_VER) || _MSC_VER >= 1900
-const int ImageDatas::kImagesFieldNumber;
-#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+class ImageDatas::_Internal {
+ public:
+};
 
-ImageDatas::ImageDatas()
-  : ::google::protobuf::Message(), _internal_metadata_(NULL) {
-  if (GOOGLE_PREDICT_TRUE(this != internal_default_instance())) {
-    ::protobuf_Image_2fFRImageModelProto_2eproto::InitDefaultsImageDatas();
-  }
-  SharedCtor();
-  // @@protoc_insertion_point(constructor:DJIFRProto.Standard.ImageDatas)
+ImageDatas::ImageDatas(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
+  SharedCtor(arena, is_message_owned);
+  // @@protoc_insertion_point(arena_constructor:DJIFRProto.Standard.ImageDatas)
 }
 ImageDatas::ImageDatas(const ImageDatas& from)
-  : ::google::protobuf::Message(),
-      _internal_metadata_(NULL),
-      images_(from.images_),
-      _cached_size_(0) {
-  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  ImageDatas* const _this = this; (void)_this;
+  new (&_impl_) Impl_{
+      decltype(_impl_.images_){from._impl_.images_}
+    , /*decltype(_impl_._cached_size_)*/{}};
+
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   // @@protoc_insertion_point(copy_constructor:DJIFRProto.Standard.ImageDatas)
 }
 
-void ImageDatas::SharedCtor() {
-  _cached_size_ = 0;
+inline void ImageDatas::SharedCtor(
+    ::_pb::Arena* arena, bool is_message_owned) {
+  (void)arena;
+  (void)is_message_owned;
+  new (&_impl_) Impl_{
+      decltype(_impl_.images_){arena}
+    , /*decltype(_impl_._cached_size_)*/{}
+  };
 }
 
 ImageDatas::~ImageDatas() {
   // @@protoc_insertion_point(destructor:DJIFRProto.Standard.ImageDatas)
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
   SharedDtor();
 }
 
-void ImageDatas::SharedDtor() {
+inline void ImageDatas::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+  _impl_.images_.~RepeatedPtrField();
 }
 
 void ImageDatas::SetCachedSize(int size) const {
-  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
-  _cached_size_ = size;
-  GOOGLE_SAFE_CONCURRENT_WRITES_END();
-}
-const ::google::protobuf::Descriptor* ImageDatas::descriptor() {
-  ::protobuf_Image_2fFRImageModelProto_2eproto::protobuf_AssignDescriptorsOnce();
-  return ::protobuf_Image_2fFRImageModelProto_2eproto::file_level_metadata[kIndexInFileMessages].descriptor;
-}
-
-const ImageDatas& ImageDatas::default_instance() {
-  ::protobuf_Image_2fFRImageModelProto_2eproto::InitDefaultsImageDatas();
-  return *internal_default_instance();
-}
-
-ImageDatas* ImageDatas::New(::google::protobuf::Arena* arena) const {
-  ImageDatas* n = new ImageDatas;
-  if (arena != NULL) {
-    arena->Own(n);
-  }
-  return n;
+  _impl_._cached_size_.Set(size);
 }
 
 void ImageDatas::Clear() {
 // @@protoc_insertion_point(message_clear_start:DJIFRProto.Standard.ImageDatas)
-  ::google::protobuf::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  images_.Clear();
-  _internal_metadata_.Clear();
+  _impl_.images_.Clear();
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-bool ImageDatas::MergePartialFromCodedStream(
-    ::google::protobuf::io::CodedInputStream* input) {
-#define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
-  ::google::protobuf::uint32 tag;
-  // @@protoc_insertion_point(parse_start:DJIFRProto.Standard.ImageDatas)
-  for (;;) {
-    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
-    tag = p.first;
-    if (!p.second) goto handle_unusual;
-    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+const char* ImageDatas::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
+    switch (tag >> 3) {
       // repeated .DJIFRProto.Standard.ImageData images = 1;
-      case 1: {
-        if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(10u /* 10 & 0xFF */)) {
-          DO_(::google::protobuf::internal::WireFormatLite::ReadMessage(input, add_images()));
-        } else {
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
+          ptr -= 1;
+          do {
+            ptr += 1;
+            ptr = ctx->ParseMessage(_internal_add_images(), ptr);
+            CHK_(ptr);
+            if (!ctx->DataAvailable(ptr)) break;
+          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<10>(ptr));
+        } else
           goto handle_unusual;
-        }
-        break;
-      }
-
-      default: {
-      handle_unusual:
-        if (tag == 0) {
-          goto success;
-        }
-        DO_(::google::protobuf::internal::WireFormat::SkipField(
-              input, tag, _internal_metadata_.mutable_unknown_fields()));
-        break;
-      }
+        continue;
+      default:
+        goto handle_unusual;
+    }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
     }
-  }
-success:
-  // @@protoc_insertion_point(parse_success:DJIFRProto.Standard.ImageDatas)
-  return true;
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
+  }  // while
+message_done:
+  return ptr;
 failure:
-  // @@protoc_insertion_point(parse_failure:DJIFRProto.Standard.ImageDatas)
-  return false;
-#undef DO_
+  ptr = nullptr;
+  goto message_done;
+#undef CHK_
 }
 
-void ImageDatas::SerializeWithCachedSizes(
-    ::google::protobuf::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:DJIFRProto.Standard.ImageDatas)
-  ::google::protobuf::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  // repeated .DJIFRProto.Standard.ImageData images = 1;
-  for (unsigned int i = 0,
-      n = static_cast<unsigned int>(this->images_size()); i < n; i++) {
-    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      1, this->images(static_cast<int>(i)), output);
-  }
-
-  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
-    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
-        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), output);
-  }
-  // @@protoc_insertion_point(serialize_end:DJIFRProto.Standard.ImageDatas)
-}
-
-::google::protobuf::uint8* ImageDatas::InternalSerializeWithCachedSizesToArray(
-    bool deterministic, ::google::protobuf::uint8* target) const {
-  (void)deterministic; // Unused
+uint8_t* ImageDatas::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
   // @@protoc_insertion_point(serialize_to_array_start:DJIFRProto.Standard.ImageDatas)
-  ::google::protobuf::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
   // repeated .DJIFRProto.Standard.ImageData images = 1;
-  for (unsigned int i = 0,
-      n = static_cast<unsigned int>(this->images_size()); i < n; i++) {
-    target = ::google::protobuf::internal::WireFormatLite::
-      InternalWriteMessageToArray(
-        1, this->images(static_cast<int>(i)), deterministic, target);
+  for (unsigned i = 0,
+      n = static_cast<unsigned>(this->_internal_images_size()); i < n; i++) {
+    const auto& repfield = this->_internal_images(i);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+        InternalWriteMessage(1, repfield, repfield.GetCachedSize(), target, stream);
   }
 
-  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
-    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
-        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), target);
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
   }
   // @@protoc_insertion_point(serialize_to_array_end:DJIFRProto.Standard.ImageDatas)
   return target;
@@ -661,59 +535,37 @@ size_t ImageDatas::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:DJIFRProto.Standard.ImageDatas)
   size_t total_size = 0;
 
-  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
-    total_size +=
-      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
-        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()));
-  }
-  // repeated .DJIFRProto.Standard.ImageData images = 1;
-  {
-    unsigned int count = static_cast<unsigned int>(this->images_size());
-    total_size += 1UL * count;
-    for (unsigned int i = 0; i < count; i++) {
-      total_size +=
-        ::google::protobuf::internal::WireFormatLite::MessageSize(
-          this->images(static_cast<int>(i)));
-    }
-  }
-
-  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
-  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
-  _cached_size_ = cached_size;
-  GOOGLE_SAFE_CONCURRENT_WRITES_END();
-  return total_size;
-}
-
-void ImageDatas::MergeFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:DJIFRProto.Standard.ImageDatas)
-  GOOGLE_DCHECK_NE(&from, this);
-  const ImageDatas* source =
-      ::google::protobuf::internal::DynamicCastToGenerated<const ImageDatas>(
-          &from);
-  if (source == NULL) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:DJIFRProto.Standard.ImageDatas)
-    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
-  } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:DJIFRProto.Standard.ImageDatas)
-    MergeFrom(*source);
-  }
-}
-
-void ImageDatas::MergeFrom(const ImageDatas& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:DJIFRProto.Standard.ImageDatas)
-  GOOGLE_DCHECK_NE(&from, this);
-  _internal_metadata_.MergeFrom(from._internal_metadata_);
-  ::google::protobuf::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  images_.MergeFrom(from.images_);
+  // repeated .DJIFRProto.Standard.ImageData images = 1;
+  total_size += 1UL * this->_internal_images_size();
+  for (const auto& msg : this->_impl_.images_) {
+    total_size +=
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
+  }
+
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
 }
 
-void ImageDatas::CopyFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:DJIFRProto.Standard.ImageDatas)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData ImageDatas::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
+    ImageDatas::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*ImageDatas::GetClassData() const { return &_class_data_; }
+
+
+void ImageDatas::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
+  auto* const _this = static_cast<ImageDatas*>(&to_msg);
+  auto& from = static_cast<const ImageDatas&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:DJIFRProto.Standard.ImageDatas)
+  GOOGLE_DCHECK_NE(&from, _this);
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  _this->_impl_.images_.MergeFrom(from._impl_.images_);
+  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void ImageDatas::CopyFrom(const ImageDatas& from) {
@@ -727,25 +579,31 @@ bool ImageDatas::IsInitialized() const {
   return true;
 }
 
-void ImageDatas::Swap(ImageDatas* other) {
-  if (other == this) return;
-  InternalSwap(other);
-}
 void ImageDatas::InternalSwap(ImageDatas* other) {
   using std::swap;
-  images_.InternalSwap(&other->images_);
-  _internal_metadata_.Swap(&other->_internal_metadata_);
-  swap(_cached_size_, other->_cached_size_);
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  _impl_.images_.InternalSwap(&other->_impl_.images_);
 }
 
-::google::protobuf::Metadata ImageDatas::GetMetadata() const {
-  protobuf_Image_2fFRImageModelProto_2eproto::protobuf_AssignDescriptorsOnce();
-  return ::protobuf_Image_2fFRImageModelProto_2eproto::file_level_metadata[kIndexInFileMessages];
+::PROTOBUF_NAMESPACE_ID::Metadata ImageDatas::GetMetadata() const {
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_Image_2fFRImageModelProto_2eproto_getter, &descriptor_table_Image_2fFRImageModelProto_2eproto_once,
+      file_level_metadata_Image_2fFRImageModelProto_2eproto[1]);
 }
-
 
 // @@protoc_insertion_point(namespace_scope)
 }  // namespace Standard
 }  // namespace DJIFRProto
+PROTOBUF_NAMESPACE_OPEN
+template<> PROTOBUF_NOINLINE ::DJIFRProto::Standard::ImageData*
+Arena::CreateMaybeMessage< ::DJIFRProto::Standard::ImageData >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::DJIFRProto::Standard::ImageData >(arena);
+}
+template<> PROTOBUF_NOINLINE ::DJIFRProto::Standard::ImageDatas*
+Arena::CreateMaybeMessage< ::DJIFRProto::Standard::ImageDatas >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::DJIFRProto::Standard::ImageDatas >(arena);
+}
+PROTOBUF_NAMESPACE_CLOSE
 
 // @@protoc_insertion_point(global_scope)
+#include <google/protobuf/port_undef.inc>

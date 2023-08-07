@@ -10,6 +10,9 @@ add_executable(${current_project_name} main.cc)
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} --std=c++11 -O3 -fPIC")
 set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} --std=c++11 -O0")
 
+set(CURL_LIBRARY "-lcurl")
+find_package(CURL REQUIRED)
+
 # Pour in the File Filter traversal tool.
 include(${all_project_root_path}/third-party/cmake/common/file/FileFilter.cmake)
 
@@ -17,4 +20,4 @@ file(GLOB_RECURSE StandardizationCppHeader ${all_project_root_path}/dji-flightre
 include_file_directory(StandardizationCppHeader)
 
 add_subdirectory(${all_project_root_path}/dji-flightrecord-kit/source/FlightRecordStandardizationCpp StandardizationCppBuild)
-target_link_libraries(${current_project_name} FlightRecordStandardizationCpp)
+target_link_libraries(${current_project_name} FlightRecordStandardizationCpp ${CURL_LIBRARIES})

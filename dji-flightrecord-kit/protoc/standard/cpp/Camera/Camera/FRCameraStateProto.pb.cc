@@ -5,147 +5,129 @@
 
 #include <algorithm>
 
-#include <google/protobuf/stubs/common.h>
-#include <google/protobuf/stubs/port.h>
-#include <google/protobuf/stubs/once.h>
 #include <google/protobuf/io/coded_stream.h>
-#include <google/protobuf/wire_format_lite_inl.h>
+#include <google/protobuf/extension_set.h>
+#include <google/protobuf/wire_format_lite.h>
 #include <google/protobuf/descriptor.h>
 #include <google/protobuf/generated_message_reflection.h>
 #include <google/protobuf/reflection_ops.h>
 #include <google/protobuf/wire_format.h>
-// This is a temporary google only hack
-#ifdef GOOGLE_PROTOBUF_ENFORCE_UNIQUENESS
-#include "third_party/protobuf/version.h"
-#endif
 // @@protoc_insertion_point(includes)
+#include <google/protobuf/port_def.inc>
+
+PROTOBUF_PRAGMA_INIT_SEG
+
+namespace _pb = ::PROTOBUF_NAMESPACE_ID;
+namespace _pbi = _pb::internal;
+
 namespace DJIFRProto {
 namespace Standard {
-class CameraStateDefaultTypeInternal {
- public:
-  ::google::protobuf::internal::ExplicitlyConstructed<CameraState>
-      _instance;
-} _CameraState_default_instance_;
+PROTOBUF_CONSTEXPR CameraState::CameraState(
+    ::_pbi::ConstantInitialized): _impl_{
+    /*decltype(_impl_.isrecording_)*/false
+  , /*decltype(_impl_.isshootingsinglephoto_)*/false
+  , /*decltype(_impl_.isinserted_)*/false
+  , /*decltype(_impl_.isinitializing_)*/false
+  , /*decltype(_impl_.haserror_)*/false
+  , /*decltype(_impl_.isverified_)*/false
+  , /*decltype(_impl_.isfull_)*/false
+  , /*decltype(_impl_.isformatted_)*/false
+  , /*decltype(_impl_.isformatting_)*/false
+  , /*decltype(_impl_.isinvalidformat_)*/false
+  , /*decltype(_impl_.isreadonly_)*/false
+  , /*decltype(_impl_.totalspaceinmb_)*/0u
+  , /*decltype(_impl_.remainingspaceinmb_)*/0u
+  , /*decltype(_impl_.availablecapturecount_)*/0u
+  , /*decltype(_impl_.availablerecordingtimeinseconds_)*/0u
+  , /*decltype(_impl_.index_)*/0
+  , /*decltype(_impl_.mode_)*/0
+  , /*decltype(_impl_._cached_size_)*/{}} {}
+struct CameraStateDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR CameraStateDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~CameraStateDefaultTypeInternal() {}
+  union {
+    CameraState _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 CameraStateDefaultTypeInternal _CameraState_default_instance_;
 }  // namespace Standard
 }  // namespace DJIFRProto
-namespace protobuf_Camera_2fFRCameraStateProto_2eproto {
-void InitDefaultsCameraStateImpl() {
-  GOOGLE_PROTOBUF_VERIFY_VERSION;
+static ::_pb::Metadata file_level_metadata_Camera_2fFRCameraStateProto_2eproto[1];
+static const ::_pb::EnumDescriptor* file_level_enum_descriptors_Camera_2fFRCameraStateProto_2eproto[1];
+static constexpr ::_pb::ServiceDescriptor const** file_level_service_descriptors_Camera_2fFRCameraStateProto_2eproto = nullptr;
 
-#ifdef GOOGLE_PROTOBUF_ENFORCE_UNIQUENESS
-  ::google::protobuf::internal::InitProtobufDefaultsForceUnique();
-#else
-  ::google::protobuf::internal::InitProtobufDefaults();
-#endif  // GOOGLE_PROTOBUF_ENFORCE_UNIQUENESS
-  {
-    void* ptr = &::DJIFRProto::Standard::_CameraState_default_instance_;
-    new (ptr) ::DJIFRProto::Standard::CameraState();
-    ::google::protobuf::internal::OnShutdownDestroyMessage(ptr);
-  }
-  ::DJIFRProto::Standard::CameraState::InitAsDefaultInstance();
-}
-
-void InitDefaultsCameraState() {
-  static GOOGLE_PROTOBUF_DECLARE_ONCE(once);
-  ::google::protobuf::GoogleOnceInit(&once, &InitDefaultsCameraStateImpl);
-}
-
-::google::protobuf::Metadata file_level_metadata[1];
-const ::google::protobuf::EnumDescriptor* file_level_enum_descriptors[1];
-
-const ::google::protobuf::uint32 TableStruct::offsets[] GOOGLE_PROTOBUF_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
+const uint32_t TableStruct_Camera_2fFRCameraStateProto_2eproto::offsets[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   ~0u,  // no _has_bits_
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::DJIFRProto::Standard::CameraState, _internal_metadata_),
+  PROTOBUF_FIELD_OFFSET(::DJIFRProto::Standard::CameraState, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::DJIFRProto::Standard::CameraState, isrecording_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::DJIFRProto::Standard::CameraState, isshootingsinglephoto_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::DJIFRProto::Standard::CameraState, isinserted_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::DJIFRProto::Standard::CameraState, isinitializing_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::DJIFRProto::Standard::CameraState, haserror_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::DJIFRProto::Standard::CameraState, isverified_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::DJIFRProto::Standard::CameraState, isfull_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::DJIFRProto::Standard::CameraState, isformatted_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::DJIFRProto::Standard::CameraState, isformatting_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::DJIFRProto::Standard::CameraState, isinvalidformat_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::DJIFRProto::Standard::CameraState, isreadonly_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::DJIFRProto::Standard::CameraState, totalspaceinmb_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::DJIFRProto::Standard::CameraState, remainingspaceinmb_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::DJIFRProto::Standard::CameraState, availablecapturecount_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::DJIFRProto::Standard::CameraState, availablerecordingtimeinseconds_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::DJIFRProto::Standard::CameraState, index_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::DJIFRProto::Standard::CameraState, mode_),
+  ~0u,  // no _inlined_string_donated_
+  PROTOBUF_FIELD_OFFSET(::DJIFRProto::Standard::CameraState, _impl_.isrecording_),
+  PROTOBUF_FIELD_OFFSET(::DJIFRProto::Standard::CameraState, _impl_.isshootingsinglephoto_),
+  PROTOBUF_FIELD_OFFSET(::DJIFRProto::Standard::CameraState, _impl_.isinserted_),
+  PROTOBUF_FIELD_OFFSET(::DJIFRProto::Standard::CameraState, _impl_.isinitializing_),
+  PROTOBUF_FIELD_OFFSET(::DJIFRProto::Standard::CameraState, _impl_.haserror_),
+  PROTOBUF_FIELD_OFFSET(::DJIFRProto::Standard::CameraState, _impl_.isverified_),
+  PROTOBUF_FIELD_OFFSET(::DJIFRProto::Standard::CameraState, _impl_.isfull_),
+  PROTOBUF_FIELD_OFFSET(::DJIFRProto::Standard::CameraState, _impl_.isformatted_),
+  PROTOBUF_FIELD_OFFSET(::DJIFRProto::Standard::CameraState, _impl_.isformatting_),
+  PROTOBUF_FIELD_OFFSET(::DJIFRProto::Standard::CameraState, _impl_.isinvalidformat_),
+  PROTOBUF_FIELD_OFFSET(::DJIFRProto::Standard::CameraState, _impl_.isreadonly_),
+  PROTOBUF_FIELD_OFFSET(::DJIFRProto::Standard::CameraState, _impl_.totalspaceinmb_),
+  PROTOBUF_FIELD_OFFSET(::DJIFRProto::Standard::CameraState, _impl_.remainingspaceinmb_),
+  PROTOBUF_FIELD_OFFSET(::DJIFRProto::Standard::CameraState, _impl_.availablecapturecount_),
+  PROTOBUF_FIELD_OFFSET(::DJIFRProto::Standard::CameraState, _impl_.availablerecordingtimeinseconds_),
+  PROTOBUF_FIELD_OFFSET(::DJIFRProto::Standard::CameraState, _impl_.index_),
+  PROTOBUF_FIELD_OFFSET(::DJIFRProto::Standard::CameraState, _impl_.mode_),
 };
-static const ::google::protobuf::internal::MigrationSchema schemas[] GOOGLE_PROTOBUF_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
-  { 0, -1, sizeof(::DJIFRProto::Standard::CameraState)},
-};
-
-static ::google::protobuf::Message const * const file_default_instances[] = {
-  reinterpret_cast<const ::google::protobuf::Message*>(&::DJIFRProto::Standard::_CameraState_default_instance_),
+static const ::_pbi::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
+  { 0, -1, -1, sizeof(::DJIFRProto::Standard::CameraState)},
 };
 
-void protobuf_AssignDescriptors() {
-  AddDescriptors();
-  ::google::protobuf::MessageFactory* factory = NULL;
-  AssignDescriptors(
-      "Camera/FRCameraStateProto.proto", schemas, file_default_instances, TableStruct::offsets, factory,
-      file_level_metadata, file_level_enum_descriptors, NULL);
+static const ::_pb::Message* const file_default_instances[] = {
+  &::DJIFRProto::Standard::_CameraState_default_instance_._instance,
+};
+
+const char descriptor_table_protodef_Camera_2fFRCameraStateProto_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
+  "\n\037Camera/FRCameraStateProto.proto\022\023DJIFR"
+  "Proto.Standard\"\256\004\n\013CameraState\022\023\n\013isReco"
+  "rding\030\001 \001(\010\022\035\n\025isShootingSinglePhoto\030\002 \001"
+  "(\010\022\022\n\nisInserted\030\003 \001(\010\022\026\n\016isInitializing"
+  "\030\004 \001(\010\022\020\n\010hasError\030\005 \001(\010\022\022\n\nisVerified\030\006"
+  " \001(\010\022\016\n\006isFull\030\007 \001(\010\022\023\n\013isFormatted\030\010 \001("
+  "\010\022\024\n\014isFormatting\030\t \001(\010\022\027\n\017isInvalidForm"
+  "at\030\n \001(\010\022\022\n\nisReadOnly\030\013 \001(\010\022\026\n\016totalSpa"
+  "ceInMB\030\014 \001(\r\022\032\n\022remainingSpaceInMB\030\r \001(\r"
+  "\022\035\n\025availableCaptureCount\030\016 \001(\r\022\'\n\037avail"
+  "ableRecordingTimeInSeconds\030\017 \001(\r\022\r\n\005inde"
+  "x\030\020 \001(\005\0229\n\004mode\030\021 \001(\0162+.DJIFRProto.Stand"
+  "ard.CameraState.CameraMode\"k\n\nCameraMode"
+  "\022\016\n\nShootPhoto\020\000\022\017\n\013RecordVideo\020\001\022\014\n\010Pla"
+  "yback\020\002\022\021\n\rMediaDownload\020\003\022\r\n\tBroadcast\020"
+  "\004\022\014\n\007Unknown\020\377\001B\r\242\002\nDJIFRProtob\006proto3"
+  ;
+static ::_pbi::once_flag descriptor_table_Camera_2fFRCameraStateProto_2eproto_once;
+const ::_pbi::DescriptorTable descriptor_table_Camera_2fFRCameraStateProto_2eproto = {
+    false, false, 638, descriptor_table_protodef_Camera_2fFRCameraStateProto_2eproto,
+    "Camera/FRCameraStateProto.proto",
+    &descriptor_table_Camera_2fFRCameraStateProto_2eproto_once, nullptr, 0, 1,
+    schemas, file_default_instances, TableStruct_Camera_2fFRCameraStateProto_2eproto::offsets,
+    file_level_metadata_Camera_2fFRCameraStateProto_2eproto, file_level_enum_descriptors_Camera_2fFRCameraStateProto_2eproto,
+    file_level_service_descriptors_Camera_2fFRCameraStateProto_2eproto,
+};
+PROTOBUF_ATTRIBUTE_WEAK const ::_pbi::DescriptorTable* descriptor_table_Camera_2fFRCameraStateProto_2eproto_getter() {
+  return &descriptor_table_Camera_2fFRCameraStateProto_2eproto;
 }
 
-void protobuf_AssignDescriptorsOnce() {
-  static GOOGLE_PROTOBUF_DECLARE_ONCE(once);
-  ::google::protobuf::GoogleOnceInit(&once, &protobuf_AssignDescriptors);
-}
-
-void protobuf_RegisterTypes(const ::std::string&) GOOGLE_PROTOBUF_ATTRIBUTE_COLD;
-void protobuf_RegisterTypes(const ::std::string&) {
-  protobuf_AssignDescriptorsOnce();
-  ::google::protobuf::internal::RegisterAllTypes(file_level_metadata, 1);
-}
-
-void AddDescriptorsImpl() {
-  InitDefaults();
-  static const char descriptor[] GOOGLE_PROTOBUF_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
-      "\n\037Camera/FRCameraStateProto.proto\022\023DJIFR"
-      "Proto.Standard\"\256\004\n\013CameraState\022\023\n\013isReco"
-      "rding\030\001 \001(\010\022\035\n\025isShootingSinglePhoto\030\002 \001"
-      "(\010\022\022\n\nisInserted\030\003 \001(\010\022\026\n\016isInitializing"
-      "\030\004 \001(\010\022\020\n\010hasError\030\005 \001(\010\022\022\n\nisVerified\030\006"
-      " \001(\010\022\016\n\006isFull\030\007 \001(\010\022\023\n\013isFormatted\030\010 \001("
-      "\010\022\024\n\014isFormatting\030\t \001(\010\022\027\n\017isInvalidForm"
-      "at\030\n \001(\010\022\022\n\nisReadOnly\030\013 \001(\010\022\026\n\016totalSpa"
-      "ceInMB\030\014 \001(\r\022\032\n\022remainingSpaceInMB\030\r \001(\r"
-      "\022\035\n\025availableCaptureCount\030\016 \001(\r\022\'\n\037avail"
-      "ableRecordingTimeInSeconds\030\017 \001(\r\022\r\n\005inde"
-      "x\030\020 \001(\005\0229\n\004mode\030\021 \001(\0162+.DJIFRProto.Stand"
-      "ard.CameraState.CameraMode\"k\n\nCameraMode"
-      "\022\016\n\nShootPhoto\020\000\022\017\n\013RecordVideo\020\001\022\014\n\010Pla"
-      "yback\020\002\022\021\n\rMediaDownload\020\003\022\r\n\tBroadcast\020"
-      "\004\022\014\n\007Unknown\020\377\001B\r\242\002\nDJIFRProtob\006proto3"
-  };
-  ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-      descriptor, 638);
-  ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
-    "Camera/FRCameraStateProto.proto", &protobuf_RegisterTypes);
-}
-
-void AddDescriptors() {
-  static GOOGLE_PROTOBUF_DECLARE_ONCE(once);
-  ::google::protobuf::GoogleOnceInit(&once, &AddDescriptorsImpl);
-}
-// Force AddDescriptors() to be called at dynamic initialization time.
-struct StaticDescriptorInitializer {
-  StaticDescriptorInitializer() {
-    AddDescriptors();
-  }
-} static_descriptor_initializer;
-}  // namespace protobuf_Camera_2fFRCameraStateProto_2eproto
+// Force running AddDescriptors() at dynamic initialization time.
+PROTOBUF_ATTRIBUTE_INIT_PRIORITY2 static ::_pbi::AddDescriptorsRunner dynamic_init_dummy_Camera_2fFRCameraStateProto_2eproto(&descriptor_table_Camera_2fFRCameraStateProto_2eproto);
 namespace DJIFRProto {
 namespace Standard {
-const ::google::protobuf::EnumDescriptor* CameraState_CameraMode_descriptor() {
-  protobuf_Camera_2fFRCameraStateProto_2eproto::protobuf_AssignDescriptorsOnce();
-  return protobuf_Camera_2fFRCameraStateProto_2eproto::file_level_enum_descriptors[0];
+const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* CameraState_CameraMode_descriptor() {
+  ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&descriptor_table_Camera_2fFRCameraStateProto_2eproto);
+  return file_level_enum_descriptors_Camera_2fFRCameraStateProto_2eproto[0];
 }
 bool CameraState_CameraMode_IsValid(int value) {
   switch (value) {
@@ -161,575 +143,393 @@ bool CameraState_CameraMode_IsValid(int value) {
   }
 }
 
-#if !defined(_MSC_VER) || _MSC_VER >= 1900
-const CameraState_CameraMode CameraState::ShootPhoto;
-const CameraState_CameraMode CameraState::RecordVideo;
-const CameraState_CameraMode CameraState::Playback;
-const CameraState_CameraMode CameraState::MediaDownload;
-const CameraState_CameraMode CameraState::Broadcast;
-const CameraState_CameraMode CameraState::Unknown;
-const CameraState_CameraMode CameraState::CameraMode_MIN;
-const CameraState_CameraMode CameraState::CameraMode_MAX;
-const int CameraState::CameraMode_ARRAYSIZE;
-#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+#if (__cplusplus < 201703) && (!defined(_MSC_VER) || (_MSC_VER >= 1900 && _MSC_VER < 1912))
+constexpr CameraState_CameraMode CameraState::ShootPhoto;
+constexpr CameraState_CameraMode CameraState::RecordVideo;
+constexpr CameraState_CameraMode CameraState::Playback;
+constexpr CameraState_CameraMode CameraState::MediaDownload;
+constexpr CameraState_CameraMode CameraState::Broadcast;
+constexpr CameraState_CameraMode CameraState::Unknown;
+constexpr CameraState_CameraMode CameraState::CameraMode_MIN;
+constexpr CameraState_CameraMode CameraState::CameraMode_MAX;
+constexpr int CameraState::CameraMode_ARRAYSIZE;
+#endif  // (__cplusplus < 201703) && (!defined(_MSC_VER) || (_MSC_VER >= 1900 && _MSC_VER < 1912))
 
 // ===================================================================
 
-void CameraState::InitAsDefaultInstance() {
-}
-#if !defined(_MSC_VER) || _MSC_VER >= 1900
-const int CameraState::kIsRecordingFieldNumber;
-const int CameraState::kIsShootingSinglePhotoFieldNumber;
-const int CameraState::kIsInsertedFieldNumber;
-const int CameraState::kIsInitializingFieldNumber;
-const int CameraState::kHasErrorFieldNumber;
-const int CameraState::kIsVerifiedFieldNumber;
-const int CameraState::kIsFullFieldNumber;
-const int CameraState::kIsFormattedFieldNumber;
-const int CameraState::kIsFormattingFieldNumber;
-const int CameraState::kIsInvalidFormatFieldNumber;
-const int CameraState::kIsReadOnlyFieldNumber;
-const int CameraState::kTotalSpaceInMBFieldNumber;
-const int CameraState::kRemainingSpaceInMBFieldNumber;
-const int CameraState::kAvailableCaptureCountFieldNumber;
-const int CameraState::kAvailableRecordingTimeInSecondsFieldNumber;
-const int CameraState::kIndexFieldNumber;
-const int CameraState::kModeFieldNumber;
-#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+class CameraState::_Internal {
+ public:
+};
 
-CameraState::CameraState()
-  : ::google::protobuf::Message(), _internal_metadata_(NULL) {
-  if (GOOGLE_PREDICT_TRUE(this != internal_default_instance())) {
-    ::protobuf_Camera_2fFRCameraStateProto_2eproto::InitDefaultsCameraState();
-  }
-  SharedCtor();
-  // @@protoc_insertion_point(constructor:DJIFRProto.Standard.CameraState)
+CameraState::CameraState(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
+  SharedCtor(arena, is_message_owned);
+  // @@protoc_insertion_point(arena_constructor:DJIFRProto.Standard.CameraState)
 }
 CameraState::CameraState(const CameraState& from)
-  : ::google::protobuf::Message(),
-      _internal_metadata_(NULL),
-      _cached_size_(0) {
-  _internal_metadata_.MergeFrom(from._internal_metadata_);
-  ::memcpy(&isrecording_, &from.isrecording_,
-    static_cast<size_t>(reinterpret_cast<char*>(&mode_) -
-    reinterpret_cast<char*>(&isrecording_)) + sizeof(mode_));
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  CameraState* const _this = this; (void)_this;
+  new (&_impl_) Impl_{
+      decltype(_impl_.isrecording_){}
+    , decltype(_impl_.isshootingsinglephoto_){}
+    , decltype(_impl_.isinserted_){}
+    , decltype(_impl_.isinitializing_){}
+    , decltype(_impl_.haserror_){}
+    , decltype(_impl_.isverified_){}
+    , decltype(_impl_.isfull_){}
+    , decltype(_impl_.isformatted_){}
+    , decltype(_impl_.isformatting_){}
+    , decltype(_impl_.isinvalidformat_){}
+    , decltype(_impl_.isreadonly_){}
+    , decltype(_impl_.totalspaceinmb_){}
+    , decltype(_impl_.remainingspaceinmb_){}
+    , decltype(_impl_.availablecapturecount_){}
+    , decltype(_impl_.availablerecordingtimeinseconds_){}
+    , decltype(_impl_.index_){}
+    , decltype(_impl_.mode_){}
+    , /*decltype(_impl_._cached_size_)*/{}};
+
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::memcpy(&_impl_.isrecording_, &from._impl_.isrecording_,
+    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.mode_) -
+    reinterpret_cast<char*>(&_impl_.isrecording_)) + sizeof(_impl_.mode_));
   // @@protoc_insertion_point(copy_constructor:DJIFRProto.Standard.CameraState)
 }
 
-void CameraState::SharedCtor() {
-  ::memset(&isrecording_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&mode_) -
-      reinterpret_cast<char*>(&isrecording_)) + sizeof(mode_));
-  _cached_size_ = 0;
+inline void CameraState::SharedCtor(
+    ::_pb::Arena* arena, bool is_message_owned) {
+  (void)arena;
+  (void)is_message_owned;
+  new (&_impl_) Impl_{
+      decltype(_impl_.isrecording_){false}
+    , decltype(_impl_.isshootingsinglephoto_){false}
+    , decltype(_impl_.isinserted_){false}
+    , decltype(_impl_.isinitializing_){false}
+    , decltype(_impl_.haserror_){false}
+    , decltype(_impl_.isverified_){false}
+    , decltype(_impl_.isfull_){false}
+    , decltype(_impl_.isformatted_){false}
+    , decltype(_impl_.isformatting_){false}
+    , decltype(_impl_.isinvalidformat_){false}
+    , decltype(_impl_.isreadonly_){false}
+    , decltype(_impl_.totalspaceinmb_){0u}
+    , decltype(_impl_.remainingspaceinmb_){0u}
+    , decltype(_impl_.availablecapturecount_){0u}
+    , decltype(_impl_.availablerecordingtimeinseconds_){0u}
+    , decltype(_impl_.index_){0}
+    , decltype(_impl_.mode_){0}
+    , /*decltype(_impl_._cached_size_)*/{}
+  };
 }
 
 CameraState::~CameraState() {
   // @@protoc_insertion_point(destructor:DJIFRProto.Standard.CameraState)
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
   SharedDtor();
 }
 
-void CameraState::SharedDtor() {
+inline void CameraState::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
 }
 
 void CameraState::SetCachedSize(int size) const {
-  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
-  _cached_size_ = size;
-  GOOGLE_SAFE_CONCURRENT_WRITES_END();
-}
-const ::google::protobuf::Descriptor* CameraState::descriptor() {
-  ::protobuf_Camera_2fFRCameraStateProto_2eproto::protobuf_AssignDescriptorsOnce();
-  return ::protobuf_Camera_2fFRCameraStateProto_2eproto::file_level_metadata[kIndexInFileMessages].descriptor;
-}
-
-const CameraState& CameraState::default_instance() {
-  ::protobuf_Camera_2fFRCameraStateProto_2eproto::InitDefaultsCameraState();
-  return *internal_default_instance();
-}
-
-CameraState* CameraState::New(::google::protobuf::Arena* arena) const {
-  CameraState* n = new CameraState;
-  if (arena != NULL) {
-    arena->Own(n);
-  }
-  return n;
+  _impl_._cached_size_.Set(size);
 }
 
 void CameraState::Clear() {
 // @@protoc_insertion_point(message_clear_start:DJIFRProto.Standard.CameraState)
-  ::google::protobuf::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  ::memset(&isrecording_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&mode_) -
-      reinterpret_cast<char*>(&isrecording_)) + sizeof(mode_));
-  _internal_metadata_.Clear();
+  ::memset(&_impl_.isrecording_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&_impl_.mode_) -
+      reinterpret_cast<char*>(&_impl_.isrecording_)) + sizeof(_impl_.mode_));
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-bool CameraState::MergePartialFromCodedStream(
-    ::google::protobuf::io::CodedInputStream* input) {
-#define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
-  ::google::protobuf::uint32 tag;
-  // @@protoc_insertion_point(parse_start:DJIFRProto.Standard.CameraState)
-  for (;;) {
-    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(16383u);
-    tag = p.first;
-    if (!p.second) goto handle_unusual;
-    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+const char* CameraState::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
+    switch (tag >> 3) {
       // bool isRecording = 1;
-      case 1: {
-        if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(8u /* 8 & 0xFF */)) {
-
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   bool, ::google::protobuf::internal::WireFormatLite::TYPE_BOOL>(
-                 input, &isrecording_)));
-        } else {
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
+          _impl_.isrecording_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else
           goto handle_unusual;
-        }
-        break;
-      }
-
+        continue;
       // bool isShootingSinglePhoto = 2;
-      case 2: {
-        if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(16u /* 16 & 0xFF */)) {
-
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   bool, ::google::protobuf::internal::WireFormatLite::TYPE_BOOL>(
-                 input, &isshootingsinglephoto_)));
-        } else {
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 16)) {
+          _impl_.isshootingsinglephoto_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else
           goto handle_unusual;
-        }
-        break;
-      }
-
+        continue;
       // bool isInserted = 3;
-      case 3: {
-        if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(24u /* 24 & 0xFF */)) {
-
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   bool, ::google::protobuf::internal::WireFormatLite::TYPE_BOOL>(
-                 input, &isinserted_)));
-        } else {
+      case 3:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 24)) {
+          _impl_.isinserted_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else
           goto handle_unusual;
-        }
-        break;
-      }
-
+        continue;
       // bool isInitializing = 4;
-      case 4: {
-        if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(32u /* 32 & 0xFF */)) {
-
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   bool, ::google::protobuf::internal::WireFormatLite::TYPE_BOOL>(
-                 input, &isinitializing_)));
-        } else {
+      case 4:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 32)) {
+          _impl_.isinitializing_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else
           goto handle_unusual;
-        }
-        break;
-      }
-
+        continue;
       // bool hasError = 5;
-      case 5: {
-        if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(40u /* 40 & 0xFF */)) {
-
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   bool, ::google::protobuf::internal::WireFormatLite::TYPE_BOOL>(
-                 input, &haserror_)));
-        } else {
+      case 5:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 40)) {
+          _impl_.haserror_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else
           goto handle_unusual;
-        }
-        break;
-      }
-
+        continue;
       // bool isVerified = 6;
-      case 6: {
-        if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(48u /* 48 & 0xFF */)) {
-
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   bool, ::google::protobuf::internal::WireFormatLite::TYPE_BOOL>(
-                 input, &isverified_)));
-        } else {
+      case 6:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 48)) {
+          _impl_.isverified_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else
           goto handle_unusual;
-        }
-        break;
-      }
-
+        continue;
       // bool isFull = 7;
-      case 7: {
-        if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(56u /* 56 & 0xFF */)) {
-
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   bool, ::google::protobuf::internal::WireFormatLite::TYPE_BOOL>(
-                 input, &isfull_)));
-        } else {
+      case 7:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 56)) {
+          _impl_.isfull_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else
           goto handle_unusual;
-        }
-        break;
-      }
-
+        continue;
       // bool isFormatted = 8;
-      case 8: {
-        if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(64u /* 64 & 0xFF */)) {
-
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   bool, ::google::protobuf::internal::WireFormatLite::TYPE_BOOL>(
-                 input, &isformatted_)));
-        } else {
+      case 8:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 64)) {
+          _impl_.isformatted_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else
           goto handle_unusual;
-        }
-        break;
-      }
-
+        continue;
       // bool isFormatting = 9;
-      case 9: {
-        if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(72u /* 72 & 0xFF */)) {
-
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   bool, ::google::protobuf::internal::WireFormatLite::TYPE_BOOL>(
-                 input, &isformatting_)));
-        } else {
+      case 9:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 72)) {
+          _impl_.isformatting_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else
           goto handle_unusual;
-        }
-        break;
-      }
-
+        continue;
       // bool isInvalidFormat = 10;
-      case 10: {
-        if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(80u /* 80 & 0xFF */)) {
-
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   bool, ::google::protobuf::internal::WireFormatLite::TYPE_BOOL>(
-                 input, &isinvalidformat_)));
-        } else {
+      case 10:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 80)) {
+          _impl_.isinvalidformat_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else
           goto handle_unusual;
-        }
-        break;
-      }
-
+        continue;
       // bool isReadOnly = 11;
-      case 11: {
-        if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(88u /* 88 & 0xFF */)) {
-
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   bool, ::google::protobuf::internal::WireFormatLite::TYPE_BOOL>(
-                 input, &isreadonly_)));
-        } else {
+      case 11:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 88)) {
+          _impl_.isreadonly_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else
           goto handle_unusual;
-        }
-        break;
-      }
-
+        continue;
       // uint32 totalSpaceInMB = 12;
-      case 12: {
-        if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(96u /* 96 & 0xFF */)) {
-
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
-                 input, &totalspaceinmb_)));
-        } else {
+      case 12:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 96)) {
+          _impl_.totalspaceinmb_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else
           goto handle_unusual;
-        }
-        break;
-      }
-
+        continue;
       // uint32 remainingSpaceInMB = 13;
-      case 13: {
-        if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(104u /* 104 & 0xFF */)) {
-
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
-                 input, &remainingspaceinmb_)));
-        } else {
+      case 13:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 104)) {
+          _impl_.remainingspaceinmb_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else
           goto handle_unusual;
-        }
-        break;
-      }
-
+        continue;
       // uint32 availableCaptureCount = 14;
-      case 14: {
-        if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(112u /* 112 & 0xFF */)) {
-
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
-                 input, &availablecapturecount_)));
-        } else {
+      case 14:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 112)) {
+          _impl_.availablecapturecount_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else
           goto handle_unusual;
-        }
-        break;
-      }
-
+        continue;
       // uint32 availableRecordingTimeInSeconds = 15;
-      case 15: {
-        if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(120u /* 120 & 0xFF */)) {
-
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
-                 input, &availablerecordingtimeinseconds_)));
-        } else {
+      case 15:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 120)) {
+          _impl_.availablerecordingtimeinseconds_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else
           goto handle_unusual;
-        }
-        break;
-      }
-
+        continue;
       // int32 index = 16;
-      case 16: {
-        if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(128u /* 128 & 0xFF */)) {
-
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &index_)));
-        } else {
+      case 16:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 128)) {
+          _impl_.index_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else
           goto handle_unusual;
-        }
-        break;
-      }
-
+        continue;
       // .DJIFRProto.Standard.CameraState.CameraMode mode = 17;
-      case 17: {
-        if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(136u /* 136 & 0xFF */)) {
-          int value;
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   int, ::google::protobuf::internal::WireFormatLite::TYPE_ENUM>(
-                 input, &value)));
-          set_mode(static_cast< ::DJIFRProto::Standard::CameraState_CameraMode >(value));
-        } else {
+      case 17:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 136)) {
+          uint64_t val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+          _internal_set_mode(static_cast<::DJIFRProto::Standard::CameraState_CameraMode>(val));
+        } else
           goto handle_unusual;
-        }
-        break;
-      }
-
-      default: {
-      handle_unusual:
-        if (tag == 0) {
-          goto success;
-        }
-        DO_(::google::protobuf::internal::WireFormat::SkipField(
-              input, tag, _internal_metadata_.mutable_unknown_fields()));
-        break;
-      }
+        continue;
+      default:
+        goto handle_unusual;
+    }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
     }
-  }
-success:
-  // @@protoc_insertion_point(parse_success:DJIFRProto.Standard.CameraState)
-  return true;
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
+  }  // while
+message_done:
+  return ptr;
 failure:
-  // @@protoc_insertion_point(parse_failure:DJIFRProto.Standard.CameraState)
-  return false;
-#undef DO_
+  ptr = nullptr;
+  goto message_done;
+#undef CHK_
 }
 
-void CameraState::SerializeWithCachedSizes(
-    ::google::protobuf::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:DJIFRProto.Standard.CameraState)
-  ::google::protobuf::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  // bool isRecording = 1;
-  if (this->isrecording() != 0) {
-    ::google::protobuf::internal::WireFormatLite::WriteBool(1, this->isrecording(), output);
-  }
-
-  // bool isShootingSinglePhoto = 2;
-  if (this->isshootingsinglephoto() != 0) {
-    ::google::protobuf::internal::WireFormatLite::WriteBool(2, this->isshootingsinglephoto(), output);
-  }
-
-  // bool isInserted = 3;
-  if (this->isinserted() != 0) {
-    ::google::protobuf::internal::WireFormatLite::WriteBool(3, this->isinserted(), output);
-  }
-
-  // bool isInitializing = 4;
-  if (this->isinitializing() != 0) {
-    ::google::protobuf::internal::WireFormatLite::WriteBool(4, this->isinitializing(), output);
-  }
-
-  // bool hasError = 5;
-  if (this->haserror() != 0) {
-    ::google::protobuf::internal::WireFormatLite::WriteBool(5, this->haserror(), output);
-  }
-
-  // bool isVerified = 6;
-  if (this->isverified() != 0) {
-    ::google::protobuf::internal::WireFormatLite::WriteBool(6, this->isverified(), output);
-  }
-
-  // bool isFull = 7;
-  if (this->isfull() != 0) {
-    ::google::protobuf::internal::WireFormatLite::WriteBool(7, this->isfull(), output);
-  }
-
-  // bool isFormatted = 8;
-  if (this->isformatted() != 0) {
-    ::google::protobuf::internal::WireFormatLite::WriteBool(8, this->isformatted(), output);
-  }
-
-  // bool isFormatting = 9;
-  if (this->isformatting() != 0) {
-    ::google::protobuf::internal::WireFormatLite::WriteBool(9, this->isformatting(), output);
-  }
-
-  // bool isInvalidFormat = 10;
-  if (this->isinvalidformat() != 0) {
-    ::google::protobuf::internal::WireFormatLite::WriteBool(10, this->isinvalidformat(), output);
-  }
-
-  // bool isReadOnly = 11;
-  if (this->isreadonly() != 0) {
-    ::google::protobuf::internal::WireFormatLite::WriteBool(11, this->isreadonly(), output);
-  }
-
-  // uint32 totalSpaceInMB = 12;
-  if (this->totalspaceinmb() != 0) {
-    ::google::protobuf::internal::WireFormatLite::WriteUInt32(12, this->totalspaceinmb(), output);
-  }
-
-  // uint32 remainingSpaceInMB = 13;
-  if (this->remainingspaceinmb() != 0) {
-    ::google::protobuf::internal::WireFormatLite::WriteUInt32(13, this->remainingspaceinmb(), output);
-  }
-
-  // uint32 availableCaptureCount = 14;
-  if (this->availablecapturecount() != 0) {
-    ::google::protobuf::internal::WireFormatLite::WriteUInt32(14, this->availablecapturecount(), output);
-  }
-
-  // uint32 availableRecordingTimeInSeconds = 15;
-  if (this->availablerecordingtimeinseconds() != 0) {
-    ::google::protobuf::internal::WireFormatLite::WriteUInt32(15, this->availablerecordingtimeinseconds(), output);
-  }
-
-  // int32 index = 16;
-  if (this->index() != 0) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(16, this->index(), output);
-  }
-
-  // .DJIFRProto.Standard.CameraState.CameraMode mode = 17;
-  if (this->mode() != 0) {
-    ::google::protobuf::internal::WireFormatLite::WriteEnum(
-      17, this->mode(), output);
-  }
-
-  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
-    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
-        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), output);
-  }
-  // @@protoc_insertion_point(serialize_end:DJIFRProto.Standard.CameraState)
-}
-
-::google::protobuf::uint8* CameraState::InternalSerializeWithCachedSizesToArray(
-    bool deterministic, ::google::protobuf::uint8* target) const {
-  (void)deterministic; // Unused
+uint8_t* CameraState::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
   // @@protoc_insertion_point(serialize_to_array_start:DJIFRProto.Standard.CameraState)
-  ::google::protobuf::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
   // bool isRecording = 1;
-  if (this->isrecording() != 0) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(1, this->isrecording(), target);
+  if (this->_internal_isrecording() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteBoolToArray(1, this->_internal_isrecording(), target);
   }
 
   // bool isShootingSinglePhoto = 2;
-  if (this->isshootingsinglephoto() != 0) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(2, this->isshootingsinglephoto(), target);
+  if (this->_internal_isshootingsinglephoto() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteBoolToArray(2, this->_internal_isshootingsinglephoto(), target);
   }
 
   // bool isInserted = 3;
-  if (this->isinserted() != 0) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(3, this->isinserted(), target);
+  if (this->_internal_isinserted() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteBoolToArray(3, this->_internal_isinserted(), target);
   }
 
   // bool isInitializing = 4;
-  if (this->isinitializing() != 0) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(4, this->isinitializing(), target);
+  if (this->_internal_isinitializing() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteBoolToArray(4, this->_internal_isinitializing(), target);
   }
 
   // bool hasError = 5;
-  if (this->haserror() != 0) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(5, this->haserror(), target);
+  if (this->_internal_haserror() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteBoolToArray(5, this->_internal_haserror(), target);
   }
 
   // bool isVerified = 6;
-  if (this->isverified() != 0) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(6, this->isverified(), target);
+  if (this->_internal_isverified() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteBoolToArray(6, this->_internal_isverified(), target);
   }
 
   // bool isFull = 7;
-  if (this->isfull() != 0) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(7, this->isfull(), target);
+  if (this->_internal_isfull() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteBoolToArray(7, this->_internal_isfull(), target);
   }
 
   // bool isFormatted = 8;
-  if (this->isformatted() != 0) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(8, this->isformatted(), target);
+  if (this->_internal_isformatted() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteBoolToArray(8, this->_internal_isformatted(), target);
   }
 
   // bool isFormatting = 9;
-  if (this->isformatting() != 0) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(9, this->isformatting(), target);
+  if (this->_internal_isformatting() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteBoolToArray(9, this->_internal_isformatting(), target);
   }
 
   // bool isInvalidFormat = 10;
-  if (this->isinvalidformat() != 0) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(10, this->isinvalidformat(), target);
+  if (this->_internal_isinvalidformat() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteBoolToArray(10, this->_internal_isinvalidformat(), target);
   }
 
   // bool isReadOnly = 11;
-  if (this->isreadonly() != 0) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(11, this->isreadonly(), target);
+  if (this->_internal_isreadonly() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteBoolToArray(11, this->_internal_isreadonly(), target);
   }
 
   // uint32 totalSpaceInMB = 12;
-  if (this->totalspaceinmb() != 0) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(12, this->totalspaceinmb(), target);
+  if (this->_internal_totalspaceinmb() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteUInt32ToArray(12, this->_internal_totalspaceinmb(), target);
   }
 
   // uint32 remainingSpaceInMB = 13;
-  if (this->remainingspaceinmb() != 0) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(13, this->remainingspaceinmb(), target);
+  if (this->_internal_remainingspaceinmb() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteUInt32ToArray(13, this->_internal_remainingspaceinmb(), target);
   }
 
   // uint32 availableCaptureCount = 14;
-  if (this->availablecapturecount() != 0) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(14, this->availablecapturecount(), target);
+  if (this->_internal_availablecapturecount() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteUInt32ToArray(14, this->_internal_availablecapturecount(), target);
   }
 
   // uint32 availableRecordingTimeInSeconds = 15;
-  if (this->availablerecordingtimeinseconds() != 0) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(15, this->availablerecordingtimeinseconds(), target);
+  if (this->_internal_availablerecordingtimeinseconds() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteUInt32ToArray(15, this->_internal_availablerecordingtimeinseconds(), target);
   }
 
   // int32 index = 16;
-  if (this->index() != 0) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(16, this->index(), target);
+  if (this->_internal_index() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteInt32ToArray(16, this->_internal_index(), target);
   }
 
   // .DJIFRProto.Standard.CameraState.CameraMode mode = 17;
-  if (this->mode() != 0) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteEnumToArray(
-      17, this->mode(), target);
+  if (this->_internal_mode() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteEnumToArray(
+      17, this->_internal_mode(), target);
   }
 
-  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
-    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
-        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), target);
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
   }
   // @@protoc_insertion_point(serialize_to_array_end:DJIFRProto.Standard.CameraState)
   return target;
@@ -739,194 +539,168 @@ size_t CameraState::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:DJIFRProto.Standard.CameraState)
   size_t total_size = 0;
 
-  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
-    total_size +=
-      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
-        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()));
-  }
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
   // bool isRecording = 1;
-  if (this->isrecording() != 0) {
+  if (this->_internal_isrecording() != 0) {
     total_size += 1 + 1;
   }
 
   // bool isShootingSinglePhoto = 2;
-  if (this->isshootingsinglephoto() != 0) {
+  if (this->_internal_isshootingsinglephoto() != 0) {
     total_size += 1 + 1;
   }
 
   // bool isInserted = 3;
-  if (this->isinserted() != 0) {
+  if (this->_internal_isinserted() != 0) {
     total_size += 1 + 1;
   }
 
   // bool isInitializing = 4;
-  if (this->isinitializing() != 0) {
+  if (this->_internal_isinitializing() != 0) {
     total_size += 1 + 1;
   }
 
   // bool hasError = 5;
-  if (this->haserror() != 0) {
+  if (this->_internal_haserror() != 0) {
     total_size += 1 + 1;
   }
 
   // bool isVerified = 6;
-  if (this->isverified() != 0) {
+  if (this->_internal_isverified() != 0) {
     total_size += 1 + 1;
   }
 
   // bool isFull = 7;
-  if (this->isfull() != 0) {
+  if (this->_internal_isfull() != 0) {
     total_size += 1 + 1;
   }
 
   // bool isFormatted = 8;
-  if (this->isformatted() != 0) {
+  if (this->_internal_isformatted() != 0) {
     total_size += 1 + 1;
   }
 
   // bool isFormatting = 9;
-  if (this->isformatting() != 0) {
+  if (this->_internal_isformatting() != 0) {
     total_size += 1 + 1;
   }
 
   // bool isInvalidFormat = 10;
-  if (this->isinvalidformat() != 0) {
+  if (this->_internal_isinvalidformat() != 0) {
     total_size += 1 + 1;
   }
 
   // bool isReadOnly = 11;
-  if (this->isreadonly() != 0) {
+  if (this->_internal_isreadonly() != 0) {
     total_size += 1 + 1;
   }
 
   // uint32 totalSpaceInMB = 12;
-  if (this->totalspaceinmb() != 0) {
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::UInt32Size(
-        this->totalspaceinmb());
+  if (this->_internal_totalspaceinmb() != 0) {
+    total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_totalspaceinmb());
   }
 
   // uint32 remainingSpaceInMB = 13;
-  if (this->remainingspaceinmb() != 0) {
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::UInt32Size(
-        this->remainingspaceinmb());
+  if (this->_internal_remainingspaceinmb() != 0) {
+    total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_remainingspaceinmb());
   }
 
   // uint32 availableCaptureCount = 14;
-  if (this->availablecapturecount() != 0) {
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::UInt32Size(
-        this->availablecapturecount());
+  if (this->_internal_availablecapturecount() != 0) {
+    total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_availablecapturecount());
   }
 
   // uint32 availableRecordingTimeInSeconds = 15;
-  if (this->availablerecordingtimeinseconds() != 0) {
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::UInt32Size(
-        this->availablerecordingtimeinseconds());
+  if (this->_internal_availablerecordingtimeinseconds() != 0) {
+    total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_availablerecordingtimeinseconds());
   }
 
   // int32 index = 16;
-  if (this->index() != 0) {
+  if (this->_internal_index() != 0) {
     total_size += 2 +
-      ::google::protobuf::internal::WireFormatLite::Int32Size(
-        this->index());
+      ::_pbi::WireFormatLite::Int32Size(
+        this->_internal_index());
   }
 
   // .DJIFRProto.Standard.CameraState.CameraMode mode = 17;
-  if (this->mode() != 0) {
+  if (this->_internal_mode() != 0) {
     total_size += 2 +
-      ::google::protobuf::internal::WireFormatLite::EnumSize(this->mode());
+      ::_pbi::WireFormatLite::EnumSize(this->_internal_mode());
   }
 
-  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
-  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
-  _cached_size_ = cached_size;
-  GOOGLE_SAFE_CONCURRENT_WRITES_END();
-  return total_size;
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
 }
 
-void CameraState::MergeFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:DJIFRProto.Standard.CameraState)
-  GOOGLE_DCHECK_NE(&from, this);
-  const CameraState* source =
-      ::google::protobuf::internal::DynamicCastToGenerated<const CameraState>(
-          &from);
-  if (source == NULL) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:DJIFRProto.Standard.CameraState)
-    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
-  } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:DJIFRProto.Standard.CameraState)
-    MergeFrom(*source);
-  }
-}
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData CameraState::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
+    CameraState::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*CameraState::GetClassData() const { return &_class_data_; }
 
-void CameraState::MergeFrom(const CameraState& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:DJIFRProto.Standard.CameraState)
-  GOOGLE_DCHECK_NE(&from, this);
-  _internal_metadata_.MergeFrom(from._internal_metadata_);
-  ::google::protobuf::uint32 cached_has_bits = 0;
+
+void CameraState::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
+  auto* const _this = static_cast<CameraState*>(&to_msg);
+  auto& from = static_cast<const CameraState&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:DJIFRProto.Standard.CameraState)
+  GOOGLE_DCHECK_NE(&from, _this);
+  uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  if (from.isrecording() != 0) {
-    set_isrecording(from.isrecording());
+  if (from._internal_isrecording() != 0) {
+    _this->_internal_set_isrecording(from._internal_isrecording());
   }
-  if (from.isshootingsinglephoto() != 0) {
-    set_isshootingsinglephoto(from.isshootingsinglephoto());
+  if (from._internal_isshootingsinglephoto() != 0) {
+    _this->_internal_set_isshootingsinglephoto(from._internal_isshootingsinglephoto());
   }
-  if (from.isinserted() != 0) {
-    set_isinserted(from.isinserted());
+  if (from._internal_isinserted() != 0) {
+    _this->_internal_set_isinserted(from._internal_isinserted());
   }
-  if (from.isinitializing() != 0) {
-    set_isinitializing(from.isinitializing());
+  if (from._internal_isinitializing() != 0) {
+    _this->_internal_set_isinitializing(from._internal_isinitializing());
   }
-  if (from.haserror() != 0) {
-    set_haserror(from.haserror());
+  if (from._internal_haserror() != 0) {
+    _this->_internal_set_haserror(from._internal_haserror());
   }
-  if (from.isverified() != 0) {
-    set_isverified(from.isverified());
+  if (from._internal_isverified() != 0) {
+    _this->_internal_set_isverified(from._internal_isverified());
   }
-  if (from.isfull() != 0) {
-    set_isfull(from.isfull());
+  if (from._internal_isfull() != 0) {
+    _this->_internal_set_isfull(from._internal_isfull());
   }
-  if (from.isformatted() != 0) {
-    set_isformatted(from.isformatted());
+  if (from._internal_isformatted() != 0) {
+    _this->_internal_set_isformatted(from._internal_isformatted());
   }
-  if (from.isformatting() != 0) {
-    set_isformatting(from.isformatting());
+  if (from._internal_isformatting() != 0) {
+    _this->_internal_set_isformatting(from._internal_isformatting());
   }
-  if (from.isinvalidformat() != 0) {
-    set_isinvalidformat(from.isinvalidformat());
+  if (from._internal_isinvalidformat() != 0) {
+    _this->_internal_set_isinvalidformat(from._internal_isinvalidformat());
   }
-  if (from.isreadonly() != 0) {
-    set_isreadonly(from.isreadonly());
+  if (from._internal_isreadonly() != 0) {
+    _this->_internal_set_isreadonly(from._internal_isreadonly());
   }
-  if (from.totalspaceinmb() != 0) {
-    set_totalspaceinmb(from.totalspaceinmb());
+  if (from._internal_totalspaceinmb() != 0) {
+    _this->_internal_set_totalspaceinmb(from._internal_totalspaceinmb());
   }
-  if (from.remainingspaceinmb() != 0) {
-    set_remainingspaceinmb(from.remainingspaceinmb());
+  if (from._internal_remainingspaceinmb() != 0) {
+    _this->_internal_set_remainingspaceinmb(from._internal_remainingspaceinmb());
   }
-  if (from.availablecapturecount() != 0) {
-    set_availablecapturecount(from.availablecapturecount());
+  if (from._internal_availablecapturecount() != 0) {
+    _this->_internal_set_availablecapturecount(from._internal_availablecapturecount());
   }
-  if (from.availablerecordingtimeinseconds() != 0) {
-    set_availablerecordingtimeinseconds(from.availablerecordingtimeinseconds());
+  if (from._internal_availablerecordingtimeinseconds() != 0) {
+    _this->_internal_set_availablerecordingtimeinseconds(from._internal_availablerecordingtimeinseconds());
   }
-  if (from.index() != 0) {
-    set_index(from.index());
+  if (from._internal_index() != 0) {
+    _this->_internal_set_index(from._internal_index());
   }
-  if (from.mode() != 0) {
-    set_mode(from.mode());
+  if (from._internal_mode() != 0) {
+    _this->_internal_set_mode(from._internal_mode());
   }
-}
-
-void CameraState::CopyFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:DJIFRProto.Standard.CameraState)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
+  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void CameraState::CopyFrom(const CameraState& from) {
@@ -940,41 +714,32 @@ bool CameraState::IsInitialized() const {
   return true;
 }
 
-void CameraState::Swap(CameraState* other) {
-  if (other == this) return;
-  InternalSwap(other);
-}
 void CameraState::InternalSwap(CameraState* other) {
   using std::swap;
-  swap(isrecording_, other->isrecording_);
-  swap(isshootingsinglephoto_, other->isshootingsinglephoto_);
-  swap(isinserted_, other->isinserted_);
-  swap(isinitializing_, other->isinitializing_);
-  swap(haserror_, other->haserror_);
-  swap(isverified_, other->isverified_);
-  swap(isfull_, other->isfull_);
-  swap(isformatted_, other->isformatted_);
-  swap(isformatting_, other->isformatting_);
-  swap(isinvalidformat_, other->isinvalidformat_);
-  swap(isreadonly_, other->isreadonly_);
-  swap(totalspaceinmb_, other->totalspaceinmb_);
-  swap(remainingspaceinmb_, other->remainingspaceinmb_);
-  swap(availablecapturecount_, other->availablecapturecount_);
-  swap(availablerecordingtimeinseconds_, other->availablerecordingtimeinseconds_);
-  swap(index_, other->index_);
-  swap(mode_, other->mode_);
-  _internal_metadata_.Swap(&other->_internal_metadata_);
-  swap(_cached_size_, other->_cached_size_);
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(CameraState, _impl_.mode_)
+      + sizeof(CameraState::_impl_.mode_)
+      - PROTOBUF_FIELD_OFFSET(CameraState, _impl_.isrecording_)>(
+          reinterpret_cast<char*>(&_impl_.isrecording_),
+          reinterpret_cast<char*>(&other->_impl_.isrecording_));
 }
 
-::google::protobuf::Metadata CameraState::GetMetadata() const {
-  protobuf_Camera_2fFRCameraStateProto_2eproto::protobuf_AssignDescriptorsOnce();
-  return ::protobuf_Camera_2fFRCameraStateProto_2eproto::file_level_metadata[kIndexInFileMessages];
+::PROTOBUF_NAMESPACE_ID::Metadata CameraState::GetMetadata() const {
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_Camera_2fFRCameraStateProto_2eproto_getter, &descriptor_table_Camera_2fFRCameraStateProto_2eproto_once,
+      file_level_metadata_Camera_2fFRCameraStateProto_2eproto[0]);
 }
-
 
 // @@protoc_insertion_point(namespace_scope)
 }  // namespace Standard
 }  // namespace DJIFRProto
+PROTOBUF_NAMESPACE_OPEN
+template<> PROTOBUF_NOINLINE ::DJIFRProto::Standard::CameraState*
+Arena::CreateMaybeMessage< ::DJIFRProto::Standard::CameraState >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::DJIFRProto::Standard::CameraState >(arena);
+}
+PROTOBUF_NAMESPACE_CLOSE
 
 // @@protoc_insertion_point(global_scope)
+#include <google/protobuf/port_undef.inc>

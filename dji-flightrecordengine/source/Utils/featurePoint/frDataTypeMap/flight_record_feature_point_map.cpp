@@ -169,6 +169,9 @@ std::map<FlightRecordDataType, FeaturePoint> DJI::FlightRecord::Version13_1Featu
     base_feature_arr.push_back(AppSpecialControlJoyStickDataType);
     base_feature_arr.push_back(AppVirtualStickDataType);
     base_feature_arr.push_back(ComponentSerialNumberDataType);
+    base_feature_arr.push_back(HealthGroupDataType);
+    base_feature_arr.push_back(FCIMUInfoDataType);
+    base_feature_arr.push_back(FlightControllerCommonOSDField);
     for (auto iter = base_feature_arr.begin(); iter != base_feature_arr.end(); iter ++) {
         map[(*iter)] = FeaturePoint::BaseFeature;
     }

@@ -118,6 +118,62 @@ sh generate.sh
 1. 运行上面的脚本
 2. 获取你需要的库，header 文件存储在 dji-flightrecord-kit/source/FlightRecordStandardizationCpp/parser/DJIFRProtoParser.hpp 中
 
+## 错误定位
+
+若您在解析飞行记录文件时出现报错，可以根据返回值定位问题。下表为返回值与问题原因的对应。返回值为 0 时，表示解析成功。
+
+<table align="center">
+  <thead>
+    <tr>
+      <th>错误码</th>
+      <th>错误描述</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+        <td>1</td>
+        <td>输入参数非法</td>
+    </tr>
+    <tr>
+        <td>2</td>
+        <td>飞行记录文件内容非法</td>
+    </tr>
+    <tr>
+        <td>3</td>
+        <td>当前飞行记录文件版本不支持</td>
+    </tr>
+    <tr>
+        <td>4</td>
+        <td>飞行记录解析器不存在</td>
+    </tr>
+    <tr>
+        <td>5</td>
+        <td>飞行记录文件中部分功能不支持</td>
+    </tr>
+    <tr>
+        <td>6</td>
+        <td>部分消息丢失导致解析失败</td>
+    </tr>
+    <tr>
+        <td>7</td>
+        <td>文件操作失败</td>
+    </tr>
+    <tr>
+        <td>8</td>
+        <td>文件疑似被篡改，数据有问题</td>
+    </tr>
+    <tr>
+        <td>9</td>
+        <td>数据填充失败</td>
+    </tr>
+    <tr>
+        <td>255</td>
+        <td>其他所有未知错误</td>
+    </tr>
+   </tbody>
+</table>
+
+
 ## 主要贡献者
 
 FlightRecord 由 [DJI SDK](https://developer.dji.com) 拥有和维护。

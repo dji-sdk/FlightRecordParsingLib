@@ -51,7 +51,9 @@ namespace DJI {
             MavicMini2 = 76,
             Mavic3 = 77,
             MavicMiniSE = 96,
+            Mini3Pro = 103,
             Matrice30 = 116,
+            DJIAvata = 121,
         };  
     
         //MARK: - Drone Type

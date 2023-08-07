@@ -170,6 +170,7 @@ static SmartRTHState ConvertToSmartRTHState(const dji_fc_electricity_push& data_
     return SmartRTHState::Unknown;
 }
 
+//MARK: - PushedBatteryFlightRecordDataType
 static bool FillPushedBattery(const dji_fc_electricity_push& data_source,
                               std::shared_ptr<FlightControllerStateImp>& output) {
     output->set_remainingFlightTime(data_source.remain_fly_time);
@@ -182,6 +183,15 @@ static bool FillPushedBattery(const dji_fc_electricity_push& data_source,
     
     output->set_smartRTHCountdown(data_source.cancel_count);
     
+    return true;
+}
+
+//MARK: - FlightControllerCommonOSDField
+static bool FillCommonOSD(const dji_fc_fs_battery_capacity_gohome_landing_to_app_push& data_source,
+                            std::shared_ptr<FlightControllerStateImp>& output) {
+    output->set_remainingFlightTime(data_source.remain_fly_time);
+    output->set_batteryPercentageNeededToLandFromCurrentHeight(data_source.land_capacity);
+    output->set_batteryPercentageNeededToGoHome(data_source.gohome_capacity);
     return true;
 }
 
@@ -451,6 +461,24 @@ bool DJIFR::standardization::Filler(std::shared_ptr<FlightControllerStateImp>& o
             
             return true;
         }
+
+        case FlightControllerCommonOSDField:{
+            if (length < sizeof(FRSubTypeBody)) {
+                return false;
+            }
+            auto *sub_type_body = (FRSubTypeBody *)buffer;
+            switch ((FCCommonOSDSubType)sub_type_body->subtype) {
+                case FCCommonOSDSubType::BatteryOSD:
+                {
+                    dji_fc_fs_battery_capacity_gohome_landing_to_app_push data_source = {0};
+                    memcpy(&data_source, sub_type_body->data, std::min<uint64_t>(length - sizeof(FRSubTypeBody), sizeof(dji_fc_fs_battery_capacity_gohome_landing_to_app_push)));
+                    return FillCommonOSD(data_source, output);
+                }
+                default:
+                    return true;
+            }
+        }
+            break;
             
         default:
             break;

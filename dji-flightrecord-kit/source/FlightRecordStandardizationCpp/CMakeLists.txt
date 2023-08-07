@@ -43,7 +43,7 @@ target_include_directories(
     PUBLIC
     "${CMAKE_CURRENT_SOURCE_DIR}/../FlightRecordStandardizationCpp"
     "${all_project_root_path}/dji-flightrecordengine/source/"
-    "${all_project_root_path}/third-party/source/protobuf-3.21.12/src"
+    "${all_project_root_path}/third-party/source/protobuf-21.6/src"
 )
 
 # include FlightRecordStandardization Header
@@ -54,6 +54,6 @@ include_file_directory(StandardizationHeader)
 add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/../FlightRecordStandardization StandardizationBuild)
 target_link_libraries(${current_project_name} FlightRecordStandardization)
 
-add_subdirectory(${all_project_root_path}/third-party/source/protobuf-3.21.12/src standardProtobufBuild)
+add_subdirectory(${all_project_root_path}/third-party/source/protobuf-21.6/src standardProtobufBuild)
 target_link_libraries(${current_project_name} DJIProtobuf)
 

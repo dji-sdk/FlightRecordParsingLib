@@ -5,637 +5,457 @@
 
 #include <algorithm>
 
-#include <google/protobuf/stubs/common.h>
-#include <google/protobuf/stubs/port.h>
-#include <google/protobuf/stubs/once.h>
 #include <google/protobuf/io/coded_stream.h>
-#include <google/protobuf/wire_format_lite_inl.h>
+#include <google/protobuf/extension_set.h>
+#include <google/protobuf/wire_format_lite.h>
 #include <google/protobuf/descriptor.h>
 #include <google/protobuf/generated_message_reflection.h>
 #include <google/protobuf/reflection_ops.h>
 #include <google/protobuf/wire_format.h>
-// This is a temporary google only hack
-#ifdef GOOGLE_PROTOBUF_ENFORCE_UNIQUENESS
-#include "third_party/protobuf/version.h"
-#endif
 // @@protoc_insertion_point(includes)
+#include <google/protobuf/port_def.inc>
+
+PROTOBUF_PRAGMA_INIT_SEG
+
+namespace _pb = ::PROTOBUF_NAMESPACE_ID;
+namespace _pbi = _pb::internal;
+
 namespace DJIFRProto {
 namespace Standard {
-class BatteryStateDefaultTypeInternal {
- public:
-  ::google::protobuf::internal::ExplicitlyConstructed<BatteryState>
-      _instance;
-} _BatteryState_default_instance_;
+PROTOBUF_CONSTEXPR BatteryState::BatteryState(
+    ::_pbi::ConstantInitialized): _impl_{
+    /*decltype(_impl_.cellvoltages_)*/{}
+  , /*decltype(_impl_._cellvoltages_cached_byte_size_)*/{0}
+  , /*decltype(_impl_.voltage_)*/0
+  , /*decltype(_impl_.current_)*/0
+  , /*decltype(_impl_.temperature_)*/0
+  , /*decltype(_impl_.chargeremaininginpercent_)*/0
+  , /*decltype(_impl_.lowbatterywarningthreshold_)*/0
+  , /*decltype(_impl_.seriouslowbatterywarningthreshold_)*/0
+  , /*decltype(_impl_.index_)*/0
+  , /*decltype(_impl_.lifetimeremaining_)*/0
+  , /*decltype(_impl_.designcapacity_)*/0
+  , /*decltype(_impl_.numberofdischarges_)*/0
+  , /*decltype(_impl_.isinsinglebatterymode_)*/false
+  , /*decltype(_impl_.fullchargecapacity_)*/0u
+  , /*decltype(_impl_.chargeremaining_)*/0u
+  , /*decltype(_impl_._cached_size_)*/{}} {}
+struct BatteryStateDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR BatteryStateDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~BatteryStateDefaultTypeInternal() {}
+  union {
+    BatteryState _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 BatteryStateDefaultTypeInternal _BatteryState_default_instance_;
 }  // namespace Standard
 }  // namespace DJIFRProto
-namespace protobuf_Battery_2fFRBatteryStateProto_2eproto {
-void InitDefaultsBatteryStateImpl() {
-  GOOGLE_PROTOBUF_VERIFY_VERSION;
+static ::_pb::Metadata file_level_metadata_Battery_2fFRBatteryStateProto_2eproto[1];
+static constexpr ::_pb::EnumDescriptor const** file_level_enum_descriptors_Battery_2fFRBatteryStateProto_2eproto = nullptr;
+static constexpr ::_pb::ServiceDescriptor const** file_level_service_descriptors_Battery_2fFRBatteryStateProto_2eproto = nullptr;
 
-#ifdef GOOGLE_PROTOBUF_ENFORCE_UNIQUENESS
-  ::google::protobuf::internal::InitProtobufDefaultsForceUnique();
-#else
-  ::google::protobuf::internal::InitProtobufDefaults();
-#endif  // GOOGLE_PROTOBUF_ENFORCE_UNIQUENESS
-  {
-    void* ptr = &::DJIFRProto::Standard::_BatteryState_default_instance_;
-    new (ptr) ::DJIFRProto::Standard::BatteryState();
-    ::google::protobuf::internal::OnShutdownDestroyMessage(ptr);
-  }
-  ::DJIFRProto::Standard::BatteryState::InitAsDefaultInstance();
-}
-
-void InitDefaultsBatteryState() {
-  static GOOGLE_PROTOBUF_DECLARE_ONCE(once);
-  ::google::protobuf::GoogleOnceInit(&once, &InitDefaultsBatteryStateImpl);
-}
-
-::google::protobuf::Metadata file_level_metadata[1];
-
-const ::google::protobuf::uint32 TableStruct::offsets[] GOOGLE_PROTOBUF_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
+const uint32_t TableStruct_Battery_2fFRBatteryStateProto_2eproto::offsets[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   ~0u,  // no _has_bits_
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::DJIFRProto::Standard::BatteryState, _internal_metadata_),
+  PROTOBUF_FIELD_OFFSET(::DJIFRProto::Standard::BatteryState, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::DJIFRProto::Standard::BatteryState, voltage_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::DJIFRProto::Standard::BatteryState, current_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::DJIFRProto::Standard::BatteryState, temperature_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::DJIFRProto::Standard::BatteryState, cellvoltages_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::DJIFRProto::Standard::BatteryState, chargeremaininginpercent_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::DJIFRProto::Standard::BatteryState, lowbatterywarningthreshold_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::DJIFRProto::Standard::BatteryState, seriouslowbatterywarningthreshold_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::DJIFRProto::Standard::BatteryState, index_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::DJIFRProto::Standard::BatteryState, lifetimeremaining_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::DJIFRProto::Standard::BatteryState, designcapacity_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::DJIFRProto::Standard::BatteryState, numberofdischarges_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::DJIFRProto::Standard::BatteryState, isinsinglebatterymode_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::DJIFRProto::Standard::BatteryState, fullchargecapacity_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::DJIFRProto::Standard::BatteryState, chargeremaining_),
+  ~0u,  // no _inlined_string_donated_
+  PROTOBUF_FIELD_OFFSET(::DJIFRProto::Standard::BatteryState, _impl_.voltage_),
+  PROTOBUF_FIELD_OFFSET(::DJIFRProto::Standard::BatteryState, _impl_.current_),
+  PROTOBUF_FIELD_OFFSET(::DJIFRProto::Standard::BatteryState, _impl_.temperature_),
+  PROTOBUF_FIELD_OFFSET(::DJIFRProto::Standard::BatteryState, _impl_.cellvoltages_),
+  PROTOBUF_FIELD_OFFSET(::DJIFRProto::Standard::BatteryState, _impl_.chargeremaininginpercent_),
+  PROTOBUF_FIELD_OFFSET(::DJIFRProto::Standard::BatteryState, _impl_.lowbatterywarningthreshold_),
+  PROTOBUF_FIELD_OFFSET(::DJIFRProto::Standard::BatteryState, _impl_.seriouslowbatterywarningthreshold_),
+  PROTOBUF_FIELD_OFFSET(::DJIFRProto::Standard::BatteryState, _impl_.index_),
+  PROTOBUF_FIELD_OFFSET(::DJIFRProto::Standard::BatteryState, _impl_.lifetimeremaining_),
+  PROTOBUF_FIELD_OFFSET(::DJIFRProto::Standard::BatteryState, _impl_.designcapacity_),
+  PROTOBUF_FIELD_OFFSET(::DJIFRProto::Standard::BatteryState, _impl_.numberofdischarges_),
+  PROTOBUF_FIELD_OFFSET(::DJIFRProto::Standard::BatteryState, _impl_.isinsinglebatterymode_),
+  PROTOBUF_FIELD_OFFSET(::DJIFRProto::Standard::BatteryState, _impl_.fullchargecapacity_),
+  PROTOBUF_FIELD_OFFSET(::DJIFRProto::Standard::BatteryState, _impl_.chargeremaining_),
 };
-static const ::google::protobuf::internal::MigrationSchema schemas[] GOOGLE_PROTOBUF_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
-  { 0, -1, sizeof(::DJIFRProto::Standard::BatteryState)},
-};
-
-static ::google::protobuf::Message const * const file_default_instances[] = {
-  reinterpret_cast<const ::google::protobuf::Message*>(&::DJIFRProto::Standard::_BatteryState_default_instance_),
+static const ::_pbi::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
+  { 0, -1, -1, sizeof(::DJIFRProto::Standard::BatteryState)},
 };
 
-void protobuf_AssignDescriptors() {
-  AddDescriptors();
-  ::google::protobuf::MessageFactory* factory = NULL;
-  AssignDescriptors(
-      "Battery/FRBatteryStateProto.proto", schemas, file_default_instances, TableStruct::offsets, factory,
-      file_level_metadata, NULL, NULL);
+static const ::_pb::Message* const file_default_instances[] = {
+  &::DJIFRProto::Standard::_BatteryState_default_instance_._instance,
+};
+
+const char descriptor_table_protodef_Battery_2fFRBatteryStateProto_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
+  "\n!Battery/FRBatteryStateProto.proto\022\023DJI"
+  "FRProto.Standard\"\376\002\n\014BatteryState\022\017\n\007vol"
+  "tage\030\001 \001(\005\022\017\n\007current\030\002 \001(\005\022\023\n\013temperatu"
+  "re\030\003 \001(\001\022\024\n\014cellVoltages\030\004 \003(\005\022 \n\030charge"
+  "RemainingInPercent\030\005 \001(\005\022\"\n\032lowBatteryWa"
+  "rningThreshold\030\006 \001(\005\022)\n!seriousLowBatter"
+  "yWarningThreshold\030\007 \001(\005\022\r\n\005index\030\010 \001(\005\022\031"
+  "\n\021lifetimeRemaining\030\t \001(\005\022\026\n\016designCapac"
+  "ity\030\n \001(\005\022\032\n\022numberOfDischarges\030\013 \001(\005\022\035\n"
+  "\025isInSingleBatteryMode\030\014 \001(\010\022\032\n\022fullChar"
+  "geCapacity\030\r \001(\r\022\027\n\017chargeRemaining\030\016 \001("
+  "\rB\r\242\002\nDJIFRProtob\006proto3"
+  ;
+static ::_pbi::once_flag descriptor_table_Battery_2fFRBatteryStateProto_2eproto_once;
+const ::_pbi::DescriptorTable descriptor_table_Battery_2fFRBatteryStateProto_2eproto = {
+    false, false, 464, descriptor_table_protodef_Battery_2fFRBatteryStateProto_2eproto,
+    "Battery/FRBatteryStateProto.proto",
+    &descriptor_table_Battery_2fFRBatteryStateProto_2eproto_once, nullptr, 0, 1,
+    schemas, file_default_instances, TableStruct_Battery_2fFRBatteryStateProto_2eproto::offsets,
+    file_level_metadata_Battery_2fFRBatteryStateProto_2eproto, file_level_enum_descriptors_Battery_2fFRBatteryStateProto_2eproto,
+    file_level_service_descriptors_Battery_2fFRBatteryStateProto_2eproto,
+};
+PROTOBUF_ATTRIBUTE_WEAK const ::_pbi::DescriptorTable* descriptor_table_Battery_2fFRBatteryStateProto_2eproto_getter() {
+  return &descriptor_table_Battery_2fFRBatteryStateProto_2eproto;
 }
 
-void protobuf_AssignDescriptorsOnce() {
-  static GOOGLE_PROTOBUF_DECLARE_ONCE(once);
-  ::google::protobuf::GoogleOnceInit(&once, &protobuf_AssignDescriptors);
-}
-
-void protobuf_RegisterTypes(const ::std::string&) GOOGLE_PROTOBUF_ATTRIBUTE_COLD;
-void protobuf_RegisterTypes(const ::std::string&) {
-  protobuf_AssignDescriptorsOnce();
-  ::google::protobuf::internal::RegisterAllTypes(file_level_metadata, 1);
-}
-
-void AddDescriptorsImpl() {
-  InitDefaults();
-  static const char descriptor[] GOOGLE_PROTOBUF_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
-      "\n!Battery/FRBatteryStateProto.proto\022\023DJI"
-      "FRProto.Standard\"\376\002\n\014BatteryState\022\017\n\007vol"
-      "tage\030\001 \001(\005\022\017\n\007current\030\002 \001(\005\022\023\n\013temperatu"
-      "re\030\003 \001(\001\022\024\n\014cellVoltages\030\004 \003(\005\022 \n\030charge"
-      "RemainingInPercent\030\005 \001(\005\022\"\n\032lowBatteryWa"
-      "rningThreshold\030\006 \001(\005\022)\n!seriousLowBatter"
-      "yWarningThreshold\030\007 \001(\005\022\r\n\005index\030\010 \001(\005\022\031"
-      "\n\021lifetimeRemaining\030\t \001(\005\022\026\n\016designCapac"
-      "ity\030\n \001(\005\022\032\n\022numberOfDischarges\030\013 \001(\005\022\035\n"
-      "\025isInSingleBatteryMode\030\014 \001(\010\022\032\n\022fullChar"
-      "geCapacity\030\r \001(\r\022\027\n\017chargeRemaining\030\016 \001("
-      "\rB\r\242\002\nDJIFRProtob\006proto3"
-  };
-  ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-      descriptor, 464);
-  ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
-    "Battery/FRBatteryStateProto.proto", &protobuf_RegisterTypes);
-}
-
-void AddDescriptors() {
-  static GOOGLE_PROTOBUF_DECLARE_ONCE(once);
-  ::google::protobuf::GoogleOnceInit(&once, &AddDescriptorsImpl);
-}
-// Force AddDescriptors() to be called at dynamic initialization time.
-struct StaticDescriptorInitializer {
-  StaticDescriptorInitializer() {
-    AddDescriptors();
-  }
-} static_descriptor_initializer;
-}  // namespace protobuf_Battery_2fFRBatteryStateProto_2eproto
+// Force running AddDescriptors() at dynamic initialization time.
+PROTOBUF_ATTRIBUTE_INIT_PRIORITY2 static ::_pbi::AddDescriptorsRunner dynamic_init_dummy_Battery_2fFRBatteryStateProto_2eproto(&descriptor_table_Battery_2fFRBatteryStateProto_2eproto);
 namespace DJIFRProto {
 namespace Standard {
 
 // ===================================================================
 
-void BatteryState::InitAsDefaultInstance() {
-}
-#if !defined(_MSC_VER) || _MSC_VER >= 1900
-const int BatteryState::kVoltageFieldNumber;
-const int BatteryState::kCurrentFieldNumber;
-const int BatteryState::kTemperatureFieldNumber;
-const int BatteryState::kCellVoltagesFieldNumber;
-const int BatteryState::kChargeRemainingInPercentFieldNumber;
-const int BatteryState::kLowBatteryWarningThresholdFieldNumber;
-const int BatteryState::kSeriousLowBatteryWarningThresholdFieldNumber;
-const int BatteryState::kIndexFieldNumber;
-const int BatteryState::kLifetimeRemainingFieldNumber;
-const int BatteryState::kDesignCapacityFieldNumber;
-const int BatteryState::kNumberOfDischargesFieldNumber;
-const int BatteryState::kIsInSingleBatteryModeFieldNumber;
-const int BatteryState::kFullChargeCapacityFieldNumber;
-const int BatteryState::kChargeRemainingFieldNumber;
-#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+class BatteryState::_Internal {
+ public:
+};
 
-BatteryState::BatteryState()
-  : ::google::protobuf::Message(), _internal_metadata_(NULL) {
-  if (GOOGLE_PREDICT_TRUE(this != internal_default_instance())) {
-    ::protobuf_Battery_2fFRBatteryStateProto_2eproto::InitDefaultsBatteryState();
-  }
-  SharedCtor();
-  // @@protoc_insertion_point(constructor:DJIFRProto.Standard.BatteryState)
+BatteryState::BatteryState(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
+  SharedCtor(arena, is_message_owned);
+  // @@protoc_insertion_point(arena_constructor:DJIFRProto.Standard.BatteryState)
 }
 BatteryState::BatteryState(const BatteryState& from)
-  : ::google::protobuf::Message(),
-      _internal_metadata_(NULL),
-      cellvoltages_(from.cellvoltages_),
-      _cached_size_(0) {
-  _internal_metadata_.MergeFrom(from._internal_metadata_);
-  ::memcpy(&voltage_, &from.voltage_,
-    static_cast<size_t>(reinterpret_cast<char*>(&chargeremaining_) -
-    reinterpret_cast<char*>(&voltage_)) + sizeof(chargeremaining_));
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  BatteryState* const _this = this; (void)_this;
+  new (&_impl_) Impl_{
+      decltype(_impl_.cellvoltages_){from._impl_.cellvoltages_}
+    , /*decltype(_impl_._cellvoltages_cached_byte_size_)*/{0}
+    , decltype(_impl_.voltage_){}
+    , decltype(_impl_.current_){}
+    , decltype(_impl_.temperature_){}
+    , decltype(_impl_.chargeremaininginpercent_){}
+    , decltype(_impl_.lowbatterywarningthreshold_){}
+    , decltype(_impl_.seriouslowbatterywarningthreshold_){}
+    , decltype(_impl_.index_){}
+    , decltype(_impl_.lifetimeremaining_){}
+    , decltype(_impl_.designcapacity_){}
+    , decltype(_impl_.numberofdischarges_){}
+    , decltype(_impl_.isinsinglebatterymode_){}
+    , decltype(_impl_.fullchargecapacity_){}
+    , decltype(_impl_.chargeremaining_){}
+    , /*decltype(_impl_._cached_size_)*/{}};
+
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::memcpy(&_impl_.voltage_, &from._impl_.voltage_,
+    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.chargeremaining_) -
+    reinterpret_cast<char*>(&_impl_.voltage_)) + sizeof(_impl_.chargeremaining_));
   // @@protoc_insertion_point(copy_constructor:DJIFRProto.Standard.BatteryState)
 }
 
-void BatteryState::SharedCtor() {
-  ::memset(&voltage_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&chargeremaining_) -
-      reinterpret_cast<char*>(&voltage_)) + sizeof(chargeremaining_));
-  _cached_size_ = 0;
+inline void BatteryState::SharedCtor(
+    ::_pb::Arena* arena, bool is_message_owned) {
+  (void)arena;
+  (void)is_message_owned;
+  new (&_impl_) Impl_{
+      decltype(_impl_.cellvoltages_){arena}
+    , /*decltype(_impl_._cellvoltages_cached_byte_size_)*/{0}
+    , decltype(_impl_.voltage_){0}
+    , decltype(_impl_.current_){0}
+    , decltype(_impl_.temperature_){0}
+    , decltype(_impl_.chargeremaininginpercent_){0}
+    , decltype(_impl_.lowbatterywarningthreshold_){0}
+    , decltype(_impl_.seriouslowbatterywarningthreshold_){0}
+    , decltype(_impl_.index_){0}
+    , decltype(_impl_.lifetimeremaining_){0}
+    , decltype(_impl_.designcapacity_){0}
+    , decltype(_impl_.numberofdischarges_){0}
+    , decltype(_impl_.isinsinglebatterymode_){false}
+    , decltype(_impl_.fullchargecapacity_){0u}
+    , decltype(_impl_.chargeremaining_){0u}
+    , /*decltype(_impl_._cached_size_)*/{}
+  };
 }
 
 BatteryState::~BatteryState() {
   // @@protoc_insertion_point(destructor:DJIFRProto.Standard.BatteryState)
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
   SharedDtor();
 }
 
-void BatteryState::SharedDtor() {
+inline void BatteryState::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+  _impl_.cellvoltages_.~RepeatedField();
 }
 
 void BatteryState::SetCachedSize(int size) const {
-  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
-  _cached_size_ = size;
-  GOOGLE_SAFE_CONCURRENT_WRITES_END();
-}
-const ::google::protobuf::Descriptor* BatteryState::descriptor() {
-  ::protobuf_Battery_2fFRBatteryStateProto_2eproto::protobuf_AssignDescriptorsOnce();
-  return ::protobuf_Battery_2fFRBatteryStateProto_2eproto::file_level_metadata[kIndexInFileMessages].descriptor;
-}
-
-const BatteryState& BatteryState::default_instance() {
-  ::protobuf_Battery_2fFRBatteryStateProto_2eproto::InitDefaultsBatteryState();
-  return *internal_default_instance();
-}
-
-BatteryState* BatteryState::New(::google::protobuf::Arena* arena) const {
-  BatteryState* n = new BatteryState;
-  if (arena != NULL) {
-    arena->Own(n);
-  }
-  return n;
+  _impl_._cached_size_.Set(size);
 }
 
 void BatteryState::Clear() {
 // @@protoc_insertion_point(message_clear_start:DJIFRProto.Standard.BatteryState)
-  ::google::protobuf::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  cellvoltages_.Clear();
-  ::memset(&voltage_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&chargeremaining_) -
-      reinterpret_cast<char*>(&voltage_)) + sizeof(chargeremaining_));
-  _internal_metadata_.Clear();
+  _impl_.cellvoltages_.Clear();
+  ::memset(&_impl_.voltage_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&_impl_.chargeremaining_) -
+      reinterpret_cast<char*>(&_impl_.voltage_)) + sizeof(_impl_.chargeremaining_));
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-bool BatteryState::MergePartialFromCodedStream(
-    ::google::protobuf::io::CodedInputStream* input) {
-#define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
-  ::google::protobuf::uint32 tag;
-  // @@protoc_insertion_point(parse_start:DJIFRProto.Standard.BatteryState)
-  for (;;) {
-    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
-    tag = p.first;
-    if (!p.second) goto handle_unusual;
-    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+const char* BatteryState::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
+    switch (tag >> 3) {
       // int32 voltage = 1;
-      case 1: {
-        if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(8u /* 8 & 0xFF */)) {
-
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &voltage_)));
-        } else {
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
+          _impl_.voltage_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else
           goto handle_unusual;
-        }
-        break;
-      }
-
+        continue;
       // int32 current = 2;
-      case 2: {
-        if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(16u /* 16 & 0xFF */)) {
-
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &current_)));
-        } else {
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 16)) {
+          _impl_.current_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else
           goto handle_unusual;
-        }
-        break;
-      }
-
+        continue;
       // double temperature = 3;
-      case 3: {
-        if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(25u /* 25 & 0xFF */)) {
-
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   double, ::google::protobuf::internal::WireFormatLite::TYPE_DOUBLE>(
-                 input, &temperature_)));
-        } else {
+      case 3:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 25)) {
+          _impl_.temperature_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<double>(ptr);
+          ptr += sizeof(double);
+        } else
           goto handle_unusual;
-        }
-        break;
-      }
-
+        continue;
       // repeated int32 cellVoltages = 4;
-      case 4: {
-        if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(34u /* 34 & 0xFF */)) {
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPackedPrimitive<
-                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, this->mutable_cellvoltages())));
-        } else if (
-            static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(32u /* 32 & 0xFF */)) {
-          DO_((::google::protobuf::internal::WireFormatLite::ReadRepeatedPrimitiveNoInline<
-                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 1, 34u, input, this->mutable_cellvoltages())));
-        } else {
+      case 4:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 34)) {
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::PackedInt32Parser(_internal_mutable_cellvoltages(), ptr, ctx);
+          CHK_(ptr);
+        } else if (static_cast<uint8_t>(tag) == 32) {
+          _internal_add_cellvoltages(::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr));
+          CHK_(ptr);
+        } else
           goto handle_unusual;
-        }
-        break;
-      }
-
+        continue;
       // int32 chargeRemainingInPercent = 5;
-      case 5: {
-        if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(40u /* 40 & 0xFF */)) {
-
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &chargeremaininginpercent_)));
-        } else {
+      case 5:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 40)) {
+          _impl_.chargeremaininginpercent_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else
           goto handle_unusual;
-        }
-        break;
-      }
-
+        continue;
       // int32 lowBatteryWarningThreshold = 6;
-      case 6: {
-        if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(48u /* 48 & 0xFF */)) {
-
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &lowbatterywarningthreshold_)));
-        } else {
+      case 6:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 48)) {
+          _impl_.lowbatterywarningthreshold_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else
           goto handle_unusual;
-        }
-        break;
-      }
-
+        continue;
       // int32 seriousLowBatteryWarningThreshold = 7;
-      case 7: {
-        if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(56u /* 56 & 0xFF */)) {
-
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &seriouslowbatterywarningthreshold_)));
-        } else {
+      case 7:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 56)) {
+          _impl_.seriouslowbatterywarningthreshold_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else
           goto handle_unusual;
-        }
-        break;
-      }
-
+        continue;
       // int32 index = 8;
-      case 8: {
-        if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(64u /* 64 & 0xFF */)) {
-
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &index_)));
-        } else {
+      case 8:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 64)) {
+          _impl_.index_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else
           goto handle_unusual;
-        }
-        break;
-      }
-
+        continue;
       // int32 lifetimeRemaining = 9;
-      case 9: {
-        if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(72u /* 72 & 0xFF */)) {
-
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &lifetimeremaining_)));
-        } else {
+      case 9:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 72)) {
+          _impl_.lifetimeremaining_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else
           goto handle_unusual;
-        }
-        break;
-      }
-
+        continue;
       // int32 designCapacity = 10;
-      case 10: {
-        if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(80u /* 80 & 0xFF */)) {
-
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &designcapacity_)));
-        } else {
+      case 10:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 80)) {
+          _impl_.designcapacity_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else
           goto handle_unusual;
-        }
-        break;
-      }
-
+        continue;
       // int32 numberOfDischarges = 11;
-      case 11: {
-        if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(88u /* 88 & 0xFF */)) {
-
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &numberofdischarges_)));
-        } else {
+      case 11:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 88)) {
+          _impl_.numberofdischarges_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else
           goto handle_unusual;
-        }
-        break;
-      }
-
+        continue;
       // bool isInSingleBatteryMode = 12;
-      case 12: {
-        if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(96u /* 96 & 0xFF */)) {
-
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   bool, ::google::protobuf::internal::WireFormatLite::TYPE_BOOL>(
-                 input, &isinsinglebatterymode_)));
-        } else {
+      case 12:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 96)) {
+          _impl_.isinsinglebatterymode_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else
           goto handle_unusual;
-        }
-        break;
-      }
-
+        continue;
       // uint32 fullChargeCapacity = 13;
-      case 13: {
-        if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(104u /* 104 & 0xFF */)) {
-
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
-                 input, &fullchargecapacity_)));
-        } else {
+      case 13:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 104)) {
+          _impl_.fullchargecapacity_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else
           goto handle_unusual;
-        }
-        break;
-      }
-
+        continue;
       // uint32 chargeRemaining = 14;
-      case 14: {
-        if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(112u /* 112 & 0xFF */)) {
-
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
-                 input, &chargeremaining_)));
-        } else {
+      case 14:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 112)) {
+          _impl_.chargeremaining_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else
           goto handle_unusual;
-        }
-        break;
-      }
+        continue;
+      default:
+        goto handle_unusual;
+    }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
+  }  // while
+message_done:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto message_done;
+#undef CHK_
+}
 
-      default: {
-      handle_unusual:
-        if (tag == 0) {
-          goto success;
-        }
-        DO_(::google::protobuf::internal::WireFormat::SkipField(
-              input, tag, _internal_metadata_.mutable_unknown_fields()));
-        break;
-      }
+uint8_t* BatteryState::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:DJIFRProto.Standard.BatteryState)
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // int32 voltage = 1;
+  if (this->_internal_voltage() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteInt32ToArray(1, this->_internal_voltage(), target);
+  }
+
+  // int32 current = 2;
+  if (this->_internal_current() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteInt32ToArray(2, this->_internal_current(), target);
+  }
+
+  // double temperature = 3;
+  static_assert(sizeof(uint64_t) == sizeof(double), "Code assumes uint64_t and double are the same size.");
+  double tmp_temperature = this->_internal_temperature();
+  uint64_t raw_temperature;
+  memcpy(&raw_temperature, &tmp_temperature, sizeof(tmp_temperature));
+  if (raw_temperature != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteDoubleToArray(3, this->_internal_temperature(), target);
+  }
+
+  // repeated int32 cellVoltages = 4;
+  {
+    int byte_size = _impl_._cellvoltages_cached_byte_size_.load(std::memory_order_relaxed);
+    if (byte_size > 0) {
+      target = stream->WriteInt32Packed(
+          4, _internal_cellvoltages(), byte_size, target);
     }
   }
-success:
-  // @@protoc_insertion_point(parse_success:DJIFRProto.Standard.BatteryState)
-  return true;
-failure:
-  // @@protoc_insertion_point(parse_failure:DJIFRProto.Standard.BatteryState)
-  return false;
-#undef DO_
-}
-
-void BatteryState::SerializeWithCachedSizes(
-    ::google::protobuf::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:DJIFRProto.Standard.BatteryState)
-  ::google::protobuf::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  // int32 voltage = 1;
-  if (this->voltage() != 0) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->voltage(), output);
-  }
-
-  // int32 current = 2;
-  if (this->current() != 0) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->current(), output);
-  }
-
-  // double temperature = 3;
-  if (this->temperature() != 0) {
-    ::google::protobuf::internal::WireFormatLite::WriteDouble(3, this->temperature(), output);
-  }
-
-  // repeated int32 cellVoltages = 4;
-  if (this->cellvoltages_size() > 0) {
-    ::google::protobuf::internal::WireFormatLite::WriteTag(4, ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED, output);
-    output->WriteVarint32(static_cast< ::google::protobuf::uint32>(
-        _cellvoltages_cached_byte_size_));
-  }
-  for (int i = 0, n = this->cellvoltages_size(); i < n; i++) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32NoTag(
-      this->cellvoltages(i), output);
-  }
 
   // int32 chargeRemainingInPercent = 5;
-  if (this->chargeremaininginpercent() != 0) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(5, this->chargeremaininginpercent(), output);
+  if (this->_internal_chargeremaininginpercent() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteInt32ToArray(5, this->_internal_chargeremaininginpercent(), target);
   }
 
   // int32 lowBatteryWarningThreshold = 6;
-  if (this->lowbatterywarningthreshold() != 0) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(6, this->lowbatterywarningthreshold(), output);
+  if (this->_internal_lowbatterywarningthreshold() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteInt32ToArray(6, this->_internal_lowbatterywarningthreshold(), target);
   }
 
   // int32 seriousLowBatteryWarningThreshold = 7;
-  if (this->seriouslowbatterywarningthreshold() != 0) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(7, this->seriouslowbatterywarningthreshold(), output);
+  if (this->_internal_seriouslowbatterywarningthreshold() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteInt32ToArray(7, this->_internal_seriouslowbatterywarningthreshold(), target);
   }
 
   // int32 index = 8;
-  if (this->index() != 0) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(8, this->index(), output);
+  if (this->_internal_index() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteInt32ToArray(8, this->_internal_index(), target);
   }
 
   // int32 lifetimeRemaining = 9;
-  if (this->lifetimeremaining() != 0) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(9, this->lifetimeremaining(), output);
+  if (this->_internal_lifetimeremaining() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteInt32ToArray(9, this->_internal_lifetimeremaining(), target);
   }
 
   // int32 designCapacity = 10;
-  if (this->designcapacity() != 0) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(10, this->designcapacity(), output);
+  if (this->_internal_designcapacity() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteInt32ToArray(10, this->_internal_designcapacity(), target);
   }
 
   // int32 numberOfDischarges = 11;
-  if (this->numberofdischarges() != 0) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(11, this->numberofdischarges(), output);
+  if (this->_internal_numberofdischarges() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteInt32ToArray(11, this->_internal_numberofdischarges(), target);
   }
 
   // bool isInSingleBatteryMode = 12;
-  if (this->isinsinglebatterymode() != 0) {
-    ::google::protobuf::internal::WireFormatLite::WriteBool(12, this->isinsinglebatterymode(), output);
+  if (this->_internal_isinsinglebatterymode() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteBoolToArray(12, this->_internal_isinsinglebatterymode(), target);
   }
 
   // uint32 fullChargeCapacity = 13;
-  if (this->fullchargecapacity() != 0) {
-    ::google::protobuf::internal::WireFormatLite::WriteUInt32(13, this->fullchargecapacity(), output);
+  if (this->_internal_fullchargecapacity() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteUInt32ToArray(13, this->_internal_fullchargecapacity(), target);
   }
 
   // uint32 chargeRemaining = 14;
-  if (this->chargeremaining() != 0) {
-    ::google::protobuf::internal::WireFormatLite::WriteUInt32(14, this->chargeremaining(), output);
+  if (this->_internal_chargeremaining() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteUInt32ToArray(14, this->_internal_chargeremaining(), target);
   }
 
-  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
-    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
-        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), output);
-  }
-  // @@protoc_insertion_point(serialize_end:DJIFRProto.Standard.BatteryState)
-}
-
-::google::protobuf::uint8* BatteryState::InternalSerializeWithCachedSizesToArray(
-    bool deterministic, ::google::protobuf::uint8* target) const {
-  (void)deterministic; // Unused
-  // @@protoc_insertion_point(serialize_to_array_start:DJIFRProto.Standard.BatteryState)
-  ::google::protobuf::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  // int32 voltage = 1;
-  if (this->voltage() != 0) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->voltage(), target);
-  }
-
-  // int32 current = 2;
-  if (this->current() != 0) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->current(), target);
-  }
-
-  // double temperature = 3;
-  if (this->temperature() != 0) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteDoubleToArray(3, this->temperature(), target);
-  }
-
-  // repeated int32 cellVoltages = 4;
-  if (this->cellvoltages_size() > 0) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteTagToArray(
-      4,
-      ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED,
-      target);
-    target = ::google::protobuf::io::CodedOutputStream::WriteVarint32ToArray(
-        static_cast< ::google::protobuf::int32>(
-            _cellvoltages_cached_byte_size_), target);
-    target = ::google::protobuf::internal::WireFormatLite::
-      WriteInt32NoTagToArray(this->cellvoltages_, target);
-  }
-
-  // int32 chargeRemainingInPercent = 5;
-  if (this->chargeremaininginpercent() != 0) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(5, this->chargeremaininginpercent(), target);
-  }
-
-  // int32 lowBatteryWarningThreshold = 6;
-  if (this->lowbatterywarningthreshold() != 0) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(6, this->lowbatterywarningthreshold(), target);
-  }
-
-  // int32 seriousLowBatteryWarningThreshold = 7;
-  if (this->seriouslowbatterywarningthreshold() != 0) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(7, this->seriouslowbatterywarningthreshold(), target);
-  }
-
-  // int32 index = 8;
-  if (this->index() != 0) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(8, this->index(), target);
-  }
-
-  // int32 lifetimeRemaining = 9;
-  if (this->lifetimeremaining() != 0) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(9, this->lifetimeremaining(), target);
-  }
-
-  // int32 designCapacity = 10;
-  if (this->designcapacity() != 0) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(10, this->designcapacity(), target);
-  }
-
-  // int32 numberOfDischarges = 11;
-  if (this->numberofdischarges() != 0) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(11, this->numberofdischarges(), target);
-  }
-
-  // bool isInSingleBatteryMode = 12;
-  if (this->isinsinglebatterymode() != 0) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(12, this->isinsinglebatterymode(), target);
-  }
-
-  // uint32 fullChargeCapacity = 13;
-  if (this->fullchargecapacity() != 0) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(13, this->fullchargecapacity(), target);
-  }
-
-  // uint32 chargeRemaining = 14;
-  if (this->chargeremaining() != 0) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(14, this->chargeremaining(), target);
-  }
-
-  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
-    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
-        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), target);
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
   }
   // @@protoc_insertion_point(serialize_to_array_end:DJIFRProto.Standard.BatteryState)
   return target;
@@ -645,190 +465,156 @@ size_t BatteryState::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:DJIFRProto.Standard.BatteryState)
   size_t total_size = 0;
 
-  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
-    total_size +=
-      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
-        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()));
-  }
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
   // repeated int32 cellVoltages = 4;
   {
-    size_t data_size = ::google::protobuf::internal::WireFormatLite::
-      Int32Size(this->cellvoltages_);
+    size_t data_size = ::_pbi::WireFormatLite::
+      Int32Size(this->_impl_.cellvoltages_);
     if (data_size > 0) {
       total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::Int32Size(
-            static_cast< ::google::protobuf::int32>(data_size));
+        ::_pbi::WireFormatLite::Int32Size(static_cast<int32_t>(data_size));
     }
-    int cached_size = ::google::protobuf::internal::ToCachedSize(data_size);
-    GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
-    _cellvoltages_cached_byte_size_ = cached_size;
-    GOOGLE_SAFE_CONCURRENT_WRITES_END();
+    int cached_size = ::_pbi::ToCachedSize(data_size);
+    _impl_._cellvoltages_cached_byte_size_.store(cached_size,
+                                    std::memory_order_relaxed);
     total_size += data_size;
   }
 
   // int32 voltage = 1;
-  if (this->voltage() != 0) {
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::Int32Size(
-        this->voltage());
+  if (this->_internal_voltage() != 0) {
+    total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_voltage());
   }
 
   // int32 current = 2;
-  if (this->current() != 0) {
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::Int32Size(
-        this->current());
+  if (this->_internal_current() != 0) {
+    total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_current());
   }
 
   // double temperature = 3;
-  if (this->temperature() != 0) {
+  static_assert(sizeof(uint64_t) == sizeof(double), "Code assumes uint64_t and double are the same size.");
+  double tmp_temperature = this->_internal_temperature();
+  uint64_t raw_temperature;
+  memcpy(&raw_temperature, &tmp_temperature, sizeof(tmp_temperature));
+  if (raw_temperature != 0) {
     total_size += 1 + 8;
   }
 
   // int32 chargeRemainingInPercent = 5;
-  if (this->chargeremaininginpercent() != 0) {
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::Int32Size(
-        this->chargeremaininginpercent());
+  if (this->_internal_chargeremaininginpercent() != 0) {
+    total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_chargeremaininginpercent());
   }
 
   // int32 lowBatteryWarningThreshold = 6;
-  if (this->lowbatterywarningthreshold() != 0) {
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::Int32Size(
-        this->lowbatterywarningthreshold());
+  if (this->_internal_lowbatterywarningthreshold() != 0) {
+    total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_lowbatterywarningthreshold());
   }
 
   // int32 seriousLowBatteryWarningThreshold = 7;
-  if (this->seriouslowbatterywarningthreshold() != 0) {
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::Int32Size(
-        this->seriouslowbatterywarningthreshold());
+  if (this->_internal_seriouslowbatterywarningthreshold() != 0) {
+    total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_seriouslowbatterywarningthreshold());
   }
 
   // int32 index = 8;
-  if (this->index() != 0) {
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::Int32Size(
-        this->index());
+  if (this->_internal_index() != 0) {
+    total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_index());
   }
 
   // int32 lifetimeRemaining = 9;
-  if (this->lifetimeremaining() != 0) {
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::Int32Size(
-        this->lifetimeremaining());
+  if (this->_internal_lifetimeremaining() != 0) {
+    total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_lifetimeremaining());
   }
 
   // int32 designCapacity = 10;
-  if (this->designcapacity() != 0) {
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::Int32Size(
-        this->designcapacity());
+  if (this->_internal_designcapacity() != 0) {
+    total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_designcapacity());
   }
 
   // int32 numberOfDischarges = 11;
-  if (this->numberofdischarges() != 0) {
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::Int32Size(
-        this->numberofdischarges());
+  if (this->_internal_numberofdischarges() != 0) {
+    total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_numberofdischarges());
   }
 
   // bool isInSingleBatteryMode = 12;
-  if (this->isinsinglebatterymode() != 0) {
+  if (this->_internal_isinsinglebatterymode() != 0) {
     total_size += 1 + 1;
   }
 
   // uint32 fullChargeCapacity = 13;
-  if (this->fullchargecapacity() != 0) {
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::UInt32Size(
-        this->fullchargecapacity());
+  if (this->_internal_fullchargecapacity() != 0) {
+    total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_fullchargecapacity());
   }
 
   // uint32 chargeRemaining = 14;
-  if (this->chargeremaining() != 0) {
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::UInt32Size(
-        this->chargeremaining());
+  if (this->_internal_chargeremaining() != 0) {
+    total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_chargeremaining());
   }
 
-  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
-  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
-  _cached_size_ = cached_size;
-  GOOGLE_SAFE_CONCURRENT_WRITES_END();
-  return total_size;
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
 }
 
-void BatteryState::MergeFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:DJIFRProto.Standard.BatteryState)
-  GOOGLE_DCHECK_NE(&from, this);
-  const BatteryState* source =
-      ::google::protobuf::internal::DynamicCastToGenerated<const BatteryState>(
-          &from);
-  if (source == NULL) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:DJIFRProto.Standard.BatteryState)
-    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
-  } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:DJIFRProto.Standard.BatteryState)
-    MergeFrom(*source);
-  }
-}
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData BatteryState::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
+    BatteryState::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*BatteryState::GetClassData() const { return &_class_data_; }
 
-void BatteryState::MergeFrom(const BatteryState& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:DJIFRProto.Standard.BatteryState)
-  GOOGLE_DCHECK_NE(&from, this);
-  _internal_metadata_.MergeFrom(from._internal_metadata_);
-  ::google::protobuf::uint32 cached_has_bits = 0;
+
+void BatteryState::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
+  auto* const _this = static_cast<BatteryState*>(&to_msg);
+  auto& from = static_cast<const BatteryState&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:DJIFRProto.Standard.BatteryState)
+  GOOGLE_DCHECK_NE(&from, _this);
+  uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  cellvoltages_.MergeFrom(from.cellvoltages_);
-  if (from.voltage() != 0) {
-    set_voltage(from.voltage());
+  _this->_impl_.cellvoltages_.MergeFrom(from._impl_.cellvoltages_);
+  if (from._internal_voltage() != 0) {
+    _this->_internal_set_voltage(from._internal_voltage());
   }
-  if (from.current() != 0) {
-    set_current(from.current());
+  if (from._internal_current() != 0) {
+    _this->_internal_set_current(from._internal_current());
   }
-  if (from.temperature() != 0) {
-    set_temperature(from.temperature());
+  static_assert(sizeof(uint64_t) == sizeof(double), "Code assumes uint64_t and double are the same size.");
+  double tmp_temperature = from._internal_temperature();
+  uint64_t raw_temperature;
+  memcpy(&raw_temperature, &tmp_temperature, sizeof(tmp_temperature));
+  if (raw_temperature != 0) {
+    _this->_internal_set_temperature(from._internal_temperature());
   }
-  if (from.chargeremaininginpercent() != 0) {
-    set_chargeremaininginpercent(from.chargeremaininginpercent());
+  if (from._internal_chargeremaininginpercent() != 0) {
+    _this->_internal_set_chargeremaininginpercent(from._internal_chargeremaininginpercent());
   }
-  if (from.lowbatterywarningthreshold() != 0) {
-    set_lowbatterywarningthreshold(from.lowbatterywarningthreshold());
+  if (from._internal_lowbatterywarningthreshold() != 0) {
+    _this->_internal_set_lowbatterywarningthreshold(from._internal_lowbatterywarningthreshold());
   }
-  if (from.seriouslowbatterywarningthreshold() != 0) {
-    set_seriouslowbatterywarningthreshold(from.seriouslowbatterywarningthreshold());
+  if (from._internal_seriouslowbatterywarningthreshold() != 0) {
+    _this->_internal_set_seriouslowbatterywarningthreshold(from._internal_seriouslowbatterywarningthreshold());
   }
-  if (from.index() != 0) {
-    set_index(from.index());
+  if (from._internal_index() != 0) {
+    _this->_internal_set_index(from._internal_index());
   }
-  if (from.lifetimeremaining() != 0) {
-    set_lifetimeremaining(from.lifetimeremaining());
+  if (from._internal_lifetimeremaining() != 0) {
+    _this->_internal_set_lifetimeremaining(from._internal_lifetimeremaining());
   }
-  if (from.designcapacity() != 0) {
-    set_designcapacity(from.designcapacity());
+  if (from._internal_designcapacity() != 0) {
+    _this->_internal_set_designcapacity(from._internal_designcapacity());
   }
-  if (from.numberofdischarges() != 0) {
-    set_numberofdischarges(from.numberofdischarges());
+  if (from._internal_numberofdischarges() != 0) {
+    _this->_internal_set_numberofdischarges(from._internal_numberofdischarges());
   }
-  if (from.isinsinglebatterymode() != 0) {
-    set_isinsinglebatterymode(from.isinsinglebatterymode());
+  if (from._internal_isinsinglebatterymode() != 0) {
+    _this->_internal_set_isinsinglebatterymode(from._internal_isinsinglebatterymode());
   }
-  if (from.fullchargecapacity() != 0) {
-    set_fullchargecapacity(from.fullchargecapacity());
+  if (from._internal_fullchargecapacity() != 0) {
+    _this->_internal_set_fullchargecapacity(from._internal_fullchargecapacity());
   }
-  if (from.chargeremaining() != 0) {
-    set_chargeremaining(from.chargeremaining());
+  if (from._internal_chargeremaining() != 0) {
+    _this->_internal_set_chargeremaining(from._internal_chargeremaining());
   }
-}
-
-void BatteryState::CopyFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:DJIFRProto.Standard.BatteryState)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
+  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void BatteryState::CopyFrom(const BatteryState& from) {
@@ -842,38 +628,33 @@ bool BatteryState::IsInitialized() const {
   return true;
 }
 
-void BatteryState::Swap(BatteryState* other) {
-  if (other == this) return;
-  InternalSwap(other);
-}
 void BatteryState::InternalSwap(BatteryState* other) {
   using std::swap;
-  cellvoltages_.InternalSwap(&other->cellvoltages_);
-  swap(voltage_, other->voltage_);
-  swap(current_, other->current_);
-  swap(temperature_, other->temperature_);
-  swap(chargeremaininginpercent_, other->chargeremaininginpercent_);
-  swap(lowbatterywarningthreshold_, other->lowbatterywarningthreshold_);
-  swap(seriouslowbatterywarningthreshold_, other->seriouslowbatterywarningthreshold_);
-  swap(index_, other->index_);
-  swap(lifetimeremaining_, other->lifetimeremaining_);
-  swap(designcapacity_, other->designcapacity_);
-  swap(numberofdischarges_, other->numberofdischarges_);
-  swap(isinsinglebatterymode_, other->isinsinglebatterymode_);
-  swap(fullchargecapacity_, other->fullchargecapacity_);
-  swap(chargeremaining_, other->chargeremaining_);
-  _internal_metadata_.Swap(&other->_internal_metadata_);
-  swap(_cached_size_, other->_cached_size_);
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  _impl_.cellvoltages_.InternalSwap(&other->_impl_.cellvoltages_);
+  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(BatteryState, _impl_.chargeremaining_)
+      + sizeof(BatteryState::_impl_.chargeremaining_)
+      - PROTOBUF_FIELD_OFFSET(BatteryState, _impl_.voltage_)>(
+          reinterpret_cast<char*>(&_impl_.voltage_),
+          reinterpret_cast<char*>(&other->_impl_.voltage_));
 }
 
-::google::protobuf::Metadata BatteryState::GetMetadata() const {
-  protobuf_Battery_2fFRBatteryStateProto_2eproto::protobuf_AssignDescriptorsOnce();
-  return ::protobuf_Battery_2fFRBatteryStateProto_2eproto::file_level_metadata[kIndexInFileMessages];
+::PROTOBUF_NAMESPACE_ID::Metadata BatteryState::GetMetadata() const {
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_Battery_2fFRBatteryStateProto_2eproto_getter, &descriptor_table_Battery_2fFRBatteryStateProto_2eproto_once,
+      file_level_metadata_Battery_2fFRBatteryStateProto_2eproto[0]);
 }
-
 
 // @@protoc_insertion_point(namespace_scope)
 }  // namespace Standard
 }  // namespace DJIFRProto
+PROTOBUF_NAMESPACE_OPEN
+template<> PROTOBUF_NOINLINE ::DJIFRProto::Standard::BatteryState*
+Arena::CreateMaybeMessage< ::DJIFRProto::Standard::BatteryState >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::DJIFRProto::Standard::BatteryState >(arena);
+}
+PROTOBUF_NAMESPACE_CLOSE
 
 // @@protoc_insertion_point(global_scope)
+#include <google/protobuf/port_undef.inc>

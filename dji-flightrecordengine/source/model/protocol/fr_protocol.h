@@ -1078,6 +1078,15 @@ typedef enum
     DJI_CAMERA_TYPE_Phantom4 = 6, // Phantom 4
 } DJI_CAMERA_TYPE;
 
+typedef struct
+{
+    uint16_t remain_fly_time;
+    uint16_t need_gohome_time;
+    uint16_t need_land_time;
+    uint8_t gohome_capacity;
+    uint8_t land_capacity;
+} dji_fc_fs_battery_capacity_gohome_landing_to_app_push;
+
 #pragma pack()
 
 #endif /* fr_protocol_h */

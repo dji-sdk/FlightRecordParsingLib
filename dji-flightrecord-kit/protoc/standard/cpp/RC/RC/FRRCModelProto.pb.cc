@@ -5,421 +5,322 @@
 
 #include <algorithm>
 
-#include <google/protobuf/stubs/common.h>
-#include <google/protobuf/stubs/port.h>
-#include <google/protobuf/stubs/once.h>
 #include <google/protobuf/io/coded_stream.h>
-#include <google/protobuf/wire_format_lite_inl.h>
+#include <google/protobuf/extension_set.h>
+#include <google/protobuf/wire_format_lite.h>
 #include <google/protobuf/descriptor.h>
 #include <google/protobuf/generated_message_reflection.h>
 #include <google/protobuf/reflection_ops.h>
 #include <google/protobuf/wire_format.h>
-// This is a temporary google only hack
-#ifdef GOOGLE_PROTOBUF_ENFORCE_UNIQUENESS
-#include "third_party/protobuf/version.h"
-#endif
 // @@protoc_insertion_point(includes)
+#include <google/protobuf/port_def.inc>
+
+PROTOBUF_PRAGMA_INIT_SEG
+
+namespace _pb = ::PROTOBUF_NAMESPACE_ID;
+namespace _pbi = _pb::internal;
+
 namespace DJIFRProto {
 namespace Standard {
-class RCFlightModelDefaultTypeInternal {
- public:
-  ::google::protobuf::internal::ExplicitlyConstructed<RCFlightModel>
-      _instance;
-} _RCFlightModel_default_instance_;
-class StickDefaultTypeInternal {
- public:
-  ::google::protobuf::internal::ExplicitlyConstructed<Stick>
-      _instance;
-} _Stick_default_instance_;
-class RCRightWheelDefaultTypeInternal {
- public:
-  ::google::protobuf::internal::ExplicitlyConstructed<RCRightWheel>
-      _instance;
-} _RCRightWheel_default_instance_;
-class RCButtonDefaultTypeInternal {
- public:
-  ::google::protobuf::internal::ExplicitlyConstructed<RCButton>
-      _instance;
-} _RCButton_default_instance_;
-class RCAircraftMappingDefaultTypeInternal {
- public:
-  ::google::protobuf::internal::ExplicitlyConstructed<RCAircraftMapping>
-      _instance;
-} _RCAircraftMapping_default_instance_;
-class RCGPSTimeDefaultTypeInternal {
- public:
-  ::google::protobuf::internal::ExplicitlyConstructed<RCGPSTime>
-      _instance;
-} _RCGPSTime_default_instance_;
-class RCGPSDataDefaultTypeInternal {
- public:
-  ::google::protobuf::internal::ExplicitlyConstructed<RCGPSData>
-      _instance;
-} _RCGPSData_default_instance_;
-class RCHardwareStateDefaultTypeInternal {
- public:
-  ::google::protobuf::internal::ExplicitlyConstructed<RCHardwareState>
-      _instance;
-} _RCHardwareState_default_instance_;
+PROTOBUF_CONSTEXPR RCFlightModel::RCFlightModel(
+    ::_pbi::ConstantInitialized) {}
+struct RCFlightModelDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR RCFlightModelDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~RCFlightModelDefaultTypeInternal() {}
+  union {
+    RCFlightModel _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 RCFlightModelDefaultTypeInternal _RCFlightModel_default_instance_;
+PROTOBUF_CONSTEXPR Stick::Stick(
+    ::_pbi::ConstantInitialized): _impl_{
+    /*decltype(_impl_.horizontalposition_)*/0
+  , /*decltype(_impl_.verticalposition_)*/0
+  , /*decltype(_impl_._cached_size_)*/{}} {}
+struct StickDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR StickDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~StickDefaultTypeInternal() {}
+  union {
+    Stick _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 StickDefaultTypeInternal _Stick_default_instance_;
+PROTOBUF_CONSTEXPR RCRightWheel::RCRightWheel(
+    ::_pbi::ConstantInitialized): _impl_{
+    /*decltype(_impl_.ispresent_)*/false
+  , /*decltype(_impl_.isturned_)*/false
+  , /*decltype(_impl_.isclicked_)*/false
+  , /*decltype(_impl_.value_)*/0
+  , /*decltype(_impl_._cached_size_)*/{}} {}
+struct RCRightWheelDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR RCRightWheelDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~RCRightWheelDefaultTypeInternal() {}
+  union {
+    RCRightWheel _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 RCRightWheelDefaultTypeInternal _RCRightWheel_default_instance_;
+PROTOBUF_CONSTEXPR RCButton::RCButton(
+    ::_pbi::ConstantInitialized): _impl_{
+    /*decltype(_impl_.ispresent_)*/false
+  , /*decltype(_impl_.isclicked_)*/false
+  , /*decltype(_impl_._cached_size_)*/{}} {}
+struct RCButtonDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR RCButtonDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~RCButtonDefaultTypeInternal() {}
+  union {
+    RCButton _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 RCButtonDefaultTypeInternal _RCButton_default_instance_;
+PROTOBUF_CONSTEXPR RCAircraftMapping::RCAircraftMapping(
+    ::_pbi::ConstantInitialized) {}
+struct RCAircraftMappingDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR RCAircraftMappingDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~RCAircraftMappingDefaultTypeInternal() {}
+  union {
+    RCAircraftMapping _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 RCAircraftMappingDefaultTypeInternal _RCAircraftMapping_default_instance_;
+PROTOBUF_CONSTEXPR RCGPSTime::RCGPSTime(
+    ::_pbi::ConstantInitialized): _impl_{
+    /*decltype(_impl_.hour_)*/0u
+  , /*decltype(_impl_.minute_)*/0u
+  , /*decltype(_impl_.second_)*/0u
+  , /*decltype(_impl_.year_)*/0u
+  , /*decltype(_impl_.month_)*/0u
+  , /*decltype(_impl_.day_)*/0u
+  , /*decltype(_impl_._cached_size_)*/{}} {}
+struct RCGPSTimeDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR RCGPSTimeDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~RCGPSTimeDefaultTypeInternal() {}
+  union {
+    RCGPSTime _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 RCGPSTimeDefaultTypeInternal _RCGPSTime_default_instance_;
+PROTOBUF_CONSTEXPR RCGPSData::RCGPSData(
+    ::_pbi::ConstantInitialized): _impl_{
+    /*decltype(_impl_.time_)*/nullptr
+  , /*decltype(_impl_.location_)*/nullptr
+  , /*decltype(_impl_.eastspeed_)*/0
+  , /*decltype(_impl_.northspeed_)*/0
+  , /*decltype(_impl_.satellitecount_)*/0
+  , /*decltype(_impl_.accuracy_)*/0
+  , /*decltype(_impl_.isvalid_)*/false
+  , /*decltype(_impl_._cached_size_)*/{}} {}
+struct RCGPSDataDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR RCGPSDataDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~RCGPSDataDefaultTypeInternal() {}
+  union {
+    RCGPSData _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 RCGPSDataDefaultTypeInternal _RCGPSData_default_instance_;
+PROTOBUF_CONSTEXPR RCHardwareState::RCHardwareState(
+    ::_pbi::ConstantInitialized): _impl_{
+    /*decltype(_impl_.leftstick_)*/nullptr
+  , /*decltype(_impl_.rightstick_)*/nullptr
+  , /*decltype(_impl_.rightwheel_)*/nullptr
+  , /*decltype(_impl_.gohomebutton_)*/nullptr
+  , /*decltype(_impl_.recordbutton_)*/nullptr
+  , /*decltype(_impl_.shutterbutton_)*/nullptr
+  , /*decltype(_impl_.playbackbutton_)*/nullptr
+  , /*decltype(_impl_.pausebutton_)*/nullptr
+  , /*decltype(_impl_.gpsdata_)*/nullptr
+  , /*decltype(_impl_.leftwheel_)*/0
+  , /*decltype(_impl_.flightmodeswitch_)*/0
+  , /*decltype(_impl_.style_)*/0
+  , /*decltype(_impl_._cached_size_)*/{}} {}
+struct RCHardwareStateDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR RCHardwareStateDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~RCHardwareStateDefaultTypeInternal() {}
+  union {
+    RCHardwareState _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 RCHardwareStateDefaultTypeInternal _RCHardwareState_default_instance_;
 }  // namespace Standard
 }  // namespace DJIFRProto
-namespace protobuf_RC_2fFRRCModelProto_2eproto {
-void InitDefaultsRCFlightModelImpl() {
-  GOOGLE_PROTOBUF_VERIFY_VERSION;
+static ::_pb::Metadata file_level_metadata_RC_2fFRRCModelProto_2eproto[8];
+static const ::_pb::EnumDescriptor* file_level_enum_descriptors_RC_2fFRRCModelProto_2eproto[2];
+static constexpr ::_pb::ServiceDescriptor const** file_level_service_descriptors_RC_2fFRRCModelProto_2eproto = nullptr;
 
-#ifdef GOOGLE_PROTOBUF_ENFORCE_UNIQUENESS
-  ::google::protobuf::internal::InitProtobufDefaultsForceUnique();
-#else
-  ::google::protobuf::internal::InitProtobufDefaults();
-#endif  // GOOGLE_PROTOBUF_ENFORCE_UNIQUENESS
-  {
-    void* ptr = &::DJIFRProto::Standard::_RCFlightModel_default_instance_;
-    new (ptr) ::DJIFRProto::Standard::RCFlightModel();
-    ::google::protobuf::internal::OnShutdownDestroyMessage(ptr);
-  }
-  ::DJIFRProto::Standard::RCFlightModel::InitAsDefaultInstance();
-}
-
-void InitDefaultsRCFlightModel() {
-  static GOOGLE_PROTOBUF_DECLARE_ONCE(once);
-  ::google::protobuf::GoogleOnceInit(&once, &InitDefaultsRCFlightModelImpl);
-}
-
-void InitDefaultsStickImpl() {
-  GOOGLE_PROTOBUF_VERIFY_VERSION;
-
-#ifdef GOOGLE_PROTOBUF_ENFORCE_UNIQUENESS
-  ::google::protobuf::internal::InitProtobufDefaultsForceUnique();
-#else
-  ::google::protobuf::internal::InitProtobufDefaults();
-#endif  // GOOGLE_PROTOBUF_ENFORCE_UNIQUENESS
-  {
-    void* ptr = &::DJIFRProto::Standard::_Stick_default_instance_;
-    new (ptr) ::DJIFRProto::Standard::Stick();
-    ::google::protobuf::internal::OnShutdownDestroyMessage(ptr);
-  }
-  ::DJIFRProto::Standard::Stick::InitAsDefaultInstance();
-}
-
-void InitDefaultsStick() {
-  static GOOGLE_PROTOBUF_DECLARE_ONCE(once);
-  ::google::protobuf::GoogleOnceInit(&once, &InitDefaultsStickImpl);
-}
-
-void InitDefaultsRCRightWheelImpl() {
-  GOOGLE_PROTOBUF_VERIFY_VERSION;
-
-#ifdef GOOGLE_PROTOBUF_ENFORCE_UNIQUENESS
-  ::google::protobuf::internal::InitProtobufDefaultsForceUnique();
-#else
-  ::google::protobuf::internal::InitProtobufDefaults();
-#endif  // GOOGLE_PROTOBUF_ENFORCE_UNIQUENESS
-  {
-    void* ptr = &::DJIFRProto::Standard::_RCRightWheel_default_instance_;
-    new (ptr) ::DJIFRProto::Standard::RCRightWheel();
-    ::google::protobuf::internal::OnShutdownDestroyMessage(ptr);
-  }
-  ::DJIFRProto::Standard::RCRightWheel::InitAsDefaultInstance();
-}
-
-void InitDefaultsRCRightWheel() {
-  static GOOGLE_PROTOBUF_DECLARE_ONCE(once);
-  ::google::protobuf::GoogleOnceInit(&once, &InitDefaultsRCRightWheelImpl);
-}
-
-void InitDefaultsRCButtonImpl() {
-  GOOGLE_PROTOBUF_VERIFY_VERSION;
-
-#ifdef GOOGLE_PROTOBUF_ENFORCE_UNIQUENESS
-  ::google::protobuf::internal::InitProtobufDefaultsForceUnique();
-#else
-  ::google::protobuf::internal::InitProtobufDefaults();
-#endif  // GOOGLE_PROTOBUF_ENFORCE_UNIQUENESS
-  {
-    void* ptr = &::DJIFRProto::Standard::_RCButton_default_instance_;
-    new (ptr) ::DJIFRProto::Standard::RCButton();
-    ::google::protobuf::internal::OnShutdownDestroyMessage(ptr);
-  }
-  ::DJIFRProto::Standard::RCButton::InitAsDefaultInstance();
-}
-
-void InitDefaultsRCButton() {
-  static GOOGLE_PROTOBUF_DECLARE_ONCE(once);
-  ::google::protobuf::GoogleOnceInit(&once, &InitDefaultsRCButtonImpl);
-}
-
-void InitDefaultsRCAircraftMappingImpl() {
-  GOOGLE_PROTOBUF_VERIFY_VERSION;
-
-#ifdef GOOGLE_PROTOBUF_ENFORCE_UNIQUENESS
-  ::google::protobuf::internal::InitProtobufDefaultsForceUnique();
-#else
-  ::google::protobuf::internal::InitProtobufDefaults();
-#endif  // GOOGLE_PROTOBUF_ENFORCE_UNIQUENESS
-  {
-    void* ptr = &::DJIFRProto::Standard::_RCAircraftMapping_default_instance_;
-    new (ptr) ::DJIFRProto::Standard::RCAircraftMapping();
-    ::google::protobuf::internal::OnShutdownDestroyMessage(ptr);
-  }
-  ::DJIFRProto::Standard::RCAircraftMapping::InitAsDefaultInstance();
-}
-
-void InitDefaultsRCAircraftMapping() {
-  static GOOGLE_PROTOBUF_DECLARE_ONCE(once);
-  ::google::protobuf::GoogleOnceInit(&once, &InitDefaultsRCAircraftMappingImpl);
-}
-
-void InitDefaultsRCGPSTimeImpl() {
-  GOOGLE_PROTOBUF_VERIFY_VERSION;
-
-#ifdef GOOGLE_PROTOBUF_ENFORCE_UNIQUENESS
-  ::google::protobuf::internal::InitProtobufDefaultsForceUnique();
-#else
-  ::google::protobuf::internal::InitProtobufDefaults();
-#endif  // GOOGLE_PROTOBUF_ENFORCE_UNIQUENESS
-  {
-    void* ptr = &::DJIFRProto::Standard::_RCGPSTime_default_instance_;
-    new (ptr) ::DJIFRProto::Standard::RCGPSTime();
-    ::google::protobuf::internal::OnShutdownDestroyMessage(ptr);
-  }
-  ::DJIFRProto::Standard::RCGPSTime::InitAsDefaultInstance();
-}
-
-void InitDefaultsRCGPSTime() {
-  static GOOGLE_PROTOBUF_DECLARE_ONCE(once);
-  ::google::protobuf::GoogleOnceInit(&once, &InitDefaultsRCGPSTimeImpl);
-}
-
-void InitDefaultsRCGPSDataImpl() {
-  GOOGLE_PROTOBUF_VERIFY_VERSION;
-
-#ifdef GOOGLE_PROTOBUF_ENFORCE_UNIQUENESS
-  ::google::protobuf::internal::InitProtobufDefaultsForceUnique();
-#else
-  ::google::protobuf::internal::InitProtobufDefaults();
-#endif  // GOOGLE_PROTOBUF_ENFORCE_UNIQUENESS
-  protobuf_RC_2fFRRCModelProto_2eproto::InitDefaultsRCGPSTime();
-  protobuf_Common_2fFRCommonModelProto_2eproto::InitDefaultsLocationCoordinate2D();
-  {
-    void* ptr = &::DJIFRProto::Standard::_RCGPSData_default_instance_;
-    new (ptr) ::DJIFRProto::Standard::RCGPSData();
-    ::google::protobuf::internal::OnShutdownDestroyMessage(ptr);
-  }
-  ::DJIFRProto::Standard::RCGPSData::InitAsDefaultInstance();
-}
-
-void InitDefaultsRCGPSData() {
-  static GOOGLE_PROTOBUF_DECLARE_ONCE(once);
-  ::google::protobuf::GoogleOnceInit(&once, &InitDefaultsRCGPSDataImpl);
-}
-
-void InitDefaultsRCHardwareStateImpl() {
-  GOOGLE_PROTOBUF_VERIFY_VERSION;
-
-#ifdef GOOGLE_PROTOBUF_ENFORCE_UNIQUENESS
-  ::google::protobuf::internal::InitProtobufDefaultsForceUnique();
-#else
-  ::google::protobuf::internal::InitProtobufDefaults();
-#endif  // GOOGLE_PROTOBUF_ENFORCE_UNIQUENESS
-  protobuf_RC_2fFRRCModelProto_2eproto::InitDefaultsStick();
-  protobuf_RC_2fFRRCModelProto_2eproto::InitDefaultsRCRightWheel();
-  protobuf_RC_2fFRRCModelProto_2eproto::InitDefaultsRCButton();
-  protobuf_RC_2fFRRCModelProto_2eproto::InitDefaultsRCGPSData();
-  {
-    void* ptr = &::DJIFRProto::Standard::_RCHardwareState_default_instance_;
-    new (ptr) ::DJIFRProto::Standard::RCHardwareState();
-    ::google::protobuf::internal::OnShutdownDestroyMessage(ptr);
-  }
-  ::DJIFRProto::Standard::RCHardwareState::InitAsDefaultInstance();
-}
-
-void InitDefaultsRCHardwareState() {
-  static GOOGLE_PROTOBUF_DECLARE_ONCE(once);
-  ::google::protobuf::GoogleOnceInit(&once, &InitDefaultsRCHardwareStateImpl);
-}
-
-::google::protobuf::Metadata file_level_metadata[8];
-const ::google::protobuf::EnumDescriptor* file_level_enum_descriptors[2];
-
-const ::google::protobuf::uint32 TableStruct::offsets[] GOOGLE_PROTOBUF_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
+const uint32_t TableStruct_RC_2fFRRCModelProto_2eproto::offsets[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   ~0u,  // no _has_bits_
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::DJIFRProto::Standard::RCFlightModel, _internal_metadata_),
+  PROTOBUF_FIELD_OFFSET(::DJIFRProto::Standard::RCFlightModel, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
   ~0u,  // no _has_bits_
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::DJIFRProto::Standard::Stick, _internal_metadata_),
+  PROTOBUF_FIELD_OFFSET(::DJIFRProto::Standard::Stick, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::DJIFRProto::Standard::Stick, horizontalposition_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::DJIFRProto::Standard::Stick, verticalposition_),
+  ~0u,  // no _inlined_string_donated_
+  PROTOBUF_FIELD_OFFSET(::DJIFRProto::Standard::Stick, _impl_.horizontalposition_),
+  PROTOBUF_FIELD_OFFSET(::DJIFRProto::Standard::Stick, _impl_.verticalposition_),
   ~0u,  // no _has_bits_
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::DJIFRProto::Standard::RCRightWheel, _internal_metadata_),
+  PROTOBUF_FIELD_OFFSET(::DJIFRProto::Standard::RCRightWheel, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::DJIFRProto::Standard::RCRightWheel, ispresent_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::DJIFRProto::Standard::RCRightWheel, isturned_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::DJIFRProto::Standard::RCRightWheel, isclicked_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::DJIFRProto::Standard::RCRightWheel, value_),
+  ~0u,  // no _inlined_string_donated_
+  PROTOBUF_FIELD_OFFSET(::DJIFRProto::Standard::RCRightWheel, _impl_.ispresent_),
+  PROTOBUF_FIELD_OFFSET(::DJIFRProto::Standard::RCRightWheel, _impl_.isturned_),
+  PROTOBUF_FIELD_OFFSET(::DJIFRProto::Standard::RCRightWheel, _impl_.isclicked_),
+  PROTOBUF_FIELD_OFFSET(::DJIFRProto::Standard::RCRightWheel, _impl_.value_),
   ~0u,  // no _has_bits_
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::DJIFRProto::Standard::RCButton, _internal_metadata_),
+  PROTOBUF_FIELD_OFFSET(::DJIFRProto::Standard::RCButton, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::DJIFRProto::Standard::RCButton, ispresent_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::DJIFRProto::Standard::RCButton, isclicked_),
+  ~0u,  // no _inlined_string_donated_
+  PROTOBUF_FIELD_OFFSET(::DJIFRProto::Standard::RCButton, _impl_.ispresent_),
+  PROTOBUF_FIELD_OFFSET(::DJIFRProto::Standard::RCButton, _impl_.isclicked_),
   ~0u,  // no _has_bits_
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::DJIFRProto::Standard::RCAircraftMapping, _internal_metadata_),
+  PROTOBUF_FIELD_OFFSET(::DJIFRProto::Standard::RCAircraftMapping, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
   ~0u,  // no _has_bits_
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::DJIFRProto::Standard::RCGPSTime, _internal_metadata_),
+  PROTOBUF_FIELD_OFFSET(::DJIFRProto::Standard::RCGPSTime, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::DJIFRProto::Standard::RCGPSTime, hour_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::DJIFRProto::Standard::RCGPSTime, minute_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::DJIFRProto::Standard::RCGPSTime, second_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::DJIFRProto::Standard::RCGPSTime, year_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::DJIFRProto::Standard::RCGPSTime, month_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::DJIFRProto::Standard::RCGPSTime, day_),
+  ~0u,  // no _inlined_string_donated_
+  PROTOBUF_FIELD_OFFSET(::DJIFRProto::Standard::RCGPSTime, _impl_.hour_),
+  PROTOBUF_FIELD_OFFSET(::DJIFRProto::Standard::RCGPSTime, _impl_.minute_),
+  PROTOBUF_FIELD_OFFSET(::DJIFRProto::Standard::RCGPSTime, _impl_.second_),
+  PROTOBUF_FIELD_OFFSET(::DJIFRProto::Standard::RCGPSTime, _impl_.year_),
+  PROTOBUF_FIELD_OFFSET(::DJIFRProto::Standard::RCGPSTime, _impl_.month_),
+  PROTOBUF_FIELD_OFFSET(::DJIFRProto::Standard::RCGPSTime, _impl_.day_),
   ~0u,  // no _has_bits_
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::DJIFRProto::Standard::RCGPSData, _internal_metadata_),
+  PROTOBUF_FIELD_OFFSET(::DJIFRProto::Standard::RCGPSData, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::DJIFRProto::Standard::RCGPSData, time_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::DJIFRProto::Standard::RCGPSData, location_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::DJIFRProto::Standard::RCGPSData, eastspeed_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::DJIFRProto::Standard::RCGPSData, northspeed_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::DJIFRProto::Standard::RCGPSData, satellitecount_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::DJIFRProto::Standard::RCGPSData, accuracy_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::DJIFRProto::Standard::RCGPSData, isvalid_),
+  ~0u,  // no _inlined_string_donated_
+  PROTOBUF_FIELD_OFFSET(::DJIFRProto::Standard::RCGPSData, _impl_.time_),
+  PROTOBUF_FIELD_OFFSET(::DJIFRProto::Standard::RCGPSData, _impl_.location_),
+  PROTOBUF_FIELD_OFFSET(::DJIFRProto::Standard::RCGPSData, _impl_.eastspeed_),
+  PROTOBUF_FIELD_OFFSET(::DJIFRProto::Standard::RCGPSData, _impl_.northspeed_),
+  PROTOBUF_FIELD_OFFSET(::DJIFRProto::Standard::RCGPSData, _impl_.satellitecount_),
+  PROTOBUF_FIELD_OFFSET(::DJIFRProto::Standard::RCGPSData, _impl_.accuracy_),
+  PROTOBUF_FIELD_OFFSET(::DJIFRProto::Standard::RCGPSData, _impl_.isvalid_),
   ~0u,  // no _has_bits_
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::DJIFRProto::Standard::RCHardwareState, _internal_metadata_),
+  PROTOBUF_FIELD_OFFSET(::DJIFRProto::Standard::RCHardwareState, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::DJIFRProto::Standard::RCHardwareState, leftstick_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::DJIFRProto::Standard::RCHardwareState, rightstick_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::DJIFRProto::Standard::RCHardwareState, leftwheel_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::DJIFRProto::Standard::RCHardwareState, rightwheel_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::DJIFRProto::Standard::RCHardwareState, flightmodeswitch_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::DJIFRProto::Standard::RCHardwareState, gohomebutton_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::DJIFRProto::Standard::RCHardwareState, recordbutton_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::DJIFRProto::Standard::RCHardwareState, shutterbutton_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::DJIFRProto::Standard::RCHardwareState, playbackbutton_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::DJIFRProto::Standard::RCHardwareState, pausebutton_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::DJIFRProto::Standard::RCHardwareState, style_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::DJIFRProto::Standard::RCHardwareState, gpsdata_),
+  ~0u,  // no _inlined_string_donated_
+  PROTOBUF_FIELD_OFFSET(::DJIFRProto::Standard::RCHardwareState, _impl_.leftstick_),
+  PROTOBUF_FIELD_OFFSET(::DJIFRProto::Standard::RCHardwareState, _impl_.rightstick_),
+  PROTOBUF_FIELD_OFFSET(::DJIFRProto::Standard::RCHardwareState, _impl_.leftwheel_),
+  PROTOBUF_FIELD_OFFSET(::DJIFRProto::Standard::RCHardwareState, _impl_.rightwheel_),
+  PROTOBUF_FIELD_OFFSET(::DJIFRProto::Standard::RCHardwareState, _impl_.flightmodeswitch_),
+  PROTOBUF_FIELD_OFFSET(::DJIFRProto::Standard::RCHardwareState, _impl_.gohomebutton_),
+  PROTOBUF_FIELD_OFFSET(::DJIFRProto::Standard::RCHardwareState, _impl_.recordbutton_),
+  PROTOBUF_FIELD_OFFSET(::DJIFRProto::Standard::RCHardwareState, _impl_.shutterbutton_),
+  PROTOBUF_FIELD_OFFSET(::DJIFRProto::Standard::RCHardwareState, _impl_.playbackbutton_),
+  PROTOBUF_FIELD_OFFSET(::DJIFRProto::Standard::RCHardwareState, _impl_.pausebutton_),
+  PROTOBUF_FIELD_OFFSET(::DJIFRProto::Standard::RCHardwareState, _impl_.style_),
+  PROTOBUF_FIELD_OFFSET(::DJIFRProto::Standard::RCHardwareState, _impl_.gpsdata_),
 };
-static const ::google::protobuf::internal::MigrationSchema schemas[] GOOGLE_PROTOBUF_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
-  { 0, -1, sizeof(::DJIFRProto::Standard::RCFlightModel)},
-  { 5, -1, sizeof(::DJIFRProto::Standard::Stick)},
-  { 12, -1, sizeof(::DJIFRProto::Standard::RCRightWheel)},
-  { 21, -1, sizeof(::DJIFRProto::Standard::RCButton)},
-  { 28, -1, sizeof(::DJIFRProto::Standard::RCAircraftMapping)},
-  { 33, -1, sizeof(::DJIFRProto::Standard::RCGPSTime)},
-  { 44, -1, sizeof(::DJIFRProto::Standard::RCGPSData)},
-  { 56, -1, sizeof(::DJIFRProto::Standard::RCHardwareState)},
+static const ::_pbi::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
+  { 0, -1, -1, sizeof(::DJIFRProto::Standard::RCFlightModel)},
+  { 6, -1, -1, sizeof(::DJIFRProto::Standard::Stick)},
+  { 14, -1, -1, sizeof(::DJIFRProto::Standard::RCRightWheel)},
+  { 24, -1, -1, sizeof(::DJIFRProto::Standard::RCButton)},
+  { 32, -1, -1, sizeof(::DJIFRProto::Standard::RCAircraftMapping)},
+  { 38, -1, -1, sizeof(::DJIFRProto::Standard::RCGPSTime)},
+  { 50, -1, -1, sizeof(::DJIFRProto::Standard::RCGPSData)},
+  { 63, -1, -1, sizeof(::DJIFRProto::Standard::RCHardwareState)},
 };
 
-static ::google::protobuf::Message const * const file_default_instances[] = {
-  reinterpret_cast<const ::google::protobuf::Message*>(&::DJIFRProto::Standard::_RCFlightModel_default_instance_),
-  reinterpret_cast<const ::google::protobuf::Message*>(&::DJIFRProto::Standard::_Stick_default_instance_),
-  reinterpret_cast<const ::google::protobuf::Message*>(&::DJIFRProto::Standard::_RCRightWheel_default_instance_),
-  reinterpret_cast<const ::google::protobuf::Message*>(&::DJIFRProto::Standard::_RCButton_default_instance_),
-  reinterpret_cast<const ::google::protobuf::Message*>(&::DJIFRProto::Standard::_RCAircraftMapping_default_instance_),
-  reinterpret_cast<const ::google::protobuf::Message*>(&::DJIFRProto::Standard::_RCGPSTime_default_instance_),
-  reinterpret_cast<const ::google::protobuf::Message*>(&::DJIFRProto::Standard::_RCGPSData_default_instance_),
-  reinterpret_cast<const ::google::protobuf::Message*>(&::DJIFRProto::Standard::_RCHardwareState_default_instance_),
+static const ::_pb::Message* const file_default_instances[] = {
+  &::DJIFRProto::Standard::_RCFlightModel_default_instance_._instance,
+  &::DJIFRProto::Standard::_Stick_default_instance_._instance,
+  &::DJIFRProto::Standard::_RCRightWheel_default_instance_._instance,
+  &::DJIFRProto::Standard::_RCButton_default_instance_._instance,
+  &::DJIFRProto::Standard::_RCAircraftMapping_default_instance_._instance,
+  &::DJIFRProto::Standard::_RCGPSTime_default_instance_._instance,
+  &::DJIFRProto::Standard::_RCGPSData_default_instance_._instance,
+  &::DJIFRProto::Standard::_RCHardwareState_default_instance_._instance,
 };
 
-void protobuf_AssignDescriptors() {
-  AddDescriptors();
-  ::google::protobuf::MessageFactory* factory = NULL;
-  AssignDescriptors(
-      "RC/FRRCModelProto.proto", schemas, file_default_instances, TableStruct::offsets, factory,
-      file_level_metadata, file_level_enum_descriptors, NULL);
+const char descriptor_table_protodef_RC_2fFRRCModelProto_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
+  "\n\027RC/FRRCModelProto.proto\022\023DJIFRProto.St"
+  "andard\032\037Common/FRCommonModelProto.proto\""
+  "C\n\rRCFlightModel\"2\n\006Switch\022\007\n\003One\020\000\022\007\n\003T"
+  "wo\020\001\022\t\n\005Three\020\002\022\013\n\007Unknown\020\003\"=\n\005Stick\022\032\n"
+  "\022horizontalPosition\030\001 \001(\005\022\030\n\020verticalPos"
+  "ition\030\002 \001(\005\"U\n\014RCRightWheel\022\021\n\tisPresent"
+  "\030\001 \001(\010\022\020\n\010isTurned\030\002 \001(\010\022\021\n\tisClicked\030\003 "
+  "\001(\010\022\r\n\005value\030\004 \001(\005\"0\n\010RCButton\022\021\n\tisPres"
+  "ent\030\001 \001(\010\022\021\n\tisClicked\030\002 \001(\010\"^\n\021RCAircra"
+  "ftMapping\"I\n\005Style\022\n\n\006Style1\020\000\022\n\n\006Style2"
+  "\020\001\022\n\n\006Style3\020\002\022\017\n\013StyleCustom\020\003\022\013\n\007Unkno"
+  "wn\020\004\"c\n\tRCGPSTime\022\014\n\004hour\030\001 \001(\r\022\016\n\006minut"
+  "e\030\002 \001(\r\022\016\n\006second\030\003 \001(\r\022\014\n\004year\030\004 \001(\r\022\r\n"
+  "\005month\030\005 \001(\r\022\013\n\003day\030\006 \001(\r\"\330\001\n\tRCGPSData\022"
+  ",\n\004time\030\001 \001(\0132\036.DJIFRProto.Standard.RCGP"
+  "STime\022;\n\010location\030\002 \001(\0132).DJIFRProto.Sta"
+  "ndard.LocationCoordinate2D\022\021\n\teastSpeed\030"
+  "\003 \001(\002\022\022\n\nnorthSpeed\030\004 \001(\002\022\026\n\016satelliteCo"
+  "unt\030\005 \001(\005\022\020\n\010accuracy\030\006 \001(\002\022\017\n\007isValid\030\007"
+  " \001(\010\"\370\004\n\017RCHardwareState\022-\n\tleftStick\030\001 "
+  "\001(\0132\032.DJIFRProto.Standard.Stick\022.\n\nright"
+  "Stick\030\002 \001(\0132\032.DJIFRProto.Standard.Stick\022"
+  "\021\n\tleftWheel\030\003 \001(\005\0225\n\nrightWheel\030\004 \001(\0132!"
+  ".DJIFRProto.Standard.RCRightWheel\022C\n\020fli"
+  "ghtModeSwitch\030\005 \001(\0162).DJIFRProto.Standar"
+  "d.RCFlightModel.Switch\0223\n\014goHomeButton\030\006"
+  " \001(\0132\035.DJIFRProto.Standard.RCButton\0223\n\014r"
+  "ecordButton\030\007 \001(\0132\035.DJIFRProto.Standard."
+  "RCButton\0224\n\rshutterButton\030\010 \001(\0132\035.DJIFRP"
+  "roto.Standard.RCButton\0225\n\016playbackButton"
+  "\030\t \001(\0132\035.DJIFRProto.Standard.RCButton\0222\n"
+  "\013pauseButton\030\n \001(\0132\035.DJIFRProto.Standard"
+  ".RCButton\022;\n\005style\030\013 \001(\0162,.DJIFRProto.St"
+  "andard.RCAircraftMapping.Style\022/\n\007GPSDat"
+  "a\030\014 \001(\0132\036.DJIFRProto.Standard.RCGPSDataB"
+  "\r\242\002\nDJIFRProtob\006proto3"
+  ;
+static const ::_pbi::DescriptorTable* const descriptor_table_RC_2fFRRCModelProto_2eproto_deps[1] = {
+  &::descriptor_table_Common_2fFRCommonModelProto_2eproto,
+};
+static ::_pbi::once_flag descriptor_table_RC_2fFRRCModelProto_2eproto_once;
+const ::_pbi::DescriptorTable descriptor_table_RC_2fFRRCModelProto_2eproto = {
+    false, false, 1422, descriptor_table_protodef_RC_2fFRRCModelProto_2eproto,
+    "RC/FRRCModelProto.proto",
+    &descriptor_table_RC_2fFRRCModelProto_2eproto_once, descriptor_table_RC_2fFRRCModelProto_2eproto_deps, 1, 8,
+    schemas, file_default_instances, TableStruct_RC_2fFRRCModelProto_2eproto::offsets,
+    file_level_metadata_RC_2fFRRCModelProto_2eproto, file_level_enum_descriptors_RC_2fFRRCModelProto_2eproto,
+    file_level_service_descriptors_RC_2fFRRCModelProto_2eproto,
+};
+PROTOBUF_ATTRIBUTE_WEAK const ::_pbi::DescriptorTable* descriptor_table_RC_2fFRRCModelProto_2eproto_getter() {
+  return &descriptor_table_RC_2fFRRCModelProto_2eproto;
 }
 
-void protobuf_AssignDescriptorsOnce() {
-  static GOOGLE_PROTOBUF_DECLARE_ONCE(once);
-  ::google::protobuf::GoogleOnceInit(&once, &protobuf_AssignDescriptors);
-}
-
-void protobuf_RegisterTypes(const ::std::string&) GOOGLE_PROTOBUF_ATTRIBUTE_COLD;
-void protobuf_RegisterTypes(const ::std::string&) {
-  protobuf_AssignDescriptorsOnce();
-  ::google::protobuf::internal::RegisterAllTypes(file_level_metadata, 8);
-}
-
-void AddDescriptorsImpl() {
-  InitDefaults();
-  static const char descriptor[] GOOGLE_PROTOBUF_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
-      "\n\027RC/FRRCModelProto.proto\022\023DJIFRProto.St"
-      "andard\032\037Common/FRCommonModelProto.proto\""
-      "C\n\rRCFlightModel\"2\n\006Switch\022\007\n\003One\020\000\022\007\n\003T"
-      "wo\020\001\022\t\n\005Three\020\002\022\013\n\007Unknown\020\003\"=\n\005Stick\022\032\n"
-      "\022horizontalPosition\030\001 \001(\005\022\030\n\020verticalPos"
-      "ition\030\002 \001(\005\"U\n\014RCRightWheel\022\021\n\tisPresent"
-      "\030\001 \001(\010\022\020\n\010isTurned\030\002 \001(\010\022\021\n\tisClicked\030\003 "
-      "\001(\010\022\r\n\005value\030\004 \001(\005\"0\n\010RCButton\022\021\n\tisPres"
-      "ent\030\001 \001(\010\022\021\n\tisClicked\030\002 \001(\010\"^\n\021RCAircra"
-      "ftMapping\"I\n\005Style\022\n\n\006Style1\020\000\022\n\n\006Style2"
-      "\020\001\022\n\n\006Style3\020\002\022\017\n\013StyleCustom\020\003\022\013\n\007Unkno"
-      "wn\020\004\"c\n\tRCGPSTime\022\014\n\004hour\030\001 \001(\r\022\016\n\006minut"
-      "e\030\002 \001(\r\022\016\n\006second\030\003 \001(\r\022\014\n\004year\030\004 \001(\r\022\r\n"
-      "\005month\030\005 \001(\r\022\013\n\003day\030\006 \001(\r\"\330\001\n\tRCGPSData\022"
-      ",\n\004time\030\001 \001(\0132\036.DJIFRProto.Standard.RCGP"
-      "STime\022;\n\010location\030\002 \001(\0132).DJIFRProto.Sta"
-      "ndard.LocationCoordinate2D\022\021\n\teastSpeed\030"
-      "\003 \001(\002\022\022\n\nnorthSpeed\030\004 \001(\002\022\026\n\016satelliteCo"
-      "unt\030\005 \001(\005\022\020\n\010accuracy\030\006 \001(\002\022\017\n\007isValid\030\007"
-      " \001(\010\"\370\004\n\017RCHardwareState\022-\n\tleftStick\030\001 "
-      "\001(\0132\032.DJIFRProto.Standard.Stick\022.\n\nright"
-      "Stick\030\002 \001(\0132\032.DJIFRProto.Standard.Stick\022"
-      "\021\n\tleftWheel\030\003 \001(\005\0225\n\nrightWheel\030\004 \001(\0132!"
-      ".DJIFRProto.Standard.RCRightWheel\022C\n\020fli"
-      "ghtModeSwitch\030\005 \001(\0162).DJIFRProto.Standar"
-      "d.RCFlightModel.Switch\0223\n\014goHomeButton\030\006"
-      " \001(\0132\035.DJIFRProto.Standard.RCButton\0223\n\014r"
-      "ecordButton\030\007 \001(\0132\035.DJIFRProto.Standard."
-      "RCButton\0224\n\rshutterButton\030\010 \001(\0132\035.DJIFRP"
-      "roto.Standard.RCButton\0225\n\016playbackButton"
-      "\030\t \001(\0132\035.DJIFRProto.Standard.RCButton\0222\n"
-      "\013pauseButton\030\n \001(\0132\035.DJIFRProto.Standard"
-      ".RCButton\022;\n\005style\030\013 \001(\0162,.DJIFRProto.St"
-      "andard.RCAircraftMapping.Style\022/\n\007GPSDat"
-      "a\030\014 \001(\0132\036.DJIFRProto.Standard.RCGPSDataB"
-      "\r\242\002\nDJIFRProtob\006proto3"
-  };
-  ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-      descriptor, 1422);
-  ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
-    "RC/FRRCModelProto.proto", &protobuf_RegisterTypes);
-  ::protobuf_Common_2fFRCommonModelProto_2eproto::AddDescriptors();
-}
-
-void AddDescriptors() {
-  static GOOGLE_PROTOBUF_DECLARE_ONCE(once);
-  ::google::protobuf::GoogleOnceInit(&once, &AddDescriptorsImpl);
-}
-// Force AddDescriptors() to be called at dynamic initialization time.
-struct StaticDescriptorInitializer {
-  StaticDescriptorInitializer() {
-    AddDescriptors();
-  }
-} static_descriptor_initializer;
-}  // namespace protobuf_RC_2fFRRCModelProto_2eproto
+// Force running AddDescriptors() at dynamic initialization time.
+PROTOBUF_ATTRIBUTE_INIT_PRIORITY2 static ::_pbi::AddDescriptorsRunner dynamic_init_dummy_RC_2fFRRCModelProto_2eproto(&descriptor_table_RC_2fFRRCModelProto_2eproto);
 namespace DJIFRProto {
 namespace Standard {
-const ::google::protobuf::EnumDescriptor* RCFlightModel_Switch_descriptor() {
-  protobuf_RC_2fFRRCModelProto_2eproto::protobuf_AssignDescriptorsOnce();
-  return protobuf_RC_2fFRRCModelProto_2eproto::file_level_enum_descriptors[0];
+const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* RCFlightModel_Switch_descriptor() {
+  ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&descriptor_table_RC_2fFRRCModelProto_2eproto);
+  return file_level_enum_descriptors_RC_2fFRRCModelProto_2eproto[0];
 }
 bool RCFlightModel_Switch_IsValid(int value) {
   switch (value) {
@@ -433,18 +334,18 @@ bool RCFlightModel_Switch_IsValid(int value) {
   }
 }
 
-#if !defined(_MSC_VER) || _MSC_VER >= 1900
-const RCFlightModel_Switch RCFlightModel::One;
-const RCFlightModel_Switch RCFlightModel::Two;
-const RCFlightModel_Switch RCFlightModel::Three;
-const RCFlightModel_Switch RCFlightModel::Unknown;
-const RCFlightModel_Switch RCFlightModel::Switch_MIN;
-const RCFlightModel_Switch RCFlightModel::Switch_MAX;
-const int RCFlightModel::Switch_ARRAYSIZE;
-#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
-const ::google::protobuf::EnumDescriptor* RCAircraftMapping_Style_descriptor() {
-  protobuf_RC_2fFRRCModelProto_2eproto::protobuf_AssignDescriptorsOnce();
-  return protobuf_RC_2fFRRCModelProto_2eproto::file_level_enum_descriptors[1];
+#if (__cplusplus < 201703) && (!defined(_MSC_VER) || (_MSC_VER >= 1900 && _MSC_VER < 1912))
+constexpr RCFlightModel_Switch RCFlightModel::One;
+constexpr RCFlightModel_Switch RCFlightModel::Two;
+constexpr RCFlightModel_Switch RCFlightModel::Three;
+constexpr RCFlightModel_Switch RCFlightModel::Unknown;
+constexpr RCFlightModel_Switch RCFlightModel::Switch_MIN;
+constexpr RCFlightModel_Switch RCFlightModel::Switch_MAX;
+constexpr int RCFlightModel::Switch_ARRAYSIZE;
+#endif  // (__cplusplus < 201703) && (!defined(_MSC_VER) || (_MSC_VER >= 1900 && _MSC_VER < 1912))
+const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* RCAircraftMapping_Style_descriptor() {
+  ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&descriptor_table_RC_2fFRRCModelProto_2eproto);
+  return file_level_enum_descriptors_RC_2fFRRCModelProto_2eproto[1];
 }
 bool RCAircraftMapping_Style_IsValid(int value) {
   switch (value) {
@@ -459,390 +360,190 @@ bool RCAircraftMapping_Style_IsValid(int value) {
   }
 }
 
-#if !defined(_MSC_VER) || _MSC_VER >= 1900
-const RCAircraftMapping_Style RCAircraftMapping::Style1;
-const RCAircraftMapping_Style RCAircraftMapping::Style2;
-const RCAircraftMapping_Style RCAircraftMapping::Style3;
-const RCAircraftMapping_Style RCAircraftMapping::StyleCustom;
-const RCAircraftMapping_Style RCAircraftMapping::Unknown;
-const RCAircraftMapping_Style RCAircraftMapping::Style_MIN;
-const RCAircraftMapping_Style RCAircraftMapping::Style_MAX;
-const int RCAircraftMapping::Style_ARRAYSIZE;
-#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+#if (__cplusplus < 201703) && (!defined(_MSC_VER) || (_MSC_VER >= 1900 && _MSC_VER < 1912))
+constexpr RCAircraftMapping_Style RCAircraftMapping::Style1;
+constexpr RCAircraftMapping_Style RCAircraftMapping::Style2;
+constexpr RCAircraftMapping_Style RCAircraftMapping::Style3;
+constexpr RCAircraftMapping_Style RCAircraftMapping::StyleCustom;
+constexpr RCAircraftMapping_Style RCAircraftMapping::Unknown;
+constexpr RCAircraftMapping_Style RCAircraftMapping::Style_MIN;
+constexpr RCAircraftMapping_Style RCAircraftMapping::Style_MAX;
+constexpr int RCAircraftMapping::Style_ARRAYSIZE;
+#endif  // (__cplusplus < 201703) && (!defined(_MSC_VER) || (_MSC_VER >= 1900 && _MSC_VER < 1912))
 
 // ===================================================================
 
-void RCFlightModel::InitAsDefaultInstance() {
-}
-#if !defined(_MSC_VER) || _MSC_VER >= 1900
-#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+class RCFlightModel::_Internal {
+ public:
+};
 
-RCFlightModel::RCFlightModel()
-  : ::google::protobuf::Message(), _internal_metadata_(NULL) {
-  if (GOOGLE_PREDICT_TRUE(this != internal_default_instance())) {
-    ::protobuf_RC_2fFRRCModelProto_2eproto::InitDefaultsRCFlightModel();
-  }
-  SharedCtor();
-  // @@protoc_insertion_point(constructor:DJIFRProto.Standard.RCFlightModel)
+RCFlightModel::RCFlightModel(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase(arena, is_message_owned) {
+  // @@protoc_insertion_point(arena_constructor:DJIFRProto.Standard.RCFlightModel)
 }
 RCFlightModel::RCFlightModel(const RCFlightModel& from)
-  : ::google::protobuf::Message(),
-      _internal_metadata_(NULL),
-      _cached_size_(0) {
-  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  : ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase() {
+  RCFlightModel* const _this = this; (void)_this;
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   // @@protoc_insertion_point(copy_constructor:DJIFRProto.Standard.RCFlightModel)
 }
 
-void RCFlightModel::SharedCtor() {
-  _cached_size_ = 0;
+
+
+
+
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData RCFlightModel::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase::CopyImpl,
+    ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase::MergeImpl,
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*RCFlightModel::GetClassData() const { return &_class_data_; }
+
+
+
+
+
+
+
+::PROTOBUF_NAMESPACE_ID::Metadata RCFlightModel::GetMetadata() const {
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_RC_2fFRRCModelProto_2eproto_getter, &descriptor_table_RC_2fFRRCModelProto_2eproto_once,
+      file_level_metadata_RC_2fFRRCModelProto_2eproto[0]);
 }
-
-RCFlightModel::~RCFlightModel() {
-  // @@protoc_insertion_point(destructor:DJIFRProto.Standard.RCFlightModel)
-  SharedDtor();
-}
-
-void RCFlightModel::SharedDtor() {
-}
-
-void RCFlightModel::SetCachedSize(int size) const {
-  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
-  _cached_size_ = size;
-  GOOGLE_SAFE_CONCURRENT_WRITES_END();
-}
-const ::google::protobuf::Descriptor* RCFlightModel::descriptor() {
-  ::protobuf_RC_2fFRRCModelProto_2eproto::protobuf_AssignDescriptorsOnce();
-  return ::protobuf_RC_2fFRRCModelProto_2eproto::file_level_metadata[kIndexInFileMessages].descriptor;
-}
-
-const RCFlightModel& RCFlightModel::default_instance() {
-  ::protobuf_RC_2fFRRCModelProto_2eproto::InitDefaultsRCFlightModel();
-  return *internal_default_instance();
-}
-
-RCFlightModel* RCFlightModel::New(::google::protobuf::Arena* arena) const {
-  RCFlightModel* n = new RCFlightModel;
-  if (arena != NULL) {
-    arena->Own(n);
-  }
-  return n;
-}
-
-void RCFlightModel::Clear() {
-// @@protoc_insertion_point(message_clear_start:DJIFRProto.Standard.RCFlightModel)
-  ::google::protobuf::uint32 cached_has_bits = 0;
-  // Prevent compiler warnings about cached_has_bits being unused
-  (void) cached_has_bits;
-
-  _internal_metadata_.Clear();
-}
-
-bool RCFlightModel::MergePartialFromCodedStream(
-    ::google::protobuf::io::CodedInputStream* input) {
-#define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
-  ::google::protobuf::uint32 tag;
-  // @@protoc_insertion_point(parse_start:DJIFRProto.Standard.RCFlightModel)
-  for (;;) {
-    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
-    tag = p.first;
-    if (!p.second) goto handle_unusual;
-  handle_unusual:
-    if (tag == 0) {
-      goto success;
-    }
-    DO_(::google::protobuf::internal::WireFormat::SkipField(
-          input, tag, _internal_metadata_.mutable_unknown_fields()));
-  }
-success:
-  // @@protoc_insertion_point(parse_success:DJIFRProto.Standard.RCFlightModel)
-  return true;
-failure:
-  // @@protoc_insertion_point(parse_failure:DJIFRProto.Standard.RCFlightModel)
-  return false;
-#undef DO_
-}
-
-void RCFlightModel::SerializeWithCachedSizes(
-    ::google::protobuf::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:DJIFRProto.Standard.RCFlightModel)
-  ::google::protobuf::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
-    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
-        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), output);
-  }
-  // @@protoc_insertion_point(serialize_end:DJIFRProto.Standard.RCFlightModel)
-}
-
-::google::protobuf::uint8* RCFlightModel::InternalSerializeWithCachedSizesToArray(
-    bool deterministic, ::google::protobuf::uint8* target) const {
-  (void)deterministic; // Unused
-  // @@protoc_insertion_point(serialize_to_array_start:DJIFRProto.Standard.RCFlightModel)
-  ::google::protobuf::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
-    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
-        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), target);
-  }
-  // @@protoc_insertion_point(serialize_to_array_end:DJIFRProto.Standard.RCFlightModel)
-  return target;
-}
-
-size_t RCFlightModel::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:DJIFRProto.Standard.RCFlightModel)
-  size_t total_size = 0;
-
-  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
-    total_size +=
-      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
-        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()));
-  }
-  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
-  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
-  _cached_size_ = cached_size;
-  GOOGLE_SAFE_CONCURRENT_WRITES_END();
-  return total_size;
-}
-
-void RCFlightModel::MergeFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:DJIFRProto.Standard.RCFlightModel)
-  GOOGLE_DCHECK_NE(&from, this);
-  const RCFlightModel* source =
-      ::google::protobuf::internal::DynamicCastToGenerated<const RCFlightModel>(
-          &from);
-  if (source == NULL) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:DJIFRProto.Standard.RCFlightModel)
-    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
-  } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:DJIFRProto.Standard.RCFlightModel)
-    MergeFrom(*source);
-  }
-}
-
-void RCFlightModel::MergeFrom(const RCFlightModel& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:DJIFRProto.Standard.RCFlightModel)
-  GOOGLE_DCHECK_NE(&from, this);
-  _internal_metadata_.MergeFrom(from._internal_metadata_);
-  ::google::protobuf::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
-
-}
-
-void RCFlightModel::CopyFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:DJIFRProto.Standard.RCFlightModel)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-void RCFlightModel::CopyFrom(const RCFlightModel& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:DJIFRProto.Standard.RCFlightModel)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-bool RCFlightModel::IsInitialized() const {
-  return true;
-}
-
-void RCFlightModel::Swap(RCFlightModel* other) {
-  if (other == this) return;
-  InternalSwap(other);
-}
-void RCFlightModel::InternalSwap(RCFlightModel* other) {
-  using std::swap;
-  _internal_metadata_.Swap(&other->_internal_metadata_);
-  swap(_cached_size_, other->_cached_size_);
-}
-
-::google::protobuf::Metadata RCFlightModel::GetMetadata() const {
-  protobuf_RC_2fFRRCModelProto_2eproto::protobuf_AssignDescriptorsOnce();
-  return ::protobuf_RC_2fFRRCModelProto_2eproto::file_level_metadata[kIndexInFileMessages];
-}
-
 
 // ===================================================================
 
-void Stick::InitAsDefaultInstance() {
-}
-#if !defined(_MSC_VER) || _MSC_VER >= 1900
-const int Stick::kHorizontalPositionFieldNumber;
-const int Stick::kVerticalPositionFieldNumber;
-#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+class Stick::_Internal {
+ public:
+};
 
-Stick::Stick()
-  : ::google::protobuf::Message(), _internal_metadata_(NULL) {
-  if (GOOGLE_PREDICT_TRUE(this != internal_default_instance())) {
-    ::protobuf_RC_2fFRRCModelProto_2eproto::InitDefaultsStick();
-  }
-  SharedCtor();
-  // @@protoc_insertion_point(constructor:DJIFRProto.Standard.Stick)
+Stick::Stick(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
+  SharedCtor(arena, is_message_owned);
+  // @@protoc_insertion_point(arena_constructor:DJIFRProto.Standard.Stick)
 }
 Stick::Stick(const Stick& from)
-  : ::google::protobuf::Message(),
-      _internal_metadata_(NULL),
-      _cached_size_(0) {
-  _internal_metadata_.MergeFrom(from._internal_metadata_);
-  ::memcpy(&horizontalposition_, &from.horizontalposition_,
-    static_cast<size_t>(reinterpret_cast<char*>(&verticalposition_) -
-    reinterpret_cast<char*>(&horizontalposition_)) + sizeof(verticalposition_));
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  Stick* const _this = this; (void)_this;
+  new (&_impl_) Impl_{
+      decltype(_impl_.horizontalposition_){}
+    , decltype(_impl_.verticalposition_){}
+    , /*decltype(_impl_._cached_size_)*/{}};
+
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::memcpy(&_impl_.horizontalposition_, &from._impl_.horizontalposition_,
+    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.verticalposition_) -
+    reinterpret_cast<char*>(&_impl_.horizontalposition_)) + sizeof(_impl_.verticalposition_));
   // @@protoc_insertion_point(copy_constructor:DJIFRProto.Standard.Stick)
 }
 
-void Stick::SharedCtor() {
-  ::memset(&horizontalposition_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&verticalposition_) -
-      reinterpret_cast<char*>(&horizontalposition_)) + sizeof(verticalposition_));
-  _cached_size_ = 0;
+inline void Stick::SharedCtor(
+    ::_pb::Arena* arena, bool is_message_owned) {
+  (void)arena;
+  (void)is_message_owned;
+  new (&_impl_) Impl_{
+      decltype(_impl_.horizontalposition_){0}
+    , decltype(_impl_.verticalposition_){0}
+    , /*decltype(_impl_._cached_size_)*/{}
+  };
 }
 
 Stick::~Stick() {
   // @@protoc_insertion_point(destructor:DJIFRProto.Standard.Stick)
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
   SharedDtor();
 }
 
-void Stick::SharedDtor() {
+inline void Stick::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
 }
 
 void Stick::SetCachedSize(int size) const {
-  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
-  _cached_size_ = size;
-  GOOGLE_SAFE_CONCURRENT_WRITES_END();
-}
-const ::google::protobuf::Descriptor* Stick::descriptor() {
-  ::protobuf_RC_2fFRRCModelProto_2eproto::protobuf_AssignDescriptorsOnce();
-  return ::protobuf_RC_2fFRRCModelProto_2eproto::file_level_metadata[kIndexInFileMessages].descriptor;
-}
-
-const Stick& Stick::default_instance() {
-  ::protobuf_RC_2fFRRCModelProto_2eproto::InitDefaultsStick();
-  return *internal_default_instance();
-}
-
-Stick* Stick::New(::google::protobuf::Arena* arena) const {
-  Stick* n = new Stick;
-  if (arena != NULL) {
-    arena->Own(n);
-  }
-  return n;
+  _impl_._cached_size_.Set(size);
 }
 
 void Stick::Clear() {
 // @@protoc_insertion_point(message_clear_start:DJIFRProto.Standard.Stick)
-  ::google::protobuf::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  ::memset(&horizontalposition_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&verticalposition_) -
-      reinterpret_cast<char*>(&horizontalposition_)) + sizeof(verticalposition_));
-  _internal_metadata_.Clear();
+  ::memset(&_impl_.horizontalposition_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&_impl_.verticalposition_) -
+      reinterpret_cast<char*>(&_impl_.horizontalposition_)) + sizeof(_impl_.verticalposition_));
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-bool Stick::MergePartialFromCodedStream(
-    ::google::protobuf::io::CodedInputStream* input) {
-#define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
-  ::google::protobuf::uint32 tag;
-  // @@protoc_insertion_point(parse_start:DJIFRProto.Standard.Stick)
-  for (;;) {
-    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
-    tag = p.first;
-    if (!p.second) goto handle_unusual;
-    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+const char* Stick::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
+    switch (tag >> 3) {
       // int32 horizontalPosition = 1;
-      case 1: {
-        if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(8u /* 8 & 0xFF */)) {
-
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &horizontalposition_)));
-        } else {
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
+          _impl_.horizontalposition_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else
           goto handle_unusual;
-        }
-        break;
-      }
-
+        continue;
       // int32 verticalPosition = 2;
-      case 2: {
-        if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(16u /* 16 & 0xFF */)) {
-
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &verticalposition_)));
-        } else {
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 16)) {
+          _impl_.verticalposition_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else
           goto handle_unusual;
-        }
-        break;
-      }
-
-      default: {
-      handle_unusual:
-        if (tag == 0) {
-          goto success;
-        }
-        DO_(::google::protobuf::internal::WireFormat::SkipField(
-              input, tag, _internal_metadata_.mutable_unknown_fields()));
-        break;
-      }
+        continue;
+      default:
+        goto handle_unusual;
+    }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
     }
-  }
-success:
-  // @@protoc_insertion_point(parse_success:DJIFRProto.Standard.Stick)
-  return true;
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
+  }  // while
+message_done:
+  return ptr;
 failure:
-  // @@protoc_insertion_point(parse_failure:DJIFRProto.Standard.Stick)
-  return false;
-#undef DO_
+  ptr = nullptr;
+  goto message_done;
+#undef CHK_
 }
 
-void Stick::SerializeWithCachedSizes(
-    ::google::protobuf::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:DJIFRProto.Standard.Stick)
-  ::google::protobuf::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  // int32 horizontalPosition = 1;
-  if (this->horizontalposition() != 0) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->horizontalposition(), output);
-  }
-
-  // int32 verticalPosition = 2;
-  if (this->verticalposition() != 0) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->verticalposition(), output);
-  }
-
-  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
-    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
-        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), output);
-  }
-  // @@protoc_insertion_point(serialize_end:DJIFRProto.Standard.Stick)
-}
-
-::google::protobuf::uint8* Stick::InternalSerializeWithCachedSizesToArray(
-    bool deterministic, ::google::protobuf::uint8* target) const {
-  (void)deterministic; // Unused
+uint8_t* Stick::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
   // @@protoc_insertion_point(serialize_to_array_start:DJIFRProto.Standard.Stick)
-  ::google::protobuf::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
   // int32 horizontalPosition = 1;
-  if (this->horizontalposition() != 0) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->horizontalposition(), target);
+  if (this->_internal_horizontalposition() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteInt32ToArray(1, this->_internal_horizontalposition(), target);
   }
 
   // int32 verticalPosition = 2;
-  if (this->verticalposition() != 0) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->verticalposition(), target);
+  if (this->_internal_verticalposition() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteInt32ToArray(2, this->_internal_verticalposition(), target);
   }
 
-  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
-    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
-        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), target);
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
   }
   // @@protoc_insertion_point(serialize_to_array_end:DJIFRProto.Standard.Stick)
   return target;
@@ -852,67 +553,45 @@ size_t Stick::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:DJIFRProto.Standard.Stick)
   size_t total_size = 0;
 
-  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
-    total_size +=
-      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
-        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()));
-  }
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
   // int32 horizontalPosition = 1;
-  if (this->horizontalposition() != 0) {
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::Int32Size(
-        this->horizontalposition());
+  if (this->_internal_horizontalposition() != 0) {
+    total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_horizontalposition());
   }
 
   // int32 verticalPosition = 2;
-  if (this->verticalposition() != 0) {
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::Int32Size(
-        this->verticalposition());
+  if (this->_internal_verticalposition() != 0) {
+    total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_verticalposition());
   }
 
-  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
-  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
-  _cached_size_ = cached_size;
-  GOOGLE_SAFE_CONCURRENT_WRITES_END();
-  return total_size;
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
 }
 
-void Stick::MergeFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:DJIFRProto.Standard.Stick)
-  GOOGLE_DCHECK_NE(&from, this);
-  const Stick* source =
-      ::google::protobuf::internal::DynamicCastToGenerated<const Stick>(
-          &from);
-  if (source == NULL) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:DJIFRProto.Standard.Stick)
-    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
-  } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:DJIFRProto.Standard.Stick)
-    MergeFrom(*source);
-  }
-}
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData Stick::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
+    Stick::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*Stick::GetClassData() const { return &_class_data_; }
 
-void Stick::MergeFrom(const Stick& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:DJIFRProto.Standard.Stick)
-  GOOGLE_DCHECK_NE(&from, this);
-  _internal_metadata_.MergeFrom(from._internal_metadata_);
-  ::google::protobuf::uint32 cached_has_bits = 0;
+
+void Stick::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
+  auto* const _this = static_cast<Stick*>(&to_msg);
+  auto& from = static_cast<const Stick&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:DJIFRProto.Standard.Stick)
+  GOOGLE_DCHECK_NE(&from, _this);
+  uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  if (from.horizontalposition() != 0) {
-    set_horizontalposition(from.horizontalposition());
+  if (from._internal_horizontalposition() != 0) {
+    _this->_internal_set_horizontalposition(from._internal_horizontalposition());
   }
-  if (from.verticalposition() != 0) {
-    set_verticalposition(from.verticalposition());
+  if (from._internal_verticalposition() != 0) {
+    _this->_internal_set_verticalposition(from._internal_verticalposition());
   }
-}
-
-void Stick::CopyFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:DJIFRProto.Standard.Stick)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
+  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void Stick::CopyFrom(const Stick& from) {
@@ -926,253 +605,188 @@ bool Stick::IsInitialized() const {
   return true;
 }
 
-void Stick::Swap(Stick* other) {
-  if (other == this) return;
-  InternalSwap(other);
-}
 void Stick::InternalSwap(Stick* other) {
   using std::swap;
-  swap(horizontalposition_, other->horizontalposition_);
-  swap(verticalposition_, other->verticalposition_);
-  _internal_metadata_.Swap(&other->_internal_metadata_);
-  swap(_cached_size_, other->_cached_size_);
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(Stick, _impl_.verticalposition_)
+      + sizeof(Stick::_impl_.verticalposition_)
+      - PROTOBUF_FIELD_OFFSET(Stick, _impl_.horizontalposition_)>(
+          reinterpret_cast<char*>(&_impl_.horizontalposition_),
+          reinterpret_cast<char*>(&other->_impl_.horizontalposition_));
 }
 
-::google::protobuf::Metadata Stick::GetMetadata() const {
-  protobuf_RC_2fFRRCModelProto_2eproto::protobuf_AssignDescriptorsOnce();
-  return ::protobuf_RC_2fFRRCModelProto_2eproto::file_level_metadata[kIndexInFileMessages];
+::PROTOBUF_NAMESPACE_ID::Metadata Stick::GetMetadata() const {
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_RC_2fFRRCModelProto_2eproto_getter, &descriptor_table_RC_2fFRRCModelProto_2eproto_once,
+      file_level_metadata_RC_2fFRRCModelProto_2eproto[1]);
 }
-
 
 // ===================================================================
 
-void RCRightWheel::InitAsDefaultInstance() {
-}
-#if !defined(_MSC_VER) || _MSC_VER >= 1900
-const int RCRightWheel::kIsPresentFieldNumber;
-const int RCRightWheel::kIsTurnedFieldNumber;
-const int RCRightWheel::kIsClickedFieldNumber;
-const int RCRightWheel::kValueFieldNumber;
-#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+class RCRightWheel::_Internal {
+ public:
+};
 
-RCRightWheel::RCRightWheel()
-  : ::google::protobuf::Message(), _internal_metadata_(NULL) {
-  if (GOOGLE_PREDICT_TRUE(this != internal_default_instance())) {
-    ::protobuf_RC_2fFRRCModelProto_2eproto::InitDefaultsRCRightWheel();
-  }
-  SharedCtor();
-  // @@protoc_insertion_point(constructor:DJIFRProto.Standard.RCRightWheel)
+RCRightWheel::RCRightWheel(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
+  SharedCtor(arena, is_message_owned);
+  // @@protoc_insertion_point(arena_constructor:DJIFRProto.Standard.RCRightWheel)
 }
 RCRightWheel::RCRightWheel(const RCRightWheel& from)
-  : ::google::protobuf::Message(),
-      _internal_metadata_(NULL),
-      _cached_size_(0) {
-  _internal_metadata_.MergeFrom(from._internal_metadata_);
-  ::memcpy(&ispresent_, &from.ispresent_,
-    static_cast<size_t>(reinterpret_cast<char*>(&value_) -
-    reinterpret_cast<char*>(&ispresent_)) + sizeof(value_));
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  RCRightWheel* const _this = this; (void)_this;
+  new (&_impl_) Impl_{
+      decltype(_impl_.ispresent_){}
+    , decltype(_impl_.isturned_){}
+    , decltype(_impl_.isclicked_){}
+    , decltype(_impl_.value_){}
+    , /*decltype(_impl_._cached_size_)*/{}};
+
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::memcpy(&_impl_.ispresent_, &from._impl_.ispresent_,
+    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.value_) -
+    reinterpret_cast<char*>(&_impl_.ispresent_)) + sizeof(_impl_.value_));
   // @@protoc_insertion_point(copy_constructor:DJIFRProto.Standard.RCRightWheel)
 }
 
-void RCRightWheel::SharedCtor() {
-  ::memset(&ispresent_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&value_) -
-      reinterpret_cast<char*>(&ispresent_)) + sizeof(value_));
-  _cached_size_ = 0;
+inline void RCRightWheel::SharedCtor(
+    ::_pb::Arena* arena, bool is_message_owned) {
+  (void)arena;
+  (void)is_message_owned;
+  new (&_impl_) Impl_{
+      decltype(_impl_.ispresent_){false}
+    , decltype(_impl_.isturned_){false}
+    , decltype(_impl_.isclicked_){false}
+    , decltype(_impl_.value_){0}
+    , /*decltype(_impl_._cached_size_)*/{}
+  };
 }
 
 RCRightWheel::~RCRightWheel() {
   // @@protoc_insertion_point(destructor:DJIFRProto.Standard.RCRightWheel)
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
   SharedDtor();
 }
 
-void RCRightWheel::SharedDtor() {
+inline void RCRightWheel::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
 }
 
 void RCRightWheel::SetCachedSize(int size) const {
-  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
-  _cached_size_ = size;
-  GOOGLE_SAFE_CONCURRENT_WRITES_END();
-}
-const ::google::protobuf::Descriptor* RCRightWheel::descriptor() {
-  ::protobuf_RC_2fFRRCModelProto_2eproto::protobuf_AssignDescriptorsOnce();
-  return ::protobuf_RC_2fFRRCModelProto_2eproto::file_level_metadata[kIndexInFileMessages].descriptor;
-}
-
-const RCRightWheel& RCRightWheel::default_instance() {
-  ::protobuf_RC_2fFRRCModelProto_2eproto::InitDefaultsRCRightWheel();
-  return *internal_default_instance();
-}
-
-RCRightWheel* RCRightWheel::New(::google::protobuf::Arena* arena) const {
-  RCRightWheel* n = new RCRightWheel;
-  if (arena != NULL) {
-    arena->Own(n);
-  }
-  return n;
+  _impl_._cached_size_.Set(size);
 }
 
 void RCRightWheel::Clear() {
 // @@protoc_insertion_point(message_clear_start:DJIFRProto.Standard.RCRightWheel)
-  ::google::protobuf::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  ::memset(&ispresent_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&value_) -
-      reinterpret_cast<char*>(&ispresent_)) + sizeof(value_));
-  _internal_metadata_.Clear();
+  ::memset(&_impl_.ispresent_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&_impl_.value_) -
+      reinterpret_cast<char*>(&_impl_.ispresent_)) + sizeof(_impl_.value_));
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-bool RCRightWheel::MergePartialFromCodedStream(
-    ::google::protobuf::io::CodedInputStream* input) {
-#define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
-  ::google::protobuf::uint32 tag;
-  // @@protoc_insertion_point(parse_start:DJIFRProto.Standard.RCRightWheel)
-  for (;;) {
-    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
-    tag = p.first;
-    if (!p.second) goto handle_unusual;
-    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+const char* RCRightWheel::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
+    switch (tag >> 3) {
       // bool isPresent = 1;
-      case 1: {
-        if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(8u /* 8 & 0xFF */)) {
-
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   bool, ::google::protobuf::internal::WireFormatLite::TYPE_BOOL>(
-                 input, &ispresent_)));
-        } else {
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
+          _impl_.ispresent_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else
           goto handle_unusual;
-        }
-        break;
-      }
-
+        continue;
       // bool isTurned = 2;
-      case 2: {
-        if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(16u /* 16 & 0xFF */)) {
-
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   bool, ::google::protobuf::internal::WireFormatLite::TYPE_BOOL>(
-                 input, &isturned_)));
-        } else {
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 16)) {
+          _impl_.isturned_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else
           goto handle_unusual;
-        }
-        break;
-      }
-
+        continue;
       // bool isClicked = 3;
-      case 3: {
-        if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(24u /* 24 & 0xFF */)) {
-
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   bool, ::google::protobuf::internal::WireFormatLite::TYPE_BOOL>(
-                 input, &isclicked_)));
-        } else {
+      case 3:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 24)) {
+          _impl_.isclicked_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else
           goto handle_unusual;
-        }
-        break;
-      }
-
+        continue;
       // int32 value = 4;
-      case 4: {
-        if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(32u /* 32 & 0xFF */)) {
-
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &value_)));
-        } else {
+      case 4:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 32)) {
+          _impl_.value_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else
           goto handle_unusual;
-        }
-        break;
-      }
-
-      default: {
-      handle_unusual:
-        if (tag == 0) {
-          goto success;
-        }
-        DO_(::google::protobuf::internal::WireFormat::SkipField(
-              input, tag, _internal_metadata_.mutable_unknown_fields()));
-        break;
-      }
+        continue;
+      default:
+        goto handle_unusual;
+    }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
     }
-  }
-success:
-  // @@protoc_insertion_point(parse_success:DJIFRProto.Standard.RCRightWheel)
-  return true;
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
+  }  // while
+message_done:
+  return ptr;
 failure:
-  // @@protoc_insertion_point(parse_failure:DJIFRProto.Standard.RCRightWheel)
-  return false;
-#undef DO_
+  ptr = nullptr;
+  goto message_done;
+#undef CHK_
 }
 
-void RCRightWheel::SerializeWithCachedSizes(
-    ::google::protobuf::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:DJIFRProto.Standard.RCRightWheel)
-  ::google::protobuf::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  // bool isPresent = 1;
-  if (this->ispresent() != 0) {
-    ::google::protobuf::internal::WireFormatLite::WriteBool(1, this->ispresent(), output);
-  }
-
-  // bool isTurned = 2;
-  if (this->isturned() != 0) {
-    ::google::protobuf::internal::WireFormatLite::WriteBool(2, this->isturned(), output);
-  }
-
-  // bool isClicked = 3;
-  if (this->isclicked() != 0) {
-    ::google::protobuf::internal::WireFormatLite::WriteBool(3, this->isclicked(), output);
-  }
-
-  // int32 value = 4;
-  if (this->value() != 0) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(4, this->value(), output);
-  }
-
-  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
-    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
-        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), output);
-  }
-  // @@protoc_insertion_point(serialize_end:DJIFRProto.Standard.RCRightWheel)
-}
-
-::google::protobuf::uint8* RCRightWheel::InternalSerializeWithCachedSizesToArray(
-    bool deterministic, ::google::protobuf::uint8* target) const {
-  (void)deterministic; // Unused
+uint8_t* RCRightWheel::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
   // @@protoc_insertion_point(serialize_to_array_start:DJIFRProto.Standard.RCRightWheel)
-  ::google::protobuf::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
   // bool isPresent = 1;
-  if (this->ispresent() != 0) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(1, this->ispresent(), target);
+  if (this->_internal_ispresent() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteBoolToArray(1, this->_internal_ispresent(), target);
   }
 
   // bool isTurned = 2;
-  if (this->isturned() != 0) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(2, this->isturned(), target);
+  if (this->_internal_isturned() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteBoolToArray(2, this->_internal_isturned(), target);
   }
 
   // bool isClicked = 3;
-  if (this->isclicked() != 0) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(3, this->isclicked(), target);
+  if (this->_internal_isclicked() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteBoolToArray(3, this->_internal_isclicked(), target);
   }
 
   // int32 value = 4;
-  if (this->value() != 0) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(4, this->value(), target);
+  if (this->_internal_value() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteInt32ToArray(4, this->_internal_value(), target);
   }
 
-  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
-    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
-        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), target);
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
   }
   // @@protoc_insertion_point(serialize_to_array_end:DJIFRProto.Standard.RCRightWheel)
   return target;
@@ -1182,81 +796,61 @@ size_t RCRightWheel::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:DJIFRProto.Standard.RCRightWheel)
   size_t total_size = 0;
 
-  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
-    total_size +=
-      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
-        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()));
-  }
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
   // bool isPresent = 1;
-  if (this->ispresent() != 0) {
+  if (this->_internal_ispresent() != 0) {
     total_size += 1 + 1;
   }
 
   // bool isTurned = 2;
-  if (this->isturned() != 0) {
+  if (this->_internal_isturned() != 0) {
     total_size += 1 + 1;
   }
 
   // bool isClicked = 3;
-  if (this->isclicked() != 0) {
+  if (this->_internal_isclicked() != 0) {
     total_size += 1 + 1;
   }
 
   // int32 value = 4;
-  if (this->value() != 0) {
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::Int32Size(
-        this->value());
+  if (this->_internal_value() != 0) {
+    total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_value());
   }
 
-  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
-  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
-  _cached_size_ = cached_size;
-  GOOGLE_SAFE_CONCURRENT_WRITES_END();
-  return total_size;
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
 }
 
-void RCRightWheel::MergeFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:DJIFRProto.Standard.RCRightWheel)
-  GOOGLE_DCHECK_NE(&from, this);
-  const RCRightWheel* source =
-      ::google::protobuf::internal::DynamicCastToGenerated<const RCRightWheel>(
-          &from);
-  if (source == NULL) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:DJIFRProto.Standard.RCRightWheel)
-    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
-  } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:DJIFRProto.Standard.RCRightWheel)
-    MergeFrom(*source);
-  }
-}
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData RCRightWheel::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
+    RCRightWheel::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*RCRightWheel::GetClassData() const { return &_class_data_; }
 
-void RCRightWheel::MergeFrom(const RCRightWheel& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:DJIFRProto.Standard.RCRightWheel)
-  GOOGLE_DCHECK_NE(&from, this);
-  _internal_metadata_.MergeFrom(from._internal_metadata_);
-  ::google::protobuf::uint32 cached_has_bits = 0;
+
+void RCRightWheel::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
+  auto* const _this = static_cast<RCRightWheel*>(&to_msg);
+  auto& from = static_cast<const RCRightWheel&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:DJIFRProto.Standard.RCRightWheel)
+  GOOGLE_DCHECK_NE(&from, _this);
+  uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  if (from.ispresent() != 0) {
-    set_ispresent(from.ispresent());
+  if (from._internal_ispresent() != 0) {
+    _this->_internal_set_ispresent(from._internal_ispresent());
   }
-  if (from.isturned() != 0) {
-    set_isturned(from.isturned());
+  if (from._internal_isturned() != 0) {
+    _this->_internal_set_isturned(from._internal_isturned());
   }
-  if (from.isclicked() != 0) {
-    set_isclicked(from.isclicked());
+  if (from._internal_isclicked() != 0) {
+    _this->_internal_set_isclicked(from._internal_isclicked());
   }
-  if (from.value() != 0) {
-    set_value(from.value());
+  if (from._internal_value() != 0) {
+    _this->_internal_set_value(from._internal_value());
   }
-}
-
-void RCRightWheel::CopyFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:DJIFRProto.Standard.RCRightWheel)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
+  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void RCRightWheel::CopyFrom(const RCRightWheel& from) {
@@ -1270,205 +864,156 @@ bool RCRightWheel::IsInitialized() const {
   return true;
 }
 
-void RCRightWheel::Swap(RCRightWheel* other) {
-  if (other == this) return;
-  InternalSwap(other);
-}
 void RCRightWheel::InternalSwap(RCRightWheel* other) {
   using std::swap;
-  swap(ispresent_, other->ispresent_);
-  swap(isturned_, other->isturned_);
-  swap(isclicked_, other->isclicked_);
-  swap(value_, other->value_);
-  _internal_metadata_.Swap(&other->_internal_metadata_);
-  swap(_cached_size_, other->_cached_size_);
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(RCRightWheel, _impl_.value_)
+      + sizeof(RCRightWheel::_impl_.value_)
+      - PROTOBUF_FIELD_OFFSET(RCRightWheel, _impl_.ispresent_)>(
+          reinterpret_cast<char*>(&_impl_.ispresent_),
+          reinterpret_cast<char*>(&other->_impl_.ispresent_));
 }
 
-::google::protobuf::Metadata RCRightWheel::GetMetadata() const {
-  protobuf_RC_2fFRRCModelProto_2eproto::protobuf_AssignDescriptorsOnce();
-  return ::protobuf_RC_2fFRRCModelProto_2eproto::file_level_metadata[kIndexInFileMessages];
+::PROTOBUF_NAMESPACE_ID::Metadata RCRightWheel::GetMetadata() const {
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_RC_2fFRRCModelProto_2eproto_getter, &descriptor_table_RC_2fFRRCModelProto_2eproto_once,
+      file_level_metadata_RC_2fFRRCModelProto_2eproto[2]);
 }
-
 
 // ===================================================================
 
-void RCButton::InitAsDefaultInstance() {
-}
-#if !defined(_MSC_VER) || _MSC_VER >= 1900
-const int RCButton::kIsPresentFieldNumber;
-const int RCButton::kIsClickedFieldNumber;
-#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+class RCButton::_Internal {
+ public:
+};
 
-RCButton::RCButton()
-  : ::google::protobuf::Message(), _internal_metadata_(NULL) {
-  if (GOOGLE_PREDICT_TRUE(this != internal_default_instance())) {
-    ::protobuf_RC_2fFRRCModelProto_2eproto::InitDefaultsRCButton();
-  }
-  SharedCtor();
-  // @@protoc_insertion_point(constructor:DJIFRProto.Standard.RCButton)
+RCButton::RCButton(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
+  SharedCtor(arena, is_message_owned);
+  // @@protoc_insertion_point(arena_constructor:DJIFRProto.Standard.RCButton)
 }
 RCButton::RCButton(const RCButton& from)
-  : ::google::protobuf::Message(),
-      _internal_metadata_(NULL),
-      _cached_size_(0) {
-  _internal_metadata_.MergeFrom(from._internal_metadata_);
-  ::memcpy(&ispresent_, &from.ispresent_,
-    static_cast<size_t>(reinterpret_cast<char*>(&isclicked_) -
-    reinterpret_cast<char*>(&ispresent_)) + sizeof(isclicked_));
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  RCButton* const _this = this; (void)_this;
+  new (&_impl_) Impl_{
+      decltype(_impl_.ispresent_){}
+    , decltype(_impl_.isclicked_){}
+    , /*decltype(_impl_._cached_size_)*/{}};
+
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::memcpy(&_impl_.ispresent_, &from._impl_.ispresent_,
+    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.isclicked_) -
+    reinterpret_cast<char*>(&_impl_.ispresent_)) + sizeof(_impl_.isclicked_));
   // @@protoc_insertion_point(copy_constructor:DJIFRProto.Standard.RCButton)
 }
 
-void RCButton::SharedCtor() {
-  ::memset(&ispresent_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&isclicked_) -
-      reinterpret_cast<char*>(&ispresent_)) + sizeof(isclicked_));
-  _cached_size_ = 0;
+inline void RCButton::SharedCtor(
+    ::_pb::Arena* arena, bool is_message_owned) {
+  (void)arena;
+  (void)is_message_owned;
+  new (&_impl_) Impl_{
+      decltype(_impl_.ispresent_){false}
+    , decltype(_impl_.isclicked_){false}
+    , /*decltype(_impl_._cached_size_)*/{}
+  };
 }
 
 RCButton::~RCButton() {
   // @@protoc_insertion_point(destructor:DJIFRProto.Standard.RCButton)
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
   SharedDtor();
 }
 
-void RCButton::SharedDtor() {
+inline void RCButton::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
 }
 
 void RCButton::SetCachedSize(int size) const {
-  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
-  _cached_size_ = size;
-  GOOGLE_SAFE_CONCURRENT_WRITES_END();
-}
-const ::google::protobuf::Descriptor* RCButton::descriptor() {
-  ::protobuf_RC_2fFRRCModelProto_2eproto::protobuf_AssignDescriptorsOnce();
-  return ::protobuf_RC_2fFRRCModelProto_2eproto::file_level_metadata[kIndexInFileMessages].descriptor;
-}
-
-const RCButton& RCButton::default_instance() {
-  ::protobuf_RC_2fFRRCModelProto_2eproto::InitDefaultsRCButton();
-  return *internal_default_instance();
-}
-
-RCButton* RCButton::New(::google::protobuf::Arena* arena) const {
-  RCButton* n = new RCButton;
-  if (arena != NULL) {
-    arena->Own(n);
-  }
-  return n;
+  _impl_._cached_size_.Set(size);
 }
 
 void RCButton::Clear() {
 // @@protoc_insertion_point(message_clear_start:DJIFRProto.Standard.RCButton)
-  ::google::protobuf::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  ::memset(&ispresent_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&isclicked_) -
-      reinterpret_cast<char*>(&ispresent_)) + sizeof(isclicked_));
-  _internal_metadata_.Clear();
+  ::memset(&_impl_.ispresent_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&_impl_.isclicked_) -
+      reinterpret_cast<char*>(&_impl_.ispresent_)) + sizeof(_impl_.isclicked_));
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-bool RCButton::MergePartialFromCodedStream(
-    ::google::protobuf::io::CodedInputStream* input) {
-#define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
-  ::google::protobuf::uint32 tag;
-  // @@protoc_insertion_point(parse_start:DJIFRProto.Standard.RCButton)
-  for (;;) {
-    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
-    tag = p.first;
-    if (!p.second) goto handle_unusual;
-    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+const char* RCButton::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
+    switch (tag >> 3) {
       // bool isPresent = 1;
-      case 1: {
-        if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(8u /* 8 & 0xFF */)) {
-
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   bool, ::google::protobuf::internal::WireFormatLite::TYPE_BOOL>(
-                 input, &ispresent_)));
-        } else {
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
+          _impl_.ispresent_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else
           goto handle_unusual;
-        }
-        break;
-      }
-
+        continue;
       // bool isClicked = 2;
-      case 2: {
-        if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(16u /* 16 & 0xFF */)) {
-
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   bool, ::google::protobuf::internal::WireFormatLite::TYPE_BOOL>(
-                 input, &isclicked_)));
-        } else {
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 16)) {
+          _impl_.isclicked_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else
           goto handle_unusual;
-        }
-        break;
-      }
-
-      default: {
-      handle_unusual:
-        if (tag == 0) {
-          goto success;
-        }
-        DO_(::google::protobuf::internal::WireFormat::SkipField(
-              input, tag, _internal_metadata_.mutable_unknown_fields()));
-        break;
-      }
+        continue;
+      default:
+        goto handle_unusual;
+    }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
     }
-  }
-success:
-  // @@protoc_insertion_point(parse_success:DJIFRProto.Standard.RCButton)
-  return true;
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
+  }  // while
+message_done:
+  return ptr;
 failure:
-  // @@protoc_insertion_point(parse_failure:DJIFRProto.Standard.RCButton)
-  return false;
-#undef DO_
+  ptr = nullptr;
+  goto message_done;
+#undef CHK_
 }
 
-void RCButton::SerializeWithCachedSizes(
-    ::google::protobuf::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:DJIFRProto.Standard.RCButton)
-  ::google::protobuf::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  // bool isPresent = 1;
-  if (this->ispresent() != 0) {
-    ::google::protobuf::internal::WireFormatLite::WriteBool(1, this->ispresent(), output);
-  }
-
-  // bool isClicked = 2;
-  if (this->isclicked() != 0) {
-    ::google::protobuf::internal::WireFormatLite::WriteBool(2, this->isclicked(), output);
-  }
-
-  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
-    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
-        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), output);
-  }
-  // @@protoc_insertion_point(serialize_end:DJIFRProto.Standard.RCButton)
-}
-
-::google::protobuf::uint8* RCButton::InternalSerializeWithCachedSizesToArray(
-    bool deterministic, ::google::protobuf::uint8* target) const {
-  (void)deterministic; // Unused
+uint8_t* RCButton::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
   // @@protoc_insertion_point(serialize_to_array_start:DJIFRProto.Standard.RCButton)
-  ::google::protobuf::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
   // bool isPresent = 1;
-  if (this->ispresent() != 0) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(1, this->ispresent(), target);
+  if (this->_internal_ispresent() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteBoolToArray(1, this->_internal_ispresent(), target);
   }
 
   // bool isClicked = 2;
-  if (this->isclicked() != 0) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(2, this->isclicked(), target);
+  if (this->_internal_isclicked() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteBoolToArray(2, this->_internal_isclicked(), target);
   }
 
-  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
-    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
-        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), target);
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
   }
   // @@protoc_insertion_point(serialize_to_array_end:DJIFRProto.Standard.RCButton)
   return target;
@@ -1478,63 +1023,45 @@ size_t RCButton::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:DJIFRProto.Standard.RCButton)
   size_t total_size = 0;
 
-  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
-    total_size +=
-      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
-        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()));
-  }
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
   // bool isPresent = 1;
-  if (this->ispresent() != 0) {
+  if (this->_internal_ispresent() != 0) {
     total_size += 1 + 1;
   }
 
   // bool isClicked = 2;
-  if (this->isclicked() != 0) {
+  if (this->_internal_isclicked() != 0) {
     total_size += 1 + 1;
   }
 
-  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
-  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
-  _cached_size_ = cached_size;
-  GOOGLE_SAFE_CONCURRENT_WRITES_END();
-  return total_size;
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
 }
 
-void RCButton::MergeFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:DJIFRProto.Standard.RCButton)
-  GOOGLE_DCHECK_NE(&from, this);
-  const RCButton* source =
-      ::google::protobuf::internal::DynamicCastToGenerated<const RCButton>(
-          &from);
-  if (source == NULL) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:DJIFRProto.Standard.RCButton)
-    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
-  } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:DJIFRProto.Standard.RCButton)
-    MergeFrom(*source);
-  }
-}
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData RCButton::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
+    RCButton::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*RCButton::GetClassData() const { return &_class_data_; }
 
-void RCButton::MergeFrom(const RCButton& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:DJIFRProto.Standard.RCButton)
-  GOOGLE_DCHECK_NE(&from, this);
-  _internal_metadata_.MergeFrom(from._internal_metadata_);
-  ::google::protobuf::uint32 cached_has_bits = 0;
+
+void RCButton::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
+  auto* const _this = static_cast<RCButton*>(&to_msg);
+  auto& from = static_cast<const RCButton&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:DJIFRProto.Standard.RCButton)
+  GOOGLE_DCHECK_NE(&from, _this);
+  uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  if (from.ispresent() != 0) {
-    set_ispresent(from.ispresent());
+  if (from._internal_ispresent() != 0) {
+    _this->_internal_set_ispresent(from._internal_ispresent());
   }
-  if (from.isclicked() != 0) {
-    set_isclicked(from.isclicked());
+  if (from._internal_isclicked() != 0) {
+    _this->_internal_set_isclicked(from._internal_isclicked());
   }
-}
-
-void RCButton::CopyFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:DJIFRProto.Standard.RCButton)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
+  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void RCButton::CopyFrom(const RCButton& from) {
@@ -1548,497 +1075,260 @@ bool RCButton::IsInitialized() const {
   return true;
 }
 
-void RCButton::Swap(RCButton* other) {
-  if (other == this) return;
-  InternalSwap(other);
-}
 void RCButton::InternalSwap(RCButton* other) {
   using std::swap;
-  swap(ispresent_, other->ispresent_);
-  swap(isclicked_, other->isclicked_);
-  _internal_metadata_.Swap(&other->_internal_metadata_);
-  swap(_cached_size_, other->_cached_size_);
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(RCButton, _impl_.isclicked_)
+      + sizeof(RCButton::_impl_.isclicked_)
+      - PROTOBUF_FIELD_OFFSET(RCButton, _impl_.ispresent_)>(
+          reinterpret_cast<char*>(&_impl_.ispresent_),
+          reinterpret_cast<char*>(&other->_impl_.ispresent_));
 }
 
-::google::protobuf::Metadata RCButton::GetMetadata() const {
-  protobuf_RC_2fFRRCModelProto_2eproto::protobuf_AssignDescriptorsOnce();
-  return ::protobuf_RC_2fFRRCModelProto_2eproto::file_level_metadata[kIndexInFileMessages];
+::PROTOBUF_NAMESPACE_ID::Metadata RCButton::GetMetadata() const {
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_RC_2fFRRCModelProto_2eproto_getter, &descriptor_table_RC_2fFRRCModelProto_2eproto_once,
+      file_level_metadata_RC_2fFRRCModelProto_2eproto[3]);
 }
-
 
 // ===================================================================
 
-void RCAircraftMapping::InitAsDefaultInstance() {
-}
-#if !defined(_MSC_VER) || _MSC_VER >= 1900
-#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+class RCAircraftMapping::_Internal {
+ public:
+};
 
-RCAircraftMapping::RCAircraftMapping()
-  : ::google::protobuf::Message(), _internal_metadata_(NULL) {
-  if (GOOGLE_PREDICT_TRUE(this != internal_default_instance())) {
-    ::protobuf_RC_2fFRRCModelProto_2eproto::InitDefaultsRCAircraftMapping();
-  }
-  SharedCtor();
-  // @@protoc_insertion_point(constructor:DJIFRProto.Standard.RCAircraftMapping)
+RCAircraftMapping::RCAircraftMapping(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase(arena, is_message_owned) {
+  // @@protoc_insertion_point(arena_constructor:DJIFRProto.Standard.RCAircraftMapping)
 }
 RCAircraftMapping::RCAircraftMapping(const RCAircraftMapping& from)
-  : ::google::protobuf::Message(),
-      _internal_metadata_(NULL),
-      _cached_size_(0) {
-  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  : ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase() {
+  RCAircraftMapping* const _this = this; (void)_this;
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   // @@protoc_insertion_point(copy_constructor:DJIFRProto.Standard.RCAircraftMapping)
 }
 
-void RCAircraftMapping::SharedCtor() {
-  _cached_size_ = 0;
+
+
+
+
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData RCAircraftMapping::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase::CopyImpl,
+    ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase::MergeImpl,
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*RCAircraftMapping::GetClassData() const { return &_class_data_; }
+
+
+
+
+
+
+
+::PROTOBUF_NAMESPACE_ID::Metadata RCAircraftMapping::GetMetadata() const {
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_RC_2fFRRCModelProto_2eproto_getter, &descriptor_table_RC_2fFRRCModelProto_2eproto_once,
+      file_level_metadata_RC_2fFRRCModelProto_2eproto[4]);
 }
-
-RCAircraftMapping::~RCAircraftMapping() {
-  // @@protoc_insertion_point(destructor:DJIFRProto.Standard.RCAircraftMapping)
-  SharedDtor();
-}
-
-void RCAircraftMapping::SharedDtor() {
-}
-
-void RCAircraftMapping::SetCachedSize(int size) const {
-  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
-  _cached_size_ = size;
-  GOOGLE_SAFE_CONCURRENT_WRITES_END();
-}
-const ::google::protobuf::Descriptor* RCAircraftMapping::descriptor() {
-  ::protobuf_RC_2fFRRCModelProto_2eproto::protobuf_AssignDescriptorsOnce();
-  return ::protobuf_RC_2fFRRCModelProto_2eproto::file_level_metadata[kIndexInFileMessages].descriptor;
-}
-
-const RCAircraftMapping& RCAircraftMapping::default_instance() {
-  ::protobuf_RC_2fFRRCModelProto_2eproto::InitDefaultsRCAircraftMapping();
-  return *internal_default_instance();
-}
-
-RCAircraftMapping* RCAircraftMapping::New(::google::protobuf::Arena* arena) const {
-  RCAircraftMapping* n = new RCAircraftMapping;
-  if (arena != NULL) {
-    arena->Own(n);
-  }
-  return n;
-}
-
-void RCAircraftMapping::Clear() {
-// @@protoc_insertion_point(message_clear_start:DJIFRProto.Standard.RCAircraftMapping)
-  ::google::protobuf::uint32 cached_has_bits = 0;
-  // Prevent compiler warnings about cached_has_bits being unused
-  (void) cached_has_bits;
-
-  _internal_metadata_.Clear();
-}
-
-bool RCAircraftMapping::MergePartialFromCodedStream(
-    ::google::protobuf::io::CodedInputStream* input) {
-#define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
-  ::google::protobuf::uint32 tag;
-  // @@protoc_insertion_point(parse_start:DJIFRProto.Standard.RCAircraftMapping)
-  for (;;) {
-    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
-    tag = p.first;
-    if (!p.second) goto handle_unusual;
-  handle_unusual:
-    if (tag == 0) {
-      goto success;
-    }
-    DO_(::google::protobuf::internal::WireFormat::SkipField(
-          input, tag, _internal_metadata_.mutable_unknown_fields()));
-  }
-success:
-  // @@protoc_insertion_point(parse_success:DJIFRProto.Standard.RCAircraftMapping)
-  return true;
-failure:
-  // @@protoc_insertion_point(parse_failure:DJIFRProto.Standard.RCAircraftMapping)
-  return false;
-#undef DO_
-}
-
-void RCAircraftMapping::SerializeWithCachedSizes(
-    ::google::protobuf::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:DJIFRProto.Standard.RCAircraftMapping)
-  ::google::protobuf::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
-    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
-        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), output);
-  }
-  // @@protoc_insertion_point(serialize_end:DJIFRProto.Standard.RCAircraftMapping)
-}
-
-::google::protobuf::uint8* RCAircraftMapping::InternalSerializeWithCachedSizesToArray(
-    bool deterministic, ::google::protobuf::uint8* target) const {
-  (void)deterministic; // Unused
-  // @@protoc_insertion_point(serialize_to_array_start:DJIFRProto.Standard.RCAircraftMapping)
-  ::google::protobuf::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
-    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
-        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), target);
-  }
-  // @@protoc_insertion_point(serialize_to_array_end:DJIFRProto.Standard.RCAircraftMapping)
-  return target;
-}
-
-size_t RCAircraftMapping::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:DJIFRProto.Standard.RCAircraftMapping)
-  size_t total_size = 0;
-
-  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
-    total_size +=
-      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
-        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()));
-  }
-  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
-  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
-  _cached_size_ = cached_size;
-  GOOGLE_SAFE_CONCURRENT_WRITES_END();
-  return total_size;
-}
-
-void RCAircraftMapping::MergeFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:DJIFRProto.Standard.RCAircraftMapping)
-  GOOGLE_DCHECK_NE(&from, this);
-  const RCAircraftMapping* source =
-      ::google::protobuf::internal::DynamicCastToGenerated<const RCAircraftMapping>(
-          &from);
-  if (source == NULL) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:DJIFRProto.Standard.RCAircraftMapping)
-    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
-  } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:DJIFRProto.Standard.RCAircraftMapping)
-    MergeFrom(*source);
-  }
-}
-
-void RCAircraftMapping::MergeFrom(const RCAircraftMapping& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:DJIFRProto.Standard.RCAircraftMapping)
-  GOOGLE_DCHECK_NE(&from, this);
-  _internal_metadata_.MergeFrom(from._internal_metadata_);
-  ::google::protobuf::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
-
-}
-
-void RCAircraftMapping::CopyFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:DJIFRProto.Standard.RCAircraftMapping)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-void RCAircraftMapping::CopyFrom(const RCAircraftMapping& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:DJIFRProto.Standard.RCAircraftMapping)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-bool RCAircraftMapping::IsInitialized() const {
-  return true;
-}
-
-void RCAircraftMapping::Swap(RCAircraftMapping* other) {
-  if (other == this) return;
-  InternalSwap(other);
-}
-void RCAircraftMapping::InternalSwap(RCAircraftMapping* other) {
-  using std::swap;
-  _internal_metadata_.Swap(&other->_internal_metadata_);
-  swap(_cached_size_, other->_cached_size_);
-}
-
-::google::protobuf::Metadata RCAircraftMapping::GetMetadata() const {
-  protobuf_RC_2fFRRCModelProto_2eproto::protobuf_AssignDescriptorsOnce();
-  return ::protobuf_RC_2fFRRCModelProto_2eproto::file_level_metadata[kIndexInFileMessages];
-}
-
 
 // ===================================================================
 
-void RCGPSTime::InitAsDefaultInstance() {
-}
-#if !defined(_MSC_VER) || _MSC_VER >= 1900
-const int RCGPSTime::kHourFieldNumber;
-const int RCGPSTime::kMinuteFieldNumber;
-const int RCGPSTime::kSecondFieldNumber;
-const int RCGPSTime::kYearFieldNumber;
-const int RCGPSTime::kMonthFieldNumber;
-const int RCGPSTime::kDayFieldNumber;
-#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+class RCGPSTime::_Internal {
+ public:
+};
 
-RCGPSTime::RCGPSTime()
-  : ::google::protobuf::Message(), _internal_metadata_(NULL) {
-  if (GOOGLE_PREDICT_TRUE(this != internal_default_instance())) {
-    ::protobuf_RC_2fFRRCModelProto_2eproto::InitDefaultsRCGPSTime();
-  }
-  SharedCtor();
-  // @@protoc_insertion_point(constructor:DJIFRProto.Standard.RCGPSTime)
+RCGPSTime::RCGPSTime(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
+  SharedCtor(arena, is_message_owned);
+  // @@protoc_insertion_point(arena_constructor:DJIFRProto.Standard.RCGPSTime)
 }
 RCGPSTime::RCGPSTime(const RCGPSTime& from)
-  : ::google::protobuf::Message(),
-      _internal_metadata_(NULL),
-      _cached_size_(0) {
-  _internal_metadata_.MergeFrom(from._internal_metadata_);
-  ::memcpy(&hour_, &from.hour_,
-    static_cast<size_t>(reinterpret_cast<char*>(&day_) -
-    reinterpret_cast<char*>(&hour_)) + sizeof(day_));
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  RCGPSTime* const _this = this; (void)_this;
+  new (&_impl_) Impl_{
+      decltype(_impl_.hour_){}
+    , decltype(_impl_.minute_){}
+    , decltype(_impl_.second_){}
+    , decltype(_impl_.year_){}
+    , decltype(_impl_.month_){}
+    , decltype(_impl_.day_){}
+    , /*decltype(_impl_._cached_size_)*/{}};
+
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::memcpy(&_impl_.hour_, &from._impl_.hour_,
+    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.day_) -
+    reinterpret_cast<char*>(&_impl_.hour_)) + sizeof(_impl_.day_));
   // @@protoc_insertion_point(copy_constructor:DJIFRProto.Standard.RCGPSTime)
 }
 
-void RCGPSTime::SharedCtor() {
-  ::memset(&hour_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&day_) -
-      reinterpret_cast<char*>(&hour_)) + sizeof(day_));
-  _cached_size_ = 0;
+inline void RCGPSTime::SharedCtor(
+    ::_pb::Arena* arena, bool is_message_owned) {
+  (void)arena;
+  (void)is_message_owned;
+  new (&_impl_) Impl_{
+      decltype(_impl_.hour_){0u}
+    , decltype(_impl_.minute_){0u}
+    , decltype(_impl_.second_){0u}
+    , decltype(_impl_.year_){0u}
+    , decltype(_impl_.month_){0u}
+    , decltype(_impl_.day_){0u}
+    , /*decltype(_impl_._cached_size_)*/{}
+  };
 }
 
 RCGPSTime::~RCGPSTime() {
   // @@protoc_insertion_point(destructor:DJIFRProto.Standard.RCGPSTime)
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
   SharedDtor();
 }
 
-void RCGPSTime::SharedDtor() {
+inline void RCGPSTime::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
 }
 
 void RCGPSTime::SetCachedSize(int size) const {
-  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
-  _cached_size_ = size;
-  GOOGLE_SAFE_CONCURRENT_WRITES_END();
-}
-const ::google::protobuf::Descriptor* RCGPSTime::descriptor() {
-  ::protobuf_RC_2fFRRCModelProto_2eproto::protobuf_AssignDescriptorsOnce();
-  return ::protobuf_RC_2fFRRCModelProto_2eproto::file_level_metadata[kIndexInFileMessages].descriptor;
-}
-
-const RCGPSTime& RCGPSTime::default_instance() {
-  ::protobuf_RC_2fFRRCModelProto_2eproto::InitDefaultsRCGPSTime();
-  return *internal_default_instance();
-}
-
-RCGPSTime* RCGPSTime::New(::google::protobuf::Arena* arena) const {
-  RCGPSTime* n = new RCGPSTime;
-  if (arena != NULL) {
-    arena->Own(n);
-  }
-  return n;
+  _impl_._cached_size_.Set(size);
 }
 
 void RCGPSTime::Clear() {
 // @@protoc_insertion_point(message_clear_start:DJIFRProto.Standard.RCGPSTime)
-  ::google::protobuf::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  ::memset(&hour_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&day_) -
-      reinterpret_cast<char*>(&hour_)) + sizeof(day_));
-  _internal_metadata_.Clear();
+  ::memset(&_impl_.hour_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&_impl_.day_) -
+      reinterpret_cast<char*>(&_impl_.hour_)) + sizeof(_impl_.day_));
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-bool RCGPSTime::MergePartialFromCodedStream(
-    ::google::protobuf::io::CodedInputStream* input) {
-#define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
-  ::google::protobuf::uint32 tag;
-  // @@protoc_insertion_point(parse_start:DJIFRProto.Standard.RCGPSTime)
-  for (;;) {
-    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
-    tag = p.first;
-    if (!p.second) goto handle_unusual;
-    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+const char* RCGPSTime::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
+    switch (tag >> 3) {
       // uint32 hour = 1;
-      case 1: {
-        if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(8u /* 8 & 0xFF */)) {
-
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
-                 input, &hour_)));
-        } else {
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
+          _impl_.hour_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else
           goto handle_unusual;
-        }
-        break;
-      }
-
+        continue;
       // uint32 minute = 2;
-      case 2: {
-        if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(16u /* 16 & 0xFF */)) {
-
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
-                 input, &minute_)));
-        } else {
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 16)) {
+          _impl_.minute_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else
           goto handle_unusual;
-        }
-        break;
-      }
-
+        continue;
       // uint32 second = 3;
-      case 3: {
-        if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(24u /* 24 & 0xFF */)) {
-
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
-                 input, &second_)));
-        } else {
+      case 3:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 24)) {
+          _impl_.second_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else
           goto handle_unusual;
-        }
-        break;
-      }
-
+        continue;
       // uint32 year = 4;
-      case 4: {
-        if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(32u /* 32 & 0xFF */)) {
-
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
-                 input, &year_)));
-        } else {
+      case 4:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 32)) {
+          _impl_.year_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else
           goto handle_unusual;
-        }
-        break;
-      }
-
+        continue;
       // uint32 month = 5;
-      case 5: {
-        if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(40u /* 40 & 0xFF */)) {
-
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
-                 input, &month_)));
-        } else {
+      case 5:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 40)) {
+          _impl_.month_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else
           goto handle_unusual;
-        }
-        break;
-      }
-
+        continue;
       // uint32 day = 6;
-      case 6: {
-        if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(48u /* 48 & 0xFF */)) {
-
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
-                 input, &day_)));
-        } else {
+      case 6:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 48)) {
+          _impl_.day_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else
           goto handle_unusual;
-        }
-        break;
-      }
-
-      default: {
-      handle_unusual:
-        if (tag == 0) {
-          goto success;
-        }
-        DO_(::google::protobuf::internal::WireFormat::SkipField(
-              input, tag, _internal_metadata_.mutable_unknown_fields()));
-        break;
-      }
+        continue;
+      default:
+        goto handle_unusual;
+    }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
     }
-  }
-success:
-  // @@protoc_insertion_point(parse_success:DJIFRProto.Standard.RCGPSTime)
-  return true;
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
+  }  // while
+message_done:
+  return ptr;
 failure:
-  // @@protoc_insertion_point(parse_failure:DJIFRProto.Standard.RCGPSTime)
-  return false;
-#undef DO_
+  ptr = nullptr;
+  goto message_done;
+#undef CHK_
 }
 
-void RCGPSTime::SerializeWithCachedSizes(
-    ::google::protobuf::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:DJIFRProto.Standard.RCGPSTime)
-  ::google::protobuf::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  // uint32 hour = 1;
-  if (this->hour() != 0) {
-    ::google::protobuf::internal::WireFormatLite::WriteUInt32(1, this->hour(), output);
-  }
-
-  // uint32 minute = 2;
-  if (this->minute() != 0) {
-    ::google::protobuf::internal::WireFormatLite::WriteUInt32(2, this->minute(), output);
-  }
-
-  // uint32 second = 3;
-  if (this->second() != 0) {
-    ::google::protobuf::internal::WireFormatLite::WriteUInt32(3, this->second(), output);
-  }
-
-  // uint32 year = 4;
-  if (this->year() != 0) {
-    ::google::protobuf::internal::WireFormatLite::WriteUInt32(4, this->year(), output);
-  }
-
-  // uint32 month = 5;
-  if (this->month() != 0) {
-    ::google::protobuf::internal::WireFormatLite::WriteUInt32(5, this->month(), output);
-  }
-
-  // uint32 day = 6;
-  if (this->day() != 0) {
-    ::google::protobuf::internal::WireFormatLite::WriteUInt32(6, this->day(), output);
-  }
-
-  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
-    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
-        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), output);
-  }
-  // @@protoc_insertion_point(serialize_end:DJIFRProto.Standard.RCGPSTime)
-}
-
-::google::protobuf::uint8* RCGPSTime::InternalSerializeWithCachedSizesToArray(
-    bool deterministic, ::google::protobuf::uint8* target) const {
-  (void)deterministic; // Unused
+uint8_t* RCGPSTime::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
   // @@protoc_insertion_point(serialize_to_array_start:DJIFRProto.Standard.RCGPSTime)
-  ::google::protobuf::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
   // uint32 hour = 1;
-  if (this->hour() != 0) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(1, this->hour(), target);
+  if (this->_internal_hour() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteUInt32ToArray(1, this->_internal_hour(), target);
   }
 
   // uint32 minute = 2;
-  if (this->minute() != 0) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(2, this->minute(), target);
+  if (this->_internal_minute() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteUInt32ToArray(2, this->_internal_minute(), target);
   }
 
   // uint32 second = 3;
-  if (this->second() != 0) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(3, this->second(), target);
+  if (this->_internal_second() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteUInt32ToArray(3, this->_internal_second(), target);
   }
 
   // uint32 year = 4;
-  if (this->year() != 0) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(4, this->year(), target);
+  if (this->_internal_year() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteUInt32ToArray(4, this->_internal_year(), target);
   }
 
   // uint32 month = 5;
-  if (this->month() != 0) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(5, this->month(), target);
+  if (this->_internal_month() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteUInt32ToArray(5, this->_internal_month(), target);
   }
 
   // uint32 day = 6;
-  if (this->day() != 0) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(6, this->day(), target);
+  if (this->_internal_day() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteUInt32ToArray(6, this->_internal_day(), target);
   }
 
-  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
-    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
-        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), target);
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
   }
   // @@protoc_insertion_point(serialize_to_array_end:DJIFRProto.Standard.RCGPSTime)
   return target;
@@ -2048,107 +1338,77 @@ size_t RCGPSTime::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:DJIFRProto.Standard.RCGPSTime)
   size_t total_size = 0;
 
-  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
-    total_size +=
-      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
-        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()));
-  }
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
   // uint32 hour = 1;
-  if (this->hour() != 0) {
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::UInt32Size(
-        this->hour());
+  if (this->_internal_hour() != 0) {
+    total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_hour());
   }
 
   // uint32 minute = 2;
-  if (this->minute() != 0) {
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::UInt32Size(
-        this->minute());
+  if (this->_internal_minute() != 0) {
+    total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_minute());
   }
 
   // uint32 second = 3;
-  if (this->second() != 0) {
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::UInt32Size(
-        this->second());
+  if (this->_internal_second() != 0) {
+    total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_second());
   }
 
   // uint32 year = 4;
-  if (this->year() != 0) {
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::UInt32Size(
-        this->year());
+  if (this->_internal_year() != 0) {
+    total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_year());
   }
 
   // uint32 month = 5;
-  if (this->month() != 0) {
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::UInt32Size(
-        this->month());
+  if (this->_internal_month() != 0) {
+    total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_month());
   }
 
   // uint32 day = 6;
-  if (this->day() != 0) {
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::UInt32Size(
-        this->day());
+  if (this->_internal_day() != 0) {
+    total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_day());
   }
 
-  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
-  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
-  _cached_size_ = cached_size;
-  GOOGLE_SAFE_CONCURRENT_WRITES_END();
-  return total_size;
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
 }
 
-void RCGPSTime::MergeFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:DJIFRProto.Standard.RCGPSTime)
-  GOOGLE_DCHECK_NE(&from, this);
-  const RCGPSTime* source =
-      ::google::protobuf::internal::DynamicCastToGenerated<const RCGPSTime>(
-          &from);
-  if (source == NULL) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:DJIFRProto.Standard.RCGPSTime)
-    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
-  } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:DJIFRProto.Standard.RCGPSTime)
-    MergeFrom(*source);
-  }
-}
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData RCGPSTime::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
+    RCGPSTime::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*RCGPSTime::GetClassData() const { return &_class_data_; }
 
-void RCGPSTime::MergeFrom(const RCGPSTime& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:DJIFRProto.Standard.RCGPSTime)
-  GOOGLE_DCHECK_NE(&from, this);
-  _internal_metadata_.MergeFrom(from._internal_metadata_);
-  ::google::protobuf::uint32 cached_has_bits = 0;
+
+void RCGPSTime::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
+  auto* const _this = static_cast<RCGPSTime*>(&to_msg);
+  auto& from = static_cast<const RCGPSTime&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:DJIFRProto.Standard.RCGPSTime)
+  GOOGLE_DCHECK_NE(&from, _this);
+  uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  if (from.hour() != 0) {
-    set_hour(from.hour());
+  if (from._internal_hour() != 0) {
+    _this->_internal_set_hour(from._internal_hour());
   }
-  if (from.minute() != 0) {
-    set_minute(from.minute());
+  if (from._internal_minute() != 0) {
+    _this->_internal_set_minute(from._internal_minute());
   }
-  if (from.second() != 0) {
-    set_second(from.second());
+  if (from._internal_second() != 0) {
+    _this->_internal_set_second(from._internal_second());
   }
-  if (from.year() != 0) {
-    set_year(from.year());
+  if (from._internal_year() != 0) {
+    _this->_internal_set_year(from._internal_year());
   }
-  if (from.month() != 0) {
-    set_month(from.month());
+  if (from._internal_month() != 0) {
+    _this->_internal_set_month(from._internal_month());
   }
-  if (from.day() != 0) {
-    set_day(from.day());
+  if (from._internal_day() != 0) {
+    _this->_internal_set_day(from._internal_day());
   }
-}
-
-void RCGPSTime::CopyFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:DJIFRProto.Standard.RCGPSTime)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
+  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void RCGPSTime::CopyFrom(const RCGPSTime& from) {
@@ -2162,364 +1422,282 @@ bool RCGPSTime::IsInitialized() const {
   return true;
 }
 
-void RCGPSTime::Swap(RCGPSTime* other) {
-  if (other == this) return;
-  InternalSwap(other);
-}
 void RCGPSTime::InternalSwap(RCGPSTime* other) {
   using std::swap;
-  swap(hour_, other->hour_);
-  swap(minute_, other->minute_);
-  swap(second_, other->second_);
-  swap(year_, other->year_);
-  swap(month_, other->month_);
-  swap(day_, other->day_);
-  _internal_metadata_.Swap(&other->_internal_metadata_);
-  swap(_cached_size_, other->_cached_size_);
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(RCGPSTime, _impl_.day_)
+      + sizeof(RCGPSTime::_impl_.day_)
+      - PROTOBUF_FIELD_OFFSET(RCGPSTime, _impl_.hour_)>(
+          reinterpret_cast<char*>(&_impl_.hour_),
+          reinterpret_cast<char*>(&other->_impl_.hour_));
 }
 
-::google::protobuf::Metadata RCGPSTime::GetMetadata() const {
-  protobuf_RC_2fFRRCModelProto_2eproto::protobuf_AssignDescriptorsOnce();
-  return ::protobuf_RC_2fFRRCModelProto_2eproto::file_level_metadata[kIndexInFileMessages];
+::PROTOBUF_NAMESPACE_ID::Metadata RCGPSTime::GetMetadata() const {
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_RC_2fFRRCModelProto_2eproto_getter, &descriptor_table_RC_2fFRRCModelProto_2eproto_once,
+      file_level_metadata_RC_2fFRRCModelProto_2eproto[5]);
 }
-
 
 // ===================================================================
 
-void RCGPSData::InitAsDefaultInstance() {
-  ::DJIFRProto::Standard::_RCGPSData_default_instance_._instance.get_mutable()->time_ = const_cast< ::DJIFRProto::Standard::RCGPSTime*>(
-      ::DJIFRProto::Standard::RCGPSTime::internal_default_instance());
-  ::DJIFRProto::Standard::_RCGPSData_default_instance_._instance.get_mutable()->location_ = const_cast< ::DJIFRProto::Standard::LocationCoordinate2D*>(
-      ::DJIFRProto::Standard::LocationCoordinate2D::internal_default_instance());
+class RCGPSData::_Internal {
+ public:
+  static const ::DJIFRProto::Standard::RCGPSTime& time(const RCGPSData* msg);
+  static const ::DJIFRProto::Standard::LocationCoordinate2D& location(const RCGPSData* msg);
+};
+
+const ::DJIFRProto::Standard::RCGPSTime&
+RCGPSData::_Internal::time(const RCGPSData* msg) {
+  return *msg->_impl_.time_;
+}
+const ::DJIFRProto::Standard::LocationCoordinate2D&
+RCGPSData::_Internal::location(const RCGPSData* msg) {
+  return *msg->_impl_.location_;
 }
 void RCGPSData::clear_location() {
-  if (GetArenaNoVirtual() == NULL && location_ != NULL) {
-    delete location_;
+  if (GetArenaForAllocation() == nullptr && _impl_.location_ != nullptr) {
+    delete _impl_.location_;
   }
-  location_ = NULL;
+  _impl_.location_ = nullptr;
 }
-#if !defined(_MSC_VER) || _MSC_VER >= 1900
-const int RCGPSData::kTimeFieldNumber;
-const int RCGPSData::kLocationFieldNumber;
-const int RCGPSData::kEastSpeedFieldNumber;
-const int RCGPSData::kNorthSpeedFieldNumber;
-const int RCGPSData::kSatelliteCountFieldNumber;
-const int RCGPSData::kAccuracyFieldNumber;
-const int RCGPSData::kIsValidFieldNumber;
-#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
-
-RCGPSData::RCGPSData()
-  : ::google::protobuf::Message(), _internal_metadata_(NULL) {
-  if (GOOGLE_PREDICT_TRUE(this != internal_default_instance())) {
-    ::protobuf_RC_2fFRRCModelProto_2eproto::InitDefaultsRCGPSData();
-  }
-  SharedCtor();
-  // @@protoc_insertion_point(constructor:DJIFRProto.Standard.RCGPSData)
+RCGPSData::RCGPSData(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
+  SharedCtor(arena, is_message_owned);
+  // @@protoc_insertion_point(arena_constructor:DJIFRProto.Standard.RCGPSData)
 }
 RCGPSData::RCGPSData(const RCGPSData& from)
-  : ::google::protobuf::Message(),
-      _internal_metadata_(NULL),
-      _cached_size_(0) {
-  _internal_metadata_.MergeFrom(from._internal_metadata_);
-  if (from.has_time()) {
-    time_ = new ::DJIFRProto::Standard::RCGPSTime(*from.time_);
-  } else {
-    time_ = NULL;
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  RCGPSData* const _this = this; (void)_this;
+  new (&_impl_) Impl_{
+      decltype(_impl_.time_){nullptr}
+    , decltype(_impl_.location_){nullptr}
+    , decltype(_impl_.eastspeed_){}
+    , decltype(_impl_.northspeed_){}
+    , decltype(_impl_.satellitecount_){}
+    , decltype(_impl_.accuracy_){}
+    , decltype(_impl_.isvalid_){}
+    , /*decltype(_impl_._cached_size_)*/{}};
+
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  if (from._internal_has_time()) {
+    _this->_impl_.time_ = new ::DJIFRProto::Standard::RCGPSTime(*from._impl_.time_);
   }
-  if (from.has_location()) {
-    location_ = new ::DJIFRProto::Standard::LocationCoordinate2D(*from.location_);
-  } else {
-    location_ = NULL;
+  if (from._internal_has_location()) {
+    _this->_impl_.location_ = new ::DJIFRProto::Standard::LocationCoordinate2D(*from._impl_.location_);
   }
-  ::memcpy(&eastspeed_, &from.eastspeed_,
-    static_cast<size_t>(reinterpret_cast<char*>(&isvalid_) -
-    reinterpret_cast<char*>(&eastspeed_)) + sizeof(isvalid_));
+  ::memcpy(&_impl_.eastspeed_, &from._impl_.eastspeed_,
+    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.isvalid_) -
+    reinterpret_cast<char*>(&_impl_.eastspeed_)) + sizeof(_impl_.isvalid_));
   // @@protoc_insertion_point(copy_constructor:DJIFRProto.Standard.RCGPSData)
 }
 
-void RCGPSData::SharedCtor() {
-  ::memset(&time_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&isvalid_) -
-      reinterpret_cast<char*>(&time_)) + sizeof(isvalid_));
-  _cached_size_ = 0;
+inline void RCGPSData::SharedCtor(
+    ::_pb::Arena* arena, bool is_message_owned) {
+  (void)arena;
+  (void)is_message_owned;
+  new (&_impl_) Impl_{
+      decltype(_impl_.time_){nullptr}
+    , decltype(_impl_.location_){nullptr}
+    , decltype(_impl_.eastspeed_){0}
+    , decltype(_impl_.northspeed_){0}
+    , decltype(_impl_.satellitecount_){0}
+    , decltype(_impl_.accuracy_){0}
+    , decltype(_impl_.isvalid_){false}
+    , /*decltype(_impl_._cached_size_)*/{}
+  };
 }
 
 RCGPSData::~RCGPSData() {
   // @@protoc_insertion_point(destructor:DJIFRProto.Standard.RCGPSData)
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
   SharedDtor();
 }
 
-void RCGPSData::SharedDtor() {
-  if (this != internal_default_instance()) delete time_;
-  if (this != internal_default_instance()) delete location_;
+inline void RCGPSData::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+  if (this != internal_default_instance()) delete _impl_.time_;
+  if (this != internal_default_instance()) delete _impl_.location_;
 }
 
 void RCGPSData::SetCachedSize(int size) const {
-  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
-  _cached_size_ = size;
-  GOOGLE_SAFE_CONCURRENT_WRITES_END();
-}
-const ::google::protobuf::Descriptor* RCGPSData::descriptor() {
-  ::protobuf_RC_2fFRRCModelProto_2eproto::protobuf_AssignDescriptorsOnce();
-  return ::protobuf_RC_2fFRRCModelProto_2eproto::file_level_metadata[kIndexInFileMessages].descriptor;
-}
-
-const RCGPSData& RCGPSData::default_instance() {
-  ::protobuf_RC_2fFRRCModelProto_2eproto::InitDefaultsRCGPSData();
-  return *internal_default_instance();
-}
-
-RCGPSData* RCGPSData::New(::google::protobuf::Arena* arena) const {
-  RCGPSData* n = new RCGPSData;
-  if (arena != NULL) {
-    arena->Own(n);
-  }
-  return n;
+  _impl_._cached_size_.Set(size);
 }
 
 void RCGPSData::Clear() {
 // @@protoc_insertion_point(message_clear_start:DJIFRProto.Standard.RCGPSData)
-  ::google::protobuf::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  if (GetArenaNoVirtual() == NULL && time_ != NULL) {
-    delete time_;
+  if (GetArenaForAllocation() == nullptr && _impl_.time_ != nullptr) {
+    delete _impl_.time_;
   }
-  time_ = NULL;
-  if (GetArenaNoVirtual() == NULL && location_ != NULL) {
-    delete location_;
+  _impl_.time_ = nullptr;
+  if (GetArenaForAllocation() == nullptr && _impl_.location_ != nullptr) {
+    delete _impl_.location_;
   }
-  location_ = NULL;
-  ::memset(&eastspeed_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&isvalid_) -
-      reinterpret_cast<char*>(&eastspeed_)) + sizeof(isvalid_));
-  _internal_metadata_.Clear();
+  _impl_.location_ = nullptr;
+  ::memset(&_impl_.eastspeed_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&_impl_.isvalid_) -
+      reinterpret_cast<char*>(&_impl_.eastspeed_)) + sizeof(_impl_.isvalid_));
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-bool RCGPSData::MergePartialFromCodedStream(
-    ::google::protobuf::io::CodedInputStream* input) {
-#define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
-  ::google::protobuf::uint32 tag;
-  // @@protoc_insertion_point(parse_start:DJIFRProto.Standard.RCGPSData)
-  for (;;) {
-    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
-    tag = p.first;
-    if (!p.second) goto handle_unusual;
-    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+const char* RCGPSData::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
+    switch (tag >> 3) {
       // .DJIFRProto.Standard.RCGPSTime time = 1;
-      case 1: {
-        if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(10u /* 10 & 0xFF */)) {
-          DO_(::google::protobuf::internal::WireFormatLite::ReadMessage(
-               input, mutable_time()));
-        } else {
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
+          ptr = ctx->ParseMessage(_internal_mutable_time(), ptr);
+          CHK_(ptr);
+        } else
           goto handle_unusual;
-        }
-        break;
-      }
-
+        continue;
       // .DJIFRProto.Standard.LocationCoordinate2D location = 2;
-      case 2: {
-        if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(18u /* 18 & 0xFF */)) {
-          DO_(::google::protobuf::internal::WireFormatLite::ReadMessage(
-               input, mutable_location()));
-        } else {
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 18)) {
+          ptr = ctx->ParseMessage(_internal_mutable_location(), ptr);
+          CHK_(ptr);
+        } else
           goto handle_unusual;
-        }
-        break;
-      }
-
+        continue;
       // float eastSpeed = 3;
-      case 3: {
-        if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(29u /* 29 & 0xFF */)) {
-
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   float, ::google::protobuf::internal::WireFormatLite::TYPE_FLOAT>(
-                 input, &eastspeed_)));
-        } else {
+      case 3:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 29)) {
+          _impl_.eastspeed_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<float>(ptr);
+          ptr += sizeof(float);
+        } else
           goto handle_unusual;
-        }
-        break;
-      }
-
+        continue;
       // float northSpeed = 4;
-      case 4: {
-        if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(37u /* 37 & 0xFF */)) {
-
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   float, ::google::protobuf::internal::WireFormatLite::TYPE_FLOAT>(
-                 input, &northspeed_)));
-        } else {
+      case 4:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 37)) {
+          _impl_.northspeed_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<float>(ptr);
+          ptr += sizeof(float);
+        } else
           goto handle_unusual;
-        }
-        break;
-      }
-
+        continue;
       // int32 satelliteCount = 5;
-      case 5: {
-        if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(40u /* 40 & 0xFF */)) {
-
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &satellitecount_)));
-        } else {
+      case 5:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 40)) {
+          _impl_.satellitecount_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else
           goto handle_unusual;
-        }
-        break;
-      }
-
+        continue;
       // float accuracy = 6;
-      case 6: {
-        if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(53u /* 53 & 0xFF */)) {
-
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   float, ::google::protobuf::internal::WireFormatLite::TYPE_FLOAT>(
-                 input, &accuracy_)));
-        } else {
+      case 6:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 53)) {
+          _impl_.accuracy_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<float>(ptr);
+          ptr += sizeof(float);
+        } else
           goto handle_unusual;
-        }
-        break;
-      }
-
+        continue;
       // bool isValid = 7;
-      case 7: {
-        if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(56u /* 56 & 0xFF */)) {
-
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   bool, ::google::protobuf::internal::WireFormatLite::TYPE_BOOL>(
-                 input, &isvalid_)));
-        } else {
+      case 7:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 56)) {
+          _impl_.isvalid_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else
           goto handle_unusual;
-        }
-        break;
-      }
-
-      default: {
-      handle_unusual:
-        if (tag == 0) {
-          goto success;
-        }
-        DO_(::google::protobuf::internal::WireFormat::SkipField(
-              input, tag, _internal_metadata_.mutable_unknown_fields()));
-        break;
-      }
+        continue;
+      default:
+        goto handle_unusual;
+    }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
     }
-  }
-success:
-  // @@protoc_insertion_point(parse_success:DJIFRProto.Standard.RCGPSData)
-  return true;
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
+  }  // while
+message_done:
+  return ptr;
 failure:
-  // @@protoc_insertion_point(parse_failure:DJIFRProto.Standard.RCGPSData)
-  return false;
-#undef DO_
+  ptr = nullptr;
+  goto message_done;
+#undef CHK_
 }
 
-void RCGPSData::SerializeWithCachedSizes(
-    ::google::protobuf::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:DJIFRProto.Standard.RCGPSData)
-  ::google::protobuf::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  // .DJIFRProto.Standard.RCGPSTime time = 1;
-  if (this->has_time()) {
-    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      1, *this->time_, output);
-  }
-
-  // .DJIFRProto.Standard.LocationCoordinate2D location = 2;
-  if (this->has_location()) {
-    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      2, *this->location_, output);
-  }
-
-  // float eastSpeed = 3;
-  if (this->eastspeed() != 0) {
-    ::google::protobuf::internal::WireFormatLite::WriteFloat(3, this->eastspeed(), output);
-  }
-
-  // float northSpeed = 4;
-  if (this->northspeed() != 0) {
-    ::google::protobuf::internal::WireFormatLite::WriteFloat(4, this->northspeed(), output);
-  }
-
-  // int32 satelliteCount = 5;
-  if (this->satellitecount() != 0) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(5, this->satellitecount(), output);
-  }
-
-  // float accuracy = 6;
-  if (this->accuracy() != 0) {
-    ::google::protobuf::internal::WireFormatLite::WriteFloat(6, this->accuracy(), output);
-  }
-
-  // bool isValid = 7;
-  if (this->isvalid() != 0) {
-    ::google::protobuf::internal::WireFormatLite::WriteBool(7, this->isvalid(), output);
-  }
-
-  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
-    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
-        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), output);
-  }
-  // @@protoc_insertion_point(serialize_end:DJIFRProto.Standard.RCGPSData)
-}
-
-::google::protobuf::uint8* RCGPSData::InternalSerializeWithCachedSizesToArray(
-    bool deterministic, ::google::protobuf::uint8* target) const {
-  (void)deterministic; // Unused
+uint8_t* RCGPSData::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
   // @@protoc_insertion_point(serialize_to_array_start:DJIFRProto.Standard.RCGPSData)
-  ::google::protobuf::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
   // .DJIFRProto.Standard.RCGPSTime time = 1;
-  if (this->has_time()) {
-    target = ::google::protobuf::internal::WireFormatLite::
-      InternalWriteMessageToArray(
-        1, *this->time_, deterministic, target);
+  if (this->_internal_has_time()) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(1, _Internal::time(this),
+        _Internal::time(this).GetCachedSize(), target, stream);
   }
 
   // .DJIFRProto.Standard.LocationCoordinate2D location = 2;
-  if (this->has_location()) {
-    target = ::google::protobuf::internal::WireFormatLite::
-      InternalWriteMessageToArray(
-        2, *this->location_, deterministic, target);
+  if (this->_internal_has_location()) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(2, _Internal::location(this),
+        _Internal::location(this).GetCachedSize(), target, stream);
   }
 
   // float eastSpeed = 3;
-  if (this->eastspeed() != 0) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteFloatToArray(3, this->eastspeed(), target);
+  static_assert(sizeof(uint32_t) == sizeof(float), "Code assumes uint32_t and float are the same size.");
+  float tmp_eastspeed = this->_internal_eastspeed();
+  uint32_t raw_eastspeed;
+  memcpy(&raw_eastspeed, &tmp_eastspeed, sizeof(tmp_eastspeed));
+  if (raw_eastspeed != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteFloatToArray(3, this->_internal_eastspeed(), target);
   }
 
   // float northSpeed = 4;
-  if (this->northspeed() != 0) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteFloatToArray(4, this->northspeed(), target);
+  static_assert(sizeof(uint32_t) == sizeof(float), "Code assumes uint32_t and float are the same size.");
+  float tmp_northspeed = this->_internal_northspeed();
+  uint32_t raw_northspeed;
+  memcpy(&raw_northspeed, &tmp_northspeed, sizeof(tmp_northspeed));
+  if (raw_northspeed != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteFloatToArray(4, this->_internal_northspeed(), target);
   }
 
   // int32 satelliteCount = 5;
-  if (this->satellitecount() != 0) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(5, this->satellitecount(), target);
+  if (this->_internal_satellitecount() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteInt32ToArray(5, this->_internal_satellitecount(), target);
   }
 
   // float accuracy = 6;
-  if (this->accuracy() != 0) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteFloatToArray(6, this->accuracy(), target);
+  static_assert(sizeof(uint32_t) == sizeof(float), "Code assumes uint32_t and float are the same size.");
+  float tmp_accuracy = this->_internal_accuracy();
+  uint32_t raw_accuracy;
+  memcpy(&raw_accuracy, &tmp_accuracy, sizeof(tmp_accuracy));
+  if (raw_accuracy != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteFloatToArray(6, this->_internal_accuracy(), target);
   }
 
   // bool isValid = 7;
-  if (this->isvalid() != 0) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(7, this->isvalid(), target);
+  if (this->_internal_isvalid() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteBoolToArray(7, this->_internal_isvalid(), target);
   }
 
-  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
-    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
-        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), target);
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
   }
   // @@protoc_insertion_point(serialize_to_array_end:DJIFRProto.Standard.RCGPSData)
   return target;
@@ -2529,109 +1707,115 @@ size_t RCGPSData::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:DJIFRProto.Standard.RCGPSData)
   size_t total_size = 0;
 
-  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
-    total_size +=
-      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
-        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()));
-  }
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
   // .DJIFRProto.Standard.RCGPSTime time = 1;
-  if (this->has_time()) {
+  if (this->_internal_has_time()) {
     total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::MessageSize(
-        *this->time_);
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+        *_impl_.time_);
   }
 
   // .DJIFRProto.Standard.LocationCoordinate2D location = 2;
-  if (this->has_location()) {
+  if (this->_internal_has_location()) {
     total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::MessageSize(
-        *this->location_);
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+        *_impl_.location_);
   }
 
   // float eastSpeed = 3;
-  if (this->eastspeed() != 0) {
+  static_assert(sizeof(uint32_t) == sizeof(float), "Code assumes uint32_t and float are the same size.");
+  float tmp_eastspeed = this->_internal_eastspeed();
+  uint32_t raw_eastspeed;
+  memcpy(&raw_eastspeed, &tmp_eastspeed, sizeof(tmp_eastspeed));
+  if (raw_eastspeed != 0) {
     total_size += 1 + 4;
   }
 
   // float northSpeed = 4;
-  if (this->northspeed() != 0) {
+  static_assert(sizeof(uint32_t) == sizeof(float), "Code assumes uint32_t and float are the same size.");
+  float tmp_northspeed = this->_internal_northspeed();
+  uint32_t raw_northspeed;
+  memcpy(&raw_northspeed, &tmp_northspeed, sizeof(tmp_northspeed));
+  if (raw_northspeed != 0) {
     total_size += 1 + 4;
   }
 
   // int32 satelliteCount = 5;
-  if (this->satellitecount() != 0) {
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::Int32Size(
-        this->satellitecount());
+  if (this->_internal_satellitecount() != 0) {
+    total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_satellitecount());
   }
 
   // float accuracy = 6;
-  if (this->accuracy() != 0) {
+  static_assert(sizeof(uint32_t) == sizeof(float), "Code assumes uint32_t and float are the same size.");
+  float tmp_accuracy = this->_internal_accuracy();
+  uint32_t raw_accuracy;
+  memcpy(&raw_accuracy, &tmp_accuracy, sizeof(tmp_accuracy));
+  if (raw_accuracy != 0) {
     total_size += 1 + 4;
   }
 
   // bool isValid = 7;
-  if (this->isvalid() != 0) {
+  if (this->_internal_isvalid() != 0) {
     total_size += 1 + 1;
   }
 
-  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
-  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
-  _cached_size_ = cached_size;
-  GOOGLE_SAFE_CONCURRENT_WRITES_END();
-  return total_size;
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
 }
 
-void RCGPSData::MergeFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:DJIFRProto.Standard.RCGPSData)
-  GOOGLE_DCHECK_NE(&from, this);
-  const RCGPSData* source =
-      ::google::protobuf::internal::DynamicCastToGenerated<const RCGPSData>(
-          &from);
-  if (source == NULL) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:DJIFRProto.Standard.RCGPSData)
-    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
-  } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:DJIFRProto.Standard.RCGPSData)
-    MergeFrom(*source);
-  }
-}
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData RCGPSData::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
+    RCGPSData::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*RCGPSData::GetClassData() const { return &_class_data_; }
 
-void RCGPSData::MergeFrom(const RCGPSData& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:DJIFRProto.Standard.RCGPSData)
-  GOOGLE_DCHECK_NE(&from, this);
-  _internal_metadata_.MergeFrom(from._internal_metadata_);
-  ::google::protobuf::uint32 cached_has_bits = 0;
+
+void RCGPSData::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
+  auto* const _this = static_cast<RCGPSData*>(&to_msg);
+  auto& from = static_cast<const RCGPSData&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:DJIFRProto.Standard.RCGPSData)
+  GOOGLE_DCHECK_NE(&from, _this);
+  uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  if (from.has_time()) {
-    mutable_time()->::DJIFRProto::Standard::RCGPSTime::MergeFrom(from.time());
+  if (from._internal_has_time()) {
+    _this->_internal_mutable_time()->::DJIFRProto::Standard::RCGPSTime::MergeFrom(
+        from._internal_time());
   }
-  if (from.has_location()) {
-    mutable_location()->::DJIFRProto::Standard::LocationCoordinate2D::MergeFrom(from.location());
+  if (from._internal_has_location()) {
+    _this->_internal_mutable_location()->::DJIFRProto::Standard::LocationCoordinate2D::MergeFrom(
+        from._internal_location());
   }
-  if (from.eastspeed() != 0) {
-    set_eastspeed(from.eastspeed());
+  static_assert(sizeof(uint32_t) == sizeof(float), "Code assumes uint32_t and float are the same size.");
+  float tmp_eastspeed = from._internal_eastspeed();
+  uint32_t raw_eastspeed;
+  memcpy(&raw_eastspeed, &tmp_eastspeed, sizeof(tmp_eastspeed));
+  if (raw_eastspeed != 0) {
+    _this->_internal_set_eastspeed(from._internal_eastspeed());
   }
-  if (from.northspeed() != 0) {
-    set_northspeed(from.northspeed());
+  static_assert(sizeof(uint32_t) == sizeof(float), "Code assumes uint32_t and float are the same size.");
+  float tmp_northspeed = from._internal_northspeed();
+  uint32_t raw_northspeed;
+  memcpy(&raw_northspeed, &tmp_northspeed, sizeof(tmp_northspeed));
+  if (raw_northspeed != 0) {
+    _this->_internal_set_northspeed(from._internal_northspeed());
   }
-  if (from.satellitecount() != 0) {
-    set_satellitecount(from.satellitecount());
+  if (from._internal_satellitecount() != 0) {
+    _this->_internal_set_satellitecount(from._internal_satellitecount());
   }
-  if (from.accuracy() != 0) {
-    set_accuracy(from.accuracy());
+  static_assert(sizeof(uint32_t) == sizeof(float), "Code assumes uint32_t and float are the same size.");
+  float tmp_accuracy = from._internal_accuracy();
+  uint32_t raw_accuracy;
+  memcpy(&raw_accuracy, &tmp_accuracy, sizeof(tmp_accuracy));
+  if (raw_accuracy != 0) {
+    _this->_internal_set_accuracy(from._internal_accuracy());
   }
-  if (from.isvalid() != 0) {
-    set_isvalid(from.isvalid());
+  if (from._internal_isvalid() != 0) {
+    _this->_internal_set_isvalid(from._internal_isvalid());
   }
-}
-
-void RCGPSData::CopyFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:DJIFRProto.Standard.RCGPSData)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
+  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void RCGPSData::CopyFrom(const RCGPSData& from) {
@@ -2645,581 +1829,446 @@ bool RCGPSData::IsInitialized() const {
   return true;
 }
 
-void RCGPSData::Swap(RCGPSData* other) {
-  if (other == this) return;
-  InternalSwap(other);
-}
 void RCGPSData::InternalSwap(RCGPSData* other) {
   using std::swap;
-  swap(time_, other->time_);
-  swap(location_, other->location_);
-  swap(eastspeed_, other->eastspeed_);
-  swap(northspeed_, other->northspeed_);
-  swap(satellitecount_, other->satellitecount_);
-  swap(accuracy_, other->accuracy_);
-  swap(isvalid_, other->isvalid_);
-  _internal_metadata_.Swap(&other->_internal_metadata_);
-  swap(_cached_size_, other->_cached_size_);
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(RCGPSData, _impl_.isvalid_)
+      + sizeof(RCGPSData::_impl_.isvalid_)
+      - PROTOBUF_FIELD_OFFSET(RCGPSData, _impl_.time_)>(
+          reinterpret_cast<char*>(&_impl_.time_),
+          reinterpret_cast<char*>(&other->_impl_.time_));
 }
 
-::google::protobuf::Metadata RCGPSData::GetMetadata() const {
-  protobuf_RC_2fFRRCModelProto_2eproto::protobuf_AssignDescriptorsOnce();
-  return ::protobuf_RC_2fFRRCModelProto_2eproto::file_level_metadata[kIndexInFileMessages];
+::PROTOBUF_NAMESPACE_ID::Metadata RCGPSData::GetMetadata() const {
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_RC_2fFRRCModelProto_2eproto_getter, &descriptor_table_RC_2fFRRCModelProto_2eproto_once,
+      file_level_metadata_RC_2fFRRCModelProto_2eproto[6]);
 }
-
 
 // ===================================================================
 
-void RCHardwareState::InitAsDefaultInstance() {
-  ::DJIFRProto::Standard::_RCHardwareState_default_instance_._instance.get_mutable()->leftstick_ = const_cast< ::DJIFRProto::Standard::Stick*>(
-      ::DJIFRProto::Standard::Stick::internal_default_instance());
-  ::DJIFRProto::Standard::_RCHardwareState_default_instance_._instance.get_mutable()->rightstick_ = const_cast< ::DJIFRProto::Standard::Stick*>(
-      ::DJIFRProto::Standard::Stick::internal_default_instance());
-  ::DJIFRProto::Standard::_RCHardwareState_default_instance_._instance.get_mutable()->rightwheel_ = const_cast< ::DJIFRProto::Standard::RCRightWheel*>(
-      ::DJIFRProto::Standard::RCRightWheel::internal_default_instance());
-  ::DJIFRProto::Standard::_RCHardwareState_default_instance_._instance.get_mutable()->gohomebutton_ = const_cast< ::DJIFRProto::Standard::RCButton*>(
-      ::DJIFRProto::Standard::RCButton::internal_default_instance());
-  ::DJIFRProto::Standard::_RCHardwareState_default_instance_._instance.get_mutable()->recordbutton_ = const_cast< ::DJIFRProto::Standard::RCButton*>(
-      ::DJIFRProto::Standard::RCButton::internal_default_instance());
-  ::DJIFRProto::Standard::_RCHardwareState_default_instance_._instance.get_mutable()->shutterbutton_ = const_cast< ::DJIFRProto::Standard::RCButton*>(
-      ::DJIFRProto::Standard::RCButton::internal_default_instance());
-  ::DJIFRProto::Standard::_RCHardwareState_default_instance_._instance.get_mutable()->playbackbutton_ = const_cast< ::DJIFRProto::Standard::RCButton*>(
-      ::DJIFRProto::Standard::RCButton::internal_default_instance());
-  ::DJIFRProto::Standard::_RCHardwareState_default_instance_._instance.get_mutable()->pausebutton_ = const_cast< ::DJIFRProto::Standard::RCButton*>(
-      ::DJIFRProto::Standard::RCButton::internal_default_instance());
-  ::DJIFRProto::Standard::_RCHardwareState_default_instance_._instance.get_mutable()->gpsdata_ = const_cast< ::DJIFRProto::Standard::RCGPSData*>(
-      ::DJIFRProto::Standard::RCGPSData::internal_default_instance());
-}
-#if !defined(_MSC_VER) || _MSC_VER >= 1900
-const int RCHardwareState::kLeftStickFieldNumber;
-const int RCHardwareState::kRightStickFieldNumber;
-const int RCHardwareState::kLeftWheelFieldNumber;
-const int RCHardwareState::kRightWheelFieldNumber;
-const int RCHardwareState::kFlightModeSwitchFieldNumber;
-const int RCHardwareState::kGoHomeButtonFieldNumber;
-const int RCHardwareState::kRecordButtonFieldNumber;
-const int RCHardwareState::kShutterButtonFieldNumber;
-const int RCHardwareState::kPlaybackButtonFieldNumber;
-const int RCHardwareState::kPauseButtonFieldNumber;
-const int RCHardwareState::kStyleFieldNumber;
-const int RCHardwareState::kGPSDataFieldNumber;
-#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+class RCHardwareState::_Internal {
+ public:
+  static const ::DJIFRProto::Standard::Stick& leftstick(const RCHardwareState* msg);
+  static const ::DJIFRProto::Standard::Stick& rightstick(const RCHardwareState* msg);
+  static const ::DJIFRProto::Standard::RCRightWheel& rightwheel(const RCHardwareState* msg);
+  static const ::DJIFRProto::Standard::RCButton& gohomebutton(const RCHardwareState* msg);
+  static const ::DJIFRProto::Standard::RCButton& recordbutton(const RCHardwareState* msg);
+  static const ::DJIFRProto::Standard::RCButton& shutterbutton(const RCHardwareState* msg);
+  static const ::DJIFRProto::Standard::RCButton& playbackbutton(const RCHardwareState* msg);
+  static const ::DJIFRProto::Standard::RCButton& pausebutton(const RCHardwareState* msg);
+  static const ::DJIFRProto::Standard::RCGPSData& gpsdata(const RCHardwareState* msg);
+};
 
-RCHardwareState::RCHardwareState()
-  : ::google::protobuf::Message(), _internal_metadata_(NULL) {
-  if (GOOGLE_PREDICT_TRUE(this != internal_default_instance())) {
-    ::protobuf_RC_2fFRRCModelProto_2eproto::InitDefaultsRCHardwareState();
-  }
-  SharedCtor();
-  // @@protoc_insertion_point(constructor:DJIFRProto.Standard.RCHardwareState)
+const ::DJIFRProto::Standard::Stick&
+RCHardwareState::_Internal::leftstick(const RCHardwareState* msg) {
+  return *msg->_impl_.leftstick_;
+}
+const ::DJIFRProto::Standard::Stick&
+RCHardwareState::_Internal::rightstick(const RCHardwareState* msg) {
+  return *msg->_impl_.rightstick_;
+}
+const ::DJIFRProto::Standard::RCRightWheel&
+RCHardwareState::_Internal::rightwheel(const RCHardwareState* msg) {
+  return *msg->_impl_.rightwheel_;
+}
+const ::DJIFRProto::Standard::RCButton&
+RCHardwareState::_Internal::gohomebutton(const RCHardwareState* msg) {
+  return *msg->_impl_.gohomebutton_;
+}
+const ::DJIFRProto::Standard::RCButton&
+RCHardwareState::_Internal::recordbutton(const RCHardwareState* msg) {
+  return *msg->_impl_.recordbutton_;
+}
+const ::DJIFRProto::Standard::RCButton&
+RCHardwareState::_Internal::shutterbutton(const RCHardwareState* msg) {
+  return *msg->_impl_.shutterbutton_;
+}
+const ::DJIFRProto::Standard::RCButton&
+RCHardwareState::_Internal::playbackbutton(const RCHardwareState* msg) {
+  return *msg->_impl_.playbackbutton_;
+}
+const ::DJIFRProto::Standard::RCButton&
+RCHardwareState::_Internal::pausebutton(const RCHardwareState* msg) {
+  return *msg->_impl_.pausebutton_;
+}
+const ::DJIFRProto::Standard::RCGPSData&
+RCHardwareState::_Internal::gpsdata(const RCHardwareState* msg) {
+  return *msg->_impl_.gpsdata_;
+}
+RCHardwareState::RCHardwareState(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
+  SharedCtor(arena, is_message_owned);
+  // @@protoc_insertion_point(arena_constructor:DJIFRProto.Standard.RCHardwareState)
 }
 RCHardwareState::RCHardwareState(const RCHardwareState& from)
-  : ::google::protobuf::Message(),
-      _internal_metadata_(NULL),
-      _cached_size_(0) {
-  _internal_metadata_.MergeFrom(from._internal_metadata_);
-  if (from.has_leftstick()) {
-    leftstick_ = new ::DJIFRProto::Standard::Stick(*from.leftstick_);
-  } else {
-    leftstick_ = NULL;
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  RCHardwareState* const _this = this; (void)_this;
+  new (&_impl_) Impl_{
+      decltype(_impl_.leftstick_){nullptr}
+    , decltype(_impl_.rightstick_){nullptr}
+    , decltype(_impl_.rightwheel_){nullptr}
+    , decltype(_impl_.gohomebutton_){nullptr}
+    , decltype(_impl_.recordbutton_){nullptr}
+    , decltype(_impl_.shutterbutton_){nullptr}
+    , decltype(_impl_.playbackbutton_){nullptr}
+    , decltype(_impl_.pausebutton_){nullptr}
+    , decltype(_impl_.gpsdata_){nullptr}
+    , decltype(_impl_.leftwheel_){}
+    , decltype(_impl_.flightmodeswitch_){}
+    , decltype(_impl_.style_){}
+    , /*decltype(_impl_._cached_size_)*/{}};
+
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  if (from._internal_has_leftstick()) {
+    _this->_impl_.leftstick_ = new ::DJIFRProto::Standard::Stick(*from._impl_.leftstick_);
   }
-  if (from.has_rightstick()) {
-    rightstick_ = new ::DJIFRProto::Standard::Stick(*from.rightstick_);
-  } else {
-    rightstick_ = NULL;
+  if (from._internal_has_rightstick()) {
+    _this->_impl_.rightstick_ = new ::DJIFRProto::Standard::Stick(*from._impl_.rightstick_);
   }
-  if (from.has_rightwheel()) {
-    rightwheel_ = new ::DJIFRProto::Standard::RCRightWheel(*from.rightwheel_);
-  } else {
-    rightwheel_ = NULL;
+  if (from._internal_has_rightwheel()) {
+    _this->_impl_.rightwheel_ = new ::DJIFRProto::Standard::RCRightWheel(*from._impl_.rightwheel_);
   }
-  if (from.has_gohomebutton()) {
-    gohomebutton_ = new ::DJIFRProto::Standard::RCButton(*from.gohomebutton_);
-  } else {
-    gohomebutton_ = NULL;
+  if (from._internal_has_gohomebutton()) {
+    _this->_impl_.gohomebutton_ = new ::DJIFRProto::Standard::RCButton(*from._impl_.gohomebutton_);
   }
-  if (from.has_recordbutton()) {
-    recordbutton_ = new ::DJIFRProto::Standard::RCButton(*from.recordbutton_);
-  } else {
-    recordbutton_ = NULL;
+  if (from._internal_has_recordbutton()) {
+    _this->_impl_.recordbutton_ = new ::DJIFRProto::Standard::RCButton(*from._impl_.recordbutton_);
   }
-  if (from.has_shutterbutton()) {
-    shutterbutton_ = new ::DJIFRProto::Standard::RCButton(*from.shutterbutton_);
-  } else {
-    shutterbutton_ = NULL;
+  if (from._internal_has_shutterbutton()) {
+    _this->_impl_.shutterbutton_ = new ::DJIFRProto::Standard::RCButton(*from._impl_.shutterbutton_);
   }
-  if (from.has_playbackbutton()) {
-    playbackbutton_ = new ::DJIFRProto::Standard::RCButton(*from.playbackbutton_);
-  } else {
-    playbackbutton_ = NULL;
+  if (from._internal_has_playbackbutton()) {
+    _this->_impl_.playbackbutton_ = new ::DJIFRProto::Standard::RCButton(*from._impl_.playbackbutton_);
   }
-  if (from.has_pausebutton()) {
-    pausebutton_ = new ::DJIFRProto::Standard::RCButton(*from.pausebutton_);
-  } else {
-    pausebutton_ = NULL;
+  if (from._internal_has_pausebutton()) {
+    _this->_impl_.pausebutton_ = new ::DJIFRProto::Standard::RCButton(*from._impl_.pausebutton_);
   }
-  if (from.has_gpsdata()) {
-    gpsdata_ = new ::DJIFRProto::Standard::RCGPSData(*from.gpsdata_);
-  } else {
-    gpsdata_ = NULL;
+  if (from._internal_has_gpsdata()) {
+    _this->_impl_.gpsdata_ = new ::DJIFRProto::Standard::RCGPSData(*from._impl_.gpsdata_);
   }
-  ::memcpy(&leftwheel_, &from.leftwheel_,
-    static_cast<size_t>(reinterpret_cast<char*>(&style_) -
-    reinterpret_cast<char*>(&leftwheel_)) + sizeof(style_));
+  ::memcpy(&_impl_.leftwheel_, &from._impl_.leftwheel_,
+    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.style_) -
+    reinterpret_cast<char*>(&_impl_.leftwheel_)) + sizeof(_impl_.style_));
   // @@protoc_insertion_point(copy_constructor:DJIFRProto.Standard.RCHardwareState)
 }
 
-void RCHardwareState::SharedCtor() {
-  ::memset(&leftstick_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&style_) -
-      reinterpret_cast<char*>(&leftstick_)) + sizeof(style_));
-  _cached_size_ = 0;
+inline void RCHardwareState::SharedCtor(
+    ::_pb::Arena* arena, bool is_message_owned) {
+  (void)arena;
+  (void)is_message_owned;
+  new (&_impl_) Impl_{
+      decltype(_impl_.leftstick_){nullptr}
+    , decltype(_impl_.rightstick_){nullptr}
+    , decltype(_impl_.rightwheel_){nullptr}
+    , decltype(_impl_.gohomebutton_){nullptr}
+    , decltype(_impl_.recordbutton_){nullptr}
+    , decltype(_impl_.shutterbutton_){nullptr}
+    , decltype(_impl_.playbackbutton_){nullptr}
+    , decltype(_impl_.pausebutton_){nullptr}
+    , decltype(_impl_.gpsdata_){nullptr}
+    , decltype(_impl_.leftwheel_){0}
+    , decltype(_impl_.flightmodeswitch_){0}
+    , decltype(_impl_.style_){0}
+    , /*decltype(_impl_._cached_size_)*/{}
+  };
 }
 
 RCHardwareState::~RCHardwareState() {
   // @@protoc_insertion_point(destructor:DJIFRProto.Standard.RCHardwareState)
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
   SharedDtor();
 }
 
-void RCHardwareState::SharedDtor() {
-  if (this != internal_default_instance()) delete leftstick_;
-  if (this != internal_default_instance()) delete rightstick_;
-  if (this != internal_default_instance()) delete rightwheel_;
-  if (this != internal_default_instance()) delete gohomebutton_;
-  if (this != internal_default_instance()) delete recordbutton_;
-  if (this != internal_default_instance()) delete shutterbutton_;
-  if (this != internal_default_instance()) delete playbackbutton_;
-  if (this != internal_default_instance()) delete pausebutton_;
-  if (this != internal_default_instance()) delete gpsdata_;
+inline void RCHardwareState::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+  if (this != internal_default_instance()) delete _impl_.leftstick_;
+  if (this != internal_default_instance()) delete _impl_.rightstick_;
+  if (this != internal_default_instance()) delete _impl_.rightwheel_;
+  if (this != internal_default_instance()) delete _impl_.gohomebutton_;
+  if (this != internal_default_instance()) delete _impl_.recordbutton_;
+  if (this != internal_default_instance()) delete _impl_.shutterbutton_;
+  if (this != internal_default_instance()) delete _impl_.playbackbutton_;
+  if (this != internal_default_instance()) delete _impl_.pausebutton_;
+  if (this != internal_default_instance()) delete _impl_.gpsdata_;
 }
 
 void RCHardwareState::SetCachedSize(int size) const {
-  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
-  _cached_size_ = size;
-  GOOGLE_SAFE_CONCURRENT_WRITES_END();
-}
-const ::google::protobuf::Descriptor* RCHardwareState::descriptor() {
-  ::protobuf_RC_2fFRRCModelProto_2eproto::protobuf_AssignDescriptorsOnce();
-  return ::protobuf_RC_2fFRRCModelProto_2eproto::file_level_metadata[kIndexInFileMessages].descriptor;
-}
-
-const RCHardwareState& RCHardwareState::default_instance() {
-  ::protobuf_RC_2fFRRCModelProto_2eproto::InitDefaultsRCHardwareState();
-  return *internal_default_instance();
-}
-
-RCHardwareState* RCHardwareState::New(::google::protobuf::Arena* arena) const {
-  RCHardwareState* n = new RCHardwareState;
-  if (arena != NULL) {
-    arena->Own(n);
-  }
-  return n;
+  _impl_._cached_size_.Set(size);
 }
 
 void RCHardwareState::Clear() {
 // @@protoc_insertion_point(message_clear_start:DJIFRProto.Standard.RCHardwareState)
-  ::google::protobuf::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  if (GetArenaNoVirtual() == NULL && leftstick_ != NULL) {
-    delete leftstick_;
+  if (GetArenaForAllocation() == nullptr && _impl_.leftstick_ != nullptr) {
+    delete _impl_.leftstick_;
   }
-  leftstick_ = NULL;
-  if (GetArenaNoVirtual() == NULL && rightstick_ != NULL) {
-    delete rightstick_;
+  _impl_.leftstick_ = nullptr;
+  if (GetArenaForAllocation() == nullptr && _impl_.rightstick_ != nullptr) {
+    delete _impl_.rightstick_;
   }
-  rightstick_ = NULL;
-  if (GetArenaNoVirtual() == NULL && rightwheel_ != NULL) {
-    delete rightwheel_;
+  _impl_.rightstick_ = nullptr;
+  if (GetArenaForAllocation() == nullptr && _impl_.rightwheel_ != nullptr) {
+    delete _impl_.rightwheel_;
   }
-  rightwheel_ = NULL;
-  if (GetArenaNoVirtual() == NULL && gohomebutton_ != NULL) {
-    delete gohomebutton_;
+  _impl_.rightwheel_ = nullptr;
+  if (GetArenaForAllocation() == nullptr && _impl_.gohomebutton_ != nullptr) {
+    delete _impl_.gohomebutton_;
   }
-  gohomebutton_ = NULL;
-  if (GetArenaNoVirtual() == NULL && recordbutton_ != NULL) {
-    delete recordbutton_;
+  _impl_.gohomebutton_ = nullptr;
+  if (GetArenaForAllocation() == nullptr && _impl_.recordbutton_ != nullptr) {
+    delete _impl_.recordbutton_;
   }
-  recordbutton_ = NULL;
-  if (GetArenaNoVirtual() == NULL && shutterbutton_ != NULL) {
-    delete shutterbutton_;
+  _impl_.recordbutton_ = nullptr;
+  if (GetArenaForAllocation() == nullptr && _impl_.shutterbutton_ != nullptr) {
+    delete _impl_.shutterbutton_;
   }
-  shutterbutton_ = NULL;
-  if (GetArenaNoVirtual() == NULL && playbackbutton_ != NULL) {
-    delete playbackbutton_;
+  _impl_.shutterbutton_ = nullptr;
+  if (GetArenaForAllocation() == nullptr && _impl_.playbackbutton_ != nullptr) {
+    delete _impl_.playbackbutton_;
   }
-  playbackbutton_ = NULL;
-  if (GetArenaNoVirtual() == NULL && pausebutton_ != NULL) {
-    delete pausebutton_;
+  _impl_.playbackbutton_ = nullptr;
+  if (GetArenaForAllocation() == nullptr && _impl_.pausebutton_ != nullptr) {
+    delete _impl_.pausebutton_;
   }
-  pausebutton_ = NULL;
-  if (GetArenaNoVirtual() == NULL && gpsdata_ != NULL) {
-    delete gpsdata_;
+  _impl_.pausebutton_ = nullptr;
+  if (GetArenaForAllocation() == nullptr && _impl_.gpsdata_ != nullptr) {
+    delete _impl_.gpsdata_;
   }
-  gpsdata_ = NULL;
-  ::memset(&leftwheel_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&style_) -
-      reinterpret_cast<char*>(&leftwheel_)) + sizeof(style_));
-  _internal_metadata_.Clear();
+  _impl_.gpsdata_ = nullptr;
+  ::memset(&_impl_.leftwheel_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&_impl_.style_) -
+      reinterpret_cast<char*>(&_impl_.leftwheel_)) + sizeof(_impl_.style_));
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-bool RCHardwareState::MergePartialFromCodedStream(
-    ::google::protobuf::io::CodedInputStream* input) {
-#define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
-  ::google::protobuf::uint32 tag;
-  // @@protoc_insertion_point(parse_start:DJIFRProto.Standard.RCHardwareState)
-  for (;;) {
-    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
-    tag = p.first;
-    if (!p.second) goto handle_unusual;
-    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+const char* RCHardwareState::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
+    switch (tag >> 3) {
       // .DJIFRProto.Standard.Stick leftStick = 1;
-      case 1: {
-        if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(10u /* 10 & 0xFF */)) {
-          DO_(::google::protobuf::internal::WireFormatLite::ReadMessage(
-               input, mutable_leftstick()));
-        } else {
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
+          ptr = ctx->ParseMessage(_internal_mutable_leftstick(), ptr);
+          CHK_(ptr);
+        } else
           goto handle_unusual;
-        }
-        break;
-      }
-
+        continue;
       // .DJIFRProto.Standard.Stick rightStick = 2;
-      case 2: {
-        if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(18u /* 18 & 0xFF */)) {
-          DO_(::google::protobuf::internal::WireFormatLite::ReadMessage(
-               input, mutable_rightstick()));
-        } else {
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 18)) {
+          ptr = ctx->ParseMessage(_internal_mutable_rightstick(), ptr);
+          CHK_(ptr);
+        } else
           goto handle_unusual;
-        }
-        break;
-      }
-
+        continue;
       // int32 leftWheel = 3;
-      case 3: {
-        if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(24u /* 24 & 0xFF */)) {
-
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &leftwheel_)));
-        } else {
+      case 3:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 24)) {
+          _impl_.leftwheel_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else
           goto handle_unusual;
-        }
-        break;
-      }
-
+        continue;
       // .DJIFRProto.Standard.RCRightWheel rightWheel = 4;
-      case 4: {
-        if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(34u /* 34 & 0xFF */)) {
-          DO_(::google::protobuf::internal::WireFormatLite::ReadMessage(
-               input, mutable_rightwheel()));
-        } else {
+      case 4:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 34)) {
+          ptr = ctx->ParseMessage(_internal_mutable_rightwheel(), ptr);
+          CHK_(ptr);
+        } else
           goto handle_unusual;
-        }
-        break;
-      }
-
+        continue;
       // .DJIFRProto.Standard.RCFlightModel.Switch flightModeSwitch = 5;
-      case 5: {
-        if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(40u /* 40 & 0xFF */)) {
-          int value;
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   int, ::google::protobuf::internal::WireFormatLite::TYPE_ENUM>(
-                 input, &value)));
-          set_flightmodeswitch(static_cast< ::DJIFRProto::Standard::RCFlightModel_Switch >(value));
-        } else {
+      case 5:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 40)) {
+          uint64_t val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+          _internal_set_flightmodeswitch(static_cast<::DJIFRProto::Standard::RCFlightModel_Switch>(val));
+        } else
           goto handle_unusual;
-        }
-        break;
-      }
-
+        continue;
       // .DJIFRProto.Standard.RCButton goHomeButton = 6;
-      case 6: {
-        if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(50u /* 50 & 0xFF */)) {
-          DO_(::google::protobuf::internal::WireFormatLite::ReadMessage(
-               input, mutable_gohomebutton()));
-        } else {
+      case 6:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 50)) {
+          ptr = ctx->ParseMessage(_internal_mutable_gohomebutton(), ptr);
+          CHK_(ptr);
+        } else
           goto handle_unusual;
-        }
-        break;
-      }
-
+        continue;
       // .DJIFRProto.Standard.RCButton recordButton = 7;
-      case 7: {
-        if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(58u /* 58 & 0xFF */)) {
-          DO_(::google::protobuf::internal::WireFormatLite::ReadMessage(
-               input, mutable_recordbutton()));
-        } else {
+      case 7:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 58)) {
+          ptr = ctx->ParseMessage(_internal_mutable_recordbutton(), ptr);
+          CHK_(ptr);
+        } else
           goto handle_unusual;
-        }
-        break;
-      }
-
+        continue;
       // .DJIFRProto.Standard.RCButton shutterButton = 8;
-      case 8: {
-        if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(66u /* 66 & 0xFF */)) {
-          DO_(::google::protobuf::internal::WireFormatLite::ReadMessage(
-               input, mutable_shutterbutton()));
-        } else {
+      case 8:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 66)) {
+          ptr = ctx->ParseMessage(_internal_mutable_shutterbutton(), ptr);
+          CHK_(ptr);
+        } else
           goto handle_unusual;
-        }
-        break;
-      }
-
+        continue;
       // .DJIFRProto.Standard.RCButton playbackButton = 9;
-      case 9: {
-        if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(74u /* 74 & 0xFF */)) {
-          DO_(::google::protobuf::internal::WireFormatLite::ReadMessage(
-               input, mutable_playbackbutton()));
-        } else {
+      case 9:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 74)) {
+          ptr = ctx->ParseMessage(_internal_mutable_playbackbutton(), ptr);
+          CHK_(ptr);
+        } else
           goto handle_unusual;
-        }
-        break;
-      }
-
+        continue;
       // .DJIFRProto.Standard.RCButton pauseButton = 10;
-      case 10: {
-        if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(82u /* 82 & 0xFF */)) {
-          DO_(::google::protobuf::internal::WireFormatLite::ReadMessage(
-               input, mutable_pausebutton()));
-        } else {
+      case 10:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 82)) {
+          ptr = ctx->ParseMessage(_internal_mutable_pausebutton(), ptr);
+          CHK_(ptr);
+        } else
           goto handle_unusual;
-        }
-        break;
-      }
-
+        continue;
       // .DJIFRProto.Standard.RCAircraftMapping.Style style = 11;
-      case 11: {
-        if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(88u /* 88 & 0xFF */)) {
-          int value;
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   int, ::google::protobuf::internal::WireFormatLite::TYPE_ENUM>(
-                 input, &value)));
-          set_style(static_cast< ::DJIFRProto::Standard::RCAircraftMapping_Style >(value));
-        } else {
+      case 11:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 88)) {
+          uint64_t val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+          _internal_set_style(static_cast<::DJIFRProto::Standard::RCAircraftMapping_Style>(val));
+        } else
           goto handle_unusual;
-        }
-        break;
-      }
-
+        continue;
       // .DJIFRProto.Standard.RCGPSData GPSData = 12;
-      case 12: {
-        if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(98u /* 98 & 0xFF */)) {
-          DO_(::google::protobuf::internal::WireFormatLite::ReadMessage(
-               input, mutable_gpsdata()));
-        } else {
+      case 12:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 98)) {
+          ptr = ctx->ParseMessage(_internal_mutable_gpsdata(), ptr);
+          CHK_(ptr);
+        } else
           goto handle_unusual;
-        }
-        break;
-      }
-
-      default: {
-      handle_unusual:
-        if (tag == 0) {
-          goto success;
-        }
-        DO_(::google::protobuf::internal::WireFormat::SkipField(
-              input, tag, _internal_metadata_.mutable_unknown_fields()));
-        break;
-      }
+        continue;
+      default:
+        goto handle_unusual;
+    }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
     }
-  }
-success:
-  // @@protoc_insertion_point(parse_success:DJIFRProto.Standard.RCHardwareState)
-  return true;
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
+  }  // while
+message_done:
+  return ptr;
 failure:
-  // @@protoc_insertion_point(parse_failure:DJIFRProto.Standard.RCHardwareState)
-  return false;
-#undef DO_
+  ptr = nullptr;
+  goto message_done;
+#undef CHK_
 }
 
-void RCHardwareState::SerializeWithCachedSizes(
-    ::google::protobuf::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:DJIFRProto.Standard.RCHardwareState)
-  ::google::protobuf::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  // .DJIFRProto.Standard.Stick leftStick = 1;
-  if (this->has_leftstick()) {
-    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      1, *this->leftstick_, output);
-  }
-
-  // .DJIFRProto.Standard.Stick rightStick = 2;
-  if (this->has_rightstick()) {
-    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      2, *this->rightstick_, output);
-  }
-
-  // int32 leftWheel = 3;
-  if (this->leftwheel() != 0) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->leftwheel(), output);
-  }
-
-  // .DJIFRProto.Standard.RCRightWheel rightWheel = 4;
-  if (this->has_rightwheel()) {
-    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      4, *this->rightwheel_, output);
-  }
-
-  // .DJIFRProto.Standard.RCFlightModel.Switch flightModeSwitch = 5;
-  if (this->flightmodeswitch() != 0) {
-    ::google::protobuf::internal::WireFormatLite::WriteEnum(
-      5, this->flightmodeswitch(), output);
-  }
-
-  // .DJIFRProto.Standard.RCButton goHomeButton = 6;
-  if (this->has_gohomebutton()) {
-    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      6, *this->gohomebutton_, output);
-  }
-
-  // .DJIFRProto.Standard.RCButton recordButton = 7;
-  if (this->has_recordbutton()) {
-    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      7, *this->recordbutton_, output);
-  }
-
-  // .DJIFRProto.Standard.RCButton shutterButton = 8;
-  if (this->has_shutterbutton()) {
-    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      8, *this->shutterbutton_, output);
-  }
-
-  // .DJIFRProto.Standard.RCButton playbackButton = 9;
-  if (this->has_playbackbutton()) {
-    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      9, *this->playbackbutton_, output);
-  }
-
-  // .DJIFRProto.Standard.RCButton pauseButton = 10;
-  if (this->has_pausebutton()) {
-    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      10, *this->pausebutton_, output);
-  }
-
-  // .DJIFRProto.Standard.RCAircraftMapping.Style style = 11;
-  if (this->style() != 0) {
-    ::google::protobuf::internal::WireFormatLite::WriteEnum(
-      11, this->style(), output);
-  }
-
-  // .DJIFRProto.Standard.RCGPSData GPSData = 12;
-  if (this->has_gpsdata()) {
-    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      12, *this->gpsdata_, output);
-  }
-
-  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
-    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
-        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), output);
-  }
-  // @@protoc_insertion_point(serialize_end:DJIFRProto.Standard.RCHardwareState)
-}
-
-::google::protobuf::uint8* RCHardwareState::InternalSerializeWithCachedSizesToArray(
-    bool deterministic, ::google::protobuf::uint8* target) const {
-  (void)deterministic; // Unused
+uint8_t* RCHardwareState::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
   // @@protoc_insertion_point(serialize_to_array_start:DJIFRProto.Standard.RCHardwareState)
-  ::google::protobuf::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
   // .DJIFRProto.Standard.Stick leftStick = 1;
-  if (this->has_leftstick()) {
-    target = ::google::protobuf::internal::WireFormatLite::
-      InternalWriteMessageToArray(
-        1, *this->leftstick_, deterministic, target);
+  if (this->_internal_has_leftstick()) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(1, _Internal::leftstick(this),
+        _Internal::leftstick(this).GetCachedSize(), target, stream);
   }
 
   // .DJIFRProto.Standard.Stick rightStick = 2;
-  if (this->has_rightstick()) {
-    target = ::google::protobuf::internal::WireFormatLite::
-      InternalWriteMessageToArray(
-        2, *this->rightstick_, deterministic, target);
+  if (this->_internal_has_rightstick()) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(2, _Internal::rightstick(this),
+        _Internal::rightstick(this).GetCachedSize(), target, stream);
   }
 
   // int32 leftWheel = 3;
-  if (this->leftwheel() != 0) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->leftwheel(), target);
+  if (this->_internal_leftwheel() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteInt32ToArray(3, this->_internal_leftwheel(), target);
   }
 
   // .DJIFRProto.Standard.RCRightWheel rightWheel = 4;
-  if (this->has_rightwheel()) {
-    target = ::google::protobuf::internal::WireFormatLite::
-      InternalWriteMessageToArray(
-        4, *this->rightwheel_, deterministic, target);
+  if (this->_internal_has_rightwheel()) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(4, _Internal::rightwheel(this),
+        _Internal::rightwheel(this).GetCachedSize(), target, stream);
   }
 
   // .DJIFRProto.Standard.RCFlightModel.Switch flightModeSwitch = 5;
-  if (this->flightmodeswitch() != 0) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteEnumToArray(
-      5, this->flightmodeswitch(), target);
+  if (this->_internal_flightmodeswitch() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteEnumToArray(
+      5, this->_internal_flightmodeswitch(), target);
   }
 
   // .DJIFRProto.Standard.RCButton goHomeButton = 6;
-  if (this->has_gohomebutton()) {
-    target = ::google::protobuf::internal::WireFormatLite::
-      InternalWriteMessageToArray(
-        6, *this->gohomebutton_, deterministic, target);
+  if (this->_internal_has_gohomebutton()) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(6, _Internal::gohomebutton(this),
+        _Internal::gohomebutton(this).GetCachedSize(), target, stream);
   }
 
   // .DJIFRProto.Standard.RCButton recordButton = 7;
-  if (this->has_recordbutton()) {
-    target = ::google::protobuf::internal::WireFormatLite::
-      InternalWriteMessageToArray(
-        7, *this->recordbutton_, deterministic, target);
+  if (this->_internal_has_recordbutton()) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(7, _Internal::recordbutton(this),
+        _Internal::recordbutton(this).GetCachedSize(), target, stream);
   }
 
   // .DJIFRProto.Standard.RCButton shutterButton = 8;
-  if (this->has_shutterbutton()) {
-    target = ::google::protobuf::internal::WireFormatLite::
-      InternalWriteMessageToArray(
-        8, *this->shutterbutton_, deterministic, target);
+  if (this->_internal_has_shutterbutton()) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(8, _Internal::shutterbutton(this),
+        _Internal::shutterbutton(this).GetCachedSize(), target, stream);
   }
 
   // .DJIFRProto.Standard.RCButton playbackButton = 9;
-  if (this->has_playbackbutton()) {
-    target = ::google::protobuf::internal::WireFormatLite::
-      InternalWriteMessageToArray(
-        9, *this->playbackbutton_, deterministic, target);
+  if (this->_internal_has_playbackbutton()) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(9, _Internal::playbackbutton(this),
+        _Internal::playbackbutton(this).GetCachedSize(), target, stream);
   }
 
   // .DJIFRProto.Standard.RCButton pauseButton = 10;
-  if (this->has_pausebutton()) {
-    target = ::google::protobuf::internal::WireFormatLite::
-      InternalWriteMessageToArray(
-        10, *this->pausebutton_, deterministic, target);
+  if (this->_internal_has_pausebutton()) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(10, _Internal::pausebutton(this),
+        _Internal::pausebutton(this).GetCachedSize(), target, stream);
   }
 
   // .DJIFRProto.Standard.RCAircraftMapping.Style style = 11;
-  if (this->style() != 0) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteEnumToArray(
-      11, this->style(), target);
+  if (this->_internal_style() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteEnumToArray(
+      11, this->_internal_style(), target);
   }
 
   // .DJIFRProto.Standard.RCGPSData GPSData = 12;
-  if (this->has_gpsdata()) {
-    target = ::google::protobuf::internal::WireFormatLite::
-      InternalWriteMessageToArray(
-        12, *this->gpsdata_, deterministic, target);
+  if (this->_internal_has_gpsdata()) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(12, _Internal::gpsdata(this),
+        _Internal::gpsdata(this).GetCachedSize(), target, stream);
   }
 
-  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
-    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
-        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), target);
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
   }
   // @@protoc_insertion_point(serialize_to_array_end:DJIFRProto.Standard.RCHardwareState)
   return target;
@@ -3229,165 +2278,154 @@ size_t RCHardwareState::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:DJIFRProto.Standard.RCHardwareState)
   size_t total_size = 0;
 
-  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
-    total_size +=
-      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
-        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()));
-  }
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
   // .DJIFRProto.Standard.Stick leftStick = 1;
-  if (this->has_leftstick()) {
+  if (this->_internal_has_leftstick()) {
     total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::MessageSize(
-        *this->leftstick_);
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+        *_impl_.leftstick_);
   }
 
   // .DJIFRProto.Standard.Stick rightStick = 2;
-  if (this->has_rightstick()) {
+  if (this->_internal_has_rightstick()) {
     total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::MessageSize(
-        *this->rightstick_);
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+        *_impl_.rightstick_);
   }
 
   // .DJIFRProto.Standard.RCRightWheel rightWheel = 4;
-  if (this->has_rightwheel()) {
+  if (this->_internal_has_rightwheel()) {
     total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::MessageSize(
-        *this->rightwheel_);
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+        *_impl_.rightwheel_);
   }
 
   // .DJIFRProto.Standard.RCButton goHomeButton = 6;
-  if (this->has_gohomebutton()) {
+  if (this->_internal_has_gohomebutton()) {
     total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::MessageSize(
-        *this->gohomebutton_);
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+        *_impl_.gohomebutton_);
   }
 
   // .DJIFRProto.Standard.RCButton recordButton = 7;
-  if (this->has_recordbutton()) {
+  if (this->_internal_has_recordbutton()) {
     total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::MessageSize(
-        *this->recordbutton_);
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+        *_impl_.recordbutton_);
   }
 
   // .DJIFRProto.Standard.RCButton shutterButton = 8;
-  if (this->has_shutterbutton()) {
+  if (this->_internal_has_shutterbutton()) {
     total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::MessageSize(
-        *this->shutterbutton_);
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+        *_impl_.shutterbutton_);
   }
 
   // .DJIFRProto.Standard.RCButton playbackButton = 9;
-  if (this->has_playbackbutton()) {
+  if (this->_internal_has_playbackbutton()) {
     total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::MessageSize(
-        *this->playbackbutton_);
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+        *_impl_.playbackbutton_);
   }
 
   // .DJIFRProto.Standard.RCButton pauseButton = 10;
-  if (this->has_pausebutton()) {
+  if (this->_internal_has_pausebutton()) {
     total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::MessageSize(
-        *this->pausebutton_);
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+        *_impl_.pausebutton_);
   }
 
   // .DJIFRProto.Standard.RCGPSData GPSData = 12;
-  if (this->has_gpsdata()) {
+  if (this->_internal_has_gpsdata()) {
     total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::MessageSize(
-        *this->gpsdata_);
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+        *_impl_.gpsdata_);
   }
 
   // int32 leftWheel = 3;
-  if (this->leftwheel() != 0) {
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::Int32Size(
-        this->leftwheel());
+  if (this->_internal_leftwheel() != 0) {
+    total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_leftwheel());
   }
 
   // .DJIFRProto.Standard.RCFlightModel.Switch flightModeSwitch = 5;
-  if (this->flightmodeswitch() != 0) {
+  if (this->_internal_flightmodeswitch() != 0) {
     total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::EnumSize(this->flightmodeswitch());
+      ::_pbi::WireFormatLite::EnumSize(this->_internal_flightmodeswitch());
   }
 
   // .DJIFRProto.Standard.RCAircraftMapping.Style style = 11;
-  if (this->style() != 0) {
+  if (this->_internal_style() != 0) {
     total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::EnumSize(this->style());
+      ::_pbi::WireFormatLite::EnumSize(this->_internal_style());
   }
 
-  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
-  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
-  _cached_size_ = cached_size;
-  GOOGLE_SAFE_CONCURRENT_WRITES_END();
-  return total_size;
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
 }
 
-void RCHardwareState::MergeFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:DJIFRProto.Standard.RCHardwareState)
-  GOOGLE_DCHECK_NE(&from, this);
-  const RCHardwareState* source =
-      ::google::protobuf::internal::DynamicCastToGenerated<const RCHardwareState>(
-          &from);
-  if (source == NULL) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:DJIFRProto.Standard.RCHardwareState)
-    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
-  } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:DJIFRProto.Standard.RCHardwareState)
-    MergeFrom(*source);
-  }
-}
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData RCHardwareState::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
+    RCHardwareState::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*RCHardwareState::GetClassData() const { return &_class_data_; }
 
-void RCHardwareState::MergeFrom(const RCHardwareState& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:DJIFRProto.Standard.RCHardwareState)
-  GOOGLE_DCHECK_NE(&from, this);
-  _internal_metadata_.MergeFrom(from._internal_metadata_);
-  ::google::protobuf::uint32 cached_has_bits = 0;
+
+void RCHardwareState::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
+  auto* const _this = static_cast<RCHardwareState*>(&to_msg);
+  auto& from = static_cast<const RCHardwareState&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:DJIFRProto.Standard.RCHardwareState)
+  GOOGLE_DCHECK_NE(&from, _this);
+  uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  if (from.has_leftstick()) {
-    mutable_leftstick()->::DJIFRProto::Standard::Stick::MergeFrom(from.leftstick());
+  if (from._internal_has_leftstick()) {
+    _this->_internal_mutable_leftstick()->::DJIFRProto::Standard::Stick::MergeFrom(
+        from._internal_leftstick());
   }
-  if (from.has_rightstick()) {
-    mutable_rightstick()->::DJIFRProto::Standard::Stick::MergeFrom(from.rightstick());
+  if (from._internal_has_rightstick()) {
+    _this->_internal_mutable_rightstick()->::DJIFRProto::Standard::Stick::MergeFrom(
+        from._internal_rightstick());
   }
-  if (from.has_rightwheel()) {
-    mutable_rightwheel()->::DJIFRProto::Standard::RCRightWheel::MergeFrom(from.rightwheel());
+  if (from._internal_has_rightwheel()) {
+    _this->_internal_mutable_rightwheel()->::DJIFRProto::Standard::RCRightWheel::MergeFrom(
+        from._internal_rightwheel());
   }
-  if (from.has_gohomebutton()) {
-    mutable_gohomebutton()->::DJIFRProto::Standard::RCButton::MergeFrom(from.gohomebutton());
+  if (from._internal_has_gohomebutton()) {
+    _this->_internal_mutable_gohomebutton()->::DJIFRProto::Standard::RCButton::MergeFrom(
+        from._internal_gohomebutton());
   }
-  if (from.has_recordbutton()) {
-    mutable_recordbutton()->::DJIFRProto::Standard::RCButton::MergeFrom(from.recordbutton());
+  if (from._internal_has_recordbutton()) {
+    _this->_internal_mutable_recordbutton()->::DJIFRProto::Standard::RCButton::MergeFrom(
+        from._internal_recordbutton());
   }
-  if (from.has_shutterbutton()) {
-    mutable_shutterbutton()->::DJIFRProto::Standard::RCButton::MergeFrom(from.shutterbutton());
+  if (from._internal_has_shutterbutton()) {
+    _this->_internal_mutable_shutterbutton()->::DJIFRProto::Standard::RCButton::MergeFrom(
+        from._internal_shutterbutton());
   }
-  if (from.has_playbackbutton()) {
-    mutable_playbackbutton()->::DJIFRProto::Standard::RCButton::MergeFrom(from.playbackbutton());
+  if (from._internal_has_playbackbutton()) {
+    _this->_internal_mutable_playbackbutton()->::DJIFRProto::Standard::RCButton::MergeFrom(
+        from._internal_playbackbutton());
   }
-  if (from.has_pausebutton()) {
-    mutable_pausebutton()->::DJIFRProto::Standard::RCButton::MergeFrom(from.pausebutton());
+  if (from._internal_has_pausebutton()) {
+    _this->_internal_mutable_pausebutton()->::DJIFRProto::Standard::RCButton::MergeFrom(
+        from._internal_pausebutton());
   }
-  if (from.has_gpsdata()) {
-    mutable_gpsdata()->::DJIFRProto::Standard::RCGPSData::MergeFrom(from.gpsdata());
+  if (from._internal_has_gpsdata()) {
+    _this->_internal_mutable_gpsdata()->::DJIFRProto::Standard::RCGPSData::MergeFrom(
+        from._internal_gpsdata());
   }
-  if (from.leftwheel() != 0) {
-    set_leftwheel(from.leftwheel());
+  if (from._internal_leftwheel() != 0) {
+    _this->_internal_set_leftwheel(from._internal_leftwheel());
   }
-  if (from.flightmodeswitch() != 0) {
-    set_flightmodeswitch(from.flightmodeswitch());
+  if (from._internal_flightmodeswitch() != 0) {
+    _this->_internal_set_flightmodeswitch(from._internal_flightmodeswitch());
   }
-  if (from.style() != 0) {
-    set_style(from.style());
+  if (from._internal_style() != 0) {
+    _this->_internal_set_style(from._internal_style());
   }
-}
-
-void RCHardwareState::CopyFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:DJIFRProto.Standard.RCHardwareState)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
+  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void RCHardwareState::CopyFrom(const RCHardwareState& from) {
@@ -3401,36 +2439,60 @@ bool RCHardwareState::IsInitialized() const {
   return true;
 }
 
-void RCHardwareState::Swap(RCHardwareState* other) {
-  if (other == this) return;
-  InternalSwap(other);
-}
 void RCHardwareState::InternalSwap(RCHardwareState* other) {
   using std::swap;
-  swap(leftstick_, other->leftstick_);
-  swap(rightstick_, other->rightstick_);
-  swap(rightwheel_, other->rightwheel_);
-  swap(gohomebutton_, other->gohomebutton_);
-  swap(recordbutton_, other->recordbutton_);
-  swap(shutterbutton_, other->shutterbutton_);
-  swap(playbackbutton_, other->playbackbutton_);
-  swap(pausebutton_, other->pausebutton_);
-  swap(gpsdata_, other->gpsdata_);
-  swap(leftwheel_, other->leftwheel_);
-  swap(flightmodeswitch_, other->flightmodeswitch_);
-  swap(style_, other->style_);
-  _internal_metadata_.Swap(&other->_internal_metadata_);
-  swap(_cached_size_, other->_cached_size_);
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(RCHardwareState, _impl_.style_)
+      + sizeof(RCHardwareState::_impl_.style_)
+      - PROTOBUF_FIELD_OFFSET(RCHardwareState, _impl_.leftstick_)>(
+          reinterpret_cast<char*>(&_impl_.leftstick_),
+          reinterpret_cast<char*>(&other->_impl_.leftstick_));
 }
 
-::google::protobuf::Metadata RCHardwareState::GetMetadata() const {
-  protobuf_RC_2fFRRCModelProto_2eproto::protobuf_AssignDescriptorsOnce();
-  return ::protobuf_RC_2fFRRCModelProto_2eproto::file_level_metadata[kIndexInFileMessages];
+::PROTOBUF_NAMESPACE_ID::Metadata RCHardwareState::GetMetadata() const {
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_RC_2fFRRCModelProto_2eproto_getter, &descriptor_table_RC_2fFRRCModelProto_2eproto_once,
+      file_level_metadata_RC_2fFRRCModelProto_2eproto[7]);
 }
-
 
 // @@protoc_insertion_point(namespace_scope)
 }  // namespace Standard
 }  // namespace DJIFRProto
+PROTOBUF_NAMESPACE_OPEN
+template<> PROTOBUF_NOINLINE ::DJIFRProto::Standard::RCFlightModel*
+Arena::CreateMaybeMessage< ::DJIFRProto::Standard::RCFlightModel >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::DJIFRProto::Standard::RCFlightModel >(arena);
+}
+template<> PROTOBUF_NOINLINE ::DJIFRProto::Standard::Stick*
+Arena::CreateMaybeMessage< ::DJIFRProto::Standard::Stick >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::DJIFRProto::Standard::Stick >(arena);
+}
+template<> PROTOBUF_NOINLINE ::DJIFRProto::Standard::RCRightWheel*
+Arena::CreateMaybeMessage< ::DJIFRProto::Standard::RCRightWheel >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::DJIFRProto::Standard::RCRightWheel >(arena);
+}
+template<> PROTOBUF_NOINLINE ::DJIFRProto::Standard::RCButton*
+Arena::CreateMaybeMessage< ::DJIFRProto::Standard::RCButton >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::DJIFRProto::Standard::RCButton >(arena);
+}
+template<> PROTOBUF_NOINLINE ::DJIFRProto::Standard::RCAircraftMapping*
+Arena::CreateMaybeMessage< ::DJIFRProto::Standard::RCAircraftMapping >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::DJIFRProto::Standard::RCAircraftMapping >(arena);
+}
+template<> PROTOBUF_NOINLINE ::DJIFRProto::Standard::RCGPSTime*
+Arena::CreateMaybeMessage< ::DJIFRProto::Standard::RCGPSTime >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::DJIFRProto::Standard::RCGPSTime >(arena);
+}
+template<> PROTOBUF_NOINLINE ::DJIFRProto::Standard::RCGPSData*
+Arena::CreateMaybeMessage< ::DJIFRProto::Standard::RCGPSData >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::DJIFRProto::Standard::RCGPSData >(arena);
+}
+template<> PROTOBUF_NOINLINE ::DJIFRProto::Standard::RCHardwareState*
+Arena::CreateMaybeMessage< ::DJIFRProto::Standard::RCHardwareState >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::DJIFRProto::Standard::RCHardwareState >(arena);
+}
+PROTOBUF_NAMESPACE_CLOSE
 
 // @@protoc_insertion_point(global_scope)
+#include <google/protobuf/port_undef.inc>

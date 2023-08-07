@@ -83,6 +83,21 @@ typedef enum {
     
     npzeXkozKlNHPjUQ = 55,
     KeyStorage = 56,
+
+    GOAirLinkDataField = 57, 
+    HealthGroupDataType = 58, 
+    FCIMUInfoDataType = 59, 
+    NavigationDataType = 60, 
+    PerceptionGroupDataType = 61, 
+    RemoteControllerDisplayField = 62,
+    
+    FlightControllerCommonOSDField = 63,
+
+    
+    FlightRecordTypeSummaryData = 0xFD,
+
+    
+    FlightRecordTypeFrameData = 0xFE,
     
     FlightRecordTypeKindNum,
     
@@ -120,6 +135,17 @@ namespace DJI {
             Mac = 11,
             Linux = 12,
         };
+
+        typedef struct {
+           uint16_t subtype;
+           uint8_t data[0];
+        } FRSubTypeBody;
+
+          enum class FCCommonOSDSubType : uint16_t {
+            BatteryOSD = 0,
+            CountDownInfo = 1,
+        };
+
     }
 }
 

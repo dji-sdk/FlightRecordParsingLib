@@ -1069,6 +1069,7 @@ SDKError ParserImp::filterFrameTimeList(std::map<FlightRecordDataType, bool> fil
                 case OSDHomeFlightRecordDataType:
                 case MCParamDataType:
                 case AppVirtualStickDataType:
+                case FlightControllerCommonOSDField:
                 {
                     fill_operation_result = fillFlightController(data_type, buffer, length, frame_time);
                 }

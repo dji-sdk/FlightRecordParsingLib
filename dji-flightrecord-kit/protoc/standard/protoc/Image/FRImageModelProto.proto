@@ -4,7 +4,7 @@ package DJIFRProto.Standard;
 
 option objc_class_prefix = "DJIFRProto";
 
-import "FRCommonModelProto.proto";
+import "Common/FRCommonModelProto.proto";
 
 message ImageData {
     LocationCoordinate2D coordinate = 1;

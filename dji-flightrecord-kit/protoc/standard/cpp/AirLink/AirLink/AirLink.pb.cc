@@ -5,350 +5,256 @@
 
 #include <algorithm>
 
-#include <google/protobuf/stubs/common.h>
-#include <google/protobuf/stubs/port.h>
-#include <google/protobuf/stubs/once.h>
 #include <google/protobuf/io/coded_stream.h>
-#include <google/protobuf/wire_format_lite_inl.h>
+#include <google/protobuf/extension_set.h>
+#include <google/protobuf/wire_format_lite.h>
 #include <google/protobuf/descriptor.h>
 #include <google/protobuf/generated_message_reflection.h>
 #include <google/protobuf/reflection_ops.h>
 #include <google/protobuf/wire_format.h>
-// This is a temporary google only hack
-#ifdef GOOGLE_PROTOBUF_ENFORCE_UNIQUENESS
-#include "third_party/protobuf/version.h"
-#endif
 // @@protoc_insertion_point(includes)
+#include <google/protobuf/port_def.inc>
+
+PROTOBUF_PRAGMA_INIT_SEG
+
+namespace _pb = ::PROTOBUF_NAMESPACE_ID;
+namespace _pbi = _pb::internal;
+
 namespace DJIFRProto {
 namespace Standard {
-class AirLinkStateDefaultTypeInternal {
- public:
-  ::google::protobuf::internal::ExplicitlyConstructed<AirLinkState>
-      _instance;
-} _AirLinkState_default_instance_;
+PROTOBUF_CONSTEXPR AirLinkState::AirLinkState(
+    ::_pbi::ConstantInitialized): _impl_{
+    /*decltype(_impl_.downlinksignalquality_)*/0
+  , /*decltype(_impl_.uplinksignalquality_)*/0
+  , /*decltype(_impl_.hasdownlinksignalquality_)*/false
+  , /*decltype(_impl_.hasuplinksignalquality_)*/false
+  , /*decltype(_impl_._cached_size_)*/{}} {}
+struct AirLinkStateDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR AirLinkStateDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~AirLinkStateDefaultTypeInternal() {}
+  union {
+    AirLinkState _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 AirLinkStateDefaultTypeInternal _AirLinkState_default_instance_;
 }  // namespace Standard
 }  // namespace DJIFRProto
-namespace protobuf_AirLink_2fAirLink_2eproto {
-void InitDefaultsAirLinkStateImpl() {
-  GOOGLE_PROTOBUF_VERIFY_VERSION;
+static ::_pb::Metadata file_level_metadata_AirLink_2fAirLink_2eproto[1];
+static constexpr ::_pb::EnumDescriptor const** file_level_enum_descriptors_AirLink_2fAirLink_2eproto = nullptr;
+static constexpr ::_pb::ServiceDescriptor const** file_level_service_descriptors_AirLink_2fAirLink_2eproto = nullptr;
 
-#ifdef GOOGLE_PROTOBUF_ENFORCE_UNIQUENESS
-  ::google::protobuf::internal::InitProtobufDefaultsForceUnique();
-#else
-  ::google::protobuf::internal::InitProtobufDefaults();
-#endif  // GOOGLE_PROTOBUF_ENFORCE_UNIQUENESS
-  {
-    void* ptr = &::DJIFRProto::Standard::_AirLinkState_default_instance_;
-    new (ptr) ::DJIFRProto::Standard::AirLinkState();
-    ::google::protobuf::internal::OnShutdownDestroyMessage(ptr);
-  }
-  ::DJIFRProto::Standard::AirLinkState::InitAsDefaultInstance();
-}
-
-void InitDefaultsAirLinkState() {
-  static GOOGLE_PROTOBUF_DECLARE_ONCE(once);
-  ::google::protobuf::GoogleOnceInit(&once, &InitDefaultsAirLinkStateImpl);
-}
-
-::google::protobuf::Metadata file_level_metadata[1];
-
-const ::google::protobuf::uint32 TableStruct::offsets[] GOOGLE_PROTOBUF_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
+const uint32_t TableStruct_AirLink_2fAirLink_2eproto::offsets[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   ~0u,  // no _has_bits_
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::DJIFRProto::Standard::AirLinkState, _internal_metadata_),
+  PROTOBUF_FIELD_OFFSET(::DJIFRProto::Standard::AirLinkState, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::DJIFRProto::Standard::AirLinkState, downlinksignalquality_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::DJIFRProto::Standard::AirLinkState, hasdownlinksignalquality_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::DJIFRProto::Standard::AirLinkState, uplinksignalquality_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::DJIFRProto::Standard::AirLinkState, hasuplinksignalquality_),
+  ~0u,  // no _inlined_string_donated_
+  PROTOBUF_FIELD_OFFSET(::DJIFRProto::Standard::AirLinkState, _impl_.downlinksignalquality_),
+  PROTOBUF_FIELD_OFFSET(::DJIFRProto::Standard::AirLinkState, _impl_.hasdownlinksignalquality_),
+  PROTOBUF_FIELD_OFFSET(::DJIFRProto::Standard::AirLinkState, _impl_.uplinksignalquality_),
+  PROTOBUF_FIELD_OFFSET(::DJIFRProto::Standard::AirLinkState, _impl_.hasuplinksignalquality_),
 };
-static const ::google::protobuf::internal::MigrationSchema schemas[] GOOGLE_PROTOBUF_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
-  { 0, -1, sizeof(::DJIFRProto::Standard::AirLinkState)},
-};
-
-static ::google::protobuf::Message const * const file_default_instances[] = {
-  reinterpret_cast<const ::google::protobuf::Message*>(&::DJIFRProto::Standard::_AirLinkState_default_instance_),
+static const ::_pbi::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
+  { 0, -1, -1, sizeof(::DJIFRProto::Standard::AirLinkState)},
 };
 
-void protobuf_AssignDescriptors() {
-  AddDescriptors();
-  ::google::protobuf::MessageFactory* factory = NULL;
-  AssignDescriptors(
-      "AirLink/AirLink.proto", schemas, file_default_instances, TableStruct::offsets, factory,
-      file_level_metadata, NULL, NULL);
+static const ::_pb::Message* const file_default_instances[] = {
+  &::DJIFRProto::Standard::_AirLinkState_default_instance_._instance,
+};
+
+const char descriptor_table_protodef_AirLink_2fAirLink_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
+  "\n\025AirLink/AirLink.proto\022\023DJIFRProto.Stan"
+  "dard\"\214\001\n\014AirLinkState\022\035\n\025downlinkSignalQ"
+  "uality\030\001 \001(\005\022 \n\030hasDownlinkSignalQuality"
+  "\030\002 \001(\010\022\033\n\023uplinkSignalQuality\030\003 \001(\005\022\036\n\026h"
+  "asUplinkSignalQuality\030\004 \001(\010B\r\242\002\nDJIFRPro"
+  "tob\006proto3"
+  ;
+static ::_pbi::once_flag descriptor_table_AirLink_2fAirLink_2eproto_once;
+const ::_pbi::DescriptorTable descriptor_table_AirLink_2fAirLink_2eproto = {
+    false, false, 210, descriptor_table_protodef_AirLink_2fAirLink_2eproto,
+    "AirLink/AirLink.proto",
+    &descriptor_table_AirLink_2fAirLink_2eproto_once, nullptr, 0, 1,
+    schemas, file_default_instances, TableStruct_AirLink_2fAirLink_2eproto::offsets,
+    file_level_metadata_AirLink_2fAirLink_2eproto, file_level_enum_descriptors_AirLink_2fAirLink_2eproto,
+    file_level_service_descriptors_AirLink_2fAirLink_2eproto,
+};
+PROTOBUF_ATTRIBUTE_WEAK const ::_pbi::DescriptorTable* descriptor_table_AirLink_2fAirLink_2eproto_getter() {
+  return &descriptor_table_AirLink_2fAirLink_2eproto;
 }
 
-void protobuf_AssignDescriptorsOnce() {
-  static GOOGLE_PROTOBUF_DECLARE_ONCE(once);
-  ::google::protobuf::GoogleOnceInit(&once, &protobuf_AssignDescriptors);
-}
-
-void protobuf_RegisterTypes(const ::std::string&) GOOGLE_PROTOBUF_ATTRIBUTE_COLD;
-void protobuf_RegisterTypes(const ::std::string&) {
-  protobuf_AssignDescriptorsOnce();
-  ::google::protobuf::internal::RegisterAllTypes(file_level_metadata, 1);
-}
-
-void AddDescriptorsImpl() {
-  InitDefaults();
-  static const char descriptor[] GOOGLE_PROTOBUF_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
-      "\n\025AirLink/AirLink.proto\022\023DJIFRProto.Stan"
-      "dard\"\214\001\n\014AirLinkState\022\035\n\025downlinkSignalQ"
-      "uality\030\001 \001(\005\022 \n\030hasDownlinkSignalQuality"
-      "\030\002 \001(\010\022\033\n\023uplinkSignalQuality\030\003 \001(\005\022\036\n\026h"
-      "asUplinkSignalQuality\030\004 \001(\010B\r\242\002\nDJIFRPro"
-      "tob\006proto3"
-  };
-  ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-      descriptor, 210);
-  ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
-    "AirLink/AirLink.proto", &protobuf_RegisterTypes);
-}
-
-void AddDescriptors() {
-  static GOOGLE_PROTOBUF_DECLARE_ONCE(once);
-  ::google::protobuf::GoogleOnceInit(&once, &AddDescriptorsImpl);
-}
-// Force AddDescriptors() to be called at dynamic initialization time.
-struct StaticDescriptorInitializer {
-  StaticDescriptorInitializer() {
-    AddDescriptors();
-  }
-} static_descriptor_initializer;
-}  // namespace protobuf_AirLink_2fAirLink_2eproto
+// Force running AddDescriptors() at dynamic initialization time.
+PROTOBUF_ATTRIBUTE_INIT_PRIORITY2 static ::_pbi::AddDescriptorsRunner dynamic_init_dummy_AirLink_2fAirLink_2eproto(&descriptor_table_AirLink_2fAirLink_2eproto);
 namespace DJIFRProto {
 namespace Standard {
 
 // ===================================================================
 
-void AirLinkState::InitAsDefaultInstance() {
-}
-#if !defined(_MSC_VER) || _MSC_VER >= 1900
-const int AirLinkState::kDownlinkSignalQualityFieldNumber;
-const int AirLinkState::kHasDownlinkSignalQualityFieldNumber;
-const int AirLinkState::kUplinkSignalQualityFieldNumber;
-const int AirLinkState::kHasUplinkSignalQualityFieldNumber;
-#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+class AirLinkState::_Internal {
+ public:
+};
 
-AirLinkState::AirLinkState()
-  : ::google::protobuf::Message(), _internal_metadata_(NULL) {
-  if (GOOGLE_PREDICT_TRUE(this != internal_default_instance())) {
-    ::protobuf_AirLink_2fAirLink_2eproto::InitDefaultsAirLinkState();
-  }
-  SharedCtor();
-  // @@protoc_insertion_point(constructor:DJIFRProto.Standard.AirLinkState)
+AirLinkState::AirLinkState(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
+  SharedCtor(arena, is_message_owned);
+  // @@protoc_insertion_point(arena_constructor:DJIFRProto.Standard.AirLinkState)
 }
 AirLinkState::AirLinkState(const AirLinkState& from)
-  : ::google::protobuf::Message(),
-      _internal_metadata_(NULL),
-      _cached_size_(0) {
-  _internal_metadata_.MergeFrom(from._internal_metadata_);
-  ::memcpy(&downlinksignalquality_, &from.downlinksignalquality_,
-    static_cast<size_t>(reinterpret_cast<char*>(&hasuplinksignalquality_) -
-    reinterpret_cast<char*>(&downlinksignalquality_)) + sizeof(hasuplinksignalquality_));
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  AirLinkState* const _this = this; (void)_this;
+  new (&_impl_) Impl_{
+      decltype(_impl_.downlinksignalquality_){}
+    , decltype(_impl_.uplinksignalquality_){}
+    , decltype(_impl_.hasdownlinksignalquality_){}
+    , decltype(_impl_.hasuplinksignalquality_){}
+    , /*decltype(_impl_._cached_size_)*/{}};
+
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::memcpy(&_impl_.downlinksignalquality_, &from._impl_.downlinksignalquality_,
+    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.hasuplinksignalquality_) -
+    reinterpret_cast<char*>(&_impl_.downlinksignalquality_)) + sizeof(_impl_.hasuplinksignalquality_));
   // @@protoc_insertion_point(copy_constructor:DJIFRProto.Standard.AirLinkState)
 }
 
-void AirLinkState::SharedCtor() {
-  ::memset(&downlinksignalquality_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&hasuplinksignalquality_) -
-      reinterpret_cast<char*>(&downlinksignalquality_)) + sizeof(hasuplinksignalquality_));
-  _cached_size_ = 0;
+inline void AirLinkState::SharedCtor(
+    ::_pb::Arena* arena, bool is_message_owned) {
+  (void)arena;
+  (void)is_message_owned;
+  new (&_impl_) Impl_{
+      decltype(_impl_.downlinksignalquality_){0}
+    , decltype(_impl_.uplinksignalquality_){0}
+    , decltype(_impl_.hasdownlinksignalquality_){false}
+    , decltype(_impl_.hasuplinksignalquality_){false}
+    , /*decltype(_impl_._cached_size_)*/{}
+  };
 }
 
 AirLinkState::~AirLinkState() {
   // @@protoc_insertion_point(destructor:DJIFRProto.Standard.AirLinkState)
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
   SharedDtor();
 }
 
-void AirLinkState::SharedDtor() {
+inline void AirLinkState::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
 }
 
 void AirLinkState::SetCachedSize(int size) const {
-  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
-  _cached_size_ = size;
-  GOOGLE_SAFE_CONCURRENT_WRITES_END();
-}
-const ::google::protobuf::Descriptor* AirLinkState::descriptor() {
-  ::protobuf_AirLink_2fAirLink_2eproto::protobuf_AssignDescriptorsOnce();
-  return ::protobuf_AirLink_2fAirLink_2eproto::file_level_metadata[kIndexInFileMessages].descriptor;
-}
-
-const AirLinkState& AirLinkState::default_instance() {
-  ::protobuf_AirLink_2fAirLink_2eproto::InitDefaultsAirLinkState();
-  return *internal_default_instance();
-}
-
-AirLinkState* AirLinkState::New(::google::protobuf::Arena* arena) const {
-  AirLinkState* n = new AirLinkState;
-  if (arena != NULL) {
-    arena->Own(n);
-  }
-  return n;
+  _impl_._cached_size_.Set(size);
 }
 
 void AirLinkState::Clear() {
 // @@protoc_insertion_point(message_clear_start:DJIFRProto.Standard.AirLinkState)
-  ::google::protobuf::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  ::memset(&downlinksignalquality_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&hasuplinksignalquality_) -
-      reinterpret_cast<char*>(&downlinksignalquality_)) + sizeof(hasuplinksignalquality_));
-  _internal_metadata_.Clear();
+  ::memset(&_impl_.downlinksignalquality_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&_impl_.hasuplinksignalquality_) -
+      reinterpret_cast<char*>(&_impl_.downlinksignalquality_)) + sizeof(_impl_.hasuplinksignalquality_));
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-bool AirLinkState::MergePartialFromCodedStream(
-    ::google::protobuf::io::CodedInputStream* input) {
-#define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
-  ::google::protobuf::uint32 tag;
-  // @@protoc_insertion_point(parse_start:DJIFRProto.Standard.AirLinkState)
-  for (;;) {
-    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
-    tag = p.first;
-    if (!p.second) goto handle_unusual;
-    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+const char* AirLinkState::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
+    switch (tag >> 3) {
       // int32 downlinkSignalQuality = 1;
-      case 1: {
-        if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(8u /* 8 & 0xFF */)) {
-
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &downlinksignalquality_)));
-        } else {
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
+          _impl_.downlinksignalquality_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else
           goto handle_unusual;
-        }
-        break;
-      }
-
+        continue;
       // bool hasDownlinkSignalQuality = 2;
-      case 2: {
-        if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(16u /* 16 & 0xFF */)) {
-
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   bool, ::google::protobuf::internal::WireFormatLite::TYPE_BOOL>(
-                 input, &hasdownlinksignalquality_)));
-        } else {
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 16)) {
+          _impl_.hasdownlinksignalquality_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else
           goto handle_unusual;
-        }
-        break;
-      }
-
+        continue;
       // int32 uplinkSignalQuality = 3;
-      case 3: {
-        if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(24u /* 24 & 0xFF */)) {
-
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &uplinksignalquality_)));
-        } else {
+      case 3:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 24)) {
+          _impl_.uplinksignalquality_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else
           goto handle_unusual;
-        }
-        break;
-      }
-
+        continue;
       // bool hasUplinkSignalQuality = 4;
-      case 4: {
-        if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(32u /* 32 & 0xFF */)) {
-
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   bool, ::google::protobuf::internal::WireFormatLite::TYPE_BOOL>(
-                 input, &hasuplinksignalquality_)));
-        } else {
+      case 4:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 32)) {
+          _impl_.hasuplinksignalquality_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else
           goto handle_unusual;
-        }
-        break;
-      }
-
-      default: {
-      handle_unusual:
-        if (tag == 0) {
-          goto success;
-        }
-        DO_(::google::protobuf::internal::WireFormat::SkipField(
-              input, tag, _internal_metadata_.mutable_unknown_fields()));
-        break;
-      }
+        continue;
+      default:
+        goto handle_unusual;
+    }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
     }
-  }
-success:
-  // @@protoc_insertion_point(parse_success:DJIFRProto.Standard.AirLinkState)
-  return true;
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
+  }  // while
+message_done:
+  return ptr;
 failure:
-  // @@protoc_insertion_point(parse_failure:DJIFRProto.Standard.AirLinkState)
-  return false;
-#undef DO_
+  ptr = nullptr;
+  goto message_done;
+#undef CHK_
 }
 
-void AirLinkState::SerializeWithCachedSizes(
-    ::google::protobuf::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:DJIFRProto.Standard.AirLinkState)
-  ::google::protobuf::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  // int32 downlinkSignalQuality = 1;
-  if (this->downlinksignalquality() != 0) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->downlinksignalquality(), output);
-  }
-
-  // bool hasDownlinkSignalQuality = 2;
-  if (this->hasdownlinksignalquality() != 0) {
-    ::google::protobuf::internal::WireFormatLite::WriteBool(2, this->hasdownlinksignalquality(), output);
-  }
-
-  // int32 uplinkSignalQuality = 3;
-  if (this->uplinksignalquality() != 0) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->uplinksignalquality(), output);
-  }
-
-  // bool hasUplinkSignalQuality = 4;
-  if (this->hasuplinksignalquality() != 0) {
-    ::google::protobuf::internal::WireFormatLite::WriteBool(4, this->hasuplinksignalquality(), output);
-  }
-
-  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
-    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
-        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), output);
-  }
-  // @@protoc_insertion_point(serialize_end:DJIFRProto.Standard.AirLinkState)
-}
-
-::google::protobuf::uint8* AirLinkState::InternalSerializeWithCachedSizesToArray(
-    bool deterministic, ::google::protobuf::uint8* target) const {
-  (void)deterministic; // Unused
+uint8_t* AirLinkState::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
   // @@protoc_insertion_point(serialize_to_array_start:DJIFRProto.Standard.AirLinkState)
-  ::google::protobuf::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
   // int32 downlinkSignalQuality = 1;
-  if (this->downlinksignalquality() != 0) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->downlinksignalquality(), target);
+  if (this->_internal_downlinksignalquality() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteInt32ToArray(1, this->_internal_downlinksignalquality(), target);
   }
 
   // bool hasDownlinkSignalQuality = 2;
-  if (this->hasdownlinksignalquality() != 0) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(2, this->hasdownlinksignalquality(), target);
+  if (this->_internal_hasdownlinksignalquality() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteBoolToArray(2, this->_internal_hasdownlinksignalquality(), target);
   }
 
   // int32 uplinkSignalQuality = 3;
-  if (this->uplinksignalquality() != 0) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->uplinksignalquality(), target);
+  if (this->_internal_uplinksignalquality() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteInt32ToArray(3, this->_internal_uplinksignalquality(), target);
   }
 
   // bool hasUplinkSignalQuality = 4;
-  if (this->hasuplinksignalquality() != 0) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(4, this->hasuplinksignalquality(), target);
+  if (this->_internal_hasuplinksignalquality() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteBoolToArray(4, this->_internal_hasuplinksignalquality(), target);
   }
 
-  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
-    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
-        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), target);
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
   }
   // @@protoc_insertion_point(serialize_to_array_end:DJIFRProto.Standard.AirLinkState)
   return target;
@@ -358,83 +264,61 @@ size_t AirLinkState::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:DJIFRProto.Standard.AirLinkState)
   size_t total_size = 0;
 
-  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
-    total_size +=
-      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
-        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()));
-  }
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
   // int32 downlinkSignalQuality = 1;
-  if (this->downlinksignalquality() != 0) {
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::Int32Size(
-        this->downlinksignalquality());
+  if (this->_internal_downlinksignalquality() != 0) {
+    total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_downlinksignalquality());
   }
 
   // int32 uplinkSignalQuality = 3;
-  if (this->uplinksignalquality() != 0) {
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::Int32Size(
-        this->uplinksignalquality());
+  if (this->_internal_uplinksignalquality() != 0) {
+    total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_uplinksignalquality());
   }
 
   // bool hasDownlinkSignalQuality = 2;
-  if (this->hasdownlinksignalquality() != 0) {
+  if (this->_internal_hasdownlinksignalquality() != 0) {
     total_size += 1 + 1;
   }
 
   // bool hasUplinkSignalQuality = 4;
-  if (this->hasuplinksignalquality() != 0) {
+  if (this->_internal_hasuplinksignalquality() != 0) {
     total_size += 1 + 1;
   }
 
-  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
-  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
-  _cached_size_ = cached_size;
-  GOOGLE_SAFE_CONCURRENT_WRITES_END();
-  return total_size;
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
 }
 
-void AirLinkState::MergeFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:DJIFRProto.Standard.AirLinkState)
-  GOOGLE_DCHECK_NE(&from, this);
-  const AirLinkState* source =
-      ::google::protobuf::internal::DynamicCastToGenerated<const AirLinkState>(
-          &from);
-  if (source == NULL) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:DJIFRProto.Standard.AirLinkState)
-    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
-  } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:DJIFRProto.Standard.AirLinkState)
-    MergeFrom(*source);
-  }
-}
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData AirLinkState::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
+    AirLinkState::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*AirLinkState::GetClassData() const { return &_class_data_; }
 
-void AirLinkState::MergeFrom(const AirLinkState& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:DJIFRProto.Standard.AirLinkState)
-  GOOGLE_DCHECK_NE(&from, this);
-  _internal_metadata_.MergeFrom(from._internal_metadata_);
-  ::google::protobuf::uint32 cached_has_bits = 0;
+
+void AirLinkState::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
+  auto* const _this = static_cast<AirLinkState*>(&to_msg);
+  auto& from = static_cast<const AirLinkState&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:DJIFRProto.Standard.AirLinkState)
+  GOOGLE_DCHECK_NE(&from, _this);
+  uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  if (from.downlinksignalquality() != 0) {
-    set_downlinksignalquality(from.downlinksignalquality());
+  if (from._internal_downlinksignalquality() != 0) {
+    _this->_internal_set_downlinksignalquality(from._internal_downlinksignalquality());
   }
-  if (from.uplinksignalquality() != 0) {
-    set_uplinksignalquality(from.uplinksignalquality());
+  if (from._internal_uplinksignalquality() != 0) {
+    _this->_internal_set_uplinksignalquality(from._internal_uplinksignalquality());
   }
-  if (from.hasdownlinksignalquality() != 0) {
-    set_hasdownlinksignalquality(from.hasdownlinksignalquality());
+  if (from._internal_hasdownlinksignalquality() != 0) {
+    _this->_internal_set_hasdownlinksignalquality(from._internal_hasdownlinksignalquality());
   }
-  if (from.hasuplinksignalquality() != 0) {
-    set_hasuplinksignalquality(from.hasuplinksignalquality());
+  if (from._internal_hasuplinksignalquality() != 0) {
+    _this->_internal_set_hasuplinksignalquality(from._internal_hasuplinksignalquality());
   }
-}
-
-void AirLinkState::CopyFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:DJIFRProto.Standard.AirLinkState)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
+  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void AirLinkState::CopyFrom(const AirLinkState& from) {
@@ -448,28 +332,32 @@ bool AirLinkState::IsInitialized() const {
   return true;
 }
 
-void AirLinkState::Swap(AirLinkState* other) {
-  if (other == this) return;
-  InternalSwap(other);
-}
 void AirLinkState::InternalSwap(AirLinkState* other) {
   using std::swap;
-  swap(downlinksignalquality_, other->downlinksignalquality_);
-  swap(uplinksignalquality_, other->uplinksignalquality_);
-  swap(hasdownlinksignalquality_, other->hasdownlinksignalquality_);
-  swap(hasuplinksignalquality_, other->hasuplinksignalquality_);
-  _internal_metadata_.Swap(&other->_internal_metadata_);
-  swap(_cached_size_, other->_cached_size_);
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(AirLinkState, _impl_.hasuplinksignalquality_)
+      + sizeof(AirLinkState::_impl_.hasuplinksignalquality_)
+      - PROTOBUF_FIELD_OFFSET(AirLinkState, _impl_.downlinksignalquality_)>(
+          reinterpret_cast<char*>(&_impl_.downlinksignalquality_),
+          reinterpret_cast<char*>(&other->_impl_.downlinksignalquality_));
 }
 
-::google::protobuf::Metadata AirLinkState::GetMetadata() const {
-  protobuf_AirLink_2fAirLink_2eproto::protobuf_AssignDescriptorsOnce();
-  return ::protobuf_AirLink_2fAirLink_2eproto::file_level_metadata[kIndexInFileMessages];
+::PROTOBUF_NAMESPACE_ID::Metadata AirLinkState::GetMetadata() const {
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_AirLink_2fAirLink_2eproto_getter, &descriptor_table_AirLink_2fAirLink_2eproto_once,
+      file_level_metadata_AirLink_2fAirLink_2eproto[0]);
 }
-
 
 // @@protoc_insertion_point(namespace_scope)
 }  // namespace Standard
 }  // namespace DJIFRProto
+PROTOBUF_NAMESPACE_OPEN
+template<> PROTOBUF_NOINLINE ::DJIFRProto::Standard::AirLinkState*
+Arena::CreateMaybeMessage< ::DJIFRProto::Standard::AirLinkState >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::DJIFRProto::Standard::AirLinkState >(arena);
+}
+PROTOBUF_NAMESPACE_CLOSE
 
 // @@protoc_insertion_point(global_scope)
+#include <google/protobuf/port_undef.inc>

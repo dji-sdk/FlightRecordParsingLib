@@ -115,7 +115,11 @@ message SDK {
         Mavic3 = 77;
         // MavicMiniSE
         MavicMiniSE = 96;
+        // Mini3 pro
+        Mini3Pro = 103;
         // Matrice30
         Matrice30 = 116;
+        //Avata
+        DJIAvata = 121;
     };  
 }

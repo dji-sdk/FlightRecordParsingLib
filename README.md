@@ -116,6 +116,61 @@ sh generate.sh
 1. Run the above script
 2. Get the library you want, the header files are stored in the dji-flightrecord-kit/source/FlightRecordStandardizationCpp/parser/DJIFRProtoParser.hpp
 
+## Error Codes
+
+If an error occurs during the flight record files parsing, you can solve the problem according to the returned value. The table below shows returned values and error descriptions. Returned value 0 indicates successful parsing.
+
+<table align="center">
+  <thead>
+    <tr>
+      <th>Error Code</th>
+      <th>Error Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+        <td>1</td>
+        <td>Illegal input parameter</td>
+    </tr>
+    <tr>
+        <td>2</td>
+        <td>Illegal flight record file content</td>
+    </tr>
+    <tr>
+        <td>3</td>
+        <td>Unsupported flight record file version</td>
+    </tr>
+    <tr>
+        <td>4</td>
+        <td>The flight record parser does not exist</td>
+    </tr>
+    <tr>
+        <td>5</td>
+        <td>The flight record file includes unsupported functions</td>
+    </tr>
+    <tr>
+        <td>6</td>
+        <td>Parsing failed due to message loss</td>
+    </tr>
+    <tr>
+        <td>7</td>
+        <td>File operation failed</td>
+    </tr>
+    <tr>
+        <td>8</td>
+        <td>Invalid data. The file might be modified </td>
+    </tr>
+    <tr>
+        <td>9</td>
+        <td>Data filling failed. Unsupported data filling types</td>
+    </tr>
+    <tr>
+        <td>255</td>
+        <td>Unknown error</td>
+    </tr>
+   </tbody>
+</table>
+
 ## Credits
 
 FlightRecord is owned and maintained by [DJI SDK](https://developer.dji.com).
