@@ -1,10 +1,10 @@
 FROM ubuntu:22.04
-ARG DEBIAN_FRONTEND=noninteractive
+
 ARG SDK_KEY
 ENV SDK_KEY=${SDK_KEY}
 
 RUN apt-get update && \
-  apt-get install -y wget curl git gcc g++ make cmake libcurl4-openssl-dev libz-dev && \
+  apt-get install -y g++ make cmake libcurl4-openssl-dev libz-dev && \
   apt-get clean
 
 WORKDIR /parse_flyrecord
