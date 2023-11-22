@@ -1,10 +1,11 @@
-FROM ubuntu:16.04@sha256:a3785f78ab8547ae2710c89e627783cfa7ee7824d3468cae6835c9f4eae23ff7
+FROM ubuntu:22.04
 
 ARG SDK_KEY
 ENV SDK_KEY=${SDK_KEY}
 
-RUN apt-get update
-RUN apt-get install -y wget git gcc g++ make cmake
+RUN apt-get update && \
+  apt-get install -y g++ make cmake libcurl4-openssl-dev libz-dev && \
+  apt-get clean
 
 WORKDIR /parse_flyrecord
 
