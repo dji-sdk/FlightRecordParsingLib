@@ -25,7 +25,7 @@ namespace DJI {
             virtual ~DecryptionLayer();
             
             //MARK: - Decrypt Public Method
-            
+
             /// Decrypted the detail body data.
             /// @param type the data type of the detail body.
             /// @param detailBody the detailed data that has been XORed.

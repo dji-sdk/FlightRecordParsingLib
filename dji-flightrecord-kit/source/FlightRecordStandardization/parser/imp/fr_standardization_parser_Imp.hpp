@@ -36,10 +36,11 @@ namespace DJIFR {
             
             /// Request the file key from DJIService
             /// @param sdk_key Your SDK key
+            /// @param department Whether to use MSDK v5 version to generate
             /// @param callback The pullback tells if the parsing was successful. If successful, you can start fetching data from the file.
             ///
             /// @return SDK error code.
-            SDKError startRequestParser(const std::string& sdk_key, const RequestCallback &callback) override;
+            SDKError startRequestParser(const std::string& sdk_key, const int department , const RequestCallback &callback) override;
             
             /// Gets the summary information of the flight record file.
             ///

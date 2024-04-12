@@ -142,7 +142,13 @@ DJIGetDetailDataMessageFunction Version13Decoder::getDetailDataMessageLambda() {
         }
         
         imageCheckSumOffset -= sizeof(int32_t);
-        file_handler->seekFromStart(imageCheckSumOffset);
+        if (file_handler->seekFromStart(imageCheckSumOffset) != 0) {
+            message.imagePosition = file_handler->m_FileSize;
+            message.detailDataTail = file_handler->m_FileSize;
+            
+            return ParserResult::Success;
+        }
+        
         int32_t imageCheckSum = 0;
         if (file_handler->read(&imageCheckSum, sizeof(int32_t)) != sizeof(int32_t)) {
             return ParserResult::Success;

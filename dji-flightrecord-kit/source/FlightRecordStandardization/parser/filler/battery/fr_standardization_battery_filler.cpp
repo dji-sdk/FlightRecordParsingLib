@@ -149,6 +149,7 @@ static bool FillSmartBattery(void *buffer,
             case DJI::FlightRecord::DroneType::sQBPYEgXEgrpdfrj:
             case DJI::FlightRecord::DroneType::iJauKGIrFHvVAAKZ:
             case DJI::FlightRecord::DroneType::GmarlGbRlqfSoaKD:
+            case DJI::FlightRecord::DroneType::Matrice350RTK:
                 needOffset = true;
                 break;
                 
@@ -250,6 +251,7 @@ static bool FillSmartBattery(void *buffer,
             
             int index = needOffset ? internalData.index - 1 : internalData.index;
             if (index > 6) {
+				free(finalInternalData);
                 return false;
             }
             
@@ -304,7 +306,7 @@ bool DJIFR::standardization::Filler(std::map<int, std::shared_ptr<BatteryStateIm
             }
             
             battery = (*find_iter).second;
-            
+
             return FillOSDData(data_source, battery);
         }
             break;
@@ -326,7 +328,7 @@ bool DJIFR::standardization::Filler(std::map<int, std::shared_ptr<BatteryStateIm
             } else {
                 battery = (*find_iter).second;
             }
-            
+
             return FillCenterBattery(data_source, battery);
         }
             break;
@@ -357,7 +359,7 @@ bool DJIFR::standardization::Filler(std::map<int, std::shared_ptr<BatteryStateIm
             return FillSmartBattery(buffer, length, output);
         }
             break;
-            
+
         default:
             break;
     }

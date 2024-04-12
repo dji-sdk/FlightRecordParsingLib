@@ -2,6 +2,8 @@
 
 ### <p>[English Version](https://github.com/dji-sdk/FlightRecordParsingLib/blob/master/README.md)</p>
 
+### <p>[ReleaseNote](https://github.com/dji-sdk/FlightRecordParsingLib/blob/master/ReleaseNote_cn.md)</p>
+
 ## 什么是 DJIFlightRecord？
 
 飞行记录解析库是一款可以解析版本 13 飞行记录文件的应用程序。它将 DJI 协议数据转换为时间帧对象，用于展示和分析，运行飞行记录解析库需要申请 App Key。

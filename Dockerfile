@@ -4,7 +4,7 @@ ARG SDK_KEY
 ENV SDK_KEY=${SDK_KEY}
 
 RUN apt-get update
-RUN apt-get install -y wget git gcc g++ make cmake
+RUN apt-get install -y wget git gcc g++ make cmake curl libssl-dev libcurl4-openssl-dev
 
 WORKDIR /parse_flyrecord
 

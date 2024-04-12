@@ -480,12 +480,12 @@ FRError Parser::load(const std::string& file_path) {
     return (FRError)error;
 }
 
-FRError Parser::startRequestParser(const std::string& sdk_key, const DJIFR::standardization::RequestCallback &callback) {
+FRError Parser::startRequestParser(const std::string& sdk_key,const int department , const DJIFR::standardization::RequestCallback &callback) {
     if (!parser_) {
         return FRError::NoParser;
     }
     
-    auto error = parser_->startRequestParser(sdk_key, callback);
+    auto error = parser_->startRequestParser(sdk_key, department ,callback);
     
     return (FRError)error;
 }

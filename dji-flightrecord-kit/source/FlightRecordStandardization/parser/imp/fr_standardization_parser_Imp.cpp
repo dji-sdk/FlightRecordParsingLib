@@ -72,7 +72,7 @@ SDKError ParserImp::load(const std::string& file_path) {
     if (set_file_result_code != ParserResult::Success) {
         return convertParserResultToPublic(set_file_result_code);
     }
-    
+
     Version13Decoder decoder13;
     parser_->AddVersionDecoder(decoder13);
     
@@ -90,12 +90,13 @@ SDKError ParserImp::load(const std::string& file_path) {
     return SDKError::Success;
 }
 
-SDKError ParserImp::startRequestParser(const std::string& sdk_key, const RequestCallback &callback) {
+SDKError ParserImp::startRequestParser(const std::string& sdk_key,const int department , const RequestCallback &callback) {
     if (!parser_) {
         assert(false && "please call the `load` method first");
         return SDKError::NoParser;
     }
-    
+
+
     std::vector<std::map<FeaturePoint, DJI::FlightRecord::BufferPtr>> all_keychains;
     int file_index = 0;
     auto parser_block = [this, &all_keychains, &file_index] (FlightRecordParserEngine *engine, FlightRecordDataType data_type, int index, uint8_t *buffer, uint64_t length, bool *stop) {
@@ -105,7 +106,7 @@ SDKError ParserImp::startRequestParser(const std::string& sdk_key, const Request
                 for (auto index = all_keychains.size(); index < file_index + 1; index ++) {
                     all_keychains.push_back(std::map<FeaturePoint, BufferPtr>());
                 }
-                
+
                 FlightRecordKeyChainInDetail *keychain_detail = (FlightRecordKeyChainInDetail *)buffer;
                 if (keychain_detail->featurePoint == DJI::FlightRecord::FeaturePoint::AgricultureFeature) {
                     break;
@@ -165,6 +166,7 @@ SDKError ParserImp::startRequestParser(const std::string& sdk_key, const Request
         parser_->obtainVersionExtension(version_extension);
         
         auto keychains_Arr = json11::Json::array{};
+
         for (auto i = 0; i < all_keychains.size(); i ++) {
             auto files_map = all_keychains.at(i);
             std::vector<json11::Json> keychains;
@@ -192,12 +194,14 @@ SDKError ParserImp::startRequestParser(const std::string& sdk_key, const Request
             
             keychains_Arr.push_back(keychains);
         }
-        
+
         auto keychains_map = json11::Json::object {
-            { "department", (int)version_extension.department },
+            { "department", department},
             { "version", (int)version_extension.version },
             { "keychainsArray", keychains_Arr }
         };
+
+
         
         std::string request_json;
         json11::Json(keychains_map).dump(request_json);
@@ -247,7 +251,7 @@ SDKError ParserImp::startRequestParser(const std::string& sdk_key, const Request
         request->SetRequestHeader("appid", "572918");
         request->SetRequestHeader("sign", sign_str);
         request->SetRequestHeader("Content-Type", "application/json;charset=UTF-8");
-        
+        // printf("--------request_json ------ %s \n"  , request_json.c_str());
         request->SendRequest([this, request_json, sdk_key, callback, featurePointMap, version_extension](dji::core::CLHttpRequest *request, bool succeeded) {
             dji::core::CLHttpRequest *httpReq = dji::core::CLHttpRequest::Post("https://dev.dji.com/openapi/v1/flight-records/keychains", (char *)request_json.c_str(), request_json.length());
             httpReq->SetTimeout(30);
@@ -281,6 +285,7 @@ SDKError ParserImp::startRequestParser(const std::string& sdk_key, const Request
                     {
                         auto keychainsArray = json["data"];
                         auto keychains_arr_json = keychainsArray.array_items();
+                        // printf("--------request success------ %d \n"  , keychains_arr_json.size());
                         std::vector<std::map<FeaturePoint, DJI::FlightRecord::AESKeychainPtr>> plaintext_all_aes_key;
                         for (auto i = 0; i < keychains_arr_json.size(); i ++) {
                             auto keychains_json = keychains_arr_json.at(i).array_items();
@@ -369,7 +374,10 @@ SDKError ParserImp::summaryInformation(SummaryInformationSharedPtr* output) {
     if (!summary_info_) {
         parserSummary();
     }
-    
+        // 增加异常值判断
+    if (summary_info_ && (summary_info_->totalTime() < 0 || summary_info_->totalDistance() < 0)){
+        is_recalculate_info_ = false;
+    }
     if (!is_recalculate_info_) {
         if (frame_time_list_.size() <= 0) {
             std::map<FlightRecordDataType, bool> filter;
@@ -557,7 +565,7 @@ SDKError ParserImp::parserSummary() {
     std::string rc_sn_str;
     std::string fc_sn_str;
     std::string aircraft_name_str;
-    
+
     if (version > 5) {
         memcpy(&appVersion, &info.newFRData.appVersion, sizeof(appVersion));
         
@@ -956,7 +964,7 @@ SDKError ParserImp::filterFrameTimeList(std::map<FlightRecordDataType, bool> fil
             (*stop) = true;
             return;
         }
-        
+
         switch (data_type) {
             case CustomFlightRecordDataType:
             case RecoverInfoDataType:
@@ -1011,6 +1019,7 @@ SDKError ParserImp::filterFrameTimeList(std::map<FlightRecordDataType, bool> fil
             switch (data_type) {
                 case RCFlightRecordDataType:
                 case RCPushGPSFlightRecordDataType:
+                case RemoteControllerDisplayField:
                 {
                     fill_operation_result = fillRCHardwareState(data_type, buffer, length, frame_time);
                 }
@@ -1053,6 +1062,14 @@ SDKError ParserImp::filterFrameTimeList(std::map<FlightRecordDataType, bool> fil
                     }
                 }
                     break;
+                case GOAirLinkDataField:
+                {
+                    fill_operation_result = fillAirlinkState(data_type, buffer, length, frame_time);
+                    if (fill_operation_result == false) {
+                        break;
+                    }
+                }
+                    break;
                 case PushedBatteryFlightRecordDataType:
                 {
                     fill_operation_result = fillFlightController(data_type, buffer, length, frame_time);
@@ -1088,6 +1105,7 @@ SDKError ParserImp::filterFrameTimeList(std::map<FlightRecordDataType, bool> fil
                 }
                     break;
                 case CameraInfoFlightRecordDataType:
+                case CustomFlightRecordDataType:
                 {
                     fill_operation_result = fillCameraState(data_type, buffer, length, frame_time);
                 }
@@ -1100,6 +1118,7 @@ SDKError ParserImp::filterFrameTimeList(std::map<FlightRecordDataType, bool> fil
                 case ShowTipsFlightRecordDataType:
                 case ShowWarningFlightRecordDataType:
                 case ShowSeriousWarningFlightRecordDataType:
+				case GOBusinessDataType:
                 {
                     fill_operation_result = fillGOBusiness(data_type, buffer, length, frame_time);
                 }
@@ -1109,7 +1128,51 @@ SDKError ParserImp::filterFrameTimeList(std::map<FlightRecordDataType, bool> fil
                     fill_operation_result = fillMobileDevice(data_type, buffer, length, frame_time);
                 }
                     break;
-                    
+                case AgricultureRadarPush:
+                case AgricultureSpray:
+                case AgricultureFarmMissionInfo:
+                case AgricultureFarmTaskTeamDataType:
+                case AgricultureDisplayField:
+                case AGOSDDataType:
+                {
+                  //  fill_operation_result = fillAGData(data_type, buffer, length, frame_time);
+                }
+                    break;
+                case HealthGroupDataType:
+                {
+                    fill_operation_result = fillBatteryState(data_type, buffer, length, frame_time);
+                }
+                    break;
+                case FCIMUInfoDataType:{
+                    fill_operation_result = fillFlightController(data_type, buffer, length, frame_time);
+                }
+                    break;
+                case PerceptionGroupDataType: {
+                   // fill_operation_result = fillPerceptionData(data_type, buffer, length, frame_time);
+                }
+                    break;
+                case NavigationDataType: {
+                    //fill_operation_result = fillNavigationData(data_type, buffer, length, frame_time);
+                }
+                    break;
+                case GSMissionStatusDataType:{
+                   // fill_operation_result = fillMissionData(data_type, buffer, length, frame_time);
+                }
+                    break;
+                case AgricultureGroundStationPushData:
+                {
+                    fill_operation_result = fillFlightController(data_type, buffer, length, frame_time);
+                    if (fill_operation_result == false) {
+                        break;
+                    }
+                }
+                    break;
+                case RTKDifferenceDataType:
+                {
+                 //   fill_operation_result = fillRTKData(data_type, buffer, length, frame_time);
+                }
+                    break;
+                
                 default:
                     break;
             }

@@ -2,6 +2,7 @@
 
 ### <p>[中文版](https://github.com/dji-sdk/FlightRecordParsingLib/blob/master/README_cn.md)</p>
 
+### <p>[ReleaseNote](https://github.com/dji-sdk/FlightRecordParsingLib/blob/master/ReleaseNote.md)</p>
 ## What is DJIFlightRecord?
 
 Flight record parsing library can parse version 13 flight log files. Convert DJI protocol data into time frame objects for presentation and analysis. An App Key is required to run the flight record parsing library.

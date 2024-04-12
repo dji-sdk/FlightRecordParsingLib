@@ -159,7 +159,7 @@ const char descriptor_table_protodef_Common_2fFRCommonModelProto_2eproto[] PROTO
   "pitch\030\001 \001(\001\022\014\n\004roll\030\002 \001(\001\022\013\n\003yaw\030\003 \001(\001\"i"
   "\n\tGPSSignal\"\\\n\005Level\022\n\n\006Level0\020\000\022\n\n\006Leve"
   "l1\020\001\022\n\n\006Level2\020\002\022\n\n\006Level3\020\003\022\n\n\006Level4\020\004"
-  "\022\n\n\006Level5\020\005\022\013\n\007Unknown\020\006\"\274\005\n\003SDK\"\264\005\n\013Pr"
+  "\022\n\n\006Level5\020\005\022\013\n\007Unknown\020\006\"\320\005\n\003SDK\"\310\005\n\013Pr"
   "oductType\022\010\n\004None\020\000\022\024\n\020ZUYdiVOVXfGCLDcI\020"
   "\001\022\024\n\020Phantom3Standard\020\002\022\024\n\020jwtAbyahuARrh"
   "uhr\020\003\022\024\n\020kshQeTGrEeTmtpoe\020\004\022\014\n\010Phantom4\020"
@@ -177,11 +177,12 @@ const char descriptor_table_protodef_Common_2fFRCommonModelProto_2eproto[] PROTO
   "rice300RTK\020F\022\n\n\006DJIFPV\020I\022\016\n\nMavicAir2S\020K"
   "\022\016\n\nMavicMini2\020L\022\n\n\006Mavic3\020M\022\017\n\013MavicMin"
   "iSE\020`\022\014\n\010Mini3Pro\020g\022\r\n\tMatrice30\020t\022\014\n\010DJ"
-  "IAvata\020yB\r\242\002\nDJIFRProtob\006proto3"
+  "IAvata\020y\022\022\n\rMatrice350RTK\020\252\001B\r\242\002\nDJIFRPr"
+  "otob\006proto3"
   ;
 static ::_pbi::once_flag descriptor_table_Common_2fFRCommonModelProto_2eproto_once;
 const ::_pbi::DescriptorTable descriptor_table_Common_2fFRCommonModelProto_2eproto = {
-    false, false, 1071, descriptor_table_protodef_Common_2fFRCommonModelProto_2eproto,
+    false, false, 1091, descriptor_table_protodef_Common_2fFRCommonModelProto_2eproto,
     "Common/FRCommonModelProto.proto",
     &descriptor_table_Common_2fFRCommonModelProto_2eproto_once, nullptr, 0, 5,
     schemas, file_default_instances, TableStruct_Common_2fFRCommonModelProto_2eproto::offsets,
@@ -273,6 +274,7 @@ bool SDK_ProductType_IsValid(int value) {
     case 103:
     case 116:
     case 121:
+    case 170:
       return true;
     default:
       return false;
@@ -320,6 +322,7 @@ constexpr SDK_ProductType SDK::MavicMiniSE;
 constexpr SDK_ProductType SDK::Mini3Pro;
 constexpr SDK_ProductType SDK::Matrice30;
 constexpr SDK_ProductType SDK::DJIAvata;
+constexpr SDK_ProductType SDK::Matrice350RTK;
 constexpr SDK_ProductType SDK::ProductType_MIN;
 constexpr SDK_ProductType SDK::ProductType_MAX;
 constexpr int SDK::ProductType_ARRAYSIZE;

@@ -121,5 +121,8 @@ message SDK {
         Matrice30 = 116;
         //Avata
         DJIAvata = 121;
+
+        //Matrice350RTK
+        Matrice350RTK = 170;
     };  
 }

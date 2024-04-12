@@ -77,7 +77,7 @@ BufferPtr Decryption13Layer::parseAESData(FlightRecordDataType type, BufferPtr a
     if (feature_point == FeaturePoint::PlaintextFeature) {
         return aes_ciphertext;
     }
-    
+
     if (all_aes_keychain_.size() <= file_index_) {
         return nullptr;
     }

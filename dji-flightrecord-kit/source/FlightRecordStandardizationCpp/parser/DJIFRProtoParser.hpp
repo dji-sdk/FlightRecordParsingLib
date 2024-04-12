@@ -44,7 +44,7 @@ namespace DJIFRProto {
             /// @param callback The pullback tells if the parsing was successful. If successful, you can start fetching data from the file.
             ///
             /// @return SDK error code.
-            FRError startRequestParser(const std::string& sdk_key, const DJIFR::standardization::RequestCallback &callback);
+            FRError startRequestParser(const std::string& sdk_key, const int department,const DJIFR::standardization::RequestCallback &callback);
             
             /// Gets the summary information of the flight record file.
             ///

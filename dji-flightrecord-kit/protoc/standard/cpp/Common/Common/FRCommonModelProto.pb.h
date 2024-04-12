@@ -146,12 +146,13 @@ enum SDK_ProductType : int {
   SDK_ProductType_Mini3Pro = 103,
   SDK_ProductType_Matrice30 = 116,
   SDK_ProductType_DJIAvata = 121,
+  SDK_ProductType_Matrice350RTK = 170,
   SDK_ProductType_SDK_ProductType_INT_MIN_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::min(),
   SDK_ProductType_SDK_ProductType_INT_MAX_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::max()
 };
 bool SDK_ProductType_IsValid(int value);
 constexpr SDK_ProductType SDK_ProductType_ProductType_MIN = SDK_ProductType_None;
-constexpr SDK_ProductType SDK_ProductType_ProductType_MAX = SDK_ProductType_DJIAvata;
+constexpr SDK_ProductType SDK_ProductType_ProductType_MAX = SDK_ProductType_Matrice350RTK;
 constexpr int SDK_ProductType_ProductType_ARRAYSIZE = SDK_ProductType_ProductType_MAX + 1;
 
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* SDK_ProductType_descriptor();
@@ -1011,6 +1012,8 @@ class SDK final :
     SDK_ProductType_Matrice30;
   static constexpr ProductType DJIAvata =
     SDK_ProductType_DJIAvata;
+  static constexpr ProductType Matrice350RTK =
+    SDK_ProductType_Matrice350RTK;
   static inline bool ProductType_IsValid(int value) {
     return SDK_ProductType_IsValid(value);
   }

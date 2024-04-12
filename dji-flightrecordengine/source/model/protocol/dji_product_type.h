@@ -54,6 +54,8 @@ namespace DJI {
             Mini3Pro = 103,
             Matrice30 = 116,
             DJIAvata = 121,
+            Mavic3Series = 118,
+            Matrice350RTK = 170,
         };  
     
         //MARK: - Drone Type
@@ -97,7 +99,7 @@ namespace DJI {
             sQBPYEgXEgrpdfrj = 45,
             iJauKGIrFHvVAAKZ = 46,
             GmarlGbRlqfSoaKD = 60,
-
+            Matrice350RTK = 89,
             LJuBJkTjHePPllir = 51,
             VgtTrHQftoHtijqi = 0xff,
         };

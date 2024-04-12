@@ -27,7 +27,7 @@ namespace DJIFR {
             /// @param callback The pullback tells if the parsing was successful. If successful, you can start fetching data from the file.
             ///
             /// @return SDK error code.
-            virtual SDKError startRequestParser(const std::string& sdk_key, const RequestCallback &callback) = 0;
+            virtual SDKError startRequestParser(const std::string& sdk_key, const int department ,const RequestCallback &callback) = 0;
             
             /// Reparse all the frame time to the member variable `frame_time_list_` with the filter map.
             /// @param filter The key of the map is what data types need to be found. The value of the map refers to whether this data type is required. Empty map table represents all data types required.

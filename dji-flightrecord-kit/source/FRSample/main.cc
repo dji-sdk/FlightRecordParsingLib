@@ -10,11 +10,19 @@
 #include <thread>
 #include <unistd.h>
 #include <google/protobuf/util/json_util.h>
-
+#define DEPARTMENT_SDK 4;
+#define DEPARTMENT_APP 1;
 
 
 int main(int argc, char *argv[]) {
     std::string file_path(argv[1]);
+    int departmentType = DEPARTMENT_SDK;
+    if (argc == 3 ) {
+        std::string type = argv[2];
+        if (type != "0"){
+            departmentType = DEPARTMENT_APP
+        }
+    }
     auto parser = std::make_shared<DJIFRProto::Standard::Parser>();
     auto result = parser->load(file_path);
     if (result != DJIFRProto::Standard::Success) {
@@ -22,7 +30,7 @@ int main(int argc, char *argv[]) {
         return 0;
     }
 
-    result = parser->startRequestParser(getenv("SDK_KEY"), [&parser](DJIFR::standardization::ServerError error_code, const std::string& error_description) {
+    result = parser->startRequestParser(getenv("SDK_KEY"), departmentType , [&parser](DJIFR::standardization::ServerError error_code, const std::string& error_description) {
         if (error_code == DJIFR::standardization::ServerError::Success) {
             std::shared_ptr<DJIFRProto::Standard::SummaryInformation> info = nullptr;
             parser->summaryInformation(&info);

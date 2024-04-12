@@ -107,8 +107,17 @@ namespace DJI {
     namespace FlightRecord {
         enum class VersionCategory : uint16_t {
             None = 0,
+       
+            BelowVersion11 = 1 ,
+            
+            Version12 = 2 ,
             Version13_1 = 3,
             Version13_2 = 4,
+        };
+		     enum class PostSaleCategory : uint8_t {
+            None = 0,
+         
+            RapidChange = 1,
         };
     
         enum class Department : uint8_t {
@@ -118,6 +127,7 @@ namespace DJI {
             DJIFly = 3,
             AgriculturalMachinery = 4,
             Terra = 5,
+            DJIGlasses = 6,
             DJIPilot = 7,
             GSPro = 8,
         };
@@ -127,10 +137,17 @@ namespace DJI {
             Department department;
         } VersionExtension;
     
+        typedef  struct {
+            PostSaleCategory postsale;
+            uint8_t data;
+        } PostSaleExtension;
+    
         enum class Platform : uint8_t {
             Unknown = 0,
             iOS = 1,
             Android = 2,
+          
+            Fly = 6,
             Window = 10,
             Mac = 11,
             Linux = 12,

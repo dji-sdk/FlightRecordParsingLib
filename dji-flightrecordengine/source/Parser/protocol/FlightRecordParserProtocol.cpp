@@ -230,7 +230,7 @@ ParserResult FlightRecordParserProtocol::parseDetailData(FlightRecordParseDetail
     
     int detailDataLines = 18000;
     if (m_info) {
-        detailDataLines = m_info->recordLineCount > 0 ? m_info->recordLineCount : detailDataLines;
+        detailDataLines = m_info->recordLineCount > detailDataLines ? m_info->recordLineCount : detailDataLines;
     }
     
     detail_buffer_offset_.location = encryptMessage.detailDataHead;
@@ -268,8 +268,12 @@ ParserResult FlightRecordParserProtocol::parseDetailData(FlightRecordParseDetail
             
             if (encryptMessage.isMagicEncrypt) {
                 if (ciphertext_buf->buffer_length_ <= 2) {
-                    result = ParserResult::FileDataContamination;
-                    break;
+                    if (!readUtilLineEnd(tempCacheData)) {
+                        break;
+                    } else {
+                        detail_buffer_offset_.length = tempCacheData->m_location;
+                    }
+                    continue;
                 }
                 
                 auto dest_buf = std::make_shared<Buffer>(ciphertext_buf->buffer_length_ - 2);
@@ -278,9 +282,12 @@ ParserResult FlightRecordParserProtocol::parseDetailData(FlightRecordParseDetail
                                                     ciphertext_buf->buffer_length_,
                                                     dataType,
                                                     encryptMessage.encryptMagicVersion);
-                
+
+
                 if (result_len == dest_buf->buffer_length_) {
+
                     auto plaintext = decryption_layer->decryptDetail((FlightRecordDataType)dataType, dest_buf);
+
                     if (plaintext) {
                         is_parser_success = true;
                         
