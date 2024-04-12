@@ -1,7 +1,7 @@
 ## DJIFlightRecord 1.0.6 Version Release Notes
 
 ### Released Date
-2024.04.10
+2024.04.12
 
 
 ### Bug Fixes
